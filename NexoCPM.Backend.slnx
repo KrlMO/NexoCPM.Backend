@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="NexoCPM.Application/NexoCPM.Application.csproj" />
+  <Project Path="NexoCPM.Backend/NexoCPM.Api.csproj" />
+  <Project Path="NexoCPM.Domain/NexoCPM.Domain.csproj" />
+  <Project Path="NexoCPM.Infraestructure/NexoCPM.Infraestructure.csproj" />
+</Solution>
