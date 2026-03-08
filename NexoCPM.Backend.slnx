@@ -3,4 +3,5 @@
   <Project Path="NexoCPM.Backend/NexoCPM.Api.csproj" />
   <Project Path="NexoCPM.Domain/NexoCPM.Domain.csproj" />
   <Project Path="NexoCPM.Infraestructure/NexoCPM.Infraestructure.csproj" />
+  <Project Path="NexoCPM.Persistence/NexoCPM.Persistence.csproj" Id="0cb326c9-46f7-4293-b7ef-c878ea85bf37" />
 </Solution>
