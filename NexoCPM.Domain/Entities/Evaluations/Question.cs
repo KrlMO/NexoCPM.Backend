@@ -1,5 +1,6 @@
 ﻿using NexoCPM.Domain.Common;
 using NexoCPM.Domain.Entities.Academic;
+using NexoCPM.Domain.Entities.Curriculum;
 using NexoCPM.Domain.Enums;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,16 @@ namespace NexoCPM.Domain.Entities.Evaluations
     public class Question : AuditableEntity
     {
         public long Id { get; set; }
-        public long ModuleId { get; set; }
-        public string Statament { get; set; } = string.Empty;
-        public QuestionType QuestionType { get; set; }
+        public string Statement { get; set; } = string.Empty;
+        public string? Explanation { get; set; }
         public bool IsActive { get; set; }
-
-        public required Module Module { get; set; }
+        public double Difficulty { get; set; }
 
         public ICollection<AnswerOption> AnswerOptions { get; set; } = new HashSet<AnswerOption>();
         public ICollection<QuestionTopic> QuestionTopics { get; set; } = new HashSet<QuestionTopic>();
-        public ICollection<AssessmentQuestion> AssessmentQuestions { get; set; } = new List<AssessmentQuestion>();
+        public ICollection<AssesmentAttemptQuestion> AssesmentAttemptQuestions { get; set; } = new HashSet<AssesmentAttemptQuestion>();
+
+        public required Topic Topic { get; set; }
 
         public Question() { }
     }

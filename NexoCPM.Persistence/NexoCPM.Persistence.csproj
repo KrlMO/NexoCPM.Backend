@@ -20,4 +20,8 @@
     <ProjectReference Include="..\NexoCPM.Domain\NexoCPM.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
 ﻿using NexoCPM.Domain.Entities.Academic;
+using NexoCPM.Domain.Entities.Curriculum;
 using NexoCPM.Domain.Enums;
 using System;
 using System.Collections.Generic;
@@ -9,14 +10,20 @@ namespace NexoCPM.Domain.Entities.Evaluations
     public class Assessment
     {
         public long Id { get; set; }
-        public long AreaId { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
         public AssessmentType Type { get; set; }
         public bool IsActive { get; set; }
+        public int? TimeLimitSeconds { get; set; }
+        public long? SyllabusUnitId { get; set; }
+        public long? SyllabusId { get; set; }
+        public long? SyllabusTopicId { get; set; }
 
-        public ICollection<AssessmentQuestion> AssessmentQuestions { get; set; } = new List<AssessmentQuestion>();
+        public ICollection<AssesmentAttempt> AssesmentAttempts { get; set; } = new List<AssesmentAttempt>();
 
-        public required Area Area { get; set; }
+        public SyllabusUnit? SyllabusUnit { get; set; }
+        public Syllabus? Syllabus { get; set; }
+        public SyllabusTopic? SyllabusTopic { get; set; }
+
 
         public Assessment() { }
     }

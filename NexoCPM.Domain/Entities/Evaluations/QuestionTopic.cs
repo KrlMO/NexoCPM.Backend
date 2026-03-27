@@ -1,4 +1,4 @@
-﻿using NexoCPM.Domain.Entities.Academic;
+﻿using NexoCPM.Domain.Entities.Curriculum;
 using System;
 using System.Collections.Generic;
 using System.Text;
