@@ -1,10 +1,17 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using NexoCPM.Domain.Curriculum.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NexoCPM.Persistence.Configurations.Curriculum
 {
-    internal class TopicConfiguration
+    public class TopicConfiguration : IEntityTypeConfiguration<Topic>
     {
+        public void Configure(EntityTypeBuilder<Topic> builder)
+        {
+            builder.ToTable("ncp_topic");
+        }
     }
 }

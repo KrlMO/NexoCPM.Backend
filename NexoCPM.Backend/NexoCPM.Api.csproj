@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NexoCPM.Infraestructure\NexoCPM.Infraestructure.csproj" />
     <ProjectReference Include="..\NexoCPM.Persistence\NexoCPM.Persistence.csproj" />
   </ItemGroup>
 
