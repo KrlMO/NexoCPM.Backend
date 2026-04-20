@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NexoCPM.Persistence.Repositories
+namespace NexoCPM.Persistence.Repositories.Users
 {
     public class UserRepository : IUserRepository
     {

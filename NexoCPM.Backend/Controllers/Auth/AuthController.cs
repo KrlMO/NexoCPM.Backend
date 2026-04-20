@@ -6,7 +6,8 @@ using NexoCPM.Application.Auth.Commands.Login;
 namespace NexoCPM.Api.Controllers.Auth
 {
     [ApiController]
-    [Route("api/auth")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/auth")]
     public class AuthController : ControllerBase
     {
         private readonly IMediator _mediator;

@@ -5,14 +5,14 @@ using System.Text;
 
 namespace NexoCPM.Domain.Evaluations.Entities
 {
-    public class QuestionTopic
+    public class QuestionSubTopic
     {
         public long QuestionId { get; set; }
-        public long TopicId { get; set; }
+        public long SubTopicId { get; set; }
 
         public Question Question { get; set; } = null!;
-        public Topic Topic { get; set; } = null!;
+        public Subtopic Subtopic { get; set; } = null!;
 
-        public QuestionTopic() { }
+        public QuestionSubTopic() { }
     }
 }

@@ -12,11 +12,12 @@ namespace NexoCPM.Domain.Curriculum.Entities
         public long SyllabusTopicId { get; set; }
         public string Name { get; set; } = string.Empty;
         public int OrderIndex { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public ICollection<QuestionTopic> QuestionTopics { get; set; } = new HashSet<QuestionTopic>();
+        public ICollection<Subtopic> Subtopics { get; set; } = new HashSet<Subtopic>();
 
-        public required SyllabusTopic SyllabusTopic { get; set; }
+        public SyllabusTopic SyllabusTopic { get; set; } = null!;
 
         public Topic(){ }
     }

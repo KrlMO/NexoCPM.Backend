@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NexoCPM.Persistence.Repositories
+namespace NexoCPM.Persistence.Repositories.Auth
 {
     public class RefreshTokenRepository : IRefreshTokenRepository
     {

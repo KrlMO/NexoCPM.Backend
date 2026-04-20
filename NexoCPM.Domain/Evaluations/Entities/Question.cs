@@ -17,6 +17,7 @@ namespace NexoCPM.Domain.Evaluations.Entities
         public ICollection<AnswerOption> AnswerOptions { get; set; } = new HashSet<AnswerOption>();
         public ICollection<QuestionTopic> QuestionTopics { get; set; } = new HashSet<QuestionTopic>();
         public ICollection<AssesmentAttemptQuestion> AssesmentAttemptQuestions { get; set; } = new HashSet<AssesmentAttemptQuestion>();
+        
 
         public required Topic Topic { get; set; }
 
