@@ -1,4 +1,4 @@
-﻿using NexoCPM.Domain.Common;
+using NexoCPM.Domain.Common;
 using NexoCPM.Domain.Curriculum.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,19 +8,27 @@ namespace NexoCPM.Domain.Evaluations.Entities
 {
     public class Question : AuditableEntity
     {
-        public long Id { get; set; }
-        public string Statement { get; set; } = string.Empty;
-        public string? Explanation { get; set; }
-        public bool IsActive { get; set; }
-        public double Difficulty { get; set; }
+        public int Id { get; private set; }
+        public string Code { get; private set; } = string.Empty;
+        public string? Explanation { get; private set; } = null;
+        public bool IsActive { get; private set; } = true;
+        public bool IsDeleted { get; private set; } = false;
+        public int TotalAttempts { get; private set; }
+        public int TotalCorrect { get; private set; }
+        public int SubTopicId { get; private set; }
 
-        public ICollection<AnswerOption> AnswerOptions { get; set; } = new HashSet<AnswerOption>();
-        public ICollection<QuestionTopic> QuestionTopics { get; set; } = new HashSet<QuestionTopic>();
-        public ICollection<AssesmentAttemptQuestion> AssesmentAttemptQuestions { get; set; } = new HashSet<AssesmentAttemptQuestion>();
-        
+        public ICollection<AssessmentAttemptQuestion> AssessmentAttemptQuestions { get; private set; } = new HashSet<AssessmentAttemptQuestion>();
+        public ICollection<Option> Options { get; private set; } = new HashSet<Option>();
+        public ICollection<QuestionContentBlock> QuestionContentBlocks { get; private set; } = new HashSet<QuestionContentBlock>();
 
-        public required Topic Topic { get; set; }
+        public SubTopic SubTopic { get; private set; } = null!;
 
         public Question() { }
+
+        public double GetDifficulty()
+        {
+            if (TotalAttempts == 0) return 0;
+            return 1.0 - ((double)TotalCorrect / TotalAttempts);
+        }
     }
 }

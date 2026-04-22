@@ -18,7 +18,9 @@ namespace NexoCPM.Persistence
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection")));
+                    configuration.GetConnectionString("DefaultConnection"),
+                    x => x.MigrationsAssembly("NexoCPM.Persistence")
+                ));
 
             services.AddScoped<IApplicationDbContext>(provider =>
                 provider.GetRequiredService<ApplicationDbContext>());

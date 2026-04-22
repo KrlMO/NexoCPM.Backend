@@ -1,4 +1,4 @@
-﻿using NexoCPM.Application.Auth.Ports;
+using NexoCPM.Application.Auth.Ports;
 using NexoCPM.Domain.Users.Entities;
 using NexoCPM.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +21,12 @@ namespace NexoCPM.Persistence.Repositories.Users
         {
             return await _context.Users
                 .FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task<User?> GetByIdAsync(int id)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
     }
 }

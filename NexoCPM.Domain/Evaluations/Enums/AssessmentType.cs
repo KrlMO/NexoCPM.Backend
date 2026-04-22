@@ -6,8 +6,7 @@ namespace NexoCPM.Domain.Evaluations.Enums
 {
     public enum AssessmentType
     {
-        PRACTICE,
-        UNIT,
-        FINAL
+        KNOLEDGE = 0,
+        GENERAL_SKILLS = 1,
     }
 }

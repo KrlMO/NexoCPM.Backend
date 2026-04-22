@@ -1,4 +1,4 @@
-﻿using NexoCPM.Domain.Users.Entities;
+using NexoCPM.Domain.Users.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,8 +7,8 @@ namespace NexoCPM.Domain.Auth.Entities
 {
     public class RefreshToken
     {
-        public long Id { get; private set; }
-        public long UserId { get; set; }
+        public int Id { get; private set; }
+        public int UserId { get; set; }
         public string DeviceInfo { get; private set; } = string.Empty;
         public string IpAddress { get; private set; } = string.Empty;
         public string Token { get; private set; } = string.Empty;
@@ -21,7 +21,7 @@ namespace NexoCPM.Domain.Auth.Entities
 
         public RefreshToken() { }
 
-        public RefreshToken(long userId, string token, DateTime expiresAt, string deviceInfo, string ipAddress)
+        public RefreshToken(int userId, string token, DateTime expiresAt, string deviceInfo, string ipAddress)
         {
             UserId = userId;
             Token = token;
@@ -31,6 +31,12 @@ namespace NexoCPM.Domain.Auth.Entities
 
             CreatedAt = DateTime.UtcNow;
             Revoked = false;
+        }
+
+        public void Revoke()
+        {
+            Revoked = true;
+            RevokedAt = DateTime.UtcNow;
         }
     }
 }

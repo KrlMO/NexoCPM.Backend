@@ -7,14 +7,16 @@ namespace NexoCPM.Domain.Context.Entities
 {
     public class Level : AuditableEntity
     {
-        public long Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public long ModalityId { get; set; }
+        public int Id { get; private set; }
+        public string Code { get; private set; } = string.Empty;
+        public string Name { get; private set; } = string.Empty;
+        public int ModalityId { get; private set; }
+        public bool IsActive { get; private set; } = true;
+        public bool IsDeleted { get; private set; } = false;
 
-        public required Modality Modality { get; set; }
+        public Modality Modality { get; private set; } = null!;
 
-        public ICollection<EducationContext> EducationContexts { get; set; } = new List<EducationContext>();
-
+        public ICollection<EducationContext> EducationContexts { get; private set; } = new List<EducationContext>();
         public Level() { }
     }
 }

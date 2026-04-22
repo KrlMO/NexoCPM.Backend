@@ -19,33 +19,36 @@ namespace NexoCPM.Application.Interfaces
 
         //Context
         DbSet<Competence> Competences { get; }
-        DbSet<CompetenceSyllabusTopic> CompetenceSyllabusTopics { get; }
+        DbSet<CompetenceLevel> CompetenceLevels { get; }
+        DbSet<CompetenceLevelUnit> CompetenceLevelUnits { get; }
         DbSet<EducationContext> EducationContexts { get; }
         DbSet<Level> Levels { get; }
         DbSet<Modality> Modalities { get; }
         DbSet<Specialization> Specializations { get; }
 
         //Curriculum
+        DbSet<MicroTopic> MicroTopics { get; }
+        DbSet<SubTopic> SubTopics { get; }
         DbSet<Syllabus> Syllabi { get; }
         DbSet<SyllabusContext> SyllabusContexts { get; }
-        DbSet<SyllabusTopic> SyllabusTopics { get; }
         DbSet<SyllabusUnit> SyllabusUnits { get; }
-        DbSet<Topic> Topics { get; }
+        DbSet<Topic> SyllabusTopics { get; }
 
         //Evaluation
-        DbSet<AnswerOption> AnswerOptions { get; }
-        DbSet<AssesmentAttempt> AssesmentAttempts { get; }
-        DbSet<AssesmentAttemptQuestion> AssesmentAttemptQuestions { get; }
-        DbSet<Assesment> Assessments { get; }
+        DbSet<Assessment> Assessments { get; }
+        DbSet<AssessmentAttempt> AssessmentAttempts { get; }
+        DbSet<AssessmentAttemptQuestion> AssessmentAttemptQuestions { get; }
+        DbSet<Option> Options{ get; }
         DbSet<Question> Questions { get; }
-        DbSet<QuestionTopic> QuestionTopics { get; }
+        DbSet<QuestionContentBlock> QuestionContentBlocks { get; }
 
         //Resources
         DbSet<Resource> Resources { get; }
+        DbSet<ResourceLike> ResourceLikes { get; }
 
         // Users
         DbSet<User> Users { get; }
-        DbSet<UserAnswer> UserAnswers { get; }
+        DbSet<UserLearningContext> UserLearningContexts { get; }
         DbSet<UserResourceView> UserResourceViews { get; }
         DbSet<UserSyllabusProgress> UserSyllabusProgresses { get; }
         DbSet<UserSyllabusUnitProgress> UserSyllabusUnitProgresses { get; }

@@ -1,7 +1,8 @@
-﻿using MediatR;
+using MediatR;
 using NexoCPM.Application.Auth.Ports;
 using NexoCPM.Application.Commons.Ports;
 using NexoCPM.Domain.Auth.Entities;
+using NexoCPM.Domain.Common.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,17 +30,17 @@ namespace NexoCPM.Application.Auth.Commands.Login
             var user = await _userRepository.GetByEmailAsync(command.Email);
 
             if (user == null)
-                throw new UnauthorizedAccessException("Credenciales inválidas");
+                throw new UnauthorizedException("Credenciales inválidas");
 
             if (!user.IsVerified)
-                throw new UnauthorizedAccessException("Debes verificar tu correo");
+                throw new ForbiddenException("Debes verificar tu correo");
 
             if (!_passwordHasher.Verify(command.Password, user.GetPasswordHash()))
-                throw new UnauthorizedAccessException("Credenciales inválidas");
+                throw new UnauthorizedException("Credenciales inválidas");
 
             var accessToken = _jwtService.GenerateToken(user);
 
-            var refreshToken = new RefreshToken(
+            var refreshToken = new Domain.Auth.Entities.RefreshToken(
                 user.Id,
                 Guid.NewGuid().ToString(),
                 DateTime.UtcNow.AddDays(7),

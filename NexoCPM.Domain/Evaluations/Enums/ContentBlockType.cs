@@ -4,9 +4,10 @@ using System.Text;
 
 namespace NexoCPM.Domain.Evaluations.Enums
 {
-    public enum QuestionContextType
+    public enum ContentBlockType
     {
-        BEGIN,
-        MIDDLE
+        Text = 1,
+        Context = 2,
+        Image = 3,
     }
 }

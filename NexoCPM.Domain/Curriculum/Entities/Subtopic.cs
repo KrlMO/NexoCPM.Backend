@@ -1,21 +1,26 @@
-﻿using System;
+﻿using NexoCPM.Domain.Common;
+using NexoCPM.Domain.Evaluations.Entities;
+using NexoCPM.Domain.Resources.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NexoCPM.Domain.Curriculum.Entities
 {
-    public class Subtopic
+    public class SubTopic : AuditableEntity
     {
-        public long Id { get; set; }
-        public long TopicId { get; set; }
-        public string Code { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public int OrderIndex { get; set; }
-        public bool IsActive { get; set; } = true;
+        public int Id { get; private set; }
+        public int TopicId { get; private set; }
+        public string Code { get; private set; } = string.Empty;
+        public string Name { get; private set; } = string.Empty;
+        public int OrderIndex { get; private set; }
+        public bool IsActive { get; private set; } = true;
 
-        public Topic Topic { get; set; } = null!;
+        public ICollection<MicroTopic> MicroTopics { get; private set; } = new HashSet<MicroTopic>();
+        public ICollection<Question> Questions { get; private set; } = new HashSet<Question>();
+        public ICollection<Resource> Resources { get; private set; } = new HashSet<Resource>();
+        public Topic Topic { get; private set; } = null!;
 
-        public Subtopic() { }
-
+        public SubTopic(){ }
     }
 }

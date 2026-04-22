@@ -1,8 +1,10 @@
-using NexoCPM.Application.Auth.Commands.Login;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using NexoCPM.Application.Auth.Commands.Login;
+using NexoCPM.Domain.Common.Exceptions;
 using NexoCPM.Infraestructure;
 using NexoCPM.Persistence;
-using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,11 +35,47 @@ builder.Services.AddCors(options =>
         policy
             .WithOrigins("http://localhost:4200")
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 
 var app = builder.Build();
+
+app.UseExceptionHandler(appError =>
+{
+    appError.Run(async context =>
+    {
+        var exception = context.Features
+            .Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>()?.Error;
+
+        context.Response.ContentType = "application/json";
+
+        var response = new
+        {
+            error = exception?.Message ?? "Error interno del servidor"
+        };
+
+        switch (exception)
+        {
+            case DomainException domainEx:
+                context.Response.StatusCode = domainEx.StatusCode;
+                break;
+
+            case UnauthorizedAccessException:
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                break;
+
+            default:
+                context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+                break;
+        }
+
+        var json = JsonSerializer.Serialize(response);
+
+        await context.Response.WriteAsync(json);
+    });
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

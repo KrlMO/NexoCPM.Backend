@@ -7,11 +7,14 @@ namespace NexoCPM.Domain.Context.Entities
 {
     public class Specialization : AuditableEntity
     {
-        public long Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        public int Id { get; private set; }
+        public string Code { get; private set; } = string.Empty;
+        public string Name { get; private set; } = string.Empty;
+        public string Description { get; private set; } = string.Empty;
+        public bool IsActive { get; private set; } = true;
+        public bool IsDeleted { get; private set; } = false;
 
-        public ICollection<EducationContext>? EducationContexts { get; set; } = new HashSet<EducationContext>();
+        public ICollection<EducationContext>? EducationContexts { get; private set; } = new HashSet<EducationContext>();
 
         public Specialization() { }
     }

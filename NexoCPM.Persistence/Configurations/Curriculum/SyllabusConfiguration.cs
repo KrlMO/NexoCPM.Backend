@@ -12,6 +12,29 @@ namespace NexoCPM.Persistence.Configurations.Curriculum
         public void Configure(EntityTypeBuilder<Syllabus> builder)
         {
             builder.ToTable("ncp_syllabus");
+
+            builder.HasKey(s => s.Id);
+
+            builder.Property(s => s.Name)
+                   .IsRequired();
+            builder.Property(s => s.Code)
+                   .IsRequired()
+                   .HasMaxLength(20);
+
+            builder.HasMany(s => s.UserLearningContexts)
+                .WithOne(usp => usp.Syllabus)
+                .HasForeignKey(usp => usp.SyllabusId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(s => s.SyllabusContexts)
+                .WithOne(sc => sc.Syllabus)
+                .HasForeignKey(sc => sc.SyllabusId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(s => s.SyllabusUnits)
+                .WithOne(sc => sc.Syllabus)
+                .HasForeignKey(sc => sc.SyllabusId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

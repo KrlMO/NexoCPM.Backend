@@ -6,7 +6,7 @@ namespace NexoCPM.Domain.Users.Enums
 {
     public enum UserProgressStatus
     {
-        IN_PROGRESS,
-        COMPLETED
+        IN_PROGRESS = 1,
+        COMPLETED = 2
     }
 }

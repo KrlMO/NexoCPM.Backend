@@ -1,5 +1,5 @@
 ﻿using NexoCPM.Domain.Common;
-using NexoCPM.Domain.Evaluations.Entities;
+using NexoCPM.Domain.Context.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,17 +8,19 @@ namespace NexoCPM.Domain.Curriculum.Entities
 {
     public class Topic : AuditableEntity
     {
-        public long Id { get; set; }
-        public long SyllabusTopicId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public int OrderIndex { get; set; }
-        public bool IsActive { get; set; } = true;
+        public int Id { get; private set; }
+        public string Code { get; private set; } = string.Empty;
+        public int SyllabusUnitId { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public string Description { get; private set; } = string.Empty;
+        public int OrderIndex { get; private set; }
+        public bool IsDeleted { get; private set; } = false;
+        public bool IsActive { get; private set; } = true;
 
-        public ICollection<QuestionTopic> QuestionTopics { get; set; } = new HashSet<QuestionTopic>();
-        public ICollection<Subtopic> Subtopics { get; set; } = new HashSet<Subtopic>();
+        public ICollection<SubTopic> SubTopics { get; private set; } = new List<SubTopic>();
 
-        public SyllabusTopic SyllabusTopic { get; set; } = null!;
+        public SyllabusUnit SyllabusUnit { get; private set; } = null!;
 
-        public Topic(){ }
+        public Topic() { }
     }
 }

@@ -9,15 +9,18 @@ namespace NexoCPM.Domain.Users.Entities
 {
     public class UserSyllabusUnitProgress : AuditableEntity
     {
-        public long UserId { get; set; }
-        public long SyllabusUnitId { get; set; }
-        public UserModuleProgressStatus Status { get; set; }
-        public double Score { get; set; }
-        public int Attempts { get; set; }
-        public DateTime LastAttemptAt { get; set; }
+        public int Id { get; private set; }
+        public int UserSyllabusProgressId { get; private set; }
+        public int SyllabusUnitId { get; private set; }
+        public UserModuleProgressStatus Status { get; private set; }
+        public int TotalQuestions { get; private set; }
+        public int TotalCorrect { get; private set; }
+        public int Attempts { get; private set; } = 0;
+        public double Score => TotalQuestions == 0 ? 0 : (double)TotalCorrect / TotalQuestions;
+        public DateTime LastAttemptAt { get; private set; } = DateTime.Now;
 
-        public required User User { get; set; }
-        public required SyllabusUnit SyllabusUnit { get; set; }
+        public SyllabusUnit SyllabusUnit { get; private set; } = null!;
+        public UserSyllabusProgress UserSyllabusProgress { get; private set; } = null!;
 
         public UserSyllabusUnitProgress() { }
     }

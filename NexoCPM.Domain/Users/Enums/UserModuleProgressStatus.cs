@@ -6,8 +6,8 @@ namespace NexoCPM.Domain.Users.Enums
 {
     public enum UserModuleProgressStatus
     {
-        LOCKED,
-        IN_PROGRESS,
-        APPROVED
+        LOCKED = 1,
+        IN_PROGRESS = 2,
+        APPROVED = 3
     }
 }

@@ -8,13 +8,17 @@ namespace NexoCPM.Domain.Curriculum.Entities
 {
     public class Syllabus : AuditableEntity
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public bool IsActive { get; set; } = true;
+        public int Id { get; private set; }
+        public string Code { get; private set; } = string.Empty;
+        public string Name { get; private set; } = string.Empty;
+        public string Description { get; private set; } = string.Empty;
+        public bool IsActive { get; private set; } = true;
+        public int EfectYear { get; private set; }
+        public bool IsDeleted { get; private set; } = false;
 
-        public ICollection<UserSyllabusProgress> UserSyllabusProgresses { get; set; } = new List<UserSyllabusProgress>(); 
-        public ICollection<SyllabusContext> SyllabusContexts { get; set; } = new HashSet<SyllabusContext>();
+        public ICollection<SyllabusContext> SyllabusContexts { get; private set; } = new HashSet<SyllabusContext>();
+        public ICollection<UserLearningContext> UserLearningContexts { get; private set; } = new HashSet<UserLearningContext>();
+        public ICollection<SyllabusUnit> SyllabusUnits { get; private set; } = new HashSet<SyllabusUnit>();
 
         public Syllabus() { }
     }

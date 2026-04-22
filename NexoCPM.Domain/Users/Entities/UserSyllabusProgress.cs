@@ -9,14 +9,12 @@ namespace NexoCPM.Domain.Users.Entities
 {
     public class UserSyllabusProgress : AuditableEntity
     {
-        public long UserId { get; set; }
-        public long SyllabusId { get; set; }
-        public double ProgressPercentage { get; set; }
-        public DateTime LastAccess { get; set; }
-        public UserProgressStatus Status { get; set; }
+        public int Id { get; set; }
+        public int UserLearningContextId { get; private set; }
+        public DateTime LastAccess { get; private set; } = DateTime.Now;
+        public UserProgressStatus Status { get; private set; }
 
-        public required User User { get; set; }
-        public required Syllabus Syllabus { get; set; }
+        public UserLearningContext UserLearningContext { get; private set; } = null!;
 
         public UserSyllabusProgress() { }
     }

@@ -14,23 +14,45 @@ namespace NexoCPM.Persistence.Configurations.Evaluations
             builder.ToTable("ncp_question");
             builder.HasKey(q => q.Id);
 
-            builder.Property(q => q.Statement)
+            builder.Property(q => q.Code)
                    .IsRequired()
-                   .HasMaxLength(500);
+                   .HasMaxLength(20);
+
+            builder.HasIndex(q => q.Code)
+                   .IsUnique();
 
             builder.Property(q => q.Explanation)
-                   .HasMaxLength(1000);
+                   .IsRequired(false);
 
             builder.Property(q => q.IsActive)
                    .IsRequired();
 
-            builder.Property(q => q.Difficulty)
+            builder.Property(q => q.IsDeleted)
                    .IsRequired();
 
-            builder.HasOne(q => q.Topic)
-                   .WithMany(t => t.Questions)
-                   .HasForeignKey(q => q.TopicId)
+            builder.Property(q => q.TotalAttempts).IsRequired();
+            builder.Property(q => q.TotalCorrect).IsRequired();
+
+
+            builder.HasMany(q => q.Options)
+                   .WithOne(o => o.Question)
+                   .HasForeignKey(o => o.QuestionId)
                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasMany(q => q.AssessmentAttemptQuestions)
+                   .WithOne(aq => aq.Question)
+                   .HasForeignKey(aq => aq.QuestionId)
+                   .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasMany(q => q.QuestionContentBlocks)
+                   .WithOne(qcq => qcq.Question)
+                   .HasForeignKey(qcq => qcq.QuestionId)
+                   .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(q => q.SubTopic)
+                   .WithMany(st => st.Questions)
+                   .HasForeignKey(q => q.SubTopicId)
+                   .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace NexoCPM.Persistence.Configurations.Curriculum
                    .WithMany(s => s.SyllabusContexts)
                    .HasForeignKey(sc => sc.SyllabusId)
                    .OnDelete(DeleteBehavior.Cascade);
+
             builder.HasOne(sc => sc.EducationContext)
                     .WithMany(ec => ec.SyllabusContexts)
                     .HasForeignKey(sc => sc.EducationContextId)

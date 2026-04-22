@@ -7,17 +7,17 @@ using System.Text;
 
 namespace NexoCPM.Persistence.Configurations.Curriculum
 {
-    public class SubtopicConfiguration : IEntityTypeConfiguration<Subtopic>
+    public class MicroTopicConfiguration : IEntityTypeConfiguration<MicroTopic>
     {
-        public void Configure(EntityTypeBuilder<Subtopic> builder)
+        public void Configure(EntityTypeBuilder<MicroTopic> builder)
         {
-            builder.ToTable("ncp_subtopic");
+            builder.ToTable("ncp_micro_topic");
             builder.HasKey(s => s.Id);
             builder.Property(s => s.Code).HasMaxLength(20).IsRequired();
             builder.Property(s => s.OrderIndex).IsRequired();
-            builder.HasOne(s => s.Topic)
-                   .WithMany(t => t.Subtopics)
-                   .HasForeignKey(s => s.TopicId)
+            builder.HasOne(s => s.SubTopic)
+                   .WithMany(t => t.MicroTopics)
+                   .HasForeignKey(s => s.SubTopicId)
                    .OnDelete(DeleteBehavior.Cascade);
         }
     }

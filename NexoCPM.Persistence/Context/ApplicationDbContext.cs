@@ -25,8 +25,6 @@ namespace NexoCPM.Persistence.Context
 
         public DbSet<Competence> Competences => Set<Competence>();
 
-        public DbSet<CompetenceSyllabusTopic> CompetenceSyllabusTopics => Set<CompetenceSyllabusTopic>();
-
         public DbSet<EducationContext> EducationContexts => Set<EducationContext>();
 
         public DbSet<Level> Levels => Set<Level>();
@@ -39,30 +37,42 @@ namespace NexoCPM.Persistence.Context
 
         public DbSet<SyllabusContext> SyllabusContexts => Set<SyllabusContext>();
 
-        public DbSet<SyllabusTopic> SyllabusTopics => Set<SyllabusTopic>();
+        public DbSet<Topic> SyllabusTopics => Set<Topic>();
 
         public DbSet<SyllabusUnit> SyllabusUnits => Set<SyllabusUnit>();
 
-        public DbSet<Topic> Topics => Set<Topic>();
-        public DbSet<AnswerOption> AnswerOptions => Set<AnswerOption>();
+        public DbSet<SubTopic> Topics => Set<SubTopic>();
 
-        public DbSet<AssesmentAttempt> AssesmentAttempts => Set<AssesmentAttempt>();
+        public DbSet<AssessmentAttempt> AssessmentAttempts => Set<AssessmentAttempt>();
 
-        public DbSet<AssesmentAttemptQuestion> AssesmentAttemptQuestions => Set<AssesmentAttemptQuestion>();
-        public DbSet<Assesment> Assessments => Set<Assesment>();
+        public DbSet<AssessmentAttemptQuestion> AssessmentAttemptQuestions => Set<AssessmentAttemptQuestion>();
+        public DbSet<Assessment> Assessments => Set<Assessment>();
 
         public DbSet<Question> Questions => Set<Question>();
 
-        public DbSet<QuestionTopic> QuestionTopics => Set<QuestionTopic>();
 
         public DbSet<Resource> Resources => Set<Resource>();
 
-        public DbSet<UserAnswer> UserAnswers => Set<UserAnswer>();
         public DbSet<UserResourceView> UserResourceViews => Set<UserResourceView>();
 
         public DbSet<UserSyllabusProgress> UserSyllabusProgresses => Set<UserSyllabusProgress>();
 
         public DbSet<UserSyllabusUnitProgress> UserSyllabusUnitProgresses => Set<UserSyllabusUnitProgress>();
+
+        public DbSet<Option> Options => Set<Option>();
+
+        public DbSet<SubTopic> SubTopics => Set<SubTopic>();
+
+        public DbSet<CompetenceLevel> CompetenceLevels => Set<CompetenceLevel>();
+
+        public DbSet<CompetenceLevelUnit> CompetenceLevelUnits => Set<CompetenceLevelUnit>();
+
+        public DbSet<MicroTopic> MicroTopics => Set<MicroTopic>();
+        public DbSet<QuestionContentBlock> QuestionContentBlocks => Set<QuestionContentBlock>();
+
+        public DbSet<ResourceLike> ResourceLikes => Set<ResourceLike>();
+
+        public DbSet<UserLearningContext> UserLearningContexts => Set<UserLearningContext>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

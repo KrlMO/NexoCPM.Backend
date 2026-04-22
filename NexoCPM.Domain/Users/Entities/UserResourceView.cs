@@ -7,13 +7,12 @@ namespace NexoCPM.Domain.Users.Entities
 {
     public class UserResourceView
     {
-        public long UserId { get; set; }
-        public long ResourceId { get; set; }
-        public DateTime ViewedAt { get; set; }
-        public double ResourcesViewedCount { get; set; } = 0;
+        public int UserId { get; private set; }
+        public int ResourceId { get; private set; }
+        public DateTime ViewedAt { get; private set; } = DateTime.Now;
 
-        public required User User { get; set; }
-        public required Resource Resource { get; set; }
+        public User User { get; private set; } = null!;
+        public Resource Resource { get; private set; } = null!;
 
         public UserResourceView() { }
     }
