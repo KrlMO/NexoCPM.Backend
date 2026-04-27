@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Versioning;
+using NexoCPM.Api.Common;
 using NexoCPM.Application.Auth.Commands.Login;
 using NexoCPM.Domain.Common.Exceptions;
 using NexoCPM.Infraestructure;
@@ -14,7 +14,7 @@ builder.Services.AddMediatR(cfg =>
 // Add services to the container.
 builder.Services.AddPersistence(builder.Configuration);
 
-builder.Services.AddInfrastructure();
+builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddApiVersioning(options =>
 {
@@ -33,7 +33,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngular", policy =>
     {
         policy
-            .WithOrigins("http://localhost:4200")
+            .WithOrigins("https://localhost:4200")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -46,30 +46,35 @@ app.UseExceptionHandler(appError =>
 {
     appError.Run(async context =>
     {
-        var exception = context.Features
-            .Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>()?.Error;
+        var feature = context.Features
+            .Get<Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature>();
+
+        var exception = feature?.Error;
+
+        var logger = context.RequestServices
+            .GetRequiredService<ILogger<Program>>();
+
+        logger.LogError(exception, "Unhandled exception");
 
         context.Response.ContentType = "application/json";
 
-        var response = new
+        int statusCode = exception switch
         {
-            error = exception?.Message ?? "Error interno del servidor"
+            DomainException ex => ex.StatusCode,
+            UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
+            _ => StatusCodes.Status500InternalServerError
         };
 
-        switch (exception)
+        string message = exception switch
         {
-            case DomainException domainEx:
-                context.Response.StatusCode = domainEx.StatusCode;
-                break;
+            DomainException ex => ex.Message,
+            UnauthorizedAccessException => "No autorizado",
+            _ => "Error interno del servidor"
+        };
 
-            case UnauthorizedAccessException:
-                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                break;
+        context.Response.StatusCode = statusCode;
 
-            default:
-                context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-                break;
-        }
+        var response = ApiResponse<string>.Fail(message);
 
         var json = JsonSerializer.Serialize(response);
 

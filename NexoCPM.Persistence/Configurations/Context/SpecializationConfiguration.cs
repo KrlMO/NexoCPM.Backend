@@ -1,28 +1,65 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NexoCPM.Domain.Context.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace NexoCPM.Persistence.Configurations.Context
+namespace NexoCPM.Persistence.Configurations.Context;
+
+public class SpecializationConfiguration : IEntityTypeConfiguration<Specialization>
 {
-    public class SpecializationConfiguration : IEntityTypeConfiguration<Specialization>
+    public void Configure(EntityTypeBuilder<Specialization> builder)
     {
-        public void Configure(EntityTypeBuilder<Specialization> builder)
-        {
-            builder.ToTable("ncp_specialization");
+        builder.ToTable("ncp_specialization");
+        builder.HasKey(s => s.Id);
 
-            builder.HasKey(s => s.Id);
+        builder.Property(s => s.Id)
+               .HasColumnName("id")
+               .ValueGeneratedOnAdd();
 
-            builder.Property(s => s.Code)
-                   .IsRequired()
-                   .HasMaxLength(20);
+        builder.Property(s => s.Code)
+               .HasColumnName("code")
+               .IsRequired()
+               .HasMaxLength(20);
 
-            builder.HasMany(s => s.EducationContexts)
-                   .WithOne(c => c.Specialization)
-                   .HasForeignKey(c => c.SpecializationId)
-                   .OnDelete(DeleteBehavior.Cascade);
-        }
+        builder.Property(s => s.Name)
+               .HasColumnName("name")
+               .IsRequired();
+
+        builder.Property(s => s.IsActive)
+               .HasColumnName("is_active")
+               .HasDefaultValue(true);
+
+        builder.Property(s => s.IsDeleted)
+               .HasColumnName("is_deleted")
+               .HasDefaultValue(false);
+
+        builder.Property(t => t.CreatedAt)
+               .HasColumnName("created_at")
+               .IsRequired()
+               .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        builder.Property(t => t.UpdatedAt)
+                .HasColumnName("updated_at")
+                .IsRequired(false);
+
+        builder.Property(t => t.DeletedAt)
+               .HasColumnName("deleted_at")
+               .IsRequired(false);
+
+        builder.Property(t => t.CreatedBy)
+               .HasColumnName("created_by")
+               .IsRequired(true);
+        builder.Property(t => t.UpdatedBy)
+                .HasColumnName("updated_by")
+                .IsRequired(false);
+
+        builder.Property(t => t.DeletedBy)
+               .HasColumnName("deleted_by")
+               .IsRequired(false);
+
+        builder.HasMany(s => s.EducationContexts)
+               .WithOne(c => c.Specialization)
+               .HasForeignKey(c => c.SpecializationId)
+               .HasConstraintName("fk_education_context_specialization")
+               .OnDelete(DeleteBehavior.Cascade);
     }
 }

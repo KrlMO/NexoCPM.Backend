@@ -1,34 +1,77 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NexoCPM.Domain.Context.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace NexoCPM.Persistence.Configurations.Context
+namespace NexoCPM.Persistence.Configurations.Context;
+
+public class LevelConfiguration : IEntityTypeConfiguration<Level>
 {
-    public class LevelConfiguration : IEntityTypeConfiguration<Level>
+    public void Configure(EntityTypeBuilder<Level> builder)
     {
-        public void Configure(EntityTypeBuilder<Level> builder)
-        {
-            builder.ToTable("ncp_level");
-            builder.HasKey(l => l.Id);
+        builder.ToTable("ncp_level");
+        builder.HasKey(l => l.Id);
 
-            builder.Property(l => l.Code)
-                   .IsRequired()
-                   .HasMaxLength(20);
-            builder.Property(l => l.Name)
-                                   .IsRequired();
+        builder.Property(l => l.Id)
+               .HasColumnName("id")
+               .ValueGeneratedOnAdd();
 
-            builder.HasOne(l => l.Modality) 
-                   .WithMany(m => m.Levels) 
-                   .HasForeignKey(l => l.ModalityId) 
-                   .OnDelete(DeleteBehavior.Cascade);
+        builder.Property(l => l.Code)
+               .HasColumnName("code")
+               .IsRequired()
+               .HasMaxLength(20);
 
-            builder.HasMany(l => l.EducationContexts) 
-                   .WithOne(c => c.Level) 
-                   .HasForeignKey(c => c.LevelId) 
-                   .OnDelete(DeleteBehavior.Cascade);
-        }
+        builder.Property(l => l.Name)
+               .HasColumnName("name")
+               .IsRequired()
+               .HasMaxLength(100);
+
+        builder.Property(l => l.ModalityId)
+               .HasColumnName("modality_id")
+               .IsRequired();
+
+        builder.Property(l => l.IsActive)
+               .HasColumnName("is_active")
+               .HasDefaultValue(true);
+
+        builder.Property(l => l.IsDeleted)
+               .HasColumnName("is_deleted")
+               .HasDefaultValue(false);
+
+        builder.Property(l => l.CreatedAt)
+               .HasColumnName("created_at")
+               .IsRequired()
+               .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        builder.Property(l => l.UpdatedAt)
+                .HasColumnName("updated_at")
+                .IsRequired(false)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        builder.Property(l => l.DeletedAt)
+               .HasColumnName("deleted_at")
+               .IsRequired(false);
+
+        builder.Property(l => l.CreatedBy)
+               .HasColumnName("created_by")
+               .IsRequired(true);
+        builder.Property(l => l.UpdatedBy)
+                .HasColumnName("updated_by")
+                .IsRequired(false);
+
+        builder.Property(l => l.DeletedBy)
+               .HasColumnName("deleted_by")
+               .IsRequired(false);
+
+        builder.HasOne(l => l.Modality)
+               .WithMany(m => m.Levels)
+               .HasForeignKey(l => l.ModalityId)
+               .HasConstraintName("fk_level_modality")
+               .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(l => l.EducationContexts)
+               .WithOne(c => c.Level)
+               .HasForeignKey(c => c.LevelId)
+               .HasConstraintName("fk_education_context_level")
+               .OnDelete(DeleteBehavior.Cascade);
     }
 }

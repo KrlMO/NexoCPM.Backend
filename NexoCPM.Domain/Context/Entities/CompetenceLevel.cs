@@ -1,10 +1,11 @@
-﻿using System;
+﻿using NexoCPM.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NexoCPM.Domain.Context.Entities
 {
-    public class CompetenceLevel
+    public class CompetenceLevel : AuditableEntity
     {
         public int Id { get; private set; }
         public int CompetenceId { get; private set; }

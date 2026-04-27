@@ -13,8 +13,8 @@ namespace NexoCPM.Domain.Auth.Entities
         public string TokenHash { get; private set; } = string.Empty;
         public DateTime CreatedAt { get; private set; }
         public DateTime ExpiresAt { get; private set; }
-        public bool Used { get; private set; }
-        public DateTime? UsedAt { get; private set; }
+        public bool IsUsed { get; private set; }
+        public DateTime? UsedAt { get; private set; } = null;
         public User User { get; private set; } = null!;
 
         private EmailVerificationToken() { }
@@ -25,24 +25,30 @@ namespace NexoCPM.Domain.Auth.Entities
             TokenHash = tokenHash;
             ExpiresAt = expiresAt;
             CreatedAt = DateTime.UtcNow;
-            Used = false;
+            IsUsed = false;
         }
 
         public bool IsExpired()
             => DateTime.UtcNow >= ExpiresAt;
 
         public bool IsValid()
-            => !Used && !IsExpired();
+            => !IsUsed && !IsExpired();
 
         public void MarkAsUsed()
         {
-            if (Used)
+            if (IsUsed)
                 throw new TokenAlreadyUsedException();
 
             if (IsExpired())
                 throw new TokenExpiredException();
 
-            Used = true;
+            IsUsed = true;
+            UsedAt = DateTime.UtcNow;
+        }
+
+        public void Invalidate()
+        {
+            IsUsed = true;
             UsedAt = DateTime.UtcNow;
         }
     }

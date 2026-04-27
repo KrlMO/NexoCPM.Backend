@@ -1,4 +1,4 @@
-﻿using NexoCPM.Domain.Auth.Entities;
+using NexoCPM.Domain.Auth.Entities;
 using NexoCPM.Domain.Common;
 using NexoCPM.Domain.Evaluations.Entities;
 using NexoCPM.Domain.Resources.Entities;
@@ -37,6 +37,8 @@ namespace NexoCPM.Domain.Users.Entities
         public ICollection<EmailVerificationToken>? EmailVerificationTokens { get; set; } = new HashSet<EmailVerificationToken>();
         public ICollection<UserLearningContext> UserLearningContexts { get; set; } = new HashSet<UserLearningContext>();
         public ICollection<ResourceLike> ResourceLikes { get; set; } = new HashSet<ResourceLike>();
+        
+        public UserLeaderboard UserLeaderboard { get; set; } = null!;
 
         public User() { }
 
@@ -44,6 +46,16 @@ namespace NexoCPM.Domain.Users.Entities
         {
             Email = email;
             PasswordHash = passwordHash;
+        }
+
+        public User(string firstName, string lastName, string userName, string email, string passwordHash, string code)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            UserName = userName;
+            Email = email;
+            PasswordHash = passwordHash;
+            Code = code;
         }
 
         public string GetPasswordHash() => PasswordHash;

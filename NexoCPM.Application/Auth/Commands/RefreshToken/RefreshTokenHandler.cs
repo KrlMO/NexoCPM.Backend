@@ -1,10 +1,12 @@
 using MediatR;
+using NexoCPM.Application.Auth.Dtos;
 using NexoCPM.Application.Auth.Ports;
+using NexoCPM.Application.Users.Ports;
 using NexoCPM.Domain.Auth.Entities;
 
 namespace NexoCPM.Application.Auth.Commands.RefreshToken
 {
-    public class RefreshTokenHandler : IRequestHandler<RefreshTokenCommand, RefreshTokenResponseDto>
+    public class RefreshTokenHandler : IRequestHandler<RefreshTokenCommand, RefreshTokenResult>
     {
         private readonly IRefreshTokenRepository _refreshTokenRepository;
         private readonly IUserRepository _userRepository;
@@ -20,7 +22,7 @@ namespace NexoCPM.Application.Auth.Commands.RefreshToken
             _jwtService = jwtService;
         }
 
-        public async Task<RefreshTokenResponseDto> Handle(RefreshTokenCommand command, CancellationToken ct)
+        public async Task<RefreshTokenResult> Handle(RefreshTokenCommand command, CancellationToken ct)
         {
             var refreshToken = await _refreshTokenRepository.GetByTokenAsync(command.RefreshToken);
 
@@ -49,10 +51,19 @@ namespace NexoCPM.Application.Auth.Commands.RefreshToken
 
             await _refreshTokenRepository.AddAsync(newRefreshToken);
 
-            return new RefreshTokenResponseDto
+            return new RefreshTokenResult
             {
                 AccessToken = newAccessToken,
-                RefreshToken = newRefreshToken.Token
+                RefreshToken = newRefreshToken.Token,
+                User = new AuthUserDto { 
+                    Id = user.Id,
+                    Email = user.Email,
+                    AvatarUrl = user.AvatarUrl,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    UserName = user.UserName,
+                    UserRole = user.UserRole
+                }
             };
         }
     }

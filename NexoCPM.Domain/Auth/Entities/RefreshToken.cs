@@ -14,8 +14,8 @@ namespace NexoCPM.Domain.Auth.Entities
         public string Token { get; private set; } = string.Empty;
         public DateTime ExpiresAt { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public bool Revoked { get; private set; }
-        public DateTime RevokedAt { get; private set; }
+        public bool Revoked { get; private set; } = false;
+        public DateTime? RevokedAt { get; private set; } = null;
 
         public User User { get; private set; } = null!;
 

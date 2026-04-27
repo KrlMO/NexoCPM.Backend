@@ -13,8 +13,8 @@ namespace NexoCPM.Domain.Curriculum.Entities
         public string Name { get; private set; } = string.Empty;
         public string Description { get; private set; } = string.Empty;
         public bool IsActive { get; private set; } = true;
-        public int EfectYear { get; private set; }
         public bool IsDeleted { get; private set; } = false;
+        public int EfectYear { get; private set; }
 
         public ICollection<SyllabusContext> SyllabusContexts { get; private set; } = new HashSet<SyllabusContext>();
         public ICollection<UserLearningContext> UserLearningContexts { get; private set; } = new HashSet<UserLearningContext>();

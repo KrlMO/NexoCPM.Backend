@@ -15,6 +15,7 @@ namespace NexoCPM.Domain.Curriculum.Entities
         public string Name { get; private set; } = string.Empty;
         public int OrderIndex { get; private set; }
         public bool IsActive { get; private set; } = true;
+        public bool IsDeleted { get; private set; } = false;
 
         public ICollection<MicroTopic> MicroTopics { get; private set; } = new HashSet<MicroTopic>();
         public ICollection<Question> Questions { get; private set; } = new HashSet<Question>();

@@ -1,11 +1,12 @@
-﻿using NexoCPM.Domain.Curriculum.Entities;
+﻿using NexoCPM.Domain.Common;
+using NexoCPM.Domain.Curriculum.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace NexoCPM.Domain.Context.Entities
 {
-    public class CompetenceLevelUnit
+    public class CompetenceLevelUnit : AuditableEntity
     {
         public int CompetenceLevelId { get; private set; }
         public int SyllabusUnitId { get; private set; }

@@ -8,6 +8,6 @@ namespace NexoCPM.Domain.Evaluations.Enums
     {
         UNIT = 0,
         SYLLABUS = 1,
-        TOPIC = 2
+        SIMULATION = 2
     }
 }

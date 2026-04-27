@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NexoCPM.Application.Auth.Ports;
 using NexoCPM.Application.Interfaces;
+using NexoCPM.Application.Users.Ports;
 using NexoCPM.Persistence.Context;
 using NexoCPM.Persistence.Repositories.Auth;
 using NexoCPM.Persistence.Repositories.Users;
@@ -30,7 +31,7 @@ namespace NexoCPM.Persistence
 
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-
+            services.AddScoped<IEmailVerificationTokenRepository, EmailVerificationTokenRepository>();
 
             return services;
         }

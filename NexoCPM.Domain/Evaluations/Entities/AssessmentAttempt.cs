@@ -15,6 +15,7 @@ namespace NexoCPM.Domain.Evaluations.Entities
         public int Score { get; private set; }
         public int TotalQuestions { get; private set; }
         public int CorrectAnswers { get; private set; }
+        public int StarsEarned { get; private set; } = 0;
 
         public ICollection<AssessmentAttemptQuestion> AssessmentAttemptQuestions { get; private set; } = new List<AssessmentAttemptQuestion>();
 

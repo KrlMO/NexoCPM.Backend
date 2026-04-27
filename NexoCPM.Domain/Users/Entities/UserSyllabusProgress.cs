@@ -12,7 +12,7 @@ namespace NexoCPM.Domain.Users.Entities
         public int Id { get; set; }
         public int UserLearningContextId { get; private set; }
         public DateTime LastAccess { get; private set; } = DateTime.Now;
-        public UserProgressStatus Status { get; private set; }
+        public UserProgressStatus Status { get; private set; } 
 
         public UserLearningContext UserLearningContext { get; private set; } = null!;
 

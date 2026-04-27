@@ -6,12 +6,20 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace NexoCPM.Infraestructure.Security
 {
     public class JwtService : IJwtService
     {
-        private readonly string _secret = "SUPER_SECRET_KEY_123456"; // luego lo movemos a config
+        private readonly string _secret;
+
+        public JwtService(IConfiguration config)
+        {
+            if (config == null) throw new ArgumentNullException(nameof(config));
+            var secret = config["Jwt:Secret"];
+            _secret = secret ?? throw new ArgumentNullException("Jwt:Secret", "JWT secret configuration missing");
+        }
 
         public string GenerateToken(User user)
         {

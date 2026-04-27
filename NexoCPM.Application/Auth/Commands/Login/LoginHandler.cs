@@ -1,6 +1,8 @@
 using MediatR;
+using NexoCPM.Application.Auth.Dtos;
 using NexoCPM.Application.Auth.Ports;
 using NexoCPM.Application.Commons.Ports;
+using NexoCPM.Application.Users.Ports;
 using NexoCPM.Domain.Auth.Entities;
 using NexoCPM.Domain.Common.Exceptions;
 using System;
@@ -10,7 +12,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace NexoCPM.Application.Auth.Commands.Login
 {
-    public class LoginHandler : IRequestHandler<LoginCommand, LoginResponseDto>
+    public class LoginHandler : IRequestHandler<LoginCommand, LoginResult>
     {
         private readonly IUserRepository _userRepository;
         private readonly IRefreshTokenRepository _refreshTokenRepository;
@@ -25,18 +27,22 @@ namespace NexoCPM.Application.Auth.Commands.Login
             _passwordHasher = passwordHasher;
         }
 
-        public async Task<LoginResponseDto> Handle(LoginCommand command, CancellationToken ct)
+        public async Task<LoginResult> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var user = await _userRepository.GetByEmailAsync(command.Email);
+            var user = await _userRepository.GetByEmailAsync(request.Email);
 
             if (user == null)
-                throw new UnauthorizedException("Credenciales inválidas");
+                throw new NotFoundException("Este correo no está asociado a ninguna cuenta.");
+
+            if (!user.IsActive)
+                throw new ForbiddenException("Tu cuenta está inactiva. Contacta al soporte.");
 
             if (!user.IsVerified)
                 throw new ForbiddenException("Debes verificar tu correo");
 
-            if (!_passwordHasher.Verify(command.Password, user.GetPasswordHash()))
+            if (!_passwordHasher.Verify(request.Password, user.GetPasswordHash()))
                 throw new UnauthorizedException("Credenciales inválidas");
+
 
             var accessToken = _jwtService.GenerateToken(user);
 
@@ -44,16 +50,26 @@ namespace NexoCPM.Application.Auth.Commands.Login
                 user.Id,
                 Guid.NewGuid().ToString(),
                 DateTime.UtcNow.AddDays(7),
-                command.DeviceInfo,
-                command.IpAddress
+                request.DeviceInfo,
+                request.IpAddress
             );
 
             await _refreshTokenRepository.AddAsync(refreshToken);
 
-            return new LoginResponseDto
+            return new LoginResult
             {
+                RefreshToken = refreshToken.Token,
                 AccessToken = accessToken,
-                RefreshToken = refreshToken.Token
+                User = new AuthUserDto
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    AvatarUrl = user.AvatarUrl,
+                    UserRole = user.UserRole
+                }
             };
 
         }
