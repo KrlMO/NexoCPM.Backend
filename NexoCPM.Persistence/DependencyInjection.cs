@@ -26,10 +26,10 @@ namespace NexoCPM.Persistence
             services.AddScoped<IApplicationDbContext>(provider =>
                 provider.GetRequiredService<ApplicationDbContext>());
 
-            services.AddScoped<IApplicationDbContext>(
-                provider => provider.GetRequiredService<ApplicationDbContext>());
-
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserLeaderboardRepository, UserLeaderboardRepository>();
+            services.AddScoped<IUserSubTopicViewRepository, UserSubTopicViewRepository>();
+            services.AddScoped<IUserProgressRepository, UserProgressRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IEmailVerificationTokenRepository, EmailVerificationTokenRepository>();
 

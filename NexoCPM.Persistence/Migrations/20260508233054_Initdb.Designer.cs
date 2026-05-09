@@ -12,8 +12,8 @@ using NexoCPM.Persistence.Context;
 namespace NexoCPM.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260425064309_UpdateAuditableEntities")]
-    partial class UpdateAuditableEntities
+    [Migration("20260508233054_Initdb")]
+    partial class Initdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -256,49 +256,6 @@ namespace NexoCPM.Persistence.Migrations
                     b.HasIndex("CompetenceId");
 
                     b.ToTable("ncp_competence_level", (string)null);
-                });
-
-            modelBuilder.Entity("NexoCPM.Domain.Context.Entities.CompetenceLevelUnit", b =>
-                {
-                    b.Property<int>("CompetenceLevelId")
-                        .HasColumnType("int")
-                        .HasColumnName("competence_level_id");
-
-                    b.Property<int>("SyllabusUnitId")
-                        .HasColumnType("int")
-                        .HasColumnName("syllabus_unit_id");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("created_at")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("created_by");
-
-                    b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("deleted_at");
-
-                    b.Property<int?>("DeletedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("deleted_by");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("updated_at");
-
-                    b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int")
-                        .HasColumnName("updated_by");
-
-                    b.HasKey("CompetenceLevelId", "SyllabusUnitId");
-
-                    b.HasIndex("SyllabusUnitId");
-
-                    b.ToTable("ncp_competence_level_unit", (string)null);
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Context.Entities.EducationContext", b =>
@@ -655,6 +612,9 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("code");
 
+                    b.Property<int>("CompetenceLevelId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
@@ -706,6 +666,8 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("updated_by");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompetenceLevelId");
 
                     b.HasIndex("TopicId");
 
@@ -1061,6 +1023,12 @@ namespace NexoCPM.Persistence.Migrations
                     b.Property<int>("Score")
                         .HasColumnType("int")
                         .HasColumnName("score");
+
+                    b.Property<int>("StarsEarned")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("stars_earned");
 
                     b.Property<DateTime>("StartedAt")
                         .HasColumnType("datetime2")
@@ -1515,6 +1483,29 @@ namespace NexoCPM.Persistence.Migrations
                     b.ToTable("ncp_user", (string)null);
                 });
 
+            modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLeaderboard", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("last_updated")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<int>("TotalStars")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("total_stars");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("ncp_user_leaderboard", (string)null);
+                });
+
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLearningContext", b =>
                 {
                     b.Property<int>("Id")
@@ -1643,16 +1634,11 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("updated_by");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserLearningContextId")
                         .HasColumnType("int")
                         .HasColumnName("user_learning_context_id");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.HasIndex("UserLearningContextId")
                         .IsUnique();
@@ -1719,9 +1705,6 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("updated_by");
 
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<int>("UserSyllabusProgressId")
                         .HasColumnType("int")
                         .HasColumnName("user_syllabus_progress_id");
@@ -1729,8 +1712,6 @@ namespace NexoCPM.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("SyllabusUnitId");
-
-                    b.HasIndex("UserId");
 
                     b.HasIndex("UserSyllabusProgressId", "SyllabusUnitId")
                         .IsUnique();
@@ -1772,27 +1753,6 @@ namespace NexoCPM.Persistence.Migrations
                         .HasConstraintName("fk_competence_level_competence");
 
                     b.Navigation("Competence");
-                });
-
-            modelBuilder.Entity("NexoCPM.Domain.Context.Entities.CompetenceLevelUnit", b =>
-                {
-                    b.HasOne("NexoCPM.Domain.Context.Entities.CompetenceLevel", "CompetenceLevel")
-                        .WithMany("CompetenceLevelUnits")
-                        .HasForeignKey("CompetenceLevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_competence_level_unit_competence_level");
-
-                    b.HasOne("NexoCPM.Domain.Curriculum.Entities.SyllabusUnit", "SyllabusUnit")
-                        .WithMany("CompetenceLevelUnits")
-                        .HasForeignKey("SyllabusUnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_competence_level_unit_syllabus_unit");
-
-                    b.Navigation("CompetenceLevel");
-
-                    b.Navigation("SyllabusUnit");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Context.Entities.EducationContext", b =>
@@ -1842,12 +1802,21 @@ namespace NexoCPM.Persistence.Migrations
 
             modelBuilder.Entity("NexoCPM.Domain.Curriculum.Entities.SubTopic", b =>
                 {
+                    b.HasOne("NexoCPM.Domain.Context.Entities.CompetenceLevel", "CompetenceLevel")
+                        .WithMany("SubTopics")
+                        .HasForeignKey("CompetenceLevelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_sub_topic_competence_level");
+
                     b.HasOne("NexoCPM.Domain.Curriculum.Entities.Topic", "Topic")
                         .WithMany("SubTopics")
                         .HasForeignKey("TopicId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_sub_topic_topic");
+
+                    b.Navigation("CompetenceLevel");
 
                     b.Navigation("Topic");
                 });
@@ -2019,6 +1988,18 @@ namespace NexoCPM.Persistence.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLeaderboard", b =>
+                {
+                    b.HasOne("NexoCPM.Domain.Users.Entities.User", "User")
+                        .WithOne("UserLeaderboard")
+                        .HasForeignKey("NexoCPM.Domain.Users.Entities.UserLeaderboard", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_leaderboard_user");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLearningContext", b =>
                 {
                     b.HasOne("NexoCPM.Domain.Curriculum.Entities.Syllabus", "Syllabus")
@@ -2063,10 +2044,6 @@ namespace NexoCPM.Persistence.Migrations
 
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserSyllabusProgress", b =>
                 {
-                    b.HasOne("NexoCPM.Domain.Users.Entities.User", null)
-                        .WithMany("UserSyllabusProgresses")
-                        .HasForeignKey("UserId");
-
                     b.HasOne("NexoCPM.Domain.Users.Entities.UserLearningContext", "UserLearningContext")
                         .WithOne("UserSyllabusProgress")
                         .HasForeignKey("NexoCPM.Domain.Users.Entities.UserSyllabusProgress", "UserLearningContextId")
@@ -2085,10 +2062,6 @@ namespace NexoCPM.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_user_syllabus_unit_progress_syllabus_unit");
-
-                    b.HasOne("NexoCPM.Domain.Users.Entities.User", null)
-                        .WithMany("UserSyllabusUnitProgresses")
-                        .HasForeignKey("UserId");
 
                     b.HasOne("NexoCPM.Domain.Users.Entities.UserSyllabusProgress", "UserSyllabusProgress")
                         .WithMany()
@@ -2109,7 +2082,7 @@ namespace NexoCPM.Persistence.Migrations
 
             modelBuilder.Entity("NexoCPM.Domain.Context.Entities.CompetenceLevel", b =>
                 {
-                    b.Navigation("CompetenceLevelUnits");
+                    b.Navigation("SubTopics");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Context.Entities.EducationContext", b =>
@@ -2152,8 +2125,6 @@ namespace NexoCPM.Persistence.Migrations
 
             modelBuilder.Entity("NexoCPM.Domain.Curriculum.Entities.SyllabusUnit", b =>
                 {
-                    b.Navigation("CompetenceLevelUnits");
-
                     b.Navigation("Topics");
 
                     b.Navigation("UserSyllabusUnitProgresses");
@@ -2205,13 +2176,12 @@ namespace NexoCPM.Persistence.Migrations
 
                     b.Navigation("ResourceLikes");
 
+                    b.Navigation("UserLeaderboard")
+                        .IsRequired();
+
                     b.Navigation("UserLearningContexts");
 
                     b.Navigation("UserResourceViews");
-
-                    b.Navigation("UserSyllabusProgresses");
-
-                    b.Navigation("UserSyllabusUnitProgresses");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLearningContext", b =>

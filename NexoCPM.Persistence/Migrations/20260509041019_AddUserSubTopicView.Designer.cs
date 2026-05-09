@@ -12,8 +12,8 @@ using NexoCPM.Persistence.Context;
 namespace NexoCPM.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260421201058_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260509041019_AddUserSubTopicView")]
+    partial class AddUserSubTopicView
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,28 +29,38 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at");
 
                     b.Property<DateTime>("ExpiresAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("expires_at");
+
+                    b.Property<bool>("IsUsed")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_used");
 
                     b.Property<string>("TokenHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Used")
-                        .HasColumnType("bit");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("token_hash");
 
                     b.Property<DateTime?>("UsedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("used_at");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id");
 
@@ -63,38 +73,55 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at");
 
                     b.Property<string>("DeviceInfo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("device_info");
 
                     b.Property<DateTime>("ExpiresAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("expires_at");
 
                     b.Property<string>("IpAddress")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)")
+                        .HasColumnName("ip_address");
 
                     b.Property<bool>("Revoked")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("revoked");
 
-                    b.Property<DateTime>("RevokedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("RevokedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("revoked_at");
 
                     b.Property<string>("Token")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("token");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Token")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -105,48 +132,64 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("description");
 
                     b.Property<int>("EffectYear")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("effect_year");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -157,25 +200,56 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<int>("CompetenceId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("competence_id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<int>("CreatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
+
+                    b.Property<int?>("DeletedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("description");
 
                     b.Property<int>("LevelNumber")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("level_number");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
+
+                    b.Property<int?>("UpdatedBy")
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -184,66 +258,67 @@ namespace NexoCPM.Persistence.Migrations
                     b.ToTable("ncp_competence_level", (string)null);
                 });
 
-            modelBuilder.Entity("NexoCPM.Domain.Context.Entities.CompetenceLevelUnit", b =>
-                {
-                    b.Property<int>("CompetenceLevelId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SyllabusUnitId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CompetenceLevelId", "SyllabusUnitId");
-
-                    b.HasIndex("SyllabusUnitId");
-
-                    b.ToTable("ncp_competence_level_unit", (string)null);
-                });
-
             modelBuilder.Entity("NexoCPM.Domain.Context.Entities.EducationContext", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<int>("LevelId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("level_id");
 
-                    b.Property<int?>("SpecializationId")
-                        .HasColumnType("int");
+                    b.Property<int>("SpecializationId")
+                        .HasColumnType("int")
+                        .HasColumnName("specialization_id");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
                     b.HasIndex("SpecializationId");
 
                     b.HasIndex("LevelId", "SpecializationId")
-                        .IsUnique()
-                        .HasFilter("[SpecializationId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("ncp_education_context", (string)null);
                 });
@@ -252,45 +327,66 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<int>("ModalityId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("modality_id");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -303,42 +399,59 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("name");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -349,46 +462,63 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("name");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -399,48 +529,66 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<int>("OrderIndex")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("order_index");
 
                     b.Property<int>("SubTopicId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("sub_topic_id");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -453,47 +601,73 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
+
+                    b.Property<int>("CompetenceLevelId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
+
+                    b.Property<bool>("IsDeleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("OrderIndex")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("order_index");
 
                     b.Property<int>("TopicId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("topic_id");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompetenceLevelId");
 
                     b.HasIndex("TopicId");
 
@@ -504,26 +678,34 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -533,20 +715,29 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("name");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -556,28 +747,38 @@ namespace NexoCPM.Persistence.Migrations
             modelBuilder.Entity("NexoCPM.Domain.Curriculum.Entities.SyllabusContext", b =>
                 {
                     b.Property<int>("SyllabusId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("syllabus_id");
 
                     b.Property<int>("EducationContextId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("education_context_id");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("SyllabusId", "EducationContextId");
 
@@ -590,52 +791,72 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("name");
 
                     b.Property<int>("OrderIndex")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("order_index");
 
                     b.Property<int>("SyllabusId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("syllabus_id");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -648,52 +869,67 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("description");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<int>("OrderIndex")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("order_index");
 
                     b.Property<int>("SyllabusUnitId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("syllabus_unit_id");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -706,40 +942,52 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<int?>("MaxAttempts")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("max_attempts");
 
                     b.Property<int>("NumberQuestions")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("number_questions");
 
                     b.Property<int>("Scope")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("scope");
 
                     b.Property<int?>("TargetId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("target_id");
 
                     b.Property<int?>("TimeLimitSeconds")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("time_limit_seconds");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("title");
 
                     b.Property<int>("Type")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("type");
 
                     b.HasKey("Id");
 
@@ -755,33 +1003,47 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AssessmentId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("assessment_id");
 
                     b.Property<int>("CorrectAnswers")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("correct_answers");
 
                     b.Property<DateTime>("FinishedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("finished_at");
 
                     b.Property<int>("Score")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("score");
+
+                    b.Property<int>("StarsEarned")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("stars_earned");
 
                     b.Property<DateTime>("StartedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("started_at");
 
                     b.Property<int>("TotalQuestions")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("total_questions");
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserLearningContextId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_learning_context_id");
 
                     b.HasKey("Id");
 
@@ -791,34 +1053,41 @@ namespace NexoCPM.Persistence.Migrations
 
                     b.HasIndex("UserLearningContextId");
 
-                    b.ToTable("ncp_assesment_attempt", (string)null);
+                    b.ToTable("ncp_assessment_attempt", (string)null);
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Evaluations.Entities.AssessmentAttemptQuestion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("AnsweredAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("answered_at");
 
                     b.Property<int>("AssessmentAttemptId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("assessment_attempt_id");
 
                     b.Property<int>("OrderIndex")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("order_index");
 
                     b.Property<int>("QuestionId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("question_id");
 
                     b.Property<int>("SecondsSpent")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("seconds_spent");
 
                     b.Property<int?>("SelectedOptionId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("selected_option_id");
 
                     b.HasKey("Id");
 
@@ -836,19 +1105,23 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("IsCorrect")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasColumnName("is_correct");
 
                     b.Property<int>("QuestionId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("question_id");
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("text");
 
                     b.HasKey("Id");
 
@@ -861,50 +1134,70 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Explanation")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("explanation");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<int>("SubTopicId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("sub_topic_id");
 
                     b.Property<int>("TotalAttempts")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("total_attempts");
 
                     b.Property<int>("TotalCorrect")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("total_correct");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.HasKey("Id");
 
@@ -920,27 +1213,33 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("content");
 
                     b.Property<int>("OrderIndex")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("order_index");
 
                     b.Property<int>("QuestionId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("question_id");
 
                     b.Property<int>("Type")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("type");
 
                     b.HasKey("Id");
 
@@ -956,7 +1255,8 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -974,27 +1274,38 @@ namespace NexoCPM.Persistence.Migrations
 
                     b.Property<string>("Description")
                         .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(1000)")
+                        .HasColumnName("description");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<int>("LikesCount")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("likes_count");
 
                     b.Property<int>("PublicScore")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("public_score");
 
                     b.Property<int?>("SubTopicId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("sub_topic_id");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("title");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -1004,10 +1315,12 @@ namespace NexoCPM.Persistence.Migrations
 
                     b.Property<string>("Url")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("url");
 
                     b.Property<int>("ViewsCount")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("views_count");
 
                     b.HasKey("Id");
 
@@ -1019,10 +1332,12 @@ namespace NexoCPM.Persistence.Migrations
             modelBuilder.Entity("NexoCPM.Domain.Resources.Entities.ResourceLike", b =>
                 {
                     b.Property<int>("ResourceId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("resource_id");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.HasKey("ResourceId", "UserId");
 
@@ -1035,93 +1350,124 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("AvatarUrl")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("avatar_url");
 
                     b.Property<string>("Bio")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("bio");
 
                     b.Property<string>("Code")
                         .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("code");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("date_of_birth");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("email");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("first_name");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<bool>("IsVerified")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_verified");
 
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("last_name");
 
                     b.Property<string>("LinkedInProfile")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("linkedin_profile");
 
                     b.Property<string>("Location")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(200)")
+                        .HasColumnName("location");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("password_hash");
 
                     b.Property<string>("PhoneNumber")
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("phone_number");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasColumnName("user_name");
 
                     b.Property<string>("UserRole")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("user_role");
 
                     b.HasKey("Id");
 
@@ -1137,43 +1483,83 @@ namespace NexoCPM.Persistence.Migrations
                     b.ToTable("ncp_user", (string)null);
                 });
 
+            modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLeaderboard", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("last_updated")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<int>("TotalStars")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("total_stars");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("ncp_user_leaderboard", (string)null);
+                });
+
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLearningContext", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("is_active");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_deleted");
 
                     b.Property<int>("SyllabusId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("syllabus_id");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.HasKey("Id");
 
@@ -1187,13 +1573,16 @@ namespace NexoCPM.Persistence.Migrations
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserResourceView", b =>
                 {
                     b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.Property<int>("ResourceId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("resource_id");
 
                     b.Property<DateTime>("ViewedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("viewed_at");
 
                     b.HasKey("UserId", "ResourceId");
 
@@ -1202,47 +1591,81 @@ namespace NexoCPM.Persistence.Migrations
                     b.ToTable("ncp_user_resource_view", (string)null);
                 });
 
+            modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserSubTopicView", b =>
+                {
+                    b.Property<int>("UserSyllabusUnitProgressId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_syllabus_unit_progress_id");
+
+                    b.Property<int>("SubTopicId")
+                        .HasColumnType("int")
+                        .HasColumnName("sub_topic_id");
+
+                    b.Property<bool>("IsViewed")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_viewed");
+
+                    b.Property<DateTime?>("ViewedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("viewed_at");
+
+                    b.HasKey("UserSyllabusUnitProgressId", "SubTopicId");
+
+                    b.HasIndex("SubTopicId");
+
+                    b.ToTable("ncp_user_sub_topic_view", (string)null);
+                });
+
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserSyllabusProgress", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<DateTime>("LastAccess")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("last_access");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("status");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.Property<int>("UserLearningContextId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_learning_context_id");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.HasIndex("UserLearningContextId")
                         .IsUnique();
@@ -1254,57 +1677,68 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("Attempts")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("attempts");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("created_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("created_by");
 
                     b.Property<DateTime?>("DeletedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("deleted_at");
 
                     b.Property<int?>("DeletedBy")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("deleted_by");
 
                     b.Property<DateTime>("LastAttemptAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("last_attempt_at");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("status");
 
                     b.Property<int>("SyllabusUnitId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("syllabus_unit_id");
 
                     b.Property<int>("TotalCorrect")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("total_correct");
 
                     b.Property<int>("TotalQuestions")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("total_questions");
 
                     b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime2")
+                        .HasColumnName("updated_at");
 
                     b.Property<int?>("UpdatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("updated_by");
 
                     b.Property<int>("UserSyllabusProgressId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("user_syllabus_progress_id");
 
                     b.HasKey("Id");
 
                     b.HasIndex("SyllabusUnitId");
-
-                    b.HasIndex("UserId");
 
                     b.HasIndex("UserSyllabusProgressId", "SyllabusUnitId")
                         .IsUnique();
@@ -1318,7 +1752,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("EmailVerificationTokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_email_verification_token_user");
 
                     b.Navigation("User");
                 });
@@ -1329,7 +1764,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("RefreshTokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_refresh_token_user");
 
                     b.Navigation("User");
                 });
@@ -1340,28 +1776,10 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("CompetenceLevels")
                         .HasForeignKey("CompetenceId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_competence_level_competence");
 
                     b.Navigation("Competence");
-                });
-
-            modelBuilder.Entity("NexoCPM.Domain.Context.Entities.CompetenceLevelUnit", b =>
-                {
-                    b.HasOne("NexoCPM.Domain.Context.Entities.CompetenceLevel", "CompetenceLevel")
-                        .WithMany("CompetenceLevelUnits")
-                        .HasForeignKey("CompetenceLevelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NexoCPM.Domain.Curriculum.Entities.SyllabusUnit", "SyllabusUnit")
-                        .WithMany("CompetenceLevelUnits")
-                        .HasForeignKey("SyllabusUnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CompetenceLevel");
-
-                    b.Navigation("SyllabusUnit");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Context.Entities.EducationContext", b =>
@@ -1370,12 +1788,15 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("EducationContexts")
                         .HasForeignKey("LevelId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_education_context_level");
 
                     b.HasOne("NexoCPM.Domain.Context.Entities.Specialization", "Specialization")
                         .WithMany("EducationContexts")
                         .HasForeignKey("SpecializationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_education_context_specialization");
 
                     b.Navigation("Level");
 
@@ -1388,7 +1809,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("Levels")
                         .HasForeignKey("ModalityId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_level_modality");
 
                     b.Navigation("Modality");
                 });
@@ -1399,18 +1821,29 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("MicroTopics")
                         .HasForeignKey("SubTopicId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_micro_topic_sub_topic");
 
                     b.Navigation("SubTopic");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Curriculum.Entities.SubTopic", b =>
                 {
+                    b.HasOne("NexoCPM.Domain.Context.Entities.CompetenceLevel", "CompetenceLevel")
+                        .WithMany("SubTopics")
+                        .HasForeignKey("CompetenceLevelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_sub_topic_competence_level");
+
                     b.HasOne("NexoCPM.Domain.Curriculum.Entities.Topic", "Topic")
                         .WithMany("SubTopics")
                         .HasForeignKey("TopicId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_sub_topic_topic");
+
+                    b.Navigation("CompetenceLevel");
 
                     b.Navigation("Topic");
                 });
@@ -1421,13 +1854,15 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("SyllabusContexts")
                         .HasForeignKey("EducationContextId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_syllabus_context_education_context");
 
                     b.HasOne("NexoCPM.Domain.Curriculum.Entities.Syllabus", "Syllabus")
                         .WithMany("SyllabusContexts")
                         .HasForeignKey("SyllabusId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_syllabus_context_syllabus");
 
                     b.Navigation("EducationContext");
 
@@ -1440,7 +1875,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("SyllabusUnits")
                         .HasForeignKey("SyllabusId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_syllabus_unit_syllabus");
 
                     b.Navigation("Syllabus");
                 });
@@ -1451,7 +1887,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("Topics")
                         .HasForeignKey("SyllabusUnitId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_topic_syllabus_unit");
 
                     b.Navigation("SyllabusUnit");
                 });
@@ -1462,7 +1899,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("AssessmentAttempts")
                         .HasForeignKey("AssessmentId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_assessment_attempt_assessment");
 
                     b.HasOne("NexoCPM.Domain.Users.Entities.User", null)
                         .WithMany("AssessmentAttempts")
@@ -1472,7 +1910,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("AssessmentAttempts")
                         .HasForeignKey("UserLearningContextId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_assessment_attempt_user_learning_context");
 
                     b.Navigation("Assessment");
 
@@ -1485,18 +1924,21 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("AssessmentAttemptQuestions")
                         .HasForeignKey("AssessmentAttemptId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_assessment_attempt_question_assessment_attempt");
 
                     b.HasOne("NexoCPM.Domain.Evaluations.Entities.Question", "Question")
                         .WithMany("AssessmentAttemptQuestions")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_assessment_attempt_question_question");
 
                     b.HasOne("NexoCPM.Domain.Evaluations.Entities.Option", "SelectedOption")
                         .WithMany("AssessmentAttemptQuestions")
                         .HasForeignKey("SelectedOptionId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("fk_assessment_attempt_question_selected_option");
 
                     b.Navigation("AssessmentAttempt");
 
@@ -1511,7 +1953,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("Options")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_option_question");
 
                     b.Navigation("Question");
                 });
@@ -1522,7 +1965,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("Questions")
                         .HasForeignKey("SubTopicId")
                         .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_question_sub_topic");
 
                     b.Navigation("SubTopic");
                 });
@@ -1533,7 +1977,8 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("QuestionContentBlocks")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_question_content_block_question");
 
                     b.Navigation("Question");
                 });
@@ -1543,7 +1988,8 @@ namespace NexoCPM.Persistence.Migrations
                     b.HasOne("NexoCPM.Domain.Curriculum.Entities.SubTopic", "SubTopic")
                         .WithMany("Resources")
                         .HasForeignKey("SubTopicId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasConstraintName("fk_resource_sub_topic");
 
                     b.Navigation("SubTopic");
                 });
@@ -1554,15 +2000,29 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("ResourceLikes")
                         .HasForeignKey("ResourceId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_resource_like_resource");
 
                     b.HasOne("NexoCPM.Domain.Users.Entities.User", "User")
                         .WithMany("ResourceLikes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_resource_like_user");
 
                     b.Navigation("Resource");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLeaderboard", b =>
+                {
+                    b.HasOne("NexoCPM.Domain.Users.Entities.User", "User")
+                        .WithOne("UserLeaderboard")
+                        .HasForeignKey("NexoCPM.Domain.Users.Entities.UserLeaderboard", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_leaderboard_user");
 
                     b.Navigation("User");
                 });
@@ -1573,13 +2033,15 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("UserLearningContexts")
                         .HasForeignKey("SyllabusId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_user_learning_context_syllabus");
 
                     b.HasOne("NexoCPM.Domain.Users.Entities.User", "User")
                         .WithMany("UserLearningContexts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_user_learning_context_user");
 
                     b.Navigation("Syllabus");
 
@@ -1592,30 +2054,50 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("UserResourceViews")
                         .HasForeignKey("ResourceId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_user_resource_view_resource");
 
                     b.HasOne("NexoCPM.Domain.Users.Entities.User", "User")
                         .WithMany("UserResourceViews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_user_resource_view_user");
 
                     b.Navigation("Resource");
 
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserSubTopicView", b =>
+                {
+                    b.HasOne("NexoCPM.Domain.Curriculum.Entities.SubTopic", "SubTopic")
+                        .WithMany("UserSubTopicViews")
+                        .HasForeignKey("SubTopicId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_sub_topic_view_sub_topic");
+
+                    b.HasOne("NexoCPM.Domain.Users.Entities.UserSyllabusUnitProgress", "UserSyllabusUnitProgress")
+                        .WithMany("UserSubTopicViews")
+                        .HasForeignKey("UserSyllabusUnitProgressId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_sub_topic_view_unit_progress");
+
+                    b.Navigation("SubTopic");
+
+                    b.Navigation("UserSyllabusUnitProgress");
+                });
+
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserSyllabusProgress", b =>
                 {
-                    b.HasOne("NexoCPM.Domain.Users.Entities.User", null)
-                        .WithMany("UserSyllabusProgresses")
-                        .HasForeignKey("UserId");
-
                     b.HasOne("NexoCPM.Domain.Users.Entities.UserLearningContext", "UserLearningContext")
                         .WithOne("UserSyllabusProgress")
                         .HasForeignKey("NexoCPM.Domain.Users.Entities.UserSyllabusProgress", "UserLearningContextId")
                         .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_user_syllabus_progress_user_learning_context");
 
                     b.Navigation("UserLearningContext");
                 });
@@ -1626,16 +2108,15 @@ namespace NexoCPM.Persistence.Migrations
                         .WithMany("UserSyllabusUnitProgresses")
                         .HasForeignKey("SyllabusUnitId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NexoCPM.Domain.Users.Entities.User", null)
-                        .WithMany("UserSyllabusUnitProgresses")
-                        .HasForeignKey("UserId");
+                        .IsRequired()
+                        .HasConstraintName("fk_user_syllabus_unit_progress_syllabus_unit");
 
                     b.HasOne("NexoCPM.Domain.Users.Entities.UserSyllabusProgress", "UserSyllabusProgress")
-                        .WithMany()
+                        .WithMany("UserSyllabusUnitProgresses")
                         .HasForeignKey("UserSyllabusProgressId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("fk_user_syllabus_unit_progress_user_syllabus_progress");
 
                     b.Navigation("SyllabusUnit");
 
@@ -1649,7 +2130,7 @@ namespace NexoCPM.Persistence.Migrations
 
             modelBuilder.Entity("NexoCPM.Domain.Context.Entities.CompetenceLevel", b =>
                 {
-                    b.Navigation("CompetenceLevelUnits");
+                    b.Navigation("SubTopics");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Context.Entities.EducationContext", b =>
@@ -1679,6 +2160,8 @@ namespace NexoCPM.Persistence.Migrations
                     b.Navigation("Questions");
 
                     b.Navigation("Resources");
+
+                    b.Navigation("UserSubTopicViews");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Curriculum.Entities.Syllabus", b =>
@@ -1692,8 +2175,6 @@ namespace NexoCPM.Persistence.Migrations
 
             modelBuilder.Entity("NexoCPM.Domain.Curriculum.Entities.SyllabusUnit", b =>
                 {
-                    b.Navigation("CompetenceLevelUnits");
-
                     b.Navigation("Topics");
 
                     b.Navigation("UserSyllabusUnitProgresses");
@@ -1745,13 +2226,12 @@ namespace NexoCPM.Persistence.Migrations
 
                     b.Navigation("ResourceLikes");
 
+                    b.Navigation("UserLeaderboard")
+                        .IsRequired();
+
                     b.Navigation("UserLearningContexts");
 
                     b.Navigation("UserResourceViews");
-
-                    b.Navigation("UserSyllabusProgresses");
-
-                    b.Navigation("UserSyllabusUnitProgresses");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserLearningContext", b =>
@@ -1760,6 +2240,16 @@ namespace NexoCPM.Persistence.Migrations
 
                     b.Navigation("UserSyllabusProgress")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserSyllabusProgress", b =>
+                {
+                    b.Navigation("UserSyllabusUnitProgresses");
+                });
+
+            modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserSyllabusUnitProgress", b =>
+                {
+                    b.Navigation("UserSubTopicViews");
                 });
 #pragma warning restore 612, 618
         }

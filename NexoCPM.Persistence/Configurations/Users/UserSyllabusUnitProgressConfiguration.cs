@@ -54,7 +54,7 @@ public class UserSyllabusUnitProgressConfiguration : IEntityTypeConfiguration<Us
                .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(usup => usup.UserSyllabusProgress)
-               .WithMany()
+               .WithMany(usp => usp.UserSyllabusUnitProgresses)
                .HasForeignKey(usup => usup.UserSyllabusProgressId)
                .HasConstraintName("fk_user_syllabus_unit_progress_user_syllabus_progress")
                .OnDelete(DeleteBehavior.Cascade);

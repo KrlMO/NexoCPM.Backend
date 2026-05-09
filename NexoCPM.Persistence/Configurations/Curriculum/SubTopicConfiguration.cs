@@ -82,5 +82,11 @@ public class SubTopicConfiguration : IEntityTypeConfiguration<SubTopic>
                .HasForeignKey(r => r.SubTopicId)
                .HasConstraintName("fk_resource_sub_topic")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(st => st.CompetenceLevel)
+            .WithMany(cl => cl.SubTopics)
+            .HasForeignKey(cl => cl.CompetenceLevelId)
+            .HasConstraintName("fk_sub_topic_competence_level")
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

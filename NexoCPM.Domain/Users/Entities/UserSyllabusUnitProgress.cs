@@ -21,6 +21,7 @@ namespace NexoCPM.Domain.Users.Entities
 
         public SyllabusUnit SyllabusUnit { get; private set; } = null!;
         public UserSyllabusProgress UserSyllabusProgress { get; private set; } = null!;
+        public ICollection<UserSubTopicView> UserSubTopicViews { get; private set; } = new HashSet<UserSubTopicView>();
 
         public UserSyllabusUnitProgress() { }
     }

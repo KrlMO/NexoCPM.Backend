@@ -29,8 +29,6 @@ namespace NexoCPM.Domain.Users.Entities
         public bool IsVerified { get; private set; } = false;
         public bool IsDeleted { get; private set; } = false;
 
-        public ICollection<UserSyllabusUnitProgress> UserSyllabusUnitProgresses { get; set; } = new List<UserSyllabusUnitProgress>();
-        public ICollection<UserSyllabusProgress> UserSyllabusProgresses { get; set; } = new HashSet<UserSyllabusProgress>();
         public ICollection<UserResourceView> UserResourceViews { get; set; } = new HashSet<UserResourceView>();
         public ICollection<AssessmentAttempt> AssessmentAttempts { get; set; } = new HashSet<AssessmentAttempt>();
         public ICollection<RefreshToken> RefreshTokens { get; set; } = new HashSet<RefreshToken>();

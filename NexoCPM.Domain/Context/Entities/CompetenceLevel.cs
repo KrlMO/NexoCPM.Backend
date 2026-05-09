@@ -1,4 +1,5 @@
 ﻿using NexoCPM.Domain.Common;
+using NexoCPM.Domain.Curriculum.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +14,7 @@ namespace NexoCPM.Domain.Context.Entities
         public int LevelNumber { get; private set; }
         public string Description { get; private set; } = string.Empty;
 
-        public ICollection<CompetenceLevelUnit> CompetenceLevelUnits { get; private set; } = new HashSet<CompetenceLevelUnit>();
+        public ICollection<SubTopic> SubTopics { get; private set; } = new HashSet<SubTopic>();
 
         public Competence Competence { get; private set; } = null!;
 

@@ -1,9 +1,7 @@
 ﻿using NexoCPM.Domain.Common;
-using NexoCPM.Domain.Curriculum.Entities;
 using NexoCPM.Domain.Users.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NexoCPM.Domain.Users.Entities
 {
@@ -15,6 +13,7 @@ namespace NexoCPM.Domain.Users.Entities
         public UserProgressStatus Status { get; private set; } 
 
         public UserLearningContext UserLearningContext { get; private set; } = null!;
+        public ICollection<UserSyllabusUnitProgress> UserSyllabusUnitProgresses { get; private set; } = new HashSet<UserSyllabusUnitProgress>();
 
         public UserSyllabusProgress() { }
     }

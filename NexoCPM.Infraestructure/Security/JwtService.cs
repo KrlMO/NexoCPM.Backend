@@ -43,5 +43,26 @@ namespace NexoCPM.Infraestructure.Security
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public ClaimsPrincipal DecodeToken(string token)
+        {
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secret));
+
+            var handler = new JwtSecurityTokenHandler();
+
+            var result = handler.ValidateToken(token, new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidIssuer = "nexo",
+                ValidateAudience = true,
+                ValidAudience = "nexo",
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = key,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            }, out _);
+
+            return result;
+        }
     }
 }

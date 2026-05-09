@@ -58,6 +58,7 @@ namespace NexoCPM.Persistence.Context
         public DbSet<UserSyllabusProgress> UserSyllabusProgresses => Set<UserSyllabusProgress>();
 
         public DbSet<UserSyllabusUnitProgress> UserSyllabusUnitProgresses => Set<UserSyllabusUnitProgress>();
+        public DbSet<UserSubTopicView> UserSubTopicViews => Set<UserSubTopicView>();
 
         public DbSet<Option> Options => Set<Option>();
 
@@ -65,10 +66,9 @@ namespace NexoCPM.Persistence.Context
 
         public DbSet<CompetenceLevel> CompetenceLevels => Set<CompetenceLevel>();
 
-        public DbSet<CompetenceLevelUnit> CompetenceLevelUnits => Set<CompetenceLevelUnit>();
-
         public DbSet<MicroTopic> MicroTopics => Set<MicroTopic>();
         public DbSet<QuestionContentBlock> QuestionContentBlocks => Set<QuestionContentBlock>();
+        public DbSet<OptionBlock> OptionBlocks => Set<OptionBlock>();
 
         public DbSet<ResourceLike> ResourceLikes => Set<ResourceLike>();
 

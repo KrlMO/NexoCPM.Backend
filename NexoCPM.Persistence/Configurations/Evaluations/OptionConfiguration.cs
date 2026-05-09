@@ -15,9 +15,10 @@ public class OptionConfiguration : IEntityTypeConfiguration<Option>
                .HasColumnName("id")
                .ValueGeneratedOnAdd();
 
-        builder.Property(o => o.Text)
-               .HasColumnName("text")
-               .IsRequired();
+        builder.Property(o => o.Label)
+               .HasColumnName("label")
+               .IsRequired()
+               .HasMaxLength(10);
 
         builder.Property(o => o.IsCorrect)
                .HasColumnName("is_correct")

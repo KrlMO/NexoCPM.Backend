@@ -61,5 +61,11 @@ public class CompetenceLevelConfiguration : IEntityTypeConfiguration<CompetenceL
                .HasForeignKey(t => t.CompetenceId)
                .HasConstraintName("fk_competence_level_competence")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasMany(cl => cl.SubTopics)
+            .WithOne(st => st.CompetenceLevel)
+            .HasForeignKey(cl => cl.CompetenceLevelId)
+            .HasConstraintName("fk_competence_level_subtopic")
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }

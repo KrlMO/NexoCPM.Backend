@@ -20,7 +20,6 @@ namespace NexoCPM.Application.Interfaces
         //Context
         DbSet<Competence> Competences { get; }
         DbSet<CompetenceLevel> CompetenceLevels { get; }
-        DbSet<CompetenceLevelUnit> CompetenceLevelUnits { get; }
         DbSet<EducationContext> EducationContexts { get; }
         DbSet<Level> Levels { get; }
         DbSet<Modality> Modalities { get; }
@@ -41,6 +40,7 @@ namespace NexoCPM.Application.Interfaces
         DbSet<Option> Options{ get; }
         DbSet<Question> Questions { get; }
         DbSet<QuestionContentBlock> QuestionContentBlocks { get; }
+        DbSet<OptionBlock> OptionBlocks { get; }
 
         //Resources
         DbSet<Resource> Resources { get; }
@@ -52,6 +52,7 @@ namespace NexoCPM.Application.Interfaces
         DbSet<UserResourceView> UserResourceViews { get; }
         DbSet<UserSyllabusProgress> UserSyllabusProgresses { get; }
         DbSet<UserSyllabusUnitProgress> UserSyllabusUnitProgresses { get; }
+        DbSet<UserSubTopicView> UserSubTopicViews { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

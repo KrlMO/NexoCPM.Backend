@@ -76,11 +76,5 @@ public class SyllabusUnitConfiguration : IEntityTypeConfiguration<SyllabusUnit>
                .HasForeignKey(usp => usp.SyllabusUnitId)
                .HasConstraintName("fk_user_syllabus_unit_progress_syllabus_unit")
                .OnDelete(DeleteBehavior.Cascade);
-
-        builder.HasMany(su => su.CompetenceLevelUnits)
-               .WithOne(clu => clu.SyllabusUnit)
-               .HasForeignKey(clu => clu.SyllabusUnitId)
-               .HasConstraintName("fk_competence_level_unit_syllabus_unit")
-               .OnDelete(DeleteBehavior.Cascade);
     }
 }

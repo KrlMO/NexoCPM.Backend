@@ -19,7 +19,6 @@ namespace NexoCPM.Domain.Curriculum.Entities
         public bool IsActive { get; private set; } = true;
         public bool IsDeleted { get; private set; } = false;
         public ICollection<UserSyllabusUnitProgress> UserSyllabusUnitProgresses { get; private set; } = new HashSet<UserSyllabusUnitProgress>();
-        public ICollection<CompetenceLevelUnit> CompetenceLevelUnits { get; private set; } = new HashSet<CompetenceLevelUnit>();
         public ICollection<Topic> Topics { get; private set; } = new HashSet<Topic>();
 
         public Syllabus Syllabus { get; private set; } = null!;
