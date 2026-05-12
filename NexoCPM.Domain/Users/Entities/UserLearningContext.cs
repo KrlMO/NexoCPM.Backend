@@ -23,5 +23,16 @@ namespace NexoCPM.Domain.Users.Entities
 
         public UserLearningContext() { }
 
+        public UserLearningContext(int userId, int syllabusId)
+        {
+            UserId = userId;
+            SyllabusId = syllabusId;
+        }
+
+        public UserLearningContext(int userId, int syllabusId, UserSyllabusProgress progress)
+            : this(userId, syllabusId)
+        {
+            UserSyllabusProgress = progress;
+        }
     }
 }

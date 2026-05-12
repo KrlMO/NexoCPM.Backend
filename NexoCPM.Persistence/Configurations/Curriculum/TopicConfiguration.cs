@@ -18,7 +18,10 @@ public class TopicConfiguration : IEntityTypeConfiguration<Topic>
         builder.Property(t => t.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(t => t.Code)
+            .IsUnique();
 
         builder.Property(t => t.Description)
                .HasColumnName("description")
@@ -55,10 +58,13 @@ public class TopicConfiguration : IEntityTypeConfiguration<Topic>
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
@@ -75,5 +81,14 @@ public class TopicConfiguration : IEntityTypeConfiguration<Topic>
                .HasForeignKey(t => t.TopicId)
                .HasConstraintName("fk_sub_topic_topic")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Property(t => t.Slug)
+            .HasColumnName("slug")
+            .HasMaxLength(100)
+            .IsRequired(true);
+
+        builder.HasIndex(t => t.Slug)
+            .IsUnique();
+
     }
 }

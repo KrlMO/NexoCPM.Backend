@@ -18,7 +18,10 @@ public class MicroTopicConfiguration : IEntityTypeConfiguration<MicroTopic>
         builder.Property(s => s.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(s => s.Code)
+            .IsUnique();
 
         builder.Property(s => s.OrderIndex)
                .HasColumnName("order_index")
@@ -51,10 +54,13 @@ public class MicroTopicConfiguration : IEntityTypeConfiguration<MicroTopic>
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
@@ -65,5 +71,15 @@ public class MicroTopicConfiguration : IEntityTypeConfiguration<MicroTopic>
                .HasForeignKey(s => s.SubTopicId)
                .HasConstraintName("fk_micro_topic_sub_topic")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Property(mt => mt.Slug)
+            .HasColumnName("slug")
+            .HasMaxLength(200)
+            .IsRequired(true);
+
+        builder.HasIndex(mt => mt.Slug)
+            .IsUnique();
+        builder.Property(mt => mt.Description)
+            .HasColumnName("description");
     }
 }

@@ -49,7 +49,7 @@ public class RefreshTokenConfiguration : IEntityTypeConfiguration<RefreshToken>
                .HasColumnName("revoked_at")
                .IsRequired(false);
 
-        builder.HasIndex(rt => rt.Token).IsUnique();
+        builder.HasIndex(rt => rt.Token).IsUnique(true);
 
         builder.HasOne(rt => rt.User)
                .WithMany(u => u.RefreshTokens)

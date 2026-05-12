@@ -1,11 +1,16 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using NexoCPM.Api.Common;
 using NexoCPM.Application.Auth.Commands.Login;
+using NexoCPM.Application.Commons.Ports;
 using NexoCPM.Domain.Common.Exceptions;
 using NexoCPM.Infraestructure;
 using NexoCPM.Persistence;
+using NexoCPM.Persistence.Context;
+using NexoCPM.Persistence.Seeders;
+using NexoCPM.Persistence.Seeders.Runner;
 using System.Text;
 using System.Text.Json;
 
@@ -55,7 +60,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngular", policy =>
     {
         policy
-            .WithOrigins("https://localhost:4200")
+            .WithOrigins("https://localhost:4200", "http://localhost:4200")
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -63,6 +68,25 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+var runImporterOnly = args.Contains("importer");
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var passwordHasher = scope.ServiceProvider.GetRequiredService<IPasswordHasher>();
+
+    if (!runImporterOnly)
+    {
+        await db.Database.MigrateAsync();
+        await DbSeeder.SeedAsync(db, passwordHasher, builder.Configuration);
+    }
+    await JsonCompetenceSeeder.SeedAsync(db);
+    await JsonCurriculumSeeder.SeedAsync(db);
+}
+
+if (runImporterOnly)
+    return;
 
 app.UseExceptionHandler(appError =>
 {

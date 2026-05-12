@@ -29,7 +29,7 @@ public class UserSyllabusProgressConfiguration : IEntityTypeConfiguration<UserSy
                .IsRequired();
 
         builder.HasIndex(usp => usp.UserLearningContextId)
-               .IsUnique();
+               .IsUnique(true);
 
         builder.HasOne(usp => usp.UserLearningContext)
                .WithOne(ulc => ulc.UserSyllabusProgress)
@@ -52,10 +52,13 @@ public class UserSyllabusProgressConfiguration : IEntityTypeConfiguration<UserSy
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+			   .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+			   .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")

@@ -11,6 +11,7 @@ namespace NexoCPM.Domain.Curriculum.Entities
         public int Id { get; private set; }
         public string Code { get; private set; } = string.Empty;
         public int SyllabusUnitId { get; private set; }
+        public string Slug { get; private set; } = string.Empty;
         public string Description { get; private set; } = string.Empty;
         public int OrderIndex { get; private set; }
         public bool IsDeleted { get; private set; } = false;
@@ -21,5 +22,16 @@ namespace NexoCPM.Domain.Curriculum.Entities
         public SyllabusUnit SyllabusUnit { get; private set; } = null!;
 
         public Topic() { }
+
+        public Topic(string code, string slug, string description, int orderIndex, int syllabusUnitId)
+        {
+            Code = code;
+            Slug = slug;
+            Description = description;
+            OrderIndex = orderIndex;
+            SyllabusUnitId = syllabusUnitId;
+            IsActive = true;
+            IsDeleted = false;
+        }
     }
 }

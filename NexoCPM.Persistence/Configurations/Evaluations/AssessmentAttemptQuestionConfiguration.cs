@@ -40,7 +40,7 @@ public class AssessmentAttemptQuestionConfiguration : IEntityTypeConfiguration<A
                .IsRequired();
 
         builder.HasIndex(aaq => new { aaq.AssessmentAttemptId, aaq.QuestionId })
-               .IsUnique();
+               .IsUnique(true);
 
         builder.HasOne(aaq => aaq.AssessmentAttempt)
                .WithMany(aa => aa.AssessmentAttemptQuestions)

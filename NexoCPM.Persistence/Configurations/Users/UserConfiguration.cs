@@ -41,7 +41,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
 
         builder.Property(u => u.FirstName)
                .HasColumnName("first_name")
@@ -103,17 +103,20 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+			   .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+			   .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
                .IsRequired(false);
 
-        builder.HasIndex(u => u.Email).IsUnique();
-        builder.HasIndex(u => u.UserName).IsUnique();
-        builder.HasIndex(u => u.Code).IsUnique();
+        builder.HasIndex(u => u.Email).IsUnique(true);
+        builder.HasIndex(u => u.UserName).IsUnique(true);
+        builder.HasIndex(u => u.Code).IsUnique(true);
     }
 }

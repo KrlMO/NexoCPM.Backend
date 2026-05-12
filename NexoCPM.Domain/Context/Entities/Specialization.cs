@@ -10,6 +10,7 @@ namespace NexoCPM.Domain.Context.Entities
         public int Id { get; private set; }
         public string Code { get; private set; } = string.Empty;
         public string Name { get; private set; } = string.Empty;
+        public string Slug { get; private set; } = string.Empty;
         public string Description { get; private set; } = string.Empty;
         public bool IsActive { get; private set; } = true;
         public bool IsDeleted { get; private set; } = false;

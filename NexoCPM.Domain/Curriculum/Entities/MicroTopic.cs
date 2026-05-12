@@ -11,6 +11,7 @@ namespace NexoCPM.Domain.Curriculum.Entities
         public int Id { get; private set; }
         public int SubTopicId { get; private set; }
         public string Code { get; private set; } = string.Empty;
+        public string Slug { get; private set; } = string.Empty;
         public string Description { get; private set; } = string.Empty;
         public int OrderIndex { get; private set; }
         public bool IsActive { get; private set; } = true;
@@ -20,5 +21,15 @@ namespace NexoCPM.Domain.Curriculum.Entities
 
         public MicroTopic() { }
 
+        public MicroTopic(string code, string slug, string description, int orderIndex, int subTopicId)
+        {
+            Code = code;
+            Slug = slug;
+            Description = description;
+            OrderIndex = orderIndex;
+            SubTopicId = subTopicId;
+            IsActive = true;
+            IsDeleted = false;
+        }
     }
 }

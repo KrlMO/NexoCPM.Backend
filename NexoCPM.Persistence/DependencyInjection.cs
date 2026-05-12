@@ -2,10 +2,16 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NexoCPM.Application.Auth.Ports;
+using NexoCPM.Application.Context.Ports;
+using NexoCPM.Application.Curriculum.Ports;
+using NexoCPM.Application.Evaluations.Ports;
 using NexoCPM.Application.Interfaces;
 using NexoCPM.Application.Users.Ports;
 using NexoCPM.Persistence.Context;
 using NexoCPM.Persistence.Repositories.Auth;
+using NexoCPM.Persistence.Repositories.Context;
+using NexoCPM.Persistence.Repositories.Curriculum;
+using NexoCPM.Persistence.Repositories.Evaluations;
 using NexoCPM.Persistence.Repositories.Users;
 using System;
 using System.Collections.Generic;
@@ -26,10 +32,17 @@ namespace NexoCPM.Persistence
             services.AddScoped<IApplicationDbContext>(provider =>
                 provider.GetRequiredService<ApplicationDbContext>());
 
+            services.AddScoped<IModalityRepository, ModalityRepository>();
+            services.AddScoped<ILevelRepository, LevelRepository>();
+            services.AddScoped<ISpecializationRepository, SpecializationRepository>();
+            services.AddScoped<IAssessmentAttemptRepository, AssessmentAttemptRepository>();
+            services.AddScoped<ISyllabusRepository, SyllabusRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserLeaderboardRepository, UserLeaderboardRepository>();
             services.AddScoped<IUserSubTopicViewRepository, UserSubTopicViewRepository>();
             services.AddScoped<IUserProgressRepository, UserProgressRepository>();
+            services.AddScoped<IUserLearningContextRepository, UserLearningContextRepository>();
+            services.AddScoped<ISyllabusUnitRepository, SyllabusUnitRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IEmailVerificationTokenRepository, EmailVerificationTokenRepository>();
 

@@ -18,15 +18,17 @@ public class CompetenceLevelConfiguration : IEntityTypeConfiguration<CompetenceL
         builder.Property(t => t.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(t => t.Code)
+            .IsUnique();
 
         builder.Property(t => t.LevelNumber)
                .HasColumnName("level_number")
                .IsRequired();
 
         builder.Property(t => t.Description)
-               .HasColumnName("description")
-               .HasMaxLength(500);
+               .HasColumnName("description").IsRequired(false);
 
         builder.Property(t => t.CompetenceId)
                .HasColumnName("competence_id")
@@ -47,10 +49,13 @@ public class CompetenceLevelConfiguration : IEntityTypeConfiguration<CompetenceL
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
@@ -61,11 +66,5 @@ public class CompetenceLevelConfiguration : IEntityTypeConfiguration<CompetenceL
                .HasForeignKey(t => t.CompetenceId)
                .HasConstraintName("fk_competence_level_competence")
                .OnDelete(DeleteBehavior.Cascade);
-
-        builder.HasMany(cl => cl.SubTopics)
-            .WithOne(st => st.CompetenceLevel)
-            .HasForeignKey(cl => cl.CompetenceLevelId)
-            .HasConstraintName("fk_competence_level_subtopic")
-            .OnDelete(DeleteBehavior.Cascade);
     }
 }

@@ -15,4 +15,9 @@
     <ProjectReference Include="..\NexoCPM.Domain\NexoCPM.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Context\Comands\" />
+    <Folder Include="Curriculum\Commands\" />
+  </ItemGroup>
+
 </Project>

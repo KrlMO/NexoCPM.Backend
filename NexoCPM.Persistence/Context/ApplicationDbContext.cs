@@ -23,6 +23,7 @@ namespace NexoCPM.Persistence.Context
 
         public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
+        public DbSet<Ability> Abilities => Set<Ability>();
         public DbSet<Competence> Competences => Set<Competence>();
 
         public DbSet<EducationContext> EducationContexts => Set<EducationContext>();

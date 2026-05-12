@@ -18,7 +18,14 @@ public class SubTopicConfiguration : IEntityTypeConfiguration<SubTopic>
         builder.Property(t => t.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(t => t.Code)
+            .IsUnique();
+
+        builder.Property(sb => sb.Description)
+            .HasColumnName("description")
+            .IsRequired();
 
         builder.Property(t => t.OrderIndex)
                .HasColumnName("order_index")
@@ -50,10 +57,13 @@ public class SubTopicConfiguration : IEntityTypeConfiguration<SubTopic>
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
@@ -83,10 +93,18 @@ public class SubTopicConfiguration : IEntityTypeConfiguration<SubTopic>
                .HasConstraintName("fk_resource_sub_topic")
                .OnDelete(DeleteBehavior.Cascade);
 
-        builder.HasOne(st => st.CompetenceLevel)
+        builder.HasOne(st => st.Competence)
             .WithMany(cl => cl.SubTopics)
-            .HasForeignKey(cl => cl.CompetenceLevelId)
-            .HasConstraintName("fk_sub_topic_competence_level")
-            .OnDelete(DeleteBehavior.Cascade);
+            .HasForeignKey(cl => cl.CompetenceId)
+            .HasConstraintName("fk_sub_topic_competence")
+            .OnDelete(DeleteBehavior.ClientSetNull);
+
+        builder.Property(st => st.Slug)
+            .HasColumnName("slug")
+            .HasMaxLength(100)
+            .IsRequired(true);
+
+        builder.HasIndex(st => st.Slug)
+            .IsUnique();
     }
 }

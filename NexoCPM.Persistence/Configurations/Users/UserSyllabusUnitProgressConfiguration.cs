@@ -45,7 +45,7 @@ public class UserSyllabusUnitProgressConfiguration : IEntityTypeConfiguration<Us
                .IsRequired();
 
         builder.HasIndex(usup => new { usup.UserSyllabusProgressId, usup.SyllabusUnitId })
-               .IsUnique();
+               .IsUnique(true);
 
         builder.HasOne(usup => usup.SyllabusUnit)
                .WithMany(su => su.UserSyllabusUnitProgresses)
@@ -74,10 +74,13 @@ public class UserSyllabusUnitProgressConfiguration : IEntityTypeConfiguration<Us
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+			   .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+			   .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")

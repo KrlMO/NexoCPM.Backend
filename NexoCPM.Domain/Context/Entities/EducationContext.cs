@@ -10,7 +10,7 @@ namespace NexoCPM.Domain.Context.Entities
     {
         public int Id { get; private set; }
         public int LevelId { get; private set; }
-        public int? SpecializationId { get; private set; }
+        public int SpecializationId { get; private set; }
         public bool IsActive { get; private set; } = true;
         public bool IsDeleted { get; private set; } = false;
 

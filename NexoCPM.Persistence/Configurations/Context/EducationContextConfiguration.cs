@@ -17,11 +17,11 @@ public class EducationContextConfiguration : IEntityTypeConfiguration<EducationC
 
         builder.Property(ec => ec.LevelId)
                .HasColumnName("level_id")
-               .IsRequired();
+               .IsRequired(true);
 
         builder.Property(ec => ec.SpecializationId)
                .HasColumnName("specialization_id")
-               .IsRequired();
+               .IsRequired(true);
 
         builder.Property(ec => ec.IsActive)
                .HasColumnName("is_active")
@@ -46,17 +46,20 @@ public class EducationContextConfiguration : IEntityTypeConfiguration<EducationC
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
                .IsRequired(false);
 
         builder.HasIndex(ec => new { ec.LevelId, ec.SpecializationId })
-               .IsUnique();
+               .IsUnique(true);
 
         builder.HasOne(ec => ec.Level)
                .WithMany()

@@ -18,7 +18,10 @@ public class AssessmentConfiguration : IEntityTypeConfiguration<Assessment>
         builder.Property(a => a.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(a => a.Code)
+            .IsUnique();
 
         builder.Property(a => a.Title)
                .HasColumnName("title")
@@ -56,7 +59,7 @@ public class AssessmentConfiguration : IEntityTypeConfiguration<Assessment>
                .HasColumnName("max_attempts")
                .IsRequired(false);
 
-        builder.HasIndex(a => a.Code).IsUnique();
+        builder.HasIndex(a => a.Code).IsUnique(true);
 
         builder.HasMany(a => a.AssessmentAttempts)
                .WithOne(aa => aa.Assessment)

@@ -22,7 +22,10 @@ public class SyllabusConfiguration : IEntityTypeConfiguration<Syllabus>
         builder.Property(s => s.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(s => s.Code)
+            .IsUnique();
 
         builder.Property(s => s.IsActive)
                .HasColumnName("is_active")
@@ -47,10 +50,13 @@ public class SyllabusConfiguration : IEntityTypeConfiguration<Syllabus>
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
@@ -73,5 +79,25 @@ public class SyllabusConfiguration : IEntityTypeConfiguration<Syllabus>
                .HasForeignKey(sc => sc.SyllabusId)
                .HasConstraintName("fk_syllabus_unit_syllabus")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Property(s => s.Slug)
+            .HasColumnName("slug")
+            .HasMaxLength(30)
+            .IsRequired(true);
+
+        builder.HasIndex(s => s.Slug)
+            .IsUnique();
+
+        builder.Property(s => s.EffectYear)
+            .HasColumnName("effect_year")
+            .IsRequired();
+
+        builder.Property(s => s.MinCompetenceLevel)
+            .HasColumnName("min_competence_level")
+            .IsRequired();
+
+        builder.Property(s => s.MaxCompetencLevel)
+            .HasColumnName("max_competence_level")
+            .IsRequired();
     }
 }

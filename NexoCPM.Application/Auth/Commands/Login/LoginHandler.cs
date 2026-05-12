@@ -18,13 +18,15 @@ namespace NexoCPM.Application.Auth.Commands.Login
         private readonly IRefreshTokenRepository _refreshTokenRepository;
         private readonly IJwtService _jwtService;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly ITokenHasher _tokenHasher;
 
-        public LoginHandler(IUserRepository userRepository, IRefreshTokenRepository refreshTokenRepository, IJwtService jwtService, IPasswordHasher passwordHasher)
+        public LoginHandler(IUserRepository userRepository, IRefreshTokenRepository refreshTokenRepository, IJwtService jwtService, IPasswordHasher passwordHasher, ITokenHasher tokenHasher)
         {
             _userRepository = userRepository;
             _refreshTokenRepository = refreshTokenRepository;
             _jwtService = jwtService;
             _passwordHasher = passwordHasher;
+            _tokenHasher = tokenHasher;
         }
 
         public async Task<LoginResult> Handle(LoginCommand request, CancellationToken cancellationToken)
@@ -46,9 +48,12 @@ namespace NexoCPM.Application.Auth.Commands.Login
 
             var accessToken = _jwtService.GenerateToken(user);
 
+            var rawToken = Guid.NewGuid().ToString();
+            var hashedToken = _tokenHasher.Hash(rawToken);
+
             var refreshToken = new Domain.Auth.Entities.RefreshToken(
                 user.Id,
-                Guid.NewGuid().ToString(),
+                hashedToken,
                 DateTime.UtcNow.AddDays(7),
                 request.DeviceInfo,
                 request.IpAddress
@@ -58,7 +63,7 @@ namespace NexoCPM.Application.Auth.Commands.Login
 
             return new LoginResult
             {
-                RefreshToken = refreshToken.Token,
+                RefreshToken = rawToken,
                 AccessToken = accessToken,
                 User = new AuthUserDto
                 {

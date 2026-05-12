@@ -18,11 +18,14 @@ public class ModalityConfiguration : IEntityTypeConfiguration<Modality>
         builder.Property(m => m.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(m => m.Code)
+                .IsUnique(true);
 
         builder.Property(m => m.Name)
                .HasColumnName("name")
-               .IsRequired();
+               .IsRequired(true);
 
         builder.Property(m => m.IsActive)
                .HasColumnName("is_active")
@@ -47,10 +50,13 @@ public class ModalityConfiguration : IEntityTypeConfiguration<Modality>
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
@@ -61,5 +67,13 @@ public class ModalityConfiguration : IEntityTypeConfiguration<Modality>
                .HasForeignKey(l => l.ModalityId)
                .HasConstraintName("fk_level_modality")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Property(m => m.Slug)
+            .HasColumnName("slug")
+            .HasMaxLength(100)
+            .IsRequired(true);
+
+        builder.HasIndex(m => m.Slug)
+            .IsUnique(true);
     }
 }

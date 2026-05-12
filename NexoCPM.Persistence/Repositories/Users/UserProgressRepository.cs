@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using NexoCPM.Application.Users.Dtos;
+using NexoCPM.Application.Commons.Dtos;
 using NexoCPM.Application.Users.Ports;
+using NexoCPM.Domain.Evaluations.Enums;
 using NexoCPM.Persistence.Context;
 
 namespace NexoCPM.Persistence.Repositories.Users;
@@ -14,14 +15,18 @@ public class UserProgressRepository : IUserProgressRepository
         _context = context;
     }
 
-    public async Task<List<GetDashboardSyllabusDto>> GetActiveSyllabusProgressAsync(int userId)
+    public async Task<List<DashboardSyllabusDto>> GetActiveSyllabusProgressAsync(int userId)
     {
         var contexts = await _context.UserLearningContexts
+            .AsNoTracking()
             .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+            .OrderByDescending(ulc => ulc.UserSyllabusProgress.LastAccess)
+            .Take(4)
             .Select(ulc => new
             {
                 SyllabusId = ulc.Syllabus.Id,
                 SyllabusCode = ulc.Syllabus.Code,
+                SyllabusName = ulc.Syllabus.Name,
                 Modality = ulc.Syllabus.SyllabusContexts
                     .Select(sc => sc.EducationContext.Level.Modality.Name)
                     .FirstOrDefault() ?? string.Empty,
@@ -54,13 +59,11 @@ public class UserProgressRepository : IUserProgressRepository
             var sumTotal = c.UnitData.Sum(u => u.TotalSubTopics);
             var sumViewed = c.UnitData.Sum(u => u.ViewedSubTopics);
 
-            return new GetDashboardSyllabusDto
+            return new DashboardSyllabusDto
             {
                 Id = c.SyllabusId,
                 Code = c.SyllabusCode,
-                Modality = c.Modality,
-                Level = c.Level,
-                Speciality = c.Speciality,
+                Name = c.SyllabusName,
                 LastUnitName = c.LastUnitName,
                 CompletedPercentage = sumTotal > 0
                     ? Math.Round((decimal)sumViewed / sumTotal * 100, 2)
@@ -91,5 +94,23 @@ public class UserProgressRepository : IUserProgressRepository
         return sumTotal > 0
             ? Math.Round((decimal)sumViewed / sumTotal * 100, 2)
             : 0m;
+    }
+
+    public async Task<int> GetTestCountAsync(int userId)
+    {
+        return await _context.UserLearningContexts
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+            .SelectMany(ulc => ulc.AssessmentAttempts)
+            .CountAsync(aa =>
+                aa.Assessment.Scope == AssessmentScope.UNIT ||
+                aa.Assessment.Scope == AssessmentScope.SYLLABUS);
+    }
+
+    public async Task<int> GetSimulationCountAsync(int userId)
+    {
+        return await _context.UserLearningContexts
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+            .SelectMany(ulc => ulc.AssessmentAttempts)
+            .CountAsync(aa => aa.Assessment.Scope == AssessmentScope.SIMULATION);
     }
 }

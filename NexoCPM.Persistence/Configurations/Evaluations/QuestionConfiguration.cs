@@ -18,7 +18,10 @@ public class QuestionConfiguration : IEntityTypeConfiguration<Question>
         builder.Property(q => q.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(q => q.Code)
+            .IsUnique();
 
         builder.Property(q => q.Explanation)
                .HasColumnName("explanation")
@@ -47,7 +50,7 @@ public class QuestionConfiguration : IEntityTypeConfiguration<Question>
                .IsRequired();
 
         builder.HasIndex(q => q.Code)
-               .IsUnique();
+               .IsUnique(true);
 
         builder.Property(t => t.CreatedAt)
                .HasColumnName("created_at")
@@ -64,10 +67,13 @@ public class QuestionConfiguration : IEntityTypeConfiguration<Question>
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+			   .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+			   .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")

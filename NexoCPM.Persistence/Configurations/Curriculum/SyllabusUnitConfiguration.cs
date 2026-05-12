@@ -17,8 +17,11 @@ public class SyllabusUnitConfiguration : IEntityTypeConfiguration<SyllabusUnit>
 
         builder.Property(su => su.Code)
                .HasColumnName("code")
-               .IsRequired()
-               .HasMaxLength(20);
+               .IsRequired(true)
+               .HasMaxLength(50);
+
+        builder.HasIndex(su => su.Code)
+            .IsUnique();
 
         builder.Property(su => su.Name)
                .HasColumnName("name")
@@ -56,10 +59,13 @@ public class SyllabusUnitConfiguration : IEntityTypeConfiguration<SyllabusUnit>
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
@@ -76,5 +82,18 @@ public class SyllabusUnitConfiguration : IEntityTypeConfiguration<SyllabusUnit>
                .HasForeignKey(usp => usp.SyllabusUnitId)
                .HasConstraintName("fk_user_syllabus_unit_progress_syllabus_unit")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Property(su => su.Slug)
+            .HasColumnName("slug")
+            .HasMaxLength(100)
+            .IsRequired(true);
+
+        builder.HasIndex(su => su.Slug)
+            .IsUnique();
+
+        builder.Property(su => su.Description)
+            .HasColumnName("description")
+            .HasMaxLength(200)
+            .IsRequired(false);
     }
 }

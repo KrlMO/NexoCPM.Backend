@@ -1,0 +1,1967 @@
+[
+  {
+    "code": "C01-2026",
+    "name": "Construye su identidad",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C01A1-2026",
+        "name": "Se valora a sí mismo",
+        "description": ""
+      },
+      {
+        "code": "C01A2-2026",
+        "name": "Autorregula sus emociones",
+        "description": ""
+      },
+      {
+        "code": "C01A3-2026",
+        "name": "Reflexiona y argumenta éticamente",
+        "description": ""
+      },
+      {
+        "code": "C01A4-2026",
+        "name": "Vive su sexualidad de manera integral y responsable de acuerdo a su etapa, de desarrollo, y madurez",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C01N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C01N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C01N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C01N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C01N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C01N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C01N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C01N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C02-2026",
+    "name": "Se desenvuelve de manera autónoma a través de su motricidad.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C02A1-2026",
+        "name": "Comprende su cuerpo",
+        "description": ""
+      },
+      {
+        "code": "C02A2-2026",
+        "name": "Se expresa corporalmente",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C02N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C02N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C02N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C02N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C02N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C02N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C02N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C02N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C03-2026",
+    "name": "Asume una vida saludable.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C03A1-2026",
+        "name": "Comprende las relaciones entre la actividad física, alimentación, postura e higiene personal y del ambiente, y la salud",
+        "description": ""
+      },
+      {
+        "code": "C03A2-2026",
+        "name": "Incorpora prácticas que mejoran su calidad de vida",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C03N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C03N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C03N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C03N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C03N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C03N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C03N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C03N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C04-2026",
+    "name": "Interactúa a través de sus habilidades sociomotrices",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C04A1-2026",
+        "name": "Se relaciona utilizando sus habilidades sociomotrices",
+        "description": ""
+      },
+      {
+        "code": "C04A2-2026",
+        "name": "Crea y aplica estrategias y tácticas de juego",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C04N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C04N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C04N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C04N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C04N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C04N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C04N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C04N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C05-2026",
+    "name": "Aprecia de manera crítica manifestaciones artístico-culturales.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C05A1-2026",
+        "name": "Percibe manifestaciones artístico-culturales",
+        "description": ""
+      },
+      {
+        "code": "C05A2-2026",
+        "name": "Contextualiza las manifestaciones culturales",
+        "description": ""
+      },
+      {
+        "code": "C05A3-2026",
+        "name": "Reflexiona creativa y críticamente",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C05N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C05N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C05N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C05N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C05N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C05N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C05N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C05N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C06-2026",
+    "name": "Crea proyectos desde los lenguajes artísticos.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C06A1-2026",
+        "name": "Explora y experimenta los lenguajes del arte",
+        "description": ""
+      },
+      {
+        "code": "C06A2-2026",
+        "name": "Aplica procesos creativos",
+        "description": ""
+      },
+      {
+        "code": "C06A3-2026",
+        "name": "Evalúa y socializa sus procesos y proyectos",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C06N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C06N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C06N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C06N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C06N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C06N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C06N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C06N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C07-2026",
+    "name": "Se comunica oralmente en su lengua materna.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C07A1-2026",
+        "name": "Obtiene información del texto oral",
+        "description": ""
+      },
+      {
+        "code": "C07A2-2026",
+        "name": "Infiere e interpreta información del texto oral",
+        "description": ""
+      },
+      {
+        "code": "C07A3-2026",
+        "name": "Adecúa, organiza y desarrolla las ideas de forma coherente y cohesionada",
+        "description": ""
+      },
+      {
+        "code": "C07A4-2026",
+        "name": "Utiliza recursos no verbales y paraverbales de forma estratégica",
+        "description": ""
+      },
+      {
+        "code": "C07A5-2026",
+        "name": "Interactúa estratégicamente con distintos interlocutores",
+        "description": ""
+      },
+      {
+        "code": "C07A6-2026",
+        "name": "Reflexiona y evalúa la forma, el contenido y contexto del texto oral",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C07N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C07N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C07N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C07N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C07N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C07N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C07N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C07N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C08-2026",
+    "name": "Lee diversos tipos de textos escritos en su lengua materna.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C08A1-2026",
+        "name": "Obtiene información del texto oral",
+        "description": ""
+      },
+      {
+        "code": "C08A2-2026",
+        "name": "Infiere e interpreta información del texto",
+        "description": ""
+      },
+      {
+        "code": "C08A3-2026",
+        "name": "Reflexiona y evalúa la forma, el contenido y contexto del texto",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C08N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C08N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C08N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C08N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C08N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C08N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C08N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C08N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C09-2026",
+    "name": "Escribe diversos tipos de textos en su lengua materna.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C09A1-2026",
+        "name": "Adecúa el texto a la situación comunicativa",
+        "description": ""
+      },
+      {
+        "code": "C09A2-2026",
+        "name": "Organiza y desarrolla las ideas de forma coherente y cohesionada",
+        "description": ""
+      },
+      {
+        "code": "C09A3-2026",
+        "name": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+        "description": ""
+      },
+      {
+        "code": "C09A4-2026",
+        "name": "Reflexiona y evalúa la forma, el contenido y contexto del texto escrito",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C09N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C09N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C09N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C09N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C09N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C09N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C09N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C09N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C10-2026",
+    "name": "Se comunica oralmente en castellano como segunda lengua.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C10A1-2026",
+        "name": "Obtiene información del texto oral",
+        "description": ""
+      },
+      {
+        "code": "C10A2-2026",
+        "name": "Infiere e interpreta información del texto oral",
+        "description": ""
+      },
+      {
+        "code": "C10A3-2026",
+        "name": "Adecúa, organiza y desarrolla el texto de forma coherente y cohesionada",
+        "description": ""
+      },
+      {
+        "code": "C10A4-2026",
+        "name": "Utiliza recursos no verbales y paraverbales de forma estratégica",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C10N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C10N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C10N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C10N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C10N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C10N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C10N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C10N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C11-2026",
+    "name": "Lee textos escritos en castellano como segunda lengua.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C11A1-2026",
+        "name": "Obtiene información del texto oral",
+        "description": ""
+      },
+      {
+        "code": "C11A2-2026",
+        "name": "Infiere e interpreta información del texto",
+        "description": ""
+      },
+      {
+        "code": "C11A3-2026",
+        "name": "Reflexiona y evalúa la forma, el contenido y contexto del texto",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C11N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C11N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C11N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C11N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C11N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C11N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C11N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C11N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C12-2026",
+    "name": "Escribe diversos tipos de textos en castellano como segunda lengua.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C12A1-2026",
+        "name": "Adecúa el texto a la situación comunicativa",
+        "description": ""
+      },
+      {
+        "code": "C12A2-2026",
+        "name": "Organiza y desarrolla las ideas de forma coherente y cohesionada",
+        "description": ""
+      },
+      {
+        "code": "C12A3-2026",
+        "name": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+        "description": ""
+      },
+      {
+        "code": "C12A4-2026",
+        "name": "Reflexiona y evalúa la forma, el contenido y contexto del texto escrito",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C12N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C12N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C12N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C12N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C12N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C12N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C12N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C12N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C13-2026",
+    "name": "Se comunica oralmente en su lengua materna.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C13A1-2026",
+        "name": "Obtiene información de textos orales",
+        "description": ""
+      },
+      {
+        "code": "C13A2-2026",
+        "name": "Infiere e interpreta información de textos orales",
+        "description": ""
+      },
+      {
+        "code": "C13A3-2026",
+        "name": "Adecúa, organiza y desarrolla las ideas de forma coherente y cohesionada",
+        "description": ""
+      },
+      {
+        "code": "C13A4-2026",
+        "name": "Utiliza recursos no verbales y paraverbales de forma estratégica",
+        "description": ""
+      },
+      {
+        "code": "C13A5-2026",
+        "name": "Interactúa estratégicamente con distintos interlocutores",
+        "description": ""
+      },
+      {
+        "code": "C13A6-2026",
+        "name": "Reflexiona y evalúa la forma, el contenido y el contexto del texto oral",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C13N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C13N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C13N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C13N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C13N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C13N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C13N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C13N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C14-2026",
+    "name": "Lee diversos tipos de textos escritos en inglés como lengua extranjera.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C14A1-2026",
+        "name": "Obtiene información del texto escrito",
+        "description": ""
+      },
+      {
+        "code": "C14A2-2026",
+        "name": "Infiere e interpreta información del texto escrito",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C14N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C14N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C14N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C14N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C14N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C14N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C14N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C14N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C15-2026",
+    "name": "Escribe diversos tipos de textos en inglés como lengua extranjera",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C15A1-2026",
+        "name": "Adecúa el texto a la situación comunicativa",
+        "description": ""
+      },
+      {
+        "code": "C15A2-2026",
+        "name": "Organiza y desarrolla las ideas de forma coherente y cohesionada",
+        "description": ""
+      },
+      {
+        "code": "C15A3-2026",
+        "name": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+        "description": ""
+      },
+      {
+        "code": "C15A4-2026",
+        "name": "Reflexiona y evalúa la forma, el contenido y contexto del texto escrito",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C15N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C15N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C15N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C15N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C15N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C15N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C15N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C15N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C16-2026",
+    "name": "Convive y participa democráticamente",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C16A1-2026",
+        "name": "Interactúa con todas las personas",
+        "description": ""
+      },
+      {
+        "code": "C16A2-2026",
+        "name": "Construye normas y asume acuerdos y leyes",
+        "description": ""
+      },
+      {
+        "code": "C16A3-2026",
+        "name": "Maneja conflictos de manera constructiva",
+        "description": ""
+      },
+      {
+        "code": "C16A4-2026",
+        "name": "Delibera sobre asuntos públicos",
+        "description": ""
+      },
+      {
+        "code": "C16A5-2026",
+        "name": "Participa en acciones que promueven el bienestar común",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C16N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C16N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C16N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C16N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C16N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C16N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C16N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C16N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C17-2026",
+    "name": "Construye interpretaciones históricas.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C17A1-2026",
+        "name": "Interpreta críticamente fuentes diversas",
+        "description": ""
+      },
+      {
+        "code": "C17A2-2026",
+        "name": "Comprende el tiempo histórico",
+        "description": ""
+      },
+      {
+        "code": "C17A3-2026",
+        "name": "Elabora explicaciones sobre procesos históricos",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C17N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C17N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C17N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C17N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C17N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C17N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C17N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C17N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C18-2026",
+    "name": "Gestiona responsablemente el espacio y el ambiente.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C18A1-2026",
+        "name": "Comprende las relaciones entre los elementos naturales y sociales",
+        "description": ""
+      },
+      {
+        "code": "C18A2-2026",
+        "name": "Maneja fuentes de información para comprender el espacio geográfico y el ambiente",
+        "description": ""
+      },
+      {
+        "code": "C18A3-2026",
+        "name": "Genera acciones para conservar el ambiente local y global",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C18N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C18N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C18N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C18N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C18N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C18N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C18N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C18N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C19-2026",
+    "name": "Gestiona responsablemente los recursos económicos",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C19A1-2026",
+        "name": "Comprende el funcionamiento del sistema económico y financiero",
+        "description": ""
+      },
+      {
+        "code": "C19A2-2026",
+        "name": "Toma decisiones económicas y financieras",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C19N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C19N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C19N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C19N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C19N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C19N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C19N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C19N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C20-2026",
+    "name": "Indaga mediante métodos científicos para construir sus conocimientos.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C20A1-2026",
+        "name": "Problematiza situaciones para hacer indagación",
+        "description": ""
+      },
+      {
+        "code": "C20A2-2026",
+        "name": "Diseña estrategias para hacer indagación",
+        "description": ""
+      },
+      {
+        "code": "C20A3-2026",
+        "name": "Genera y registra datos o información",
+        "description": ""
+      },
+      {
+        "code": "C20A4-2026",
+        "name": "Analiza datos e información",
+        "description": ""
+      },
+      {
+        "code": "C20A5-2026",
+        "name": "Evalúa y comunica el proceso y resultados de su indagación",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C20N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C20N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C20N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C20N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C20N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C20N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C20N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C20N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C21-2026",
+    "name": "Explica el mundo físico basándose en conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C21A1-2026",
+        "name": "Comprende y usa conocimientos sobre los seres vivos, materia y energía, biodiversidad, Tierra y universo",
+        "description": ""
+      },
+      {
+        "code": "C21A2-2026",
+        "name": "Evalúa las implicancias del saber y del quehacer científico y tecnológico",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C21N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C21N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C21N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C21N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C21N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C21N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C21N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C21N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C22-2026",
+    "name": "Diseña y construye soluciones tecnológicas para resolver problemas de su entorno.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C22A1-2026",
+        "name": "Determina una alternativa de solución tecnológica",
+        "description": ""
+      },
+      {
+        "code": "C22A2-2026",
+        "name": "Diseña la alternativa de solución tecnológica",
+        "description": ""
+      },
+      {
+        "code": "C22A3-2026",
+        "name": "Implementa la alternativa de solución tecnológica",
+        "description": ""
+      },
+      {
+        "code": "C22A4-2026",
+        "name": "Evalúa y comunica el funcionamiento y los impactos de su alternativa de solución tecnológica",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C22N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C22N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C22N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C22N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C22N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C22N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C22N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C22N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C23-2026",
+    "name": "Resuelve problemas de cantidad.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C23A1-2026",
+        "name": "Traduce cantidades a expresiones numéricas",
+        "description": ""
+      },
+      {
+        "code": "C23A2-2026",
+        "name": "Comunica su comprensión sobre los números y las operaciones",
+        "description": ""
+      },
+      {
+        "code": "C23A3-2026",
+        "name": "Usa estrategias y procedimientos de estimación y cálculo",
+        "description": ""
+      },
+      {
+        "code": "C23A4-2026",
+        "name": "Argumenta afirmaciones sobre las relaciones numéricas y las operaciones",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C23N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C23N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C23N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C23N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C23N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C23N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C23N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C23N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C24-2026",
+    "name": "Resuelve problemas de regularidad, equivalencia y cambio.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C24A1-2026",
+        "name": "Traduce datos y condiciones a expresiones algebraicas",
+        "description": ""
+      },
+      {
+        "code": "C24A2-2026",
+        "name": "Comunica su comprensión sobre las relaciones algebraicas",
+        "description": ""
+      },
+      {
+        "code": "C24A3-2026",
+        "name": "Usa estrategias y procedimientos para encontrar reglas generales",
+        "description": ""
+      },
+      {
+        "code": "C24A4-2026",
+        "name": "Argumenta afirmaciones sobre relaciones de cambio y equivalencia",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C24N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C24N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C24N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C24N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C24N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C24N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C24N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C24N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C25-2026",
+    "name": "Resuelve problemas de gestión de datos e incertidumbre.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C25A1-2026",
+        "name": "Representa datos con gráficos y medidas estadísticas o probabilísticas",
+        "description": ""
+      },
+      {
+        "code": "C25A2-2026",
+        "name": "Comunica la comprensión de los conceptos estadísticos y probabilísticos",
+        "description": ""
+      },
+      {
+        "code": "C25A3-2026",
+        "name": "Usa estrategias y procedimientos para recopilar y procesar datos",
+        "description": ""
+      },
+      {
+        "code": "C25A4-2026",
+        "name": "Sustenta conclusiones o decisiones con base en información obtenida",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C25N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C25N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C25N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C25N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C25N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C25N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C25N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C25N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C26-2026",
+    "name": "Resuelve problemas de forma, movimiento y localización.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C26A1-2026",
+        "name": "Modela objetos con formas geométricas y sus transformaciones",
+        "description": ""
+      },
+      {
+        "code": "C26A2-2026",
+        "name": "Comunica su comprensión sobre las formas y relaciones geométricas",
+        "description": ""
+      },
+      {
+        "code": "C26A3-2026",
+        "name": "Usa estrategias y procedimientos para orientarse en el espacio",
+        "description": ""
+      },
+      {
+        "code": "C26A4-2026",
+        "name": "Argumenta afirmaciones sobre relaciones geométricas",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C26N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C26N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C26N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C26N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C26N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C26N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C26N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C26N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C27-2026",
+    "name": "Gestiona proyectos de emprendimiento económico o social.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C27A1-2026",
+        "name": "Crea propuestas de valor",
+        "description": ""
+      },
+      {
+        "code": "C27A2-2026",
+        "name": "Trabaja cooperativamente para lograr objetivos y metas",
+        "description": ""
+      },
+      {
+        "code": "C27A3-2026",
+        "name": "Aplica habilidades técnicas",
+        "description": ""
+      },
+      {
+        "code": "C27A4-2026",
+        "name": "Evalúa los resultados del proyecto de emprendimiento",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C27N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C27N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C27N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C27N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C27N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C27N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C27N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C27N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C28-2026",
+    "name": "Se desenvuelve en los entornos virtuales generados por las TIC.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C28A1-2026",
+        "name": "Personaliza entornos virtuales",
+        "description": ""
+      },
+      {
+        "code": "C28A2-2026",
+        "name": "Gestiona información del entorno virtual",
+        "description": ""
+      },
+      {
+        "code": "C28A3-2026",
+        "name": "Interactúa en entornos virtuales",
+        "description": ""
+      },
+      {
+        "code": "C28A4-2026",
+        "name": "Crea objetos virtuales en diversos formatos",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C28N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C28N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C28N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C28N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C28N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C28N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C28N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C28N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  },
+  {
+    "code": "C29-2026",
+    "name": "Gestiona su aprendizaje de manera autónoma.",
+    "description": "",
+    "effectYear": 2026,
+    "abilities": [
+      {
+        "code": "C29A1-2026",
+        "name": "Define metas de aprendizaje",
+        "description": ""
+      },
+      {
+        "code": "C29A2-2026",
+        "name": "Organiza acciones estratégicas para alcanzar sus metas",
+        "description": ""
+      },
+      {
+        "code": "C29A3-2026",
+        "name": "Monitorea y ajusta su desempeño durante el proceso de aprendizaje",
+        "description": ""
+      }
+    ],
+    "levels": [
+      {
+        "code": "C29N1-2026",
+        "levelNumber": 1,
+        "description": ""
+      },
+      {
+        "code": "C29N2-2026",
+        "levelNumber": 2,
+        "description": ""
+      },
+      {
+        "code": "C29N3-2026",
+        "levelNumber": 3,
+        "description": ""
+      },
+      {
+        "code": "C29N4-2026",
+        "levelNumber": 4,
+        "description": ""
+      },
+      {
+        "code": "C29N5-2026",
+        "levelNumber": 5,
+        "description": ""
+      },
+      {
+        "code": "C29N6-2026",
+        "levelNumber": 6,
+        "description": ""
+      },
+      {
+        "code": "C29N7-2026",
+        "levelNumber": 7,
+        "description": ""
+      },
+      {
+        "code": "C29N8-2026",
+        "levelNumber": 8,
+        "description": ""
+      }
+    ]
+  }
+]

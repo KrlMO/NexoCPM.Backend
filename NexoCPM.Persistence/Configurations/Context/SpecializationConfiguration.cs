@@ -18,7 +18,10 @@ public class SpecializationConfiguration : IEntityTypeConfiguration<Specializati
         builder.Property(s => s.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(m => m.Code)
+                .IsUnique(true);
 
         builder.Property(s => s.Name)
                .HasColumnName("name")
@@ -47,10 +50,13 @@ public class SpecializationConfiguration : IEntityTypeConfiguration<Specializati
 
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
@@ -61,5 +67,16 @@ public class SpecializationConfiguration : IEntityTypeConfiguration<Specializati
                .HasForeignKey(c => c.SpecializationId)
                .HasConstraintName("fk_education_context_specialization")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Property(s => s.Slug)
+            .HasColumnName("slug")
+            .HasMaxLength(100)
+            .IsRequired(true);
+
+        builder.HasIndex(s => s.Slug)
+            .IsUnique(true);
+
+        builder.Property(s => s.Description)
+            .IsRequired(false);
     }
 }

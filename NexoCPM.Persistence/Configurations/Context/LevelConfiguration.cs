@@ -18,7 +18,10 @@ public class LevelConfiguration : IEntityTypeConfiguration<Level>
         builder.Property(l => l.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
+
+        builder.HasIndex(l => l.Code)
+                .IsUnique(true);
 
         builder.Property(l => l.Name)
                .HasColumnName("name")
@@ -53,10 +56,13 @@ public class LevelConfiguration : IEntityTypeConfiguration<Level>
 
         builder.Property(l => l.CreatedBy)
                .HasColumnName("created_by")
-               .IsRequired(true);
+               .IsRequired(true)
+               .HasDefaultValue(1);
+
         builder.Property(l => l.UpdatedBy)
                 .HasColumnName("updated_by")
-                .IsRequired(false);
+                .IsRequired(false)
+               .HasDefaultValue(1);
 
         builder.Property(l => l.DeletedBy)
                .HasColumnName("deleted_by")
@@ -73,5 +79,13 @@ public class LevelConfiguration : IEntityTypeConfiguration<Level>
                .HasForeignKey(c => c.LevelId)
                .HasConstraintName("fk_education_context_level")
                .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Property(l => l.Slug)
+            .HasColumnName("slug")
+            .HasMaxLength(100)
+            .IsRequired(true);
+
+        builder.HasIndex(l => l.Slug)
+            .IsUnique(true);
     }
 }

@@ -19,6 +19,7 @@ namespace NexoCPM.Infraestructure
         {
             services.AddScoped<IJwtService, JwtService>(provider => new JwtService(configuration));
             services.AddScoped<IPasswordHasher, PasswordHasher>();
+            services.AddScoped<ITokenHasher, TokenHasher>();
             services.AddScoped<IUserCodeGenerator, UserCodeGenerator>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IEmailVerificationTokenService, EmailVerificationTokenService>();

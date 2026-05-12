@@ -8,6 +8,8 @@ using NexoCPM.Application.Auth.Commands.Register;
 using NexoCPM.Application.Auth.Commands.ResendEmailVerification;
 using NexoCPM.Application.Auth.Commands.VerifyEmailVerification;
 using NexoCPM.Application.Auth.Dtos;
+using NexoCPM.Application.Auth.Ports;
+using NexoCPM.Application.Commons.Ports;
 using NexoCPM.Domain.Common.Exceptions;
 
 namespace NexoCPM.Api.Controllers.Auth;
@@ -18,11 +20,15 @@ namespace NexoCPM.Api.Controllers.Auth;
 public class AuthController : ControllerBase
 {
     private readonly IMediator _mediator;
+    private readonly IRefreshTokenRepository _refreshTokenRepository;
+    private readonly ITokenHasher _tokenHasher;
     private const string RefreshTokenCookieName = "RefreshToken";
 
-    public AuthController(IMediator mediator)
+    public AuthController(IMediator mediator, IRefreshTokenRepository refreshTokenRepository, ITokenHasher tokenHasher)
     {
         _mediator = mediator;
+        _refreshTokenRepository = refreshTokenRepository;
+        _tokenHasher = tokenHasher;
     }
 
     [HttpPost("login")]
@@ -42,7 +48,7 @@ public class AuthController : ControllerBase
         {
             HttpOnly = true,
             Secure = true,
-            SameSite = SameSiteMode.Strict,
+            SameSite = SameSiteMode.None,
             Expires = DateTimeOffset.Now.AddDays(7)
         });
 
@@ -75,7 +81,7 @@ public class AuthController : ControllerBase
         {
             HttpOnly = true,
             Secure = true,
-            SameSite = SameSiteMode.Strict,
+            SameSite = SameSiteMode.None,
             Expires = DateTimeOffset.Now.AddDays(7)
         });
 
@@ -90,10 +96,22 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("logout")]
-    public IActionResult Logout()
+    public async Task<IActionResult> Logout()
     {
-        Response.Cookies.Delete(RefreshTokenCookieName);
-        return Ok(ApiResponse<string>.Ok("Logged out"));
+        if (Request.Cookies.TryGetValue(RefreshTokenCookieName, out var rawToken))
+        {
+            var hashedToken = _tokenHasher.Hash(rawToken);
+            await _refreshTokenRepository.RevokeAsync(hashedToken);
+        }
+
+        Response.Cookies.Delete(RefreshTokenCookieName, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.None
+        });
+
+        return Ok(ApiResponse<string>.Ok("Sesión cerrada correctamente"));
     }
 
     [HttpPost("register")]

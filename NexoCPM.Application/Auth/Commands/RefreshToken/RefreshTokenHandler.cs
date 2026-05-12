@@ -1,6 +1,7 @@
 using MediatR;
 using NexoCPM.Application.Auth.Dtos;
 using NexoCPM.Application.Auth.Ports;
+using NexoCPM.Application.Commons.Ports;
 using NexoCPM.Application.Users.Ports;
 using NexoCPM.Domain.Auth.Entities;
 
@@ -11,20 +12,24 @@ namespace NexoCPM.Application.Auth.Commands.RefreshToken
         private readonly IRefreshTokenRepository _refreshTokenRepository;
         private readonly IUserRepository _userRepository;
         private readonly IJwtService _jwtService;
+        private readonly ITokenHasher _tokenHasher;
 
         public RefreshTokenHandler(
             IRefreshTokenRepository refreshTokenRepository,
             IUserRepository userRepository,
-            IJwtService jwtService)
+            IJwtService jwtService,
+            ITokenHasher tokenHasher)
         {
             _refreshTokenRepository = refreshTokenRepository;
             _userRepository = userRepository;
             _jwtService = jwtService;
+            _tokenHasher = tokenHasher;
         }
 
         public async Task<RefreshTokenResult> Handle(RefreshTokenCommand command, CancellationToken ct)
         {
-            var refreshToken = await _refreshTokenRepository.GetByTokenAsync(command.RefreshToken);
+            var hashedInput = _tokenHasher.Hash(command.RefreshToken);
+            var refreshToken = await _refreshTokenRepository.GetByTokenAsync(hashedInput);
 
             if (refreshToken == null)
                 throw new UnauthorizedAccessException("Token inválido");
@@ -41,9 +46,12 @@ namespace NexoCPM.Application.Auth.Commands.RefreshToken
 
             var newAccessToken = _jwtService.GenerateToken(user);
 
+            var rawToken = Guid.NewGuid().ToString();
+            var hashedToken = _tokenHasher.Hash(rawToken);
+
             var newRefreshToken = new Domain.Auth.Entities.RefreshToken(
                 user.Id,
-                Guid.NewGuid().ToString(),
+                hashedToken,
                 DateTime.UtcNow.AddDays(7),
                 command.DeviceInfo,
                 command.IpAddress
@@ -54,7 +62,7 @@ namespace NexoCPM.Application.Auth.Commands.RefreshToken
             return new RefreshTokenResult
             {
                 AccessToken = newAccessToken,
-                RefreshToken = newRefreshToken.Token,
+                RefreshToken = rawToken,
                 User = new AuthUserDto { 
                     Id = user.Id,
                     Email = user.Email,

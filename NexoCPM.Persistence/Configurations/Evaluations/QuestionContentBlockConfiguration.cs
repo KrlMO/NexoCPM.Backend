@@ -18,7 +18,7 @@ public class QuestionContentBlockConfiguration : IEntityTypeConfiguration<Questi
         builder.Property(qcb => qcb.Code)
                .HasColumnName("code")
                .IsRequired()
-               .HasMaxLength(20);
+               .HasMaxLength(50);
 
         builder.Property(qcb => qcb.Content)
                .HasColumnName("content")
@@ -38,7 +38,7 @@ public class QuestionContentBlockConfiguration : IEntityTypeConfiguration<Questi
                .HasConversion<int>();
 
         builder.HasIndex(qcb => qcb.Code)
-               .IsUnique();
+               .IsUnique(true);
 
         builder.HasOne(qcb => qcb.Question)
                .WithMany(q => q.QuestionContentBlocks)
