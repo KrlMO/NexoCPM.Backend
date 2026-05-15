@@ -12,8 +12,8 @@ using NexoCPM.Persistence.Context;
 namespace NexoCPM.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260511125117_Init_Schema")]
-    partial class Init_Schema
+    [Migration("20260515110546_init_schema")]
+    partial class init_schema
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -607,7 +607,8 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("description");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -758,7 +759,8 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("code");
 
                     b.Property<int?>("CompetenceId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("competence_id");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()

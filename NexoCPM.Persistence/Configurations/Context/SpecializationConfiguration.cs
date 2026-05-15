@@ -77,6 +77,7 @@ public class SpecializationConfiguration : IEntityTypeConfiguration<Specializati
             .IsUnique(true);
 
         builder.Property(s => s.Description)
+            .HasColumnName("description")
             .IsRequired(false);
     }
 }

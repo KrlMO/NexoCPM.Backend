@@ -99,6 +99,10 @@ public class SubTopicConfiguration : IEntityTypeConfiguration<SubTopic>
             .HasConstraintName("fk_sub_topic_competence")
             .OnDelete(DeleteBehavior.ClientSetNull);
 
+        builder.Property(sb => sb.CompetenceId)
+               .HasColumnName("competence_id")
+               .IsRequired(false);
+
         builder.Property(st => st.Slug)
             .HasColumnName("slug")
             .HasMaxLength(100)

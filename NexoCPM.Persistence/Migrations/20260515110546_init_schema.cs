@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NexoCPM.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class Init_Schema : Migration
+    public partial class init_schema : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -87,7 +87,7 @@ namespace NexoCPM.Persistence.Migrations
                     code = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     slug = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     is_active = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     is_deleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     created_at = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
@@ -556,7 +556,7 @@ namespace NexoCPM.Persistence.Migrations
                     order_index = table.Column<int>(type: "int", nullable: false),
                     is_active = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     is_deleted = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    CompetenceId = table.Column<int>(type: "int", nullable: true),
+                    competence_id = table.Column<int>(type: "int", nullable: true),
                     created_at = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
                     created_by = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
                     updated_at = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -569,7 +569,7 @@ namespace NexoCPM.Persistence.Migrations
                     table.PrimaryKey("PK_ncp_sub_topic", x => x.id);
                     table.ForeignKey(
                         name: "fk_sub_topic_competence",
-                        column: x => x.CompetenceId,
+                        column: x => x.competence_id,
                         principalTable: "ncp_competence",
                         principalColumn: "id");
                     table.ForeignKey(
@@ -1086,9 +1086,9 @@ namespace NexoCPM.Persistence.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ncp_sub_topic_CompetenceId",
+                name: "IX_ncp_sub_topic_competence_id",
                 table: "ncp_sub_topic",
-                column: "CompetenceId");
+                column: "competence_id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ncp_sub_topic_slug",

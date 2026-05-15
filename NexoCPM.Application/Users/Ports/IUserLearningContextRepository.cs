@@ -12,6 +12,7 @@ namespace NexoCPM.Application.Users.Ports
         Task<PaginatedResult<UserLearningContext>> GetByUserIdPagedAsync(int userId, string? searchTerm, string sortOrder, int page, int pageSize);
         Task<Dictionary<int, ProgressSummary>> GetProgressSummariesAsync(int[] userSyllabusProgressIds);
         Task<UserSyllabusDetailData?> GetDetailAsync(int userId, int userLearningContextId, string syllabusSlug);
+        Task<int?> GetProgressIdAsync(int userId, int userLearningContextId);
         Task SaveChangesAsync();
     }
 

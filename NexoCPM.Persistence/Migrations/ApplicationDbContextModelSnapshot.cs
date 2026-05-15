@@ -604,7 +604,8 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("deleted_by");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("description");
 
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
@@ -755,7 +756,8 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("code");
 
                     b.Property<int?>("CompetenceId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnName("competence_id");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()

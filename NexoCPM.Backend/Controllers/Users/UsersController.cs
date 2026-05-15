@@ -5,6 +5,8 @@ using NexoCPM.Api.Common;
 using NexoCPM.Application.Users.Commands.StartSyllabus;
 using NexoCPM.Application.Users.Queries.GetDashboard;
 using NexoCPM.Application.Users.Queries.GetMySyllabi;
+using NexoCPM.Application.Users.Queries.GetUnitTopics;
+using NexoCPM.Application.Users.Queries.GetTopicSubtopics;
 using NexoCPM.Application.Users.Queries.GetUserSyllabusDetail;
 using NexoCPM.Application.Users.Queries.HasCurrentSyllabus;
 using System.Security.Claims;
@@ -77,5 +79,23 @@ public class UsersController : ControllerBase
         var result = await _mediator.Send(query);
 
         return Ok(ApiResponse<GetUserSyllabusDetailResponse>.Ok(result, "Temario leido correctamente: " + result.userSyllabus.Code));
+    }
+
+    [HttpGet("me/syllabus/{learningContextId}/units/{unitId}/topics")]
+    public async Task<IActionResult> GetUnitTopics(int learningContextId, int unitId)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var query = new GetUnitTopicsQuery(userId, learningContextId, unitId);
+        var result = await _mediator.Send(query);
+        return Ok(ApiResponse<GetUnitTopicsResponse>.Ok(result, "Temas de la unidad obtenidos correctamente"));
+    }
+
+    [HttpGet("me/syllabus/{learningContextId}/topics/{topicId}/subtopics")]
+    public async Task<IActionResult> GetTopicSubtopics(int learningContextId, int topicId)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var query = new GetTopicSubtopicsQuery(userId, learningContextId, topicId);
+        var result = await _mediator.Send(query);
+        return Ok(ApiResponse<GetTopicSubtopicsResponse>.Ok(result, "Subtemas del tema obtenidos correctamente"));
     }
 }

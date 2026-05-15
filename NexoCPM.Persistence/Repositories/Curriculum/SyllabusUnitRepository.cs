@@ -80,5 +80,100 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
                 }).ToList()
             };
         }
+
+        public async Task<List<UserSyllabusTopicData>> GetUnitTopicsAsync(int syllabusUnitId, int userSyllabusProgressId)
+        {
+            var topics = await _context.SyllabusUnits
+                .AsNoTracking()
+                .Where(su => su.Id == syllabusUnitId)
+                .SelectMany(su => su.Topics
+                    .Where(t => t.IsActive && !t.IsDeleted)
+                    .OrderBy(t => t.OrderIndex))
+                .Select(t => new
+                {
+                    t.Id,
+                    t.Description,
+                    t.Slug,
+                    SubTopics = t.SubTopics
+                        .Where(st => st.IsActive && !st.IsDeleted)
+                        .OrderBy(st => st.OrderIndex)
+                        .Select(st => new { st.Id, st.Description, st.Slug })
+                        .ToList()
+                })
+                .ToListAsync();
+
+            if (!topics.Any()) return new();
+
+            var allSubTopicIds = topics.SelectMany(t => t.SubTopics.Select(st => st.Id)).ToHashSet();
+
+            var viewedIds = await _context.UserSubTopicViews
+                .AsNoTracking()
+                .Where(ustv =>
+                    ustv.UserSyllabusUnitProgress.UserSyllabusProgressId == userSyllabusProgressId
+                    && ustv.UserSyllabusUnitProgress.SyllabusUnitId == syllabusUnitId
+                    && ustv.IsViewed
+                    && allSubTopicIds.Contains(ustv.SubTopicId))
+                .Select(ustv => ustv.SubTopicId)
+                .ToListAsync();
+
+            var viewedSet = viewedIds.ToHashSet();
+
+            return topics.Select(t => new UserSyllabusTopicData
+            {
+                Id = t.Id,
+                Description = t.Description,
+                Slug = t.Slug,
+                Viewed = t.SubTopics.Count > 0 && t.SubTopics.All(st => viewedSet.Contains(st.Id)),
+                SubTopics = t.SubTopics.Select(st => new UserSyllabusSubtopicData
+                {
+                    Id = st.Id,
+                    Description = st.Description,
+                    Slug = st.Slug,
+                    Viewed = viewedSet.Contains(st.Id)
+                }).ToList()
+            }).ToList();
+        }
+
+        public async Task<List<UserSyllabusSubtopicData>> GetTopicSubtopicsAsync(int topicId, int userSyllabusProgressId)
+        {
+            var topic = await _context.SyllabusTopics
+                .AsNoTracking()
+                .Where(t => t.Id == topicId && t.IsActive && !t.IsDeleted)
+                .Select(t => new
+                {
+                    t.SyllabusUnitId,
+                    SubTopics = t.SubTopics
+                        .Where(st => st.IsActive && !st.IsDeleted)
+                        .OrderBy(st => st.OrderIndex)
+                        .Select(st => new { st.Id, st.Description, st.Slug })
+                        .ToList()
+                })
+                .FirstOrDefaultAsync();
+
+            if (topic is null) return new();
+
+            var subTopicIds = topic.SubTopics.Select(st => st.Id).ToHashSet();
+            if (!subTopicIds.Any()) return new();
+
+            var viewedIds = await _context.UserSubTopicViews
+                .AsNoTracking()
+                .Where(ustv =>
+                    ustv.UserSyllabusUnitProgress.UserSyllabusProgressId == userSyllabusProgressId
+                    && ustv.UserSyllabusUnitProgress.SyllabusUnitId == topic.SyllabusUnitId
+                    && ustv.IsViewed
+                    && subTopicIds.Contains(ustv.SubTopicId))
+                .Select(ustv => ustv.SubTopicId)
+                .ToListAsync();
+
+            var viewedSet = viewedIds.ToHashSet();
+
+            return topic.SubTopics.Select(st => new UserSyllabusSubtopicData
+            {
+                Id = st.Id,
+                Description = st.Description,
+                Slug = st.Slug,
+                Viewed = viewedSet.Contains(st.Id)
+            }).ToList();
+        }
     }
 }

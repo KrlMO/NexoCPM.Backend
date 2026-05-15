@@ -56,6 +56,15 @@ namespace NexoCPM.Persistence.Repositories.Users
             return userLearningContext;
         }
 
+        public async Task<int?> GetProgressIdAsync(int userId, int userLearningContextId)
+        {
+            return await _context.UserLearningContexts
+                .AsNoTracking()
+                .Where(ulc => ulc.Id == userLearningContextId && ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+                .Select(ulc => (int?)ulc.UserSyllabusProgress!.Id)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();
