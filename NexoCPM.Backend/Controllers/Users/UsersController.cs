@@ -5,11 +5,13 @@ using NexoCPM.Api.Common;
 using NexoCPM.Application.Users.Commands.StartSyllabus;
 using NexoCPM.Application.Users.Queries.GetDashboard;
 using NexoCPM.Application.Users.Queries.GetMySyllabi;
-using NexoCPM.Application.Users.Queries.GetUnitTopics;
+using NexoCPM.Application.Users.Queries.GetSubTopicDetail;
 using NexoCPM.Application.Users.Queries.GetTopicSubtopics;
+using NexoCPM.Application.Users.Queries.GetUnitTopics;
 using NexoCPM.Application.Users.Queries.GetUserSyllabusDetail;
 using NexoCPM.Application.Users.Queries.HasCurrentSyllabus;
 using System.Security.Claims;
+using NexoCPM.Application.Users.Queries.GetSubTopicDetail;
 
 namespace NexoCPM.Api.Controllers.Users;
 
@@ -73,7 +75,8 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("me/syllabus/{learningContextId}/{syllabusSlug}")]
-    public async Task<IActionResult> GetUserSyllabusDetail(string learningContextId, string syllabusSlug) {
+    public async Task<IActionResult> GetUserSyllabusDetail(string learningContextId, string syllabusSlug)
+    {
         var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
         var query = new GetUserSyllabusDetailQuery(userId, int.Parse(learningContextId), syllabusSlug);
         var result = await _mediator.Send(query);
@@ -97,5 +100,19 @@ public class UsersController : ControllerBase
         var query = new GetTopicSubtopicsQuery(userId, learningContextId, topicId);
         var result = await _mediator.Send(query);
         return Ok(ApiResponse<GetTopicSubtopicsResponse>.Ok(result, "Subtemas del tema obtenidos correctamente"));
+    }
+
+    [HttpGet("me/syllabus/{userLearningContextId}/subtopics/{subtopicSlug}/details")]
+    public async Task<IActionResult> GetSubTopicDetail(
+            int userLearningContextId,
+            string subtopicSlug,
+            [FromQuery] int page = 1,
+            [FromQuery] int pageSize = 1
+        )
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var query = new GetSubTopicDetailQuery(subtopicSlug, userId, userLearningContextId, page, pageSize);
+        var result = await _mediator.Send(query);
+        return Ok(ApiResponse<GetSubTopicDetailResponse>.Ok(result, "Detalle del subtema obtenido correctamente"));
     }
 }

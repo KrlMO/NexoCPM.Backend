@@ -12,5 +12,6 @@ namespace NexoCPM.Application.Users.Ports
         Task<User?> GetByUserNameAsync(string userName);
         Task<User> AddAsync(User user);
         Task<bool> ExistsByCodeAsync(string code);
+        Task UpdateAsync(User user);
     }
 }

@@ -55,12 +55,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+var corsOrigins = builder.Configuration["CORS_ORIGINS"]?.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
+    ?? builder.Configuration.GetSection("Cors:Origins").Get<string[]>()
+    ?? ["https://localhost:4200", "http://localhost:4200"];
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngular", policy =>
     {
         policy
-            .WithOrigins("https://localhost:4200", "http://localhost:4200")
+            .WithOrigins(corsOrigins)
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
@@ -83,6 +87,7 @@ using (var scope = app.Services.CreateScope())
     }
     await JsonCompetenceSeeder.SeedAsync(db);
     await JsonCurriculumSeeder.SeedAsync(db);
+    await JsonAssessmentSeeder.SeedAsync(db);
 }
 
 if (runImporterOnly)

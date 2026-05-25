@@ -26,6 +26,12 @@ namespace NexoCPM.Persistence.Repositories.Auth
                 .FirstOrDefaultAsync(evt => evt.User.Email == email && !evt.IsUsed);
         }
 
+        public async Task<EmailVerificationToken?> GetByUserIdAndHashAsync(int userId, string tokenHash)
+        {
+            return await _context.EmailVerificationTokens
+                .FirstOrDefaultAsync(t => t.UserId == userId && t.TokenHash == tokenHash);
+        }
+
         public async Task<EmailVerificationToken?> GetByUserIdAsync(int userId)
         {
             return await _context.EmailVerificationTokens.FirstOrDefaultAsync(t => t.UserId == userId && !t.IsUsed);

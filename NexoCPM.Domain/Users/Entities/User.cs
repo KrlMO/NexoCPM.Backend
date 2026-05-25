@@ -57,5 +57,10 @@ namespace NexoCPM.Domain.Users.Entities
         }
 
         public string GetPasswordHash() => PasswordHash;
+
+        public void MarkEmailAsVerified()
+        {
+            IsVerified = true;
+        }
     }
 }

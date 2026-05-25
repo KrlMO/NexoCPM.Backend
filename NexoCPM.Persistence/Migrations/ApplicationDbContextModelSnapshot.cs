@@ -1551,11 +1551,15 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("is_deleted");
 
                     b.Property<int>("LikesCount")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasDefaultValue(0)
                         .HasColumnName("likes_count");
 
                     b.Property<int>("PublicScore")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasDefaultValue(0)
                         .HasColumnName("public_score");
 
                     b.Property<int?>("SubTopicId")
@@ -1580,7 +1584,9 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("url");
 
                     b.Property<int>("ViewsCount")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
+                        .HasDefaultValue(0)
                         .HasColumnName("views_count");
 
                     b.HasKey("Id");

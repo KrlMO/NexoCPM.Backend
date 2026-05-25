@@ -1,0 +1,1013 @@
+[
+  {
+    "syllabusCode": "SYB-EBR-PRIMA-2026",
+    "units": [
+      {
+        "code": "UNIT01-EBRPRIMA",
+        "slug": "ciencia-y-tecnologia",
+        "name": "CIENCIA Y TECNOLOGÍA",
+        "description": "",
+        "orderIndex": 1,
+        "topics": [
+          {
+            "code": "TOP1-EBRPRIM-U01",
+            "slug": "conocimiento-peda-discp-indagacion-metodos-cientificos",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer la indagación, mediante métodos científicos",
+            "orderIndex": 1,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU01-T01",
+                "slug": "identificacion-delimitacion-situaciones-problematicas",
+                "description": "Identificación y delimitación de situaciones problemáticas pertinentes para desarrollar una indagación",
+                "competenceCode": "C20-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU01-T01",
+                "slug": "formulacion-hipotesis-identificacion-variables-dependiente-independiente-control",
+                "description": "Formulación de hipótesis. Identificación de variables dependiente, independiente y control",
+                "competenceCode": "C20-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU01-T01",
+                "slug": "diseno-estrat-indaga-identificacion-material-e-instrumentos-medidas-seguridad",
+                "description": "Diseño de estrategias de indagación. Identificación de materiales e instrumentos pertinentes para el desarrollo de una indagación. Medidas de seguridad que se deben adoptar",
+                "competenceCode": "C20-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU01-T01",
+                "slug": "representacion-interpretacion-analisis-datos-tablas-graficos-diagramas",
+                "description": "Representación, interpretación y análisis de datos e información contenida en tablas, gráficos y diagramas",
+                "competenceCode": "C20-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU01-T01",
+                "slug": "identificacion-conclusiones-coherentes-envidencia-cientifica",
+                "description": "Identificación de conclusiones coherentes con la evidencia científica",
+                "competenceCode": "C20-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRPRIMU01-T01",
+                "slug": "identificacion-alcances-limitaciones-indagacion",
+                "description": "Identificación de los alcances y limitaciones de una indagación",
+                "competenceCode": "C20-2026",
+                "orderIndex": 6
+              }
+            ]
+          },
+          {
+            "code": "TOP2-EBRPRIM-U01",
+            "slug": "conocimiento-peda-discp-explicacion-mundo-fisico-basado-en-conocimientos-cientificos",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer la explicación del mundo físico basado en conocimientos científicos",
+            "orderIndex": 2,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU01-T02",
+                "slug": "mecanismos-seres-vivos-prim",
+                "description": "Mecanismos de los seres vivos",
+                "competenceCode": "C21-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU01T02-ST01",
+                    "slug": "caracteristicas-necesidades-plantas-animales",
+                    "description": "Características y necesidades de plantas y animales",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRPRIMU01T02-ST01",
+                    "slug": "funciones-plantas-animales-nutricion-reproduccion-relacion-sistemas",
+                    "description": "Funciones de plantas y animales: nutrición, reproducción y relación. Sistemas involucrados",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRPRIMU01T02-ST01",
+                    "slug": "habitos-saludables-implicancias-ser-humano",
+                    "description": "Hábitos de vida saludable e implicancias para el ser humano",
+                    "orderIndex": 3
+                  }
+                ]
+              },
+              {
+                "code": "SUB02-EBRPRIMU01-T02",
+                "slug": "materia-y-energia-prim",
+                "description": "Materia y energía",
+                "competenceCode": "C21-2026",
+                "orderIndex": 2,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU01T02-ST02",
+                    "slug": "clasificacion-propiedades-materia",
+                    "description": "Clasificación y propiedades de la materia",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRPRIMU01T02-ST02",
+                    "slug": "distincion-estados-materia-cambios-propiedades",
+                    "description": "Distinción de estados de la materia y sus cambios en base a propiedades micro y macroscópicas",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRPRIMU01T02-ST02",
+                    "slug": "transformaciones-energia-procesos-fisicos",
+                    "description": "Transformaciones de energía en procesos físicos",
+                    "orderIndex": 3
+                  },
+                  {
+                    "code": "MT04-EBRPRIMU01T02-ST02",
+                    "slug": "distincion-cambios-fisicos-quimicos",
+                    "description": "Distinción entre cambios físicos y químicos",
+                    "orderIndex": 4
+                  },
+                  {
+                    "code": "MT05-EBRPRIMU01T02-ST02",
+                    "slug": "concepto-fuerza-fuerzas-contacto-distancia",
+                    "description": "Concepto de fuerza. Fuerzas de contacto y a distancia",
+                    "orderIndex": 5
+                  },
+                  {
+                    "code": "MT06-EBRPRIMU01T02-ST02",
+                    "slug": "caracteristicas-generales-luz-sonido",
+                    "description": "Características generales de la luz y del sonido",
+                    "orderIndex": 6
+                  }
+                ]
+              },
+              {
+                "code": "SUB03-EBRPRIMU01-T02",
+                "slug": "biodiversidad-tierra-y-universo-prim",
+                "description": "Biodiversidad, Tierra y Universo",
+                "competenceCode": "C21-2026",
+                "orderIndex": 3,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU01T02-ST03",
+                    "slug": "tierra-sol-luna-movimientos-implicancias-vida-planeta",
+                    "description": "Tierra, Sol, Luna: movimientos e implicancias para la vida en el planeta",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRPRIMU01T02-ST03",
+                    "slug": "fenomenos-producidos-por-movimientos-placas-tectonicas",
+                    "description": "Fenómenos producidos por los movimientos de las placas tectónicas",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRPRIMU01T02-ST03",
+                    "slug": "ecosistemas-y-biodiversidad",
+                    "description": "Ecosistemas y biodiversidad: Flujos de materia y energía. Interacciones entre plantas, animales y el medio. Ciclos naturales del oxígeno, carbono y nitrógeno: su importancia para la supervivencia de los seres vivos. Causas y consecuencias de la depredación de especies, contaminación ambiental, calentamiento global y cambio climático",
+                    "orderIndex": 3
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "TOP3-EBRPRIM-U01",
+"slug": "conocimiento-peda-discp-diseno-construccion-soluciones-tecnologicas",
+                "description": "Conocimientos pedagógicos y disciplinares para favorecer el diseño y construcción de soluciones tecnológicas",
+            "orderIndex": 3,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU01-T03",
+                "slug": "identificacion-alternativas-solucion-tecnologica",
+                "description": "Identificación de alternativas de solución tecnológica",
+                "competenceCode": "C22-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU01-T03",
+                "slug": "diseno-alternativas-solucion-tecnologicas",
+                "description": "Diseño de alternativas de solución tecnológica",
+                "competenceCode": "C22-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU01-T03",
+                "slug": "seleccion-herramientas-materiales",
+                "description": "Selección de herramientas y materiales",
+                "competenceCode": "C22-2026",
+                "orderIndex": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "UNIT02-EBRPRIMA",
+        "slug": "comunicacion",
+        "name": "COMUNICACIÓN",
+        "description": "",
+        "orderIndex": 2,
+        "topics": [
+          {
+            "code": "TOP1-EBRPRIM-U02",
+            "slug": "conocimientos-peda-discp-promover-comunicacion-oral",
+            "description": "Conocimientos pedagógicos y disciplinares para promover en los estudiantes la comunicación oral",
+            "orderIndex": 1,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU02-T01",
+                "slug": "estrategias-didacticas-fomentar-siguientes-capacidades-estudiantes-oral",
+                "description": "Estrategias didácticas para fomentar las siguientes capacidades en los estudiantes",
+                "competenceCode": "C07-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU02T01-ST01",
+                    "slug": "obtiene-informacion-texto-oral",
+                    "description": "Obtiene información de un texto oral",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRPRIMU02T01-ST01",
+                    "slug": "infiere-interpreta-informacion-texto-oral",
+                    "description": "Infiere e interpreta información del texto oral",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRPRIMU02T01-ST01",
+                    "slug": "adecua-organiza-desarrolla-ideas-coherente-cohesiva",
+                    "description": "Adecúa, organiza y desarrolla las ideas de forma coherente y cohesionada",
+                    "orderIndex": 3
+                  },
+                  {
+                    "code": "MT04-EBRPRIMU02T01-ST01",
+                    "slug": "utiliza-recursos-no-verbales-paraverbales-forma-estrategica",
+                    "description": "Utiliza recursos no verbales y paraverbales de forma estratégica",
+                    "orderIndex": 4
+                  },
+                  {
+                    "code": "MT05-EBRPRIMU02T01-ST01",
+                    "slug": "interactura-estrategicamente-distintos-interlocutores",
+                    "description": "Interactúa estratégicamente con distintos interlocutores",
+                    "orderIndex": 5
+                  },
+                  {
+                    "code": "MT06-EBRPRIMU02T01-ST01",
+                    "slug": "reflexiona-evalua-forma-contenido-contexto-texto-oral",
+                    "description": "Reflexiona y evalúa la forma, el contenido y contexto del texto oral",
+                    "orderIndex": 6
+                  }
+                ]
+              },
+              {
+                "code": "SUB02-EBRPRIMU02-T01",
+                "slug": "estrategias-didacticas-evaluar-retroalimentar-textos-orales-estudiantes",
+                "description": "Estrategias didácticas para evaluar y retroalimentar los textos orales de los estudiantes",
+                "competenceCode": "C07-2026",
+                "orderIndex": 2
+              }
+            ]
+          },
+          {
+            "code": "TOP2-EBRPRIM-U02",
+            "slug": "conocimientos-peda-discp-promover-comprension-diversos-textos",
+            "description": "Conocimientos pedagógicos y disciplinares para promover en los estudiantes la comprensión de diversos tipos de textos",
+            "orderIndex": 2,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU02-T02",
+                "slug": "estrategias-didacticas-fomentar-siguientes-capacidades-estudiantes-diversos-textos",
+                "description": "Estrategias didácticas para fomentar las siguientes capacidades en los estudiantes",
+                "competenceCode": "C08-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU02T02-ST01",
+                    "slug": "obtiene-informacion-texto-escrito",
+                    "description": "Obtiene información del texto escrito",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRPRIMU02T02-ST01",
+                    "slug": "infiere-interpreta-informacion-texto",
+                    "description": "Infiere e interpreta información del texto",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRPRIMU02T02-ST01",
+                    "slug": "reflexiona-evalua-forma-contenido-contexto-texto",
+                    "description": "Reflexiona y evalúa la forma, el contenido y contexto del texto",
+                    "orderIndex": 3
+                  }
+                ]
+              },
+              {
+                "code": "SUB02-EBRPRIMU02-T02",
+                "slug": "estrategias-didacticas-evaluar-retroalimentar-compresion-lectora-estudiantes",
+                "description": "Estrategias didácticas para evaluar y retroalimentar la comprensión lectora de los estudiantes",
+                "competenceCode": "C08-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU02-T02",
+                "slug": "estrategias-didacticas-desarrollo-alfabetizacion-inicial-estudiantes",
+                "description": "Estrategias didácticas para el desarrollo de la alfabetización inicial en los estudiantes",
+                "competenceCode": "C09-2026",
+                "orderIndex": 3,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU02T02-ST02",
+                    "slug": "apropiacion-sistema-escritura-lenugaje-escrito-situaciones-comunicativas",
+                    "description": "Apropiación del sistema de escritura y del lenguaje escrito en situaciones comunicativas",
+                    "orderIndex": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "TOP3-EBRPRIM-U02",
+            "slug": "conocimientos-peda-discp-promover-produccion-textos-escritos",
+            "description": "Conocimientos pedagógicos y disciplinares para promover en los estudiantes la producción de textos escritos",
+            "orderIndex": 3,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU02-T03",
+                "slug": "estrategias-didacticas-fomentar-siguientes-capacidades-estudiantes-textos-escritos",
+                "description": "Estrategias didácticas para fomentar las siguientes capacidades en los estudiantes",
+                "competenceCode": "C09-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU02T03-ST01",
+                    "slug": "adecua-texto-situacion-comunicativa",
+                    "description": "Adecúa el texto a la situación comunicativa",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRPRIMU02T03-ST01",
+                    "slug": "organiza-desarrolla-ideas-forma-coherente-cohesiona",
+                    "description": "Organiza y desarrolla las ideas de forma coherente y cohesionada",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRPRIMU02T03-ST01",
+                    "slug": "utiliza-conveciones-lenguaje-escrito-forma-pertinente",
+                    "description": "Utiliza convenciones del lenguaje escrito de forma pertinente",
+                    "orderIndex": 3
+                  },
+                  {
+                    "code": "MT04-EBRPRIMU02T03-ST01",
+                    "slug": "reflexiona-evalua-forma-contenido-contexto-texto-escrito",
+                    "description": "Reflexiona y evalúa la forma, el contenido y contexto del texto escrito",
+                    "orderIndex": 4
+                  }
+                ]
+              },
+              {
+                "code": "SUB02-EBRPRIMU02-T03",
+                "slug": "componentes-de-coherencia-cohesion-textuales",
+                "description": "Componentes de la coherencia y cohesión textuales",
+                "competenceCode": "C09-2026",
+                "orderIndex": 2,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU02T03-ST02",
+                    "slug": "unidad-tematica-progresion-informacion",
+                    "description": "Unidad temática, progresión de la información",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRPRIMU02T03-ST02",
+                    "slug": "conectores-signos-de-puntuacion",
+                    "description": "Conectores, signos de puntuación",
+                    "orderIndex": 2
+                  }
+                ]
+              },
+              {
+                "code": "SUB03-EBRPRIMU02-T03",
+                "slug": "estrategias-didacticas-desarrollo-alfabetizacion-inicial-estudiantes-textos-escritos",
+                "description": "Estrategias didácticas para el desarrollo de la alfabetización inicial en los estudiantes",
+                "competenceCode": "C09-2026",
+                "orderIndex": 3,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRPRIMU02T03-ST03",
+                    "slug": "apropiacion-sistema-escritura-lenugaje-escrito-situaciones-comunicativas-textos-escritos",
+                    "description": "Apropiación del sistema de escritura y del lenguaje escrito en situaciones comunicativas",
+                    "orderIndex": 1
+                  }
+                ]
+              },
+              {
+                "code": "SUB04-EBRPRIMU02-T03",
+                "slug": "estrategias-didacticas-evaluar-retroalimentar-producciones-escritas-estudiantes",
+                "description": "Estrategias didácticas para evaluar y retroalimentar las producciones escritas de los estudiantes",
+                "competenceCode": "C09-2026",
+                "orderIndex": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "UNIT03-EBRPRIMA",
+        "slug": "matematica",
+        "name": "MATEMATICA",
+        "description": "",
+        "orderIndex": 3,
+        "topics": [
+          {
+            "code": "TOP1-EBRPRIM-U03",
+            "slug": "conocimientos-peda-discp-favorecer-resolucion-problem-cantidad",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer la resolución de problemas de cantidad",
+            "orderIndex": 1,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU03-T01",
+                "slug": "nocion-numero-clasificacion-seriacion-conteo-cantidad-inclusion-reversibilidad",
+                "description": "Noción de número: clasificación, seriación, secuencia verbal, conteo, conservación de la cantidad, inclusión de clases y reversibilidad del pensamiento",
+                "competenceCode": "C23-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU03-T01",
+                "slug": "usos-distintos-significados-numero-nomnal-cardinal-ordinal-medida",
+                "description": "Usos de los distintos significados del número como: nominal, cardinal, ordinal y medida",
+                "competenceCode": "C23-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU03-T01",
+                "slug": "sistema-numero-decimal-jerarquica-construccion-decena-centena-posicion",
+                "description": "Sistema de numeración decimal: inclusión jerárquica, construcción de la decena, de la centena y el valor de posición",
+                "competenceCode": "C23-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU03-T01",
+                "slug": "estructuras-aditivas-cambio-combinacion-comparacion-igualacion",
+                "description": "Estructuras aditivas: cambio, combinación, comparación e igualación",
+                "competenceCode": "C23-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU03-T01",
+                "slug": "estructuras-multiplicativas-proporcionalidad-simple-comparacion-producto-cartesiano",
+                "description": "Estructuras multiplicativas: proporcionalidad simple, comparación multiplicativa y producto cartesiano",
+                "competenceCode": "C23-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRPRIMU03-T01",
+                "slug": "operaciones-numeros-naturales-edicion-sustaccion-multiplicacion-division-potenciacion",
+                "description": "Operaciones con números naturales: adición, sustracción, multiplicación, división, potenciación",
+                "competenceCode": "C23-2026",
+                "orderIndex": 6
+              },
+              {
+                "code": "SUB07-EBRPRIMU03-T01",
+                "slug": "fraccion-representacion-significados",
+                "description": "Fracción: representaciones y significados (parte de un todo, operador, cociente, razón y medida)",
+                "competenceCode": "C23-2026",
+                "orderIndex": 7
+              },
+              {
+                "code": "SUB08-EBRPRIMU03-T01",
+                "slug": "numeros-decimales-representaciones",
+                "description": "Números decimales: representaciones",
+                "competenceCode": "C23-2026",
+                "orderIndex": 8
+              },
+              {
+                "code": "SUB09-EBRPRIMU03-T01",
+                "slug": "operaciones-fracciones-decimales-adicion-sustraccion-multiplicacion-division",
+                "description": "Operaciones con fracciones y decimales: adición, sustracción, multiplicación, división",
+                "competenceCode": "C23-2026",
+                "orderIndex": 9
+              },
+              {
+                "code": "SUB10-EBRPRIMU03-T01",
+                "slug": "porcentaje-aumentos-descuentos-sucesivos",
+                "description": "Porcentajes. Aumentos y descuentos sucesivos",
+                "competenceCode": "C23-2026",
+                "orderIndex": 10
+              }
+            ]
+          },
+          {
+            "code": "TOP2-EBRPRIM-U03",
+            "slug": "conocimientos-peda-discp-favorecer-resolucion-problem-regularidad-equivalencia-cambio",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer la resolución de problemas de regularidad, equivalencia y cambio",
+            "orderIndex": 2,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU03-T02",
+                "slug": "patrones-numericos-y-geometricos-procesos-generalizacion",
+                "description": "Patrones numéricos y geométricos. Procesos de generalización",
+                "competenceCode": "C24-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU03-T02",
+                "slug": "relaciones-igualdad-desigualdad",
+                "description": "Relaciones de igualdad y de desigualdad",
+                "competenceCode": "C24-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU03-T02",
+                "slug": "relacion-equivalencia",
+                "description": "Relación de equivalencia",
+                "competenceCode": "C24-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU03-T02",
+                "slug": "proporcionalidad-directa-e-inversa",
+                "description": "Proporcionalidad directa e inversa",
+                "competenceCode": "C24-2026",
+                "orderIndex": 4
+              }
+            ]
+          },
+          {
+            "code": "TOP3-EBRPRIM-U03",
+            "slug": "conocimientos-peda-discp-favorecer-resolucion-problem-forma-movimiento-localizacion",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer la resolución de problemas de forma, movimiento y localización",
+            "orderIndex": 3,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU03-T03",
+                "slug": "relaciones-especiales-ubicacion-desplazamiento",
+                "description": "Relaciones espaciales: ubicación y desplazamiento",
+                "competenceCode": "C26-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU03-T03",
+                "slug": "formas-bidimensionales-tridimensionales-elementos-propiedades",
+                "description": "Formas bidimensionales y tridimensionales: elementos y propiedades",
+                "competenceCode": "C26-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU03-T03",
+                "slug": "perimetro-area-figuras-bidimensionales",
+                "description": "Perímetro y área de figuras bidimensionales. Relación entre ambas magnitudes",
+                "competenceCode": "C26-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU03-T03",
+                "slug": "transformaciones-plano-traslaciones-reflexiones-rotaciones",
+                "description": "Transformaciones en el plano: traslaciones, reflexiones y rotaciones",
+                "competenceCode": "C26-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU03-T03",
+                "slug": "solidos-geometricos-caracteristicas-elementos",
+                "description": "Sólidos geométricos características y elementos",
+                "competenceCode": "C26-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRPRIMU03-T03",
+                "slug": "unidades-medida-longitud",
+                "description": "Unidades de medida de longitud",
+                "competenceCode": "C26-2026",
+                "orderIndex": 6
+              },
+              {
+                "code": "SUB07-EBRPRIMU03-T03",
+                "slug": "unidades-medida-capacidad",
+                "description": "Unidades de medida de capacidad",
+                "competenceCode": "C26-2026",
+                "orderIndex": 7
+              }
+            ]
+          },
+          {
+            "code": "TOP4-EBRPRIM-U03",
+            "slug": "conocimientos-peda-discp-favorecer-resolucion-problem-gestion-datos-incertidumbre",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer la resolución de problemas de gestión de datos e incertidumbre",
+            "orderIndex": 4,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU03-T04",
+                "slug": "poblacion-y-muestra",
+                "description": "Población y muestra",
+                "competenceCode": "C25-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU03-T04",
+                "slug": "variables-estadisticas-cualitativas-cuantitativas",
+                "description": "Variables estadísticas: cualitativas y cuantitativas",
+                "competenceCode": "C25-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU03-T04",
+                "slug": "tablas-graficos-estadisticos",
+                "description": "Tablas y gráficos estadísticos",
+                "competenceCode": "C25-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU03-T04",
+                "slug": "medidas-tendencia-central-media-mediana-moda-datos-no-agrupados",
+                "description": "Medidas de tendencia central (media, mediana y moda) para datos no agrupados",
+                "competenceCode": "C25-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU03-T04",
+                "slug": "incertidumbre-aleatoriedad-experimento-aleatorio-espacio-muestral",
+                "description": "Incertidumbre: aleatoriedad. Experimento aleatorio. Espacio muestral",
+                "competenceCode": "C25-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRPRIMU03-T04",
+                "slug": "metodos-de-conteo-diagrama-arbol-principio-adicion-multiplicacion",
+                "description": "Métodos de conteo: diagrama de árbol, principio de adición y principio de multiplicación",
+                "competenceCode": "C25-2026",
+                "orderIndex": 6
+              },
+              {
+                "code": "SUB07-EBRPRIMU03-T04",
+                "slug": "evento-suceso-probabilidad-de-suceso",
+                "description": "Evento o suceso. Probabilidad de un suceso",
+                "competenceCode": "C25-2026",
+                "orderIndex": 7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "UNIT04-EBRPRIMA",
+        "slug": "personal-social",
+        "name": "PERSONAL SOCIAL",
+        "description": "",
+        "orderIndex": 4,
+        "topics": [
+          {
+            "code": "TOP1-EBRPRIM-U04",
+            "slug": "conocimientos-peda-discp-promover-construccion-identidad",
+            "description": "Conocimientos pedagógicos y disciplinares para promover la construcción de la identidad",
+            "orderIndex": 1,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU04-T01",
+                "slug": "construccion-de-las-entidades",
+                "description": "Construcción de las identidades",
+                "competenceCode": "C01-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU04-T01",
+                "slug": "conceptos-basicos-asociados-desarrollo-personal",
+                "description": "Conceptos básicos asociados al desarrollo personal: autoconcepto, autovaloración, autoeficacia, autoconocimiento, autoestima, autonomía, resiliencia, personalidad y sexualidad",
+                "competenceCode": "C01-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU04-T01",
+                "slug": "habilidades-socioemocionales",
+                "description": "Habilidades socioemocionales: asertividad, empatía, escucha activa, autorregulación de emociones y del comportamiento, entre otras",
+                "competenceCode": "C01-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU04-T01",
+                "slug": "autocuidado-frente-situaciones-riesgo-bienestar-e-integridad",
+                "description": "Autocuidado frente a situaciones que ponen en riesgo el bienestar e integridad",
+                "competenceCode": "C01-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU04-T01",
+                "slug": "reflexion-y-argumentacion-etica-dilemas-morales-situaciones-cotidianas",
+                "description": "Reflexión y argumentación ética a partir de dilemas morales y situaciones cotidianas",
+                "competenceCode": "C01-2026",
+                "orderIndex": 5
+              }
+            ]
+          },
+          {
+            "code": "TOP2-EBRPRIM-U04",
+            "slug": "conocimientos-peda-discp-promover-participacion-democratica-bien-comun",
+            "description": "Conocimientos pedagógicos y disciplinares para promover la participación democrática en la búsqueda del bien común",
+            "orderIndex": 2,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU04-T02",
+                "slug": "construccion-de-normas",
+                "description": "Construcción de normas",
+                "competenceCode": "C16-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU04-T02",
+                "slug": "situaciones-afecta-convivencia-democratica",
+                "description": "Situaciones que afectan la convivencia democrática: diversas formas de violencia, discriminación, exclusión, entre otras",
+                "competenceCode": "C16-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU04-T02",
+                "slug": "reflexion-critica-prejuicios-y-esterotipos",
+                "description": "Reflexión crítica sobre prejuicios y estereotipos",
+                "competenceCode": "C16-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU04-T02",
+                "slug": "ciudadania-intercultural",
+                "description": "Ciudadanía intercultural",
+                "competenceCode": "C16-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU04-T02",
+                "slug": "manejo-de-conflictos",
+                "description": "Manejo de conflictos",
+                "competenceCode": "C16-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRPRIMU04-T02",
+                "slug": "deliberacion-sobre-asuntos-publicos",
+                "description": "Deliberación sobre asuntos públicos: identificación y problematización de asuntos públicos, análisis crítico de fuentes, construcción de argumentos razonados",
+                "competenceCode": "C16-2026",
+                "orderIndex": 6
+              },
+              {
+                "code": "SUB07-EBRPRIMU04-T02",
+                "slug": "principios-y-valores-democrativos",
+                "description": "Principios y valores democráticos como participación, respeto, igualdad, libertad, justicia, tolerancia, equidad, bien común, entre otros",
+                "competenceCode": "C16-2026",
+                "orderIndex": 7
+              },
+              {
+                "code": "SUB08-EBRPRIMU04-T02",
+                "slug": "democracia-sistema-plitico-y-forma-de-vida",
+                "description": "La democracia como sistema político y como forma de vida",
+                "competenceCode": "C16-2026",
+                "orderIndex": 8
+              },
+              {
+                "code": "SUB09-EBRPRIMU04-T02",
+                "slug": "organizacion-del-estado-peruano",
+                "description": "Organización del Estado peruano: características y funciones de los poderes del Estado",
+                "competenceCode": "C16-2026",
+                "orderIndex": 9
+              },
+              {
+                "code": "SUB10-EBRPRIMU04-T02",
+                "slug": "constitucion-politica-del-peru",
+                "description": "La Constitución Política del Perú: derechos fundamentales, deberes constitucionales, estructura del Estado",
+                "competenceCode": "C16-2026",
+                "orderIndex": 10
+              },
+              {
+                "code": "SUB11-EBRPRIMU04-T02",
+                "slug": "derechos-humanos",
+                "description": "Derechos Humanos",
+                "competenceCode": "C16-2026",
+                "orderIndex": 11
+              },
+              {
+                "code": "SUB12-EBRPRIMU04-T02",
+                "slug": "participacion-de-estudiantes-proyectos-orientados-bien-comun",
+                "description": "Participación de los estudiantes en proyectos orientados al bien común",
+                "competenceCode": "C16-2026",
+                "orderIndex": 12
+              }
+            ]
+          },
+          {
+            "code": "TOP3-EBRPRIM-U04",
+            "slug": "conocimientos-peda-discp-promover-construccion-interpretaciones-historicas",
+            "description": "Conocimientos pedagógicos y disciplinares para promover la construcción de interpretaciones históricas",
+            "orderIndex": 3,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU04-T03",
+                "slug": "desarrollo-pensamiento-historico-y-conciencia-historica",
+                "description": "Desarrollo del pensamiento histórico y conciencia histórica",
+                "competenceCode": "C17-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU04-T03",
+                "slug": "compresion-tiempo-historico",
+                "description": "Comprensión del tiempo histórico: uso de convenciones y categorías temporales (secuencias temporales, simultaneidades, cambios y permanencias)",
+                "competenceCode": "C17-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU04-T03",
+                "slug": "elaboracion-explicaciones-historicas",
+                "description": "Elaboración de explicaciones históricas (multicausalidad, relevancia, multidimensionalidad, perspectiva histórica)",
+                "competenceCode": "C17-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU04-T03",
+                "slug": "interpretacion-critica-fuentes-diversas",
+                "description": "Interpretación crítica de fuentes diversas",
+                "competenceCode": "C17-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU04-T03",
+                "slug": "proceso-de-senderizacion-andes-centrales",
+                "description": "El proceso de sedentarización en los Andes Centrales",
+                "competenceCode": "C17-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRPRIMU04-T03",
+                "slug": "principales-sociedades-prehispanicas-caral-el-tahuantinsuyo",
+                "description": "Principales sociedades prehispánicas desde Caral hasta el Tahuantinsuyo",
+                "competenceCode": "C17-2026",
+                "orderIndex": 6
+              },
+              {
+                "code": "SUB07-EBRPRIMU04-T03",
+                "slug": "peru-en-la-epoca-virreinal",
+                "description": "El Perú en la época virreinal: primeros intentos de organización, características internas, cambios y permanencias",
+                "competenceCode": "C17-2026",
+                "orderIndex": 7
+              },
+              {
+                "code": "SUB08-EBRPRIMU04-T03",
+                "slug": "proceso-de-independencia-peru-y-america-republica-peruana",
+                "description": "El proceso de independencia en el Perú y América y el surgimiento de la República peruana",
+                "competenceCode": "C17-2026",
+                "orderIndex": 8
+              },
+              {
+                "code": "SUB09-EBRPRIMU04-T03",
+                "slug": "peru-largo-de-los-siglos-xix-xx",
+                "description": "El Perú a lo largo de los siglos XIX y XX: grandes procesos, cambios y permanencias",
+                "competenceCode": "C17-2026",
+                "orderIndex": 9
+              }
+            ]
+          },
+          {
+            "code": "TOP4-EBRPRIM-U04",
+            "slug": "conocimientos-peda-discp-promover-gestion-responsable-espacio-ambiente",
+            "description": "Conocimientos pedagógicos y disciplinares para promover la gestión responsable del espacio y el ambiente",
+            "orderIndex": 4,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU04-T04",
+                "slug": "espacio-como-construccion-social-ciudadania-ambiental",
+                "description": "El espacio como construcción social y la ciudadanía ambiental: Rol de los actores sociales",
+                "competenceCode": "C18-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU04-T04",
+                "slug": "multidimensional-multicausalidad-multiescalaridad",
+                "description": "Multidimensionalidad, multicausalidad, multiescalaridad",
+                "competenceCode": "C18-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU04-T04",
+                "slug": "paisajes-naturales-culturales",
+                "description": "Paisajes naturales y culturales: lectura e interpretación del paisaje",
+                "competenceCode": "C18-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU04-T04",
+                "slug": "nociones-cartograficas-y-orientacion-espacio-geografico",
+                "description": "Nociones cartográficas y de orientación en el espacio geográfico",
+                "competenceCode": "C18-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU04-T04",
+                "slug": "interpretacion-escalas-geograficas",
+                "description": "Interpretación de escalas geográficas",
+                "competenceCode": "C18-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRPRIMU04-T04",
+                "slug": "manejos-fuentes-informacion-para-comprender-espacio-geo-ambiental",
+                "description": "Manejo de fuentes de información para comprender el espacio geográfico y el ambiente",
+                "competenceCode": "C18-2026",
+                "orderIndex": 6
+              },
+              {
+                "code": "SUB07-EBRPRIMU04-T04",
+                "slug": "regiones-naturales-del-peru",
+                "description": "Regiones naturales del Perú́: características y recursos",
+                "competenceCode": "C18-2026",
+                "orderIndex": 7
+              },
+              {
+                "code": "SUB08-EBRPRIMU04-T04",
+                "slug": "caracteristicas-y-organizacion-territorio-peruano",
+                "description": "Características y organización del territorio peruano: influencia de los Andes y las cuencas hidrográficas, regiones, espacios urbanos y rurales, actividades económicas, transporte y comunicaciones, áreas naturales protegidas",
+                "competenceCode": "C18-2026",
+                "orderIndex": 8
+              },
+              {
+                "code": "SUB09-EBRPRIMU04-T04",
+                "slug": "desarrollo-sostenible-practicas-ambientales-resposables",
+                "description": "Desarrollo sostenible y prácticas ambientales responsables",
+                "competenceCode": "C18-2026",
+                "orderIndex": 9
+              },
+              {
+                "code": "SUB10-EBRPRIMU04-T04",
+                "slug": "cambio-climatico-y-calentamiento-global",
+                "description": "Cambio climático y calentamiento global: causas y efectos, medidas de adaptación y de mitigación",
+                "competenceCode": "C18-2026",
+                "orderIndex": 10
+              },
+              {
+                "code": "SUB11-EBRPRIMU04-T04",
+                "slug": "problematicas-ambientales-y-territoriales",
+                "description": "Problemáticas ambientales y territoriales",
+                "competenceCode": "C18-2026",
+                "orderIndex": 11
+              },
+              {
+                "code": "SUB12-EBRPRIMU04-T04",
+                "slug": "gestion-del-riesgo-de-desastres-conceptos-medidas-prevencion-mitigacion",
+                "description": "Gestión del riesgo de desastres: conceptos (riesgo, peligro, vulnerabilidad, desastres y resiliencia); y medidas de prevención o mitigación del riesgo de desastre",
+                "competenceCode": "C18-2026",
+                "orderIndex": 12
+              }
+            ]
+          },
+          {
+            "code": "TOP5-EBRPRIM-U04",
+            "slug": "conocimientos-peda-discp-promover-gestion-responsable-recursos-economicos",
+            "description": "Conocimientos pedagógicos y disciplinares para promover la gestión responsable de los recursos económicos",
+            "orderIndex": 5,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRPRIMU04-T05",
+                "slug": "ciudadania-economica",
+                "description": "Ciudadanía económica",
+                "competenceCode": "C19-2026",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRPRIMU04-T05",
+                "slug": "agentes-que-participan-proceso-economico",
+                "description": "Agentes que participan del proceso económico: características y roles de los individuos, familias, empresas y Estado",
+                "competenceCode": "C19-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRPRIMU04-T05",
+                "slug": "intercambio-trueque-y-uso-del-dinero",
+                "description": "Intercambio: trueque y uso del dinero",
+                "competenceCode": "C19-2026",
+                "orderIndex": 3
+              },
+              {
+                "code": "SUB04-EBRPRIMU04-T05",
+                "slug": "funcionamiento-del-mercado",
+                "description": "Funcionamiento del mercado",
+                "competenceCode": "C19-2026",
+                "orderIndex": 4
+              },
+              {
+                "code": "SUB05-EBRPRIMU04-T05",
+                "slug": "importancia-de-la-tributacion",
+                "description": "Importancia de la tributación",
+                "competenceCode": "C19-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRPRIMU04-T05",
+                "slug": "ahorro-inversion-y-presupuesto",
+                "description": "Ahorro, inversión y presupuesto",
+                "competenceCode": "C19-2026",
+                "orderIndex": 6
+              },
+              {
+                "code": "SUB07-EBRPRIMU04-T05",
+                "slug": "derechos-consumidores-y-consumo-informado-y-responsable",
+                "description": "Derechos de los consumidores y consumo informado y responsable",
+                "competenceCode": "C19-2026",
+                "orderIndex": 7
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -44,14 +44,17 @@ public class ResourceConfiguration : IEntityTypeConfiguration<Resource>
 
         builder.Property(r => r.PublicScore)
                .HasColumnName("public_score")
+                .HasDefaultValue(0)
                .IsRequired();
 
         builder.Property(r => r.ViewsCount)
                .HasColumnName("views_count")
+               .HasDefaultValue(0)
                .IsRequired();
 
         builder.Property(r => r.LikesCount)
                .HasColumnName("likes_count")
+               .HasDefaultValue(0)
                .IsRequired();
 
         builder.HasMany(r => r.UserResourceViews)

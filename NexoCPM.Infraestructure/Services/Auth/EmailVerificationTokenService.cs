@@ -25,7 +25,7 @@ namespace NexoCPM.Infraestructure.Services.Auth
         {
             int seconds = 0;
 
-            seconds = (int)(emailToken.CreatedAt.AddMinutes(2) - DateTime.UtcNow).TotalSeconds;
+            seconds = (int)(emailToken.CreatedAt.AddSeconds(50) - DateTime.UtcNow).TotalSeconds;
             if (seconds < 0) seconds = 0;
             return Task.FromResult(seconds);
         }

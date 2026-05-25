@@ -15,5 +15,6 @@ namespace NexoCPM.Application.Users.Dtos
         public decimal CompletedPercentage { get; set; }
         public string Status { get; set; } = string.Empty;
         public List<UserSyllabusUnitData>? units { get; set; }
+
     }
 }

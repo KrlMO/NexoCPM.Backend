@@ -17,6 +17,13 @@ namespace NexoCPM.Persistence.Repositories.Users
             _context = context;
         }
 
+        public async Task<UserLearningContext?> GetByIdAsync(int id)
+        {
+            return await _context.UserLearningContexts
+                .AsNoTracking()
+                .FirstOrDefaultAsync(ulc => ulc.Id == id && ulc.IsActive && !ulc.IsDeleted);
+        }
+
         public async Task<UserLearningContext?> GetByUserAndSyllabusSlugAsync(int userId, string syllabusSlug)
         {
             return await _context.UserLearningContexts

@@ -1,5 +1,6 @@
 using MediatR;
 using NexoCPM.Application.Curriculum.Ports;
+using NexoCPM.Application.Evaluations.Ports;
 using NexoCPM.Application.Users.Ports;
 
 namespace NexoCPM.Application.Users.Queries.GetUnitTopics
@@ -8,13 +9,15 @@ namespace NexoCPM.Application.Users.Queries.GetUnitTopics
     {
         private readonly IUserLearningContextRepository _userLearningContextRepository;
         private readonly ISyllabusUnitRepository _syllabusUnitRepository;
-
+        private readonly IAssessmentRepository _assessmentRepository;
         public GetUnitTopicsHandler(
             IUserLearningContextRepository userLearningContextRepository,
-            ISyllabusUnitRepository syllabusUnitRepository)
+            ISyllabusUnitRepository syllabusUnitRepository,
+            IAssessmentRepository assessmentRepository)
         {
             _userLearningContextRepository = userLearningContextRepository;
             _syllabusUnitRepository = syllabusUnitRepository;
+            _assessmentRepository = assessmentRepository;
         }
 
         public async Task<GetUnitTopicsResponse> Handle(GetUnitTopicsQuery request, CancellationToken cancellationToken)
@@ -24,7 +27,8 @@ namespace NexoCPM.Application.Users.Queries.GetUnitTopics
                 throw new KeyNotFoundException("Contexto de aprendizaje no encontrado.");
 
             var topics = await _syllabusUnitRepository.GetUnitTopicsAsync(request.unitId, progressId.Value);
-            return new GetUnitTopicsResponse { topics = topics };
+            var unitTest = await _assessmentRepository.GetAssessmentByUnitIdAsync(request.unitId);
+            return new GetUnitTopicsResponse { Topics = topics, UnitTest = unitTest };
         }
     }
 }

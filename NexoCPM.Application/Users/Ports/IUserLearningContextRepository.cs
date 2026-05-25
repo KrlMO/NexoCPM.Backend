@@ -6,6 +6,7 @@ namespace NexoCPM.Application.Users.Ports
 {
     public interface IUserLearningContextRepository
     {
+        Task<UserLearningContext?> GetByIdAsync(int id);
         Task<UserLearningContext?> GetByUserAndSyllabusSlugAsync(int userId, string syllabusSlug);
         Task<UserLearningContext?> GetByUserAndSyllabusSlugTrackedAsync(int userId, string syllabusSlug);
         Task<UserLearningContext> AddAsync(UserLearningContext userLearningContext);

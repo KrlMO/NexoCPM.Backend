@@ -48,7 +48,7 @@ namespace NexoCPM.Persistence.Repositories.Users
             catch (DbUpdateException ex)
                 when (DbExceptionHelper.IsUniqueConstraint(ex, "IX_Users_Code"))
             {
-                throw new UniqueConstraintException("El código ya existe");
+                throw new UniqueConstraintException("El cï¿½digo ya existe");
             }
         }
 
@@ -56,6 +56,12 @@ namespace NexoCPM.Persistence.Repositories.Users
         {
             return await _context.Users
                 .AnyAsync(u => u.Code == code);
+        }
+
+        public async Task UpdateAsync(User user)
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
         }
     }
 }

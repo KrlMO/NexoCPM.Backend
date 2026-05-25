@@ -1,0 +1,415 @@
+[
+    {
+        "syllabusCode": "SYB-EBR-SEC-CYT-2026",
+        "units": [
+            {
+                "code": "UNIT01-EBRSECCYT",
+                "slug": "conocimiento-didactico-indagacion",
+                "name": "Conocimiento Didáctico - INDAGACIÓN",
+                "description": "",
+                "orderIndex": 1,
+                "topics": [
+                    {
+                        "code": "TOP1-EBRSECCYT-U01",
+                        "slug": "indagacion-cientifica",
+                        "description": "La indagación científica",
+                        "orderIndex": 1,
+                        "subTopics": [
+                            {
+                                "code": "SUB01-EBRSECCYTU01-T01",
+                                "slug": "caracteristicas-de-la-ciencia-y-conocimiento-cientifico",
+                                "description": "Características de la ciencia y el conocimiento científico",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 1
+                            },
+                            {
+                                "code": "SUB02-EBRSECCYTU01-T01",
+                                "slug": "indagacion-cientifica-y-caracteristicas-etica-indagacion",
+                                "description": "La indagación científica y sus características. Ética en la indagación",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 2
+                            },
+                            {
+                                "code": "SUB03-EBRSECCYTU01-T01",
+                                "slug": "delimitacion-situaciones-problematicas-pertinentes-desarrollar-indagacion",
+                                "description": "Delimitación de situaciones problemáticas pertinentes para desarrollar una indagación",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 3
+                            },
+                            {
+                                "code": "SUB04-EBRSECCYTU01-T01",
+                                "slug": "identificacion-variables-dependiente-independiente-intervinientes-controladas-var-indagacion",
+                                "description": "Identificación de variables: dependiente, independiente, intervinientes y controladas. Relación entre las variables de indagación",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 4
+                            },
+                            {
+                                "code": "SUB05-EBRSECCYTU01-T01",
+                                "slug": "identificacion-fuentes-confiables-informacion-cientifica",
+                                "description": "Identificación de fuentes confiables de información científica",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 5
+                            },
+                            {
+                                "code": "SUB06-EBRSECCYTU01-T01",
+                                "slug": "formulacion-hipotesis-identificacion-evidencia-sustente",
+                                "description": "Formulación de hipótesis e identificación de evidencia que la sustente",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 6
+                            },
+                            {
+                                "code": "SUB07-EBRSECCYTU01-T01",
+                                "slug": "diseno-estrategias-indagacion-identificacion-procedimientos-grupos-experimentales",
+                                "description": "Diseño de estrategias de indagación. Identificación de procedimientos para someter a prueba las hipótesis de indagación. Uso de grupos experimentales, grupo control y ensayos científicos",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 7
+                            },
+                            {
+                                "code": "SUB08-EBRSECCYTU01-T01",
+                                "slug": "identificacion-materiales-e-instrumentos-desarrollo-indagacion-propuestas",
+                                "description": "Identificación de materiales e instrumentos pertinentes para el desarrollo de una indagación. Medidas de seguridad. Ajustes pertinentes en las propuestas de indagación",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 8
+                            },
+                            {
+                                "code": "SUB09-EBRSECCYTU01-T01",
+                                "slug": "registro-datos-formas-determinar-y-minimizar-incertidumbre-identificacion-fuentes-error",
+                                "description": "Registro de datos. Formas de determinar y minimizar la incertidumbre. Identificación de fuentes de error",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 9
+                            },
+                            {
+                                "code": "SUB10-EBRSECCYTU01-T01",
+                                "slug": "concepto-medida-manejo-y-conversion-de-unidades",
+                                "description": "Concepto de medida. Manejo y conversión de unidades",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 10
+                            },
+                            {
+                                "code": "SUB11-EBRSECCYTU01-T01",
+                                "slug": "resultados-indagacion-representacion-interpretacion-y-analisis-datos-graficos-diagramas-esquemas",
+                                "description": "Resultados de indagación. Representación, interpretación y análisis de datos e información contenida en tablas, gráficos, diagramas y esquemas",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 11
+                            },
+                            {
+                                "code": "SUB12-EBRSECCYTU01-T01",
+                                "slug": "identificacion-elaboracion-conclusiones-coherentes-evidencia-cientifica",
+                                "description": "Identificación y elaboración de conclusiones coherentes con la evidencia científica",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 12
+                            },
+                            {
+                                "code": "SUB13-EBRSECCYTU01-T01",
+                                "slug": "identificacion-alcances-y-limitaciones-indagacion",
+                                "description": "Identificación de los alcances y limitaciones de una indagación",
+                                "competenceCode": "C20-2026",
+                                "orderIndex": 13
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "UNIT02-EBRSECCYT",
+                "slug": "conocimiento-didactico-explicacion",
+                "name": "Conocimiento Didáctico - EXPLICACIÓN",
+                "description": "",
+                "orderIndex": 2,
+                "topics": [
+                    {
+                        "code": "TOP1-EBRSECCYT-U02",
+                        "slug": "mundo-fisico-basado-conocimientos-cientificos",
+                        "description": "Mundo físico basado en conocimientos científicos",
+                        "orderIndex": 1,
+                        "subTopics": [
+                            {
+                                "code": "SUB01-EBRSECCYTU02-T01",
+                                "slug": "mecanismos-seres-vivos-secu",
+                                "description": "Mecanismos de los seres vivos",
+                                "competenceCode": "C21-2026",
+                                "orderIndex": 1,
+                                "microTopics": [
+                                    {
+                                        "code": "MT01-EBRSECCYTU02T01-ST01",
+                                        "slug": "niveles-organizacion-clasificacion-seres-vivos-diversidad-caracteristicas",
+                                        "description": "Niveles de organización y clasificación de los seres vivos. La diversidad y características de procariontes y virus, protistas, plantas, hongos, animales",
+                                        "orderIndex": 1
+                                    },
+                                    {
+                                        "code": "MT02-EBRSECCYTU02T01-ST01",
+                                        "slug": "funciones-seres-vivos-sistemas-involucrados-homeostasis-salud-alimentacion-enfermedad",
+                                        "description": "Funciones de los seres vivos: nutrición, reproducción y relación. Sistemas involucrados. Homeostasis. Salud, alimentación balanceada y enfermedad",
+                                        "orderIndex": 2
+                                    },
+                                    {
+                                        "code": "MT03-EBRSECCYTU02T01-ST01",
+                                        "slug": "quimica-seres-vivos-funcion-caracteristicas-estructurales-biomoleculas-alimentos",
+                                        "description": "Química de los seres vivos: elementos necesarios para la vida. Función y características estructurales de biomoléculas orgánicas: carbohidratos, lípidos, proteínas y ácidos nucleicos (ADN y ARN). Identificación de biomoléculas en los alimentos",
+                                        "orderIndex": 3
+                                    },
+                                    {
+                                        "code": "MT04-EBRSECCYTU02T01-ST01",
+                                        "slug": "distribucion-celulas-procariotas-y-eucariotas-mecanismos-intercambio",
+                                        "description": "Distinción de células procariota y eucariota. La célula eucariota: organización, estructura y función especializada de distintos tipos de célula. Mecanismos de intercambio entre célula y ambiente",
+                                        "orderIndex": 4
+                                    },
+                                    {
+                                        "code": "MT05-EBRSECCYTU02T01-ST01",
+                                        "slug": "metabolismo-celular-fotosintesis",
+                                        "description": "Metabolismo celular: respiración (glicólisis y fermentación, respiración aeróbica). Fotosíntesis (estructura de los sistemas fotosintéticos, pigmentos fotosintéticos, reacciones luminosas)",
+                                        "orderIndex": 5
+                                    },
+                                    {
+                                        "code": "MT06-EBRSECCYTU02T01-ST01",
+                                        "slug": "fases-ciclo-ceular-etapas-mitosis",
+                                        "description": "Fases del ciclo celular, incluyendo etapas de la mitosis",
+                                        "orderIndex": 6
+                                    },
+                                    {
+                                        "code": "MT07-EBRSECCYTU02T01-ST01",
+                                        "slug": "reproduccion-sexual-alteraciones-geneticas",
+                                        "description": "Reproducción sexual: comportamiento cromosómico durante la meiosis y su función (gametogénesis y variabilidad del material genético). Alteraciones genéticas",
+                                        "orderIndex": 7
+                                    },
+                                    {
+                                        "code": "MT08-EBRSECCYTU02T01-ST01",
+                                        "slug": "mutacion-y-efecto-proteinas-posibles-alteraciones-asociadas",
+                                        "description": "Mutación y su efecto en las proteínas y las posibles alteraciones asociadas",
+                                        "orderIndex": 8
+                                    },
+                                    {
+                                        "code": "MT09-EBRSECCYTU02T01-ST01",
+                                        "slug": "etapas-flujo-informacion-genetica-gen-hasta-proteina",
+                                        "description": "Etapas del flujo de información genética, desde el gen hasta la proteína",
+                                        "orderIndex": 9
+                                    },
+                                    {
+                                        "code": "MT10-EBRSECCYTU02T01-ST01",
+                                        "slug": "aplicaciones-biotecnologia",
+                                        "description": "Aplicaciones de la biotecnología",
+                                        "orderIndex": 10
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "SUB02-EBRSECCYTU02-T01",
+                                "slug": "materia-y-energia-secu",
+                                "description": "Materia y energía",
+                                "competenceCode": "C21-2026",
+                                "orderIndex": 2,
+                                "microTopics": [
+                                    {
+                                        "code": "MT01-EBRSECCYTU02T01-ST02",
+                                        "slug": "cantidades-fisicas-escalares-y-vectores",
+                                        "description": "Cantidades físicas: magnitudes fundamentales y derivadas. Escalares y vectores",
+                                        "orderIndex": 1
+                                    },
+                                    {
+                                        "code": "MT02-EBRSECCYTU02T01-ST02",
+                                        "slug": "propiedades-y-clasificacion-de-materia-separacion-mezclas",
+                                        "description": "Propiedades y clasificación de la materia. Separación de mezclas",
+                                        "orderIndex": 2
+                                    },
+                                    {
+                                        "code": "MT03-EBRSECCYTU02T01-ST02",
+                                        "slug": "teoria-atomica-materia-caracterizacion-estabilidad-de-atomos",
+                                        "description": "Teoría atómica de la materia: estructura del átomo. Caracterización de átomos en términos de número atómico, número de masa, masa atómica y masa molar. Estabilidad de los átomos",
+                                        "orderIndex": 3
+                                    },
+                                    {
+                                        "code": "MT04-EBRSECCYTU02T01-ST02",
+                                        "slug": "modelo-mecanico-cuantico-config-electronica-num-cuanticos-propiedades",
+                                        "description": "Modelo mecánico-cuántico: configuración electrónica, números cuánticos y propiedades periódicas de los elementos",
+                                        "orderIndex": 4
+                                    },
+                                    {
+                                        "code": "MT05-EBRSECCYTU02T01-ST02",
+                                        "slug": "enlaces-quimicos-representaciones-lewis-geometria-molecular-polaridad",
+                                        "description": " Enlace químico: formación y propiedades de enlaces iónicos, covalentes y metálicos. Representaciones de Lewis. Geometría molecular y polaridad",
+                                        "orderIndex": 5
+                                    },
+                                    {
+                                        "code": "MT06-EBRSECCYTU02T01-ST02",
+                                        "slug": "estados-agregacion-materia-leyes-gases-ideales-fuerzas-intermoleculares-liquidos-solidos-agregacion",
+                                        "description": "Estados de agregación de la materia: teoría cinético-molecular. Leyes de los gases ideales. Fuerzas intermoleculares en líquidos y sólidos (dipolo-dipolo, dispersión de London, puente de hidrógeno, ion-dipolo). Cambios de estado de agregación",
+                                        "orderIndex": 6
+                                    },
+                                    {
+                                        "code": "MT07-EBRSECCYTU02T01-ST02",
+                                        "slug": "reacciones-quimicas-relacion-masas-cantidad-ecuaciones-balanceadas-reactivo-limitante-exceso",
+                                        "description": "Reacciones químicas: ley de conservación de la masa. Relación entre masa y cantidad de sustancia. Información cuantitativa a partir de ecuaciones balanceadas. Reactivo limitante y reactivo en exceso. Transformaciones energéticas en procesos químicos. Efecto de catalizadores en la velocidad de reacciones químicas",
+                                        "orderIndex": 7
+                                    },
+                                    {
+                                        "code": "MT08-EBRSECCYTU02T01-ST02",
+                                        "slug": "fenomenos-nucleares-y-aplicacion",
+                                        "description": "Fenómenos nucleares y su aplicación: radioactividad, fisión y fusión nuclear",
+                                        "orderIndex": 8
+                                    },
+                                    {
+                                        "code": "MT09-EBRSECCYTU02T01-ST02",
+                                        "slug": "soluciones-proceso-formacion-ionicas-moleculares-unidades-concentracion-conductividad-ph",
+                                        "description": "Soluciones: proceso de formación de soluciones iónicas y moleculares. Unidades de concentración. Conductividad eléctrica de soluciones. pH de soluciones",
+                                        "orderIndex": 9
+                                    },
+                                    {
+                                        "code": "MT10-EBRSECCYTU02T01-ST02",
+                                        "slug": "cinematica-posicion-desplazamiento-mru-mruv-cuerpos-caida-libre",
+                                        "description": "Cinemática: sistemas de referencia. Posición y desplazamiento. Movimiento rectilíneo con velocidad constante. Movimiento rectilíneo con aceleración constante. Cuerpos en caída libre.",
+                                        "orderIndex": 10
+                                    },
+                                    {
+                                        "code": "MT11-EBRSECCYTU02T01-ST02",
+                                        "slug": "movimiento-parabolico-movimiento-circular-uniforme-representacion-grafica-movimiento",
+                                        "description": "Movimiento parabólico. Movimiento circular uniforme. Representación gráfica del movimiento",
+                                        "orderIndex": 11
+                                    },
+                                    {
+                                        "code": "MT12-EBRSECCYTU02T01-ST02",
+                                        "slug": "leyes-newton-fuerzas-contacto-distancia-fuerzas-fundamentales-gravitacion-masa-peso-fuerza-friccion",
+                                        "description": "Leyes del movimiento de Newton: concepto de fuerza. Fuerzas de contacto y a distancia. Fuerzas fundamentales de la naturaleza. Ley de la gravitación de Newton. Masa y peso. Fuerzas de fricción. Diagrama de cuerpo libre. Aplicación de las leyes de Newton para partículas en equilibrio y bajo acción de una fuerza resultante constante.",
+                                        "orderIndex": 12
+                                    },
+                                    {
+                                        "code": "MT13-EBRSECCYTU02T01-ST02",
+                                        "slug": "trabajo-energia-concepto-energia-cinetica-potencial-gravitatoria-mecanica-transformacion",
+                                        "description": "Trabajo y energía: trabajo de una fuerza. Concepto de energía. Energía cinética. Energía potencial gravitatoria. Energía mecánica. Conservación y transformación de la energía",
+                                        "orderIndex": 13
+                                    },
+                                    {
+                                        "code": "MT14-EBRSECCYTU02T01-ST02",
+                                        "slug": "termodinamica-definicion-calor-intercambio-calor-especifico-proceso-transferencia",
+                                        "description": "Termodinámica: temperatura y escalas. Definición de calor. Intercambio de calor. Calor específico. Procesos de transferencia de calor (conducción, convección, radiación). Definición de sistema. Tipos de sistema (abierto, cerrado, aislado)",
+                                        "orderIndex": 14
+                                    },
+                                    {
+                                        "code": "MT15-EBRSECCYTU02T01-ST02",
+                                        "slug": "electricidad-magnetismo-electrostaticas-conductores-aislantes-coulomb-fuerza-campo-electrico",
+                                        "description": "Electricidad y magnetismo: carga eléctrica. Fuerzas electrostáticas. Conductores y aislantes. Ley de Coulomb. Fuerza eléctrica y campo eléctrico. Potencial eléctrico. Corriente eléctrica y resistencia. Circuitos eléctricos",
+                                        "orderIndex": 15
+                                    },
+                                    {
+                                        "code": "MT16-EBRSECCYTU02T01-ST02",
+                                        "slug": "ondas-mecanicas-electromagneticas-espectro",
+                                        "description": "Ondas mecánicas y electromagnéticas. Espectro electromagnético",
+                                        "orderIndex": 16
+                                    }
+                                ]
+                            },
+                            {
+                                "code": "SUB03-EBRSECCYTU02-T01",
+                                "slug": "biodiversidad-tierra-y-universo-secu",
+                                "description": "Biodiversidad, Tierra y Universo",
+                                "competenceCode": "C21-2026",
+                                "orderIndex": 3,
+                                "microTopics": [
+                                    {
+                                        "code": "MT01-EBRSECCYTU02T01-ST03",
+                                        "slug": "teorias-origen-evolucion-vida-mecanismo-fosiles-filogeneticos-especie",
+                                        "description": "Teorías sobre el origen y evolución de la vida. Mecanismos de evolución. Registros fósiles. Árboles filogenéticos. Especie",
+                                        "orderIndex": 1
+                                    },
+                                    {
+                                        "code": "MT02-EBRSECCYTU02T01-ST03",
+                                        "slug": "variabilidad-herencia-genetica-mendeliana-genotipo-fenotipo-ligada-sexo",
+                                        "description": "Variabilidad y herencia: genética mendeliana, relación genotipo-fenotipo, herencia ligada al sexo",
+                                        "orderIndex": 2
+                                    },
+                                    {
+                                        "code": "MT03-EBRSECCYTU02T01-ST03",
+                                        "slug": "biosfera-flujos-materia-energia-ciclos-bioquimicos-cadenas-troficas-infra-interespecificas",
+                                        "description": "Biósfera: dinámica de ecosistemas. Flujos de materia y energía. Ciclos biogeoquímicos. Cadenas tróficas. Interacciones intra e interespecíficas",
+                                        "orderIndex": 3
+                                    },
+                                    {
+                                        "code": "MT04-EBRSECCYTU02T01-ST03",
+                                        "slug": "diversidad-seres-vivos-bases-celulares-morfologicas-diversidad",
+                                        "description": "Diversidad de los seres vivos. Bases celulares y morfológicas de la diversidad",
+                                        "orderIndex": 4
+                                    },
+                                    {
+                                        "code": "MT05-EBRSECCYTU02T01-ST03",
+                                        "slug": "recursos-naturales-fuente-energia-alternativa",
+                                        "description": "Recursos naturales. Fuente de energía alternativa",
+                                        "orderIndex": 5
+                                    },
+                                    {
+                                        "code": "MT06-EBRSECCYTU02T01-ST03",
+                                        "slug": "hombre-y-medio-ambiente",
+                                        "description": "El hombre y el medio ambiente: alteración del equilibrio ecosistémico, causas y consecuencias de la depredación de especies, contaminación ambiental, cambio climático y calentamiento global, desarrollo sostenible",
+                                        "orderIndex": 6
+                                    },
+                                    {
+                                        "code": "MT07-EBRSECCYTU02T01-ST03",
+                                        "slug": "teorias-origen-evolucion-universo-y-sistema-solar",
+                                        "description": "Teorías sobre el origen y evolución del Universo y del sistema solar",
+                                        "orderIndex": 7
+                                    },
+                                    {
+                                        "code": "MT08-EBRSECCYTU02T01-ST03",
+                                        "slug": "caracteristicas-estructurales-de-la-tierra",
+                                        "description": "Características estructurales de la Tierra: capas terrestres, procesos geológicos, movimientos e interacciones con otros cuerpos celestes y sus implicancias para la vida en el planeta. Fenómenos meteorológicos y efecto invernadero",
+                                        "orderIndex": 8
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "UNIT03-EBRSECCYT",
+                "slug": "conocimiento-didactico-diseno",
+                "name": "Conocimiento Didáctico - DISEÑO",
+                "description": "",
+                "orderIndex": 3,
+                "topics": [
+                    {
+                        "code": "TOP1-EBRSECCYT-U03",
+                        "slug": "soluciones-tecnologicas",
+                        "description": "Soluciones tecnológicas",
+                        "orderIndex": 1,
+                        "subTopics": [
+                            {
+                                "code": "SUB01-EBRSECCYTU03-T01",
+                                "slug": "determinacion-alternativa-solucion-tecnologica-identificacion-problemas-estrategias",
+                                "description": "Determinación de una alternativa de solución tecnológica. Identificación de problemas y estrategias de solución basadas en conocimientos científico, tecnológico y prácticas locales",
+                                "competenceCode": "C22-2026",
+                                "orderIndex": 1
+                            },
+                            {
+                                "code": "SUB02-EBRSECCYTU03-T01",
+                                "slug": "caracterizacion-justificacion-especificaciones-diseno-alternativa-solucion",
+                                "description": "Caracterización y justificación de las especificaciones de diseño, beneficios propios y colaterales de una alternativa de solución",
+                                "competenceCode": "C22-2026",
+                                "orderIndex": 2
+                            },
+                            {
+                                "code": "SUB03-EBRSECCYTU03-T01",
+                                "slug": "diseno-alternativas-solucion-seleccion-herramientas-y-materiales",
+                                "description": "Diseño de alternativas de solución. Selección de herramientas y materiales",
+                                "competenceCode": "C22-2026",
+                                "orderIndex": 3
+                            },
+                            {
+                                "code": "SUB04-EBRSECCYTU03-T01",
+                                "slug": "implementacion-alternativas-solucion-estructura-funcionamiento-solucion-tecnologica",
+                                "description": "Implementación de alternativas de solución. Estructura y funcionamiento de la solución tecnológica",
+                                "competenceCode": "C22-2026",
+                                "orderIndex": 4
+                            },
+                            {
+                                "code": "SUB05-EBRSECCYTU03-T01",
+                                "slug": "evaluacion-comunicacion-eficiencia-confiabilidad-impactos-solucion-tecnologica",
+                                "description": "Evaluación y comunicación de la eficiencia, confiabilidad y los posibles impactos de una solución tecnológica",
+                                "competenceCode": "C22-2026",
+                                "orderIndex": 5
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

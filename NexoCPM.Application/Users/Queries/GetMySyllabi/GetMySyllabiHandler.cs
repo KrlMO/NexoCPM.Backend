@@ -46,7 +46,8 @@ namespace NexoCPM.Application.Users.Queries.GetMySyllabi
                     Slug = ulc.Syllabus.Slug,
                     Status = progress.Status == UserProgressStatus.COMPLETED ? "COMPLETED" : "IN_PROGRESS",
                     LastAccess = DateOnly.FromDateTime(progress.LastAccess),
-                    CompletedPercentage = percentage
+                    CompletedPercentage = percentage,
+                    UserLearningContextId = ulc.Id
                 };
             }).ToList();
 

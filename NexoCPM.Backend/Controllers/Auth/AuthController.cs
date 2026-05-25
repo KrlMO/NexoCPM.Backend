@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using NexoCPM.Api.Common;
 using NexoCPM.Api.Controllers.Auth.Requests;
+using NexoCPM.Application.Auth.Commands.ConfirmEmailVerification;
 using NexoCPM.Application.Auth.Commands.Login;
 using NexoCPM.Application.Auth.Commands.RefreshToken;
 using NexoCPM.Application.Auth.Commands.Register;
@@ -145,5 +146,14 @@ public class AuthController : ControllerBase
         if (!result.Success)
             return BadRequest(ApiResponse<ResendEmailVerificationResult>.Fail("Error al reenviar el email de verificación."));
         return Ok(ApiResponse<ResendEmailVerificationResult>.Ok(result, "Email de verificación reenviado."));
+    }
+
+    [HttpPost("verify-email/confirm")]
+    public async Task<IActionResult> ConfirmEmailVerification([FromBody] ConfirmEmailVerificationRequest request)
+    {
+        var command = new ConfirmEmailVerificationCommand(request.Email, request.Token);
+        var result = await _mediator.Send(command);
+
+        return Ok(ApiResponse<ConfirmEmailVerificationResult>.Ok(result, "Correo electrónico verificado correctamente."));
     }
 }
