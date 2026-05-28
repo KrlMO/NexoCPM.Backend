@@ -1,4 +1,5 @@
 using NexoCPM.Application.Evaluations.Dtos;
+using NexoCPM.Domain.Evaluations.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +9,6 @@ namespace NexoCPM.Application.Evaluations.Ports
 {
     public interface IAssessmentRepository
     {
-        Task<AssessmentDto?> GetAssessmentByUnitIdAsync(int unitId);
+        Task<AssessmentDto?> GetAssessmentByTargetdAsync(int targetId, AssessmentScope assessmentScope, AssessmentType assessmentType);
     }
 }

@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using NexoCPM.Application.Commons.Dtos;
+using NexoCPM.Application.Users.Dtos;
 using NexoCPM.Application.Users.Ports;
 using NexoCPM.Domain.Evaluations.Enums;
 using NexoCPM.Persistence.Context;
+using System.Net.Sockets;
 
 namespace NexoCPM.Persistence.Repositories.Users;
 
@@ -13,6 +15,49 @@ public class UserProgressRepository : IUserProgressRepository
     public UserProgressRepository(ApplicationDbContext context)
     {
         _context = context;
+    }
+
+    public async Task<List<SyllabusProgressDto>> GetSyllabiProgressAsync(int userId)
+    {
+        var contexts = await _context.UserLearningContexts
+            .AsNoTracking()
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+            .OrderByDescending(ulc => ulc.UserSyllabusProgress.LastAccess)
+            .Select(ulc => new
+            {
+                UserLearningContextId = ulc.Id,
+                UserSyllabusProgressId = ulc.UserSyllabusProgress.Id,
+                SyllabusName = ulc.Syllabus.Name,
+                SyllabusSlug = ulc.Syllabus.Slug,
+                UnitData = ulc.UserSyllabusProgress.UserSyllabusUnitProgresses
+                    .Select(usup => new
+                    {
+                        TotalSubTopics = usup.SyllabusUnit.Topics
+                            .SelectMany(t => t.SubTopics)
+                            .Count(),
+                        ViewedSubTopics = usup.UserSubTopicViews
+                            .Count(ustv => ustv.IsViewed)
+                    })
+                    .ToList()
+            })
+            .ToListAsync();
+
+        return contexts.Select(c =>
+        {
+            var sumTotal = c.UnitData.Sum(u => u.TotalSubTopics);
+            var sumViewed = c.UnitData.Sum(u => u.ViewedSubTopics);
+
+            return new SyllabusProgressDto
+            {
+                UserLearningContextId = c.UserLearningContextId,
+                UserSyllabusProgressId = c.UserSyllabusProgressId,
+                SyllabusName = c.SyllabusName,
+                SyllabusSlug = c.SyllabusSlug,
+                CompletedPercentage = sumTotal > 0
+                    ? Math.Round((decimal)sumViewed / sumTotal * 100, 2)
+                    : 0m
+            };
+        }).ToList();
     }
 
     public async Task<List<DashboardSyllabusDto>> GetActiveSyllabusProgressAsync(int userId)
@@ -27,6 +72,7 @@ public class UserProgressRepository : IUserProgressRepository
                 SyllabusId = ulc.Syllabus.Id,
                 SyllabusCode = ulc.Syllabus.Code,
                 SyllabusName = ulc.Syllabus.Name,
+                Slug = ulc.Syllabus.Slug,
                 Modality = ulc.Syllabus.SyllabusContexts
                     .Select(sc => sc.EducationContext.Level.Modality.Name)
                     .FirstOrDefault() ?? string.Empty,
@@ -41,6 +87,7 @@ public class UserProgressRepository : IUserProgressRepository
                     .Select(usup => usup.SyllabusUnit.Name)
                     .FirstOrDefault() ?? string.Empty,
                 LastAccess = ulc.UserSyllabusProgress.LastAccess,
+                Id = ulc.Id,
                 UnitData = ulc.UserSyllabusProgress.UserSyllabusUnitProgresses
                     .Select(usup => new
                     {
@@ -64,12 +111,52 @@ public class UserProgressRepository : IUserProgressRepository
                 Id = c.SyllabusId,
                 Code = c.SyllabusCode,
                 Name = c.SyllabusName,
+                UserLearningContextId = c.Id,
                 LastUnitName = c.LastUnitName,
                 CompletedPercentage = sumTotal > 0
                     ? Math.Round((decimal)sumViewed / sumTotal * 100, 2)
                     : 0m,
-                LastActivity = DateOnly.FromDateTime(c.LastAccess)
+                LastActivity = DateOnly.FromDateTime(c.LastAccess),
+                Slug = c.Slug
             };
+        }).ToList();
+    }
+
+    public async Task<List<UnitProgressDto>> GetUnitProgressAsync(int userLearningContextId)
+    {
+        var ids = await _context.UserLearningContexts
+            .AsNoTracking()
+            .Where(ulc => ulc.Id == userLearningContextId)
+            .Select(ulc => new { ulc.SyllabusId, ProgressId = ulc.UserSyllabusProgress.Id })
+            .FirstOrDefaultAsync();
+
+        if (ids is null) return new List<UnitProgressDto>();
+
+        var unitData = await _context.SyllabusUnits
+            .AsNoTracking()
+            .Where(su => su.SyllabusId == ids.SyllabusId && su.IsActive && !su.IsDeleted)
+            .OrderBy(su => su.OrderIndex)
+            .Select(su => new
+            {
+                su.Id,
+                su.Name,
+                TotalSubTopics = su.Topics
+                    .SelectMany(t => t.SubTopics)
+                    .Count(st => st.IsActive && !st.IsDeleted),
+                ViewedSubTopics = su.UserSyllabusUnitProgresses
+                    .Where(usup => usup.UserSyllabusProgressId == ids.ProgressId)
+                    .SelectMany(usup => usup.UserSubTopicViews)
+                    .Count(ustv => ustv.IsViewed)
+            })
+            .ToListAsync();
+
+        return unitData.Select(u => new UnitProgressDto
+        {
+            UnitId = u.Id,
+            UnitName = u.Name,
+            CompletedPercentage = u.TotalSubTopics > 0
+                ? Math.Round((decimal)u.ViewedSubTopics / u.TotalSubTopics * 100, 2)
+                : 0m
         }).ToList();
     }
 

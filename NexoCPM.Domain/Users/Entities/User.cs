@@ -28,6 +28,7 @@ namespace NexoCPM.Domain.Users.Entities
         public bool IsActive { get; private set; } = true;
         public bool IsVerified { get; private set; } = false;
         public bool IsDeleted { get; private set; } = false;
+        public bool IsPublic { get; private set; } = true;
 
         public ICollection<UserResourceView> UserResourceViews { get; set; } = new HashSet<UserResourceView>();
         public ICollection<AssessmentAttempt> AssessmentAttempts { get; set; } = new HashSet<AssessmentAttempt>();

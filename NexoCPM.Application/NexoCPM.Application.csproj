@@ -18,6 +18,7 @@
   <ItemGroup>
     <Folder Include="Context\Comands\" />
     <Folder Include="Curriculum\Commands\" />
+    <Folder Include="Users\Queries\GetProfile\" />
   </ItemGroup>
 
 </Project>

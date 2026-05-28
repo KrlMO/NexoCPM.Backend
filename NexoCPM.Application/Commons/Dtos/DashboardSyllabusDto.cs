@@ -9,6 +9,7 @@
         public string Slug { get; set; } = string.Empty;
         public decimal CompletedPercentage { get; set; }
         public DateOnly LastActivity { get; set; }
+        public int UserLearningContextId { get; set; }
     }
 }
 

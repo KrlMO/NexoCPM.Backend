@@ -45,6 +45,70 @@ public class AssessmentAttemptRepository : IAssessmentAttemptRepository
             .ToListAsync();
     }
 
+    public async Task<List<AssessmentChartDto>> GetLastTestChartDataAsync(int userId, int count)
+    {
+        return await _context.UserLearningContexts
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+            .SelectMany(ulc => ulc.AssessmentAttempts)
+            .Where(aa => aa.Assessment.Scope == AssessmentScope.UNIT
+                      || aa.Assessment.Scope == AssessmentScope.SYLLABUS)
+            .OrderByDescending(aa => aa.FinishedAt)
+            .Take(count)
+            .Select(aa => new AssessmentChartDto
+            {
+                AttemptId = aa.Id,
+                AssessmentId = aa.AssessmentId,
+                AssessmentTitle = aa.Assessment.Title,
+                Score = aa.Score,
+                TotalQuestions = aa.TotalQuestions,
+                FinishedAt = aa.FinishedAt
+            })
+            .ToListAsync();
+    }
+
+    public async Task<List<AssessmentChartDto>> GetLastSimulationChartDataAsync(int userId, int count)
+    {
+        return await _context.UserLearningContexts
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+            .SelectMany(ulc => ulc.AssessmentAttempts)
+            .Where(aa => aa.Assessment.Scope == AssessmentScope.SIMULATION)
+            .OrderByDescending(aa => aa.FinishedAt)
+            .Take(count)
+            .Select(aa => new AssessmentChartDto
+            {
+                AttemptId = aa.Id,
+                AssessmentId = aa.AssessmentId,
+                AssessmentTitle = aa.Assessment.Title,
+                Score = aa.Score,
+                TotalQuestions = aa.TotalQuestions,
+                FinishedAt = aa.FinishedAt
+            })
+            .ToListAsync();
+    }
+
+    public async Task<List<RecommendationDto>> GetFailedSubtopicsAsync(int userLearningContextId, int count)
+    {
+        var failedSubtopics = await _context.AssessmentAttempts
+            .Where(aa => aa.UserLearningContextId == userLearningContextId)
+            .SelectMany(aa => aa.AssessmentAttemptQuestions)
+            .Where(aaq => aaq.SelectedOptionId.HasValue && !aaq.SelectedOption!.IsCorrect)
+            .GroupBy(aaq => new { aaq.Question.SubTopic.Id, aaq.Question.SubTopic.Description, aaq.Question.SubTopic.Slug })
+            .OrderByDescending(g => g.Max(aaq => aaq.AssessmentAttempt.FinishedAt))
+            .Take(count)
+            .Select(g => new
+            {
+                Description = g.Key.Description,
+                Slug = g.Key.Slug
+            })
+            .ToListAsync();
+
+        return failedSubtopics.Select(st => new RecommendationDto
+        {
+            Message = "Refuerza: " + (st.Description.Length > 80 ? st.Description[..80] : st.Description),
+            SubtopicSlug = st.Slug
+        }).ToList();
+    }
+
     public async Task<List<string>> GetTopFailedSubtopicsAsync(int userId, int topCount)
     {
         return await _context.UserLearningContexts

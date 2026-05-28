@@ -20,10 +20,10 @@ namespace NexoCPM.Persistence.Repositories.Evaluations
             _context = context;
         }
 
-        public async Task<AssessmentDto?> GetAssessmentByUnitIdAsync(int unitId)
+        public async Task<AssessmentDto?> GetAssessmentByTargetdAsync(int targetId, AssessmentScope assessmentScope, AssessmentType assessmentType)
         {
             return await _context.Assessments
-                .Where(a => a.Scope == AssessmentScope.UNIT && a.TargetId == unitId && a.IsActive)
+                .Where(a => a.Scope == assessmentScope && a.TargetId == targetId && a.IsActive && a.Type == assessmentType)
                 .Select(a => new AssessmentDto
                 {
                     Id = a.Id,

@@ -115,6 +115,11 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
                .HasColumnName("deleted_by")
                .IsRequired(false);
 
+        builder.Property(u => u.IsPublic)
+            .HasColumnName("is_public")
+            .IsRequired()
+            .HasDefaultValue(true);
+
         builder.HasIndex(u => u.Email).IsUnique(true);
         builder.HasIndex(u => u.UserName).IsUnique(true);
         builder.HasIndex(u => u.Code).IsUnique(true);

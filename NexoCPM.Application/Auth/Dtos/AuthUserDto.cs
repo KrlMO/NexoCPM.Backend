@@ -14,5 +14,6 @@ namespace NexoCPM.Application.Auth.Dtos
         public string LastName { get; set; } = string.Empty;
         public string? AvatarUrl { get; set; }
         public UserRole UserRole { get; set; }
+        public int NumberStar { get; set; }
     }
 }

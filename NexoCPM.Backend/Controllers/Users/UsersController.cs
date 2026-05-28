@@ -12,6 +12,9 @@ using NexoCPM.Application.Users.Queries.GetUserSyllabusDetail;
 using NexoCPM.Application.Users.Queries.HasCurrentSyllabus;
 using System.Security.Claims;
 using NexoCPM.Application.Users.Queries.GetSubTopicDetail;
+using NexoCPM.Application.Users.Queries.GetMainDashboard;
+using NexoCPM.Application.Users.Queries.GetDashboardSyllabusDetails;
+using NexoCPM.Application.Users.Queries.GetMe;
 
 namespace NexoCPM.Api.Controllers.Users;
 
@@ -114,5 +117,33 @@ public class UsersController : ControllerBase
         var query = new GetSubTopicDetailQuery(subtopicSlug, userId, userLearningContextId, page, pageSize);
         var result = await _mediator.Send(query);
         return Ok(ApiResponse<GetSubTopicDetailResponse>.Ok(result, "Detalle del subtema obtenido correctamente"));
+    }
+
+    [HttpGet("me/main-dashboard")]
+    public async Task<IActionResult> GetMainDashboard()
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var query = new GetMainDashboardQuery(userId);
+        var result = await _mediator.Send(query);
+        return Ok(ApiResponse<GetMainDashboardResponse>.Ok(result, "Información del main dashboard obtenida correctamente"));
+    }
+
+    [HttpGet("me/main-dashboard/unit-details/{userLearningContextId}/{syllabusSlug}")]
+    public async Task<IActionResult> GetDashboardSyllabusDetails(int userLearningContextId, string syllabusSlug)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var query = new GetDashboardSyllabusDetailsQuery(userId, userLearningContextId, syllabusSlug);
+        var result = await _mediator.Send(query);
+        return Ok(ApiResponse<GetDashboardSyllabusDetailsResponse>.Ok(result, "Detalles del temario obtenidos correctamente"));
+    }
+
+    [HttpGet("me")]
+    public async Task<IActionResult> GetMe()
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var query = new GetMeQuery(userId);
+        var result = await _mediator.Send(query);
+
+        return Ok(ApiResponse<GetMeResponse>.Ok(result, "Información del usuario obtenida correctamente"));
     }
 }

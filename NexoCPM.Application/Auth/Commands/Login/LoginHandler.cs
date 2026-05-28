@@ -5,10 +5,6 @@ using NexoCPM.Application.Commons.Ports;
 using NexoCPM.Application.Users.Ports;
 using NexoCPM.Domain.Auth.Entities;
 using NexoCPM.Domain.Common.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace NexoCPM.Application.Auth.Commands.Login
 {
@@ -19,8 +15,12 @@ namespace NexoCPM.Application.Auth.Commands.Login
         private readonly IJwtService _jwtService;
         private readonly IPasswordHasher _passwordHasher;
         private readonly ITokenHasher _tokenHasher;
-
-        public LoginHandler(IUserRepository userRepository, IRefreshTokenRepository refreshTokenRepository, IJwtService jwtService, IPasswordHasher passwordHasher, ITokenHasher tokenHasher)
+        public LoginHandler(
+            IUserRepository userRepository,
+            IRefreshTokenRepository refreshTokenRepository,
+            IJwtService jwtService,
+            IPasswordHasher passwordHasher,
+            ITokenHasher tokenHasher)
         {
             _userRepository = userRepository;
             _refreshTokenRepository = refreshTokenRepository;
@@ -73,7 +73,8 @@ namespace NexoCPM.Application.Auth.Commands.Login
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     AvatarUrl = user.AvatarUrl,
-                    UserRole = user.UserRole
+                    UserRole = user.UserRole,
+                    NumberStar = user.UserLeaderboard?.TotalStars ?? 0
                 }
             };
 

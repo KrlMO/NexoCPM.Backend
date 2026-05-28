@@ -22,12 +22,14 @@ namespace NexoCPM.Persistence.Repositories.Users
         public async Task<User?> GetByEmailAsync(string email)
         {
             return await _context.Users
+                .Include(u => u.UserLeaderboard)
                 .FirstOrDefaultAsync(u => u.Email == email && !u.IsDeleted);
         }
 
         public async Task<User?> GetByIdAsync(int id)
         {
             return await _context.Users
+                .Include(u => u.UserLeaderboard)
                 .FirstOrDefaultAsync(u => u.Id == id && !u.IsDeleted);
         }
 

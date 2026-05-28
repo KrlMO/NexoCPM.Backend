@@ -6,6 +6,9 @@ namespace NexoCPM.Application.Evaluations.Ports
     {
         Task<List<SimulationDto>> GetLastSimulationsAsync(int userId, int count);
         Task<List<string>> GetTopFailedSubtopicsAsync(int userId, int topCount);
-    }
+    Task<List<AssessmentChartDto>> GetLastTestChartDataAsync(int userId, int count);
+    Task<List<AssessmentChartDto>> GetLastSimulationChartDataAsync(int userId, int count);
+    Task<List<RecommendationDto>> GetFailedSubtopicsAsync(int userLearningContextId, int count);
+}
 }
 

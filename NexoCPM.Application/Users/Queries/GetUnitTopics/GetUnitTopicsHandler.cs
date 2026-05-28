@@ -2,6 +2,7 @@ using MediatR;
 using NexoCPM.Application.Curriculum.Ports;
 using NexoCPM.Application.Evaluations.Ports;
 using NexoCPM.Application.Users.Ports;
+using NexoCPM.Domain.Evaluations.Enums;
 
 namespace NexoCPM.Application.Users.Queries.GetUnitTopics
 {
@@ -27,7 +28,7 @@ namespace NexoCPM.Application.Users.Queries.GetUnitTopics
                 throw new KeyNotFoundException("Contexto de aprendizaje no encontrado.");
 
             var topics = await _syllabusUnitRepository.GetUnitTopicsAsync(request.unitId, progressId.Value);
-            var unitTest = await _assessmentRepository.GetAssessmentByUnitIdAsync(request.unitId);
+            var unitTest = await _assessmentRepository.GetAssessmentByTargetdAsync(request.unitId, AssessmentScope.UNIT, AssessmentType.KNOLEDGE);
             return new GetUnitTopicsResponse { Topics = topics, UnitTest = unitTest };
         }
     }

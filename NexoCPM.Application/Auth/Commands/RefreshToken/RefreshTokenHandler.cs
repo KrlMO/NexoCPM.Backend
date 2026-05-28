@@ -70,7 +70,8 @@ namespace NexoCPM.Application.Auth.Commands.RefreshToken
                     FirstName = user.FirstName,
                     LastName = user.LastName,
                     UserName = user.UserName,
-                    UserRole = user.UserRole
+                    UserRole = user.UserRole,
+                    NumberStar = user.UserLeaderboard?.TotalStars ?? 0
                 }
             };
         }
