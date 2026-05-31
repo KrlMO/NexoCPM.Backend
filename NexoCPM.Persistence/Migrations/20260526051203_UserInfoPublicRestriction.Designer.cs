@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NexoCPM.Persistence.Context;
 
@@ -11,9 +12,11 @@ using NexoCPM.Persistence.Context;
 namespace NexoCPM.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260526051203_UserInfoPublicRestriction")]
+    partial class UserInfoPublicRestriction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,60 +67,6 @@ namespace NexoCPM.Persistence.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ncp_email_verification_token", (string)null);
-                });
-
-            modelBuilder.Entity("NexoCPM.Domain.Auth.Entities.PasswordResetToken", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("created_at");
-
-                    b.Property<DateTime>("ExpiresAt")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("expires_at");
-
-                    b.Property<bool>("IsUsed")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(false)
-                        .HasColumnName("is_used");
-
-                    b.Property<string>("RequestedIp")
-                        .HasMaxLength(45)
-                        .HasColumnType("nvarchar(45)")
-                        .HasColumnName("requested_ip");
-
-                    b.Property<string>("TokenHash")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasColumnName("token_hash");
-
-                    b.Property<DateTime?>("UsedAt")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("used_at");
-
-                    b.Property<string>("UserAgent")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasColumnName("user_agent");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int")
-                        .HasColumnName("user_id");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ncp_password_reset_token", (string)null);
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Auth.Entities.RefreshToken", b =>
@@ -1492,26 +1441,16 @@ namespace NexoCPM.Persistence.Migrations
                         .HasDefaultValue(false)
                         .HasColumnName("is_deleted");
 
-                    b.Property<string>("Statement")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasColumnName("statement");
-
                     b.Property<int>("SubTopicId")
                         .HasColumnType("int")
                         .HasColumnName("sub_topic_id");
 
                     b.Property<int>("TotalAttempts")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasDefaultValue(0)
                         .HasColumnName("total_attempts");
 
                     b.Property<int>("TotalCorrect")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasDefaultValue(0)
                         .HasColumnName("total_correct");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -1554,19 +1493,13 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("content");
 
-                    b.Property<int>("Role")
+                    b.Property<int>("OrderIndex")
                         .HasColumnType("int")
-                        .HasColumnName("role");
+                        .HasColumnName("order_index");
 
-                    b.Property<string>("SourceText")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SourceUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("title");
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int")
+                        .HasColumnName("question_id");
 
                     b.Property<int>("Type")
                         .HasColumnType("int")
@@ -1577,31 +1510,9 @@ namespace NexoCPM.Persistence.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
+                    b.HasIndex("QuestionId");
+
                     b.ToTable("ncp_question_content_block", (string)null);
-                });
-
-            modelBuilder.Entity("NexoCPM.Domain.Evaluations.Entities.QuestionContext", b =>
-                {
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int")
-                        .HasColumnName("question_id");
-
-                    b.Property<int>("QuestionContentBlockId")
-                        .HasColumnType("int")
-                        .HasColumnName("question_content_block_id");
-
-                    b.Property<int>("OrderIndex")
-                        .HasColumnType("int")
-                        .HasColumnName("order_index");
-
-                    b.HasKey("QuestionId", "QuestionContentBlockId");
-
-                    b.HasIndex("QuestionContentBlockId");
-
-                    b.HasIndex("QuestionId", "OrderIndex")
-                        .IsUnique();
-
-                    b.ToTable("ncp_question_context", (string)null);
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Resources.Entities.Resource", b =>
@@ -2139,18 +2050,6 @@ namespace NexoCPM.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("NexoCPM.Domain.Auth.Entities.PasswordResetToken", b =>
-                {
-                    b.HasOne("NexoCPM.Domain.Users.Entities.User", "User")
-                        .WithMany("PasswordResetTokens")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_password_reset_token_user");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("NexoCPM.Domain.Auth.Entities.RefreshToken", b =>
                 {
                     b.HasOne("NexoCPM.Domain.Users.Entities.User", "User")
@@ -2386,25 +2285,16 @@ namespace NexoCPM.Persistence.Migrations
                     b.Navigation("SubTopic");
                 });
 
-            modelBuilder.Entity("NexoCPM.Domain.Evaluations.Entities.QuestionContext", b =>
+            modelBuilder.Entity("NexoCPM.Domain.Evaluations.Entities.QuestionContentBlock", b =>
                 {
-                    b.HasOne("NexoCPM.Domain.Evaluations.Entities.QuestionContentBlock", "QuestionContentBlock")
-                        .WithMany("QuestionContexts")
-                        .HasForeignKey("QuestionContentBlockId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("fk_question_content_block_question_context");
-
                     b.HasOne("NexoCPM.Domain.Evaluations.Entities.Question", "Question")
-                        .WithMany("QuestionContexts")
+                        .WithMany("QuestionContentBlocks")
                         .HasForeignKey("QuestionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("fk_question_context_question");
+                        .HasConstraintName("fk_question_content_block_question");
 
                     b.Navigation("Question");
-
-                    b.Navigation("QuestionContentBlock");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Resources.Entities.Resource", b =>
@@ -2631,12 +2521,7 @@ namespace NexoCPM.Persistence.Migrations
 
                     b.Navigation("Options");
 
-                    b.Navigation("QuestionContexts");
-                });
-
-            modelBuilder.Entity("NexoCPM.Domain.Evaluations.Entities.QuestionContentBlock", b =>
-                {
-                    b.Navigation("QuestionContexts");
+                    b.Navigation("QuestionContentBlocks");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Resources.Entities.Resource", b =>
@@ -2651,8 +2536,6 @@ namespace NexoCPM.Persistence.Migrations
                     b.Navigation("AssessmentAttempts");
 
                     b.Navigation("EmailVerificationTokens");
-
-                    b.Navigation("PasswordResetTokens");
 
                     b.Navigation("RefreshTokens");
 

@@ -10,5 +10,6 @@ namespace NexoCPM.Application.Auth.Ports
         Task AddAsync(RefreshToken token);
         Task<RefreshToken?> GetByTokenAsync(string token);
         Task RevokeAsync(string token);
+        Task RevokeAllByUserIdAsync(int userId);
     }
 }

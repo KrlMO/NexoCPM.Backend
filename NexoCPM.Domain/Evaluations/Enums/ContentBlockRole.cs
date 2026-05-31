@@ -4,11 +4,10 @@ using System.Text;
 
 namespace NexoCPM.Domain.Evaluations.Enums
 {
-    public enum ContentBlockType
+    public enum ContentBlockRole
     {
-        TEXT = 1,
-        IMAGE = 2,
-        TABLE = 3,
-        VIDEO = 4,
+        SHARED_CONTEXT = 1,
+        STATEMENT_CONTEXT = 2,
+        SUPPORTING_INFO = 3
     }
 }

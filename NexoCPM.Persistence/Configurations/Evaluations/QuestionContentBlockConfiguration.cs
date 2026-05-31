@@ -24,26 +24,27 @@ public class QuestionContentBlockConfiguration : IEntityTypeConfiguration<Questi
                .HasColumnName("content")
                .IsRequired();
 
-        builder.Property(qcb => qcb.QuestionId)
-               .HasColumnName("question_id")
-               .IsRequired();
-
-        builder.Property(qcb => qcb.OrderIndex)
-               .HasColumnName("order_index")
-               .IsRequired();
-
         builder.Property(qcb => qcb.Type)
                .HasColumnName("type")
                .IsRequired()
                .HasConversion<int>();
 
+        builder.Property(qcb => qcb.Role)
+                .HasColumnName("role")
+                .IsRequired()
+                .HasConversion<int>();
+
+        builder.Property(qcb => qcb.Title)
+               .HasColumnName("title")
+               .IsRequired(false);
+
         builder.HasIndex(qcb => qcb.Code)
                .IsUnique(true);
 
-        builder.HasOne(qcb => qcb.Question)
-               .WithMany(q => q.QuestionContentBlocks)
-               .HasForeignKey(qcb => qcb.QuestionId)
-               .HasConstraintName("fk_question_content_block_question")
+        builder.HasMany(qcb => qcb.QuestionContexts)
+               .WithOne(q => q.QuestionContentBlock)
+               .HasForeignKey(qcb => qcb.QuestionContentBlockId)
+               .HasConstraintName("fk_question_content_block_question_context")
                .OnDelete(DeleteBehavior.Cascade);
     }
 }

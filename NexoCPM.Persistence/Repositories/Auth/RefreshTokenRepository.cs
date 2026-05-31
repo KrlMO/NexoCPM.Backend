@@ -37,5 +37,18 @@ namespace NexoCPM.Persistence.Repositories.Auth
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task RevokeAllByUserIdAsync(int userId)
+        {
+            var activeTokens = await _context.RefreshTokens
+                .Where(rt => rt.UserId == userId && !rt.Revoked)
+                .ToListAsync();
+
+            foreach (var token in activeTokens)
+                token.Revoke();
+
+            if (activeTokens.Count > 0)
+                await _context.SaveChangesAsync();
+        }
     }
 }

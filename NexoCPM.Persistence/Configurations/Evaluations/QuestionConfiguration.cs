@@ -39,11 +39,13 @@ public class QuestionConfiguration : IEntityTypeConfiguration<Question>
 
         builder.Property(q => q.TotalAttempts)
                .HasColumnName("total_attempts")
-               .IsRequired();
+               .HasDefaultValue(0)
+               .IsRequired(true);
 
         builder.Property(q => q.TotalCorrect)
                .HasColumnName("total_correct")
-               .IsRequired();
+               .HasDefaultValue(0)
+               .IsRequired(true);
 
         builder.Property(q => q.SubTopicId)
                .HasColumnName("sub_topic_id")
@@ -91,10 +93,10 @@ public class QuestionConfiguration : IEntityTypeConfiguration<Question>
                .HasConstraintName("fk_assessment_attempt_question_question")
                .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(q => q.QuestionContentBlocks)
+        builder.HasMany(q => q.QuestionContexts)
                .WithOne(qcq => qcq.Question)
                .HasForeignKey(qcq => qcq.QuestionId)
-               .HasConstraintName("fk_question_content_block_question")
+               .HasConstraintName("fk_question_context_question")
                .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(q => q.SubTopic)
@@ -102,5 +104,10 @@ public class QuestionConfiguration : IEntityTypeConfiguration<Question>
                .HasForeignKey(q => q.SubTopicId)
                .HasConstraintName("fk_question_sub_topic")
                .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Property(q => q.Statement)
+               .HasColumnName("statement")
+               .IsRequired()
+               .HasMaxLength(500);
     }
 }

@@ -16,6 +16,43 @@ namespace NexoCPM.Infraestructure.Services.Auth
             _settings = settings.Value;
         }
 
+        public async Task SendPasswordResetEmailAsync(string toEmail, string token)
+        {
+            var resetLink = $"{_settings.FrontendUrl.TrimEnd('/')}/auth/reset-password?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(toEmail)}";
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress(_settings.SenderName, _settings.SenderEmail));
+            message.To.Add(new MailboxAddress("", toEmail));
+            message.Subject = "Recuperación de contraseña - NexoCPM";
+            var body = $"""
+                <!DOCTYPE html>
+                <html>
+                <head><meta charset="utf-8"></head>
+                <body style="font-family: Arial, sans-serif; padding: 20px;">
+                    <h2>Recuperación de contraseña</h2>
+                    <p>Has solicitado restablecer tu contraseña. Haz clic en el siguiente enlace para crear una nueva contraseña:</p>
+                    <p><a href="{resetLink}" style="display: inline-block; padding: 12px 24px; background-color: #4F46E5; color: white; text-decoration: none; border-radius: 6px;">Restablecer contraseña</a></p>
+                    <p>Si el botón no funciona, copia y pega el siguiente enlace en tu navegador:</p>
+                    <p><small>{resetLink}</small></p>
+                    <p>Este enlace expirará en 30 minutos.</p>
+                    <p>Si no solicitaste este cambio, ignora este mensaje.</p>
+                </body>
+                </html>
+                """;
+
+            message.Body = new BodyBuilder
+            {
+                HtmlBody = body,
+                TextBody = $"Restablece tu contraseña: {resetLink}"
+            }.ToMessageBody();
+
+            using var client = new SmtpClient();
+            await client.ConnectAsync(_settings.Host, _settings.Port, SecureSocketOptions.StartTls);
+            await client.AuthenticateAsync(_settings.SmtpLogin, _settings.SmtpPassword);
+            await client.SendAsync(message);
+            await client.DisconnectAsync(true);
+        }
+
         public async Task SendVerificationEmailAsync(string toEmail, string token)
         {
             var verificationLink = $"{_settings.FrontendUrl.TrimEnd('/')}/auth/verify-account?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(toEmail)}";

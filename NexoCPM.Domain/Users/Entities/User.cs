@@ -34,6 +34,7 @@ namespace NexoCPM.Domain.Users.Entities
         public ICollection<AssessmentAttempt> AssessmentAttempts { get; set; } = new HashSet<AssessmentAttempt>();
         public ICollection<RefreshToken> RefreshTokens { get; set; } = new HashSet<RefreshToken>();
         public ICollection<EmailVerificationToken>? EmailVerificationTokens { get; set; } = new HashSet<EmailVerificationToken>();
+        public ICollection<PasswordResetToken> PasswordResetTokens { get; set; } = new HashSet<PasswordResetToken>();
         public ICollection<UserLearningContext> UserLearningContexts { get; set; } = new HashSet<UserLearningContext>();
         public ICollection<ResourceLike> ResourceLikes { get; set; } = new HashSet<ResourceLike>();
         
@@ -62,6 +63,11 @@ namespace NexoCPM.Domain.Users.Entities
         public void MarkEmailAsVerified()
         {
             IsVerified = true;
+        }
+
+        public void ChangePassword(string newPasswordHash)
+        {
+            PasswordHash = newPasswordHash;
         }
     }
 }

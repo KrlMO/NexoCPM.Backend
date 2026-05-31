@@ -22,6 +22,7 @@ namespace NexoCPM.Persistence.Context
         public DbSet<EmailVerificationToken> EmailVerificationTokens => Set<EmailVerificationToken>();
 
         public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
+        public DbSet<PasswordResetToken> PasswordResetTokens => Set<PasswordResetToken>();
 
         public DbSet<Ability> Abilities => Set<Ability>();
         public DbSet<Competence> Competences => Set<Competence>();
@@ -74,6 +75,7 @@ namespace NexoCPM.Persistence.Context
         public DbSet<ResourceLike> ResourceLikes => Set<ResourceLike>();
 
         public DbSet<UserLearningContext> UserLearningContexts => Set<UserLearningContext>();
+        public DbSet<QuestionContext> QuestionContexts => Set<QuestionContext>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

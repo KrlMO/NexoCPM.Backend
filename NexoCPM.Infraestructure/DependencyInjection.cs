@@ -22,6 +22,7 @@ namespace NexoCPM.Infraestructure
             services.AddScoped<IUserCodeGenerator, UserCodeGenerator>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IEmailVerificationTokenService, EmailVerificationTokenService>();
+            services.AddScoped<IPasswordResetTokenService, PasswordResetTokenService>();
 
             return services;
         }

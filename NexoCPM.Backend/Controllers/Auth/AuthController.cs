@@ -6,7 +6,9 @@ using NexoCPM.Application.Auth.Commands.ConfirmEmailVerification;
 using NexoCPM.Application.Auth.Commands.Login;
 using NexoCPM.Application.Auth.Commands.RefreshToken;
 using NexoCPM.Application.Auth.Commands.Register;
+using NexoCPM.Application.Auth.Commands.RequestPasswordReset;
 using NexoCPM.Application.Auth.Commands.ResendEmailVerification;
+using NexoCPM.Application.Auth.Commands.ResetPassword;
 using NexoCPM.Application.Auth.Commands.VerifyEmailVerification;
 using NexoCPM.Application.Auth.Dtos;
 using NexoCPM.Application.Auth.Ports;
@@ -155,5 +157,26 @@ public class AuthController : ControllerBase
         var result = await _mediator.Send(command);
 
         return Ok(ApiResponse<ConfirmEmailVerificationResult>.Ok(result, "Correo electrónico verificado correctamente."));
+    }
+
+    [HttpPost("forgot-password")]
+    public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordRequest request)
+    {
+        var ip = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+        var device = Request.Headers["User-Agent"].ToString();
+
+        var command = new RequestPasswordResetCommand(request.Email, ip, device);
+        var result = await _mediator.Send(command);
+
+        return Ok(ApiResponse<RequestPasswordResetResult>.Ok(result, result.Message));
+    }
+
+    [HttpPost("reset-password")]
+    public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordRequest request)
+    {
+        var command = new ResetPasswordCommand(request.Email, request.Token, request.NewPassword);
+        var result = await _mediator.Send(command);
+
+        return Ok(ApiResponse<ResetPasswordResult>.Ok(result, result.Message));
     }
 }

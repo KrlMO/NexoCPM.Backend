@@ -16,6 +16,7 @@ namespace NexoCPM.Application.Interfaces
         //Auth
         DbSet<EmailVerificationToken> EmailVerificationTokens { get; }
         DbSet<RefreshToken> RefreshTokens { get; }
+        DbSet<PasswordResetToken> PasswordResetTokens { get; }
 
         //Context
         DbSet<Competence> Competences { get; }
@@ -41,6 +42,7 @@ namespace NexoCPM.Application.Interfaces
         DbSet<Question> Questions { get; }
         DbSet<QuestionContentBlock> QuestionContentBlocks { get; }
         DbSet<OptionBlock> OptionBlocks { get; }
+        DbSet<QuestionContext> QuestionContexts { get; }
 
         //Resources
         DbSet<Resource> Resources { get; }

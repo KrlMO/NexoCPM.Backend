@@ -48,6 +48,7 @@ namespace NexoCPM.Persistence
             services.AddScoped<ISyllabusUnitRepository, SyllabusUnitRepository>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
             services.AddScoped<IEmailVerificationTokenRepository, EmailVerificationTokenRepository>();
+            services.AddScoped<IPasswordResetTokenRepository, PasswordResetTokenRepository>();
             services.AddScoped<IResourceRepository, ResourceRepository>();
             services.AddScoped<ISubTopicRepository, SubTopicRepository>();
             services.AddScoped<IMicroTopicRepository, MicroTopicRepository>();

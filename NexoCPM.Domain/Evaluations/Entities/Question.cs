@@ -13,13 +13,14 @@ namespace NexoCPM.Domain.Evaluations.Entities
         public string? Explanation { get; private set; } = null;
         public bool IsActive { get; private set; } = true;
         public bool IsDeleted { get; private set; } = false;
-        public int TotalAttempts { get; private set; }
-        public int TotalCorrect { get; private set; }
+        public int TotalAttempts { get; private set; } = 0;
+        public int TotalCorrect { get; private set; } = 0;
         public int SubTopicId { get; private set; }
+        public string Statement { get; private set; } = string.Empty;
 
         public ICollection<AssessmentAttemptQuestion> AssessmentAttemptQuestions { get; private set; } = new HashSet<AssessmentAttemptQuestion>();
         public ICollection<Option> Options { get; private set; } = new HashSet<Option>();
-        public ICollection<QuestionContentBlock> QuestionContentBlocks { get; private set; } = new HashSet<QuestionContentBlock>();
+        public ICollection<QuestionContext> QuestionContexts { get; private set; } = new HashSet<QuestionContext>();
 
         public SubTopic SubTopic { get; private set; } = null!;
 
