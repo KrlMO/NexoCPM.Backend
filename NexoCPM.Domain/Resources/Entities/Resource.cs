@@ -17,8 +17,8 @@ namespace NexoCPM.Domain.Resources.Entities
         public bool IsDeleted { get; private set; } = false;
         public int PublicScore { get; private set; } = 0;
         public int? SubTopicId { get; private set; } = null;
-        public int ViewsCount { get; private set; }
-        public int LikesCount { get; private set; }
+        public int ViewsCount { get; private set; } = 0;
+        public int LikesCount { get; private set; } = 0;
 
         public ICollection<UserResourceView> UserResourceViews { get; private set; } = new HashSet<UserResourceView>();
         public ICollection<ResourceLike> ResourceLikes { get; private set; } = new HashSet<ResourceLike>();

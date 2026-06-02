@@ -39,6 +39,13 @@ namespace NexoCPM.Persistence.Repositories.Users
                 .FirstOrDefaultAsync(u => u.UserName == userName && !u.IsDeleted);
         }
 
+        public async Task<User?> GetByCodeAsync(string code)
+        {
+            return await _context.Users
+                .Include(u => u.UserLeaderboard)
+                .FirstOrDefaultAsync(u => u.Code == code && !u.IsDeleted);
+        }
+
         public async Task<User> AddAsync(User user)
         {
             try

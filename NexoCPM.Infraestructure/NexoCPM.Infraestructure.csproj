@@ -20,4 +20,10 @@
     <ProjectReference Include="..\NexoCPM.Application\NexoCPM.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Services\Email\EmailTemplates\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

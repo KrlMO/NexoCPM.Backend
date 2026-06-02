@@ -108,6 +108,6 @@ public class QuestionConfiguration : IEntityTypeConfiguration<Question>
         builder.Property(q => q.Statement)
                .HasColumnName("statement")
                .IsRequired()
-               .HasMaxLength(500);
+               .HasMaxLength(1000);
     }
 }

@@ -19,8 +19,51 @@ public class UserSyllabusProgressConfiguration : IEntityTypeConfiguration<UserSy
                .HasColumnName("user_learning_context_id")
                .IsRequired();
 
+        builder.Property(usp => usp.UserId)
+               .HasColumnName("user_id")
+               .IsRequired();
+
+        builder.Property(usp => usp.SyllabusId)
+               .HasColumnName("syllabus_id")
+               .IsRequired();
+
+        builder.Property(usp => usp.CompletedUnits)
+               .HasColumnName("completed_units")
+               .IsRequired()
+               .HasDefaultValue(0);
+
+        builder.Property(usp => usp.TotalUnits)
+               .HasColumnName("total_units")
+               .IsRequired()
+               .HasDefaultValue(0);
+
+        builder.Property(usp => usp.ContentProgressPercentage)
+               .HasColumnName("content_progress_percentage")
+               .IsRequired()
+               .HasDefaultValue(0.0);
+
+        builder.Property(usp => usp.FinalExamCompleted)
+               .HasColumnName("final_exam_completed")
+               .IsRequired()
+               .HasDefaultValue(false);
+
+        builder.Property(usp => usp.FinalExamScore)
+               .HasColumnName("final_exam_score");
+
+        builder.Property(usp => usp.OverallProgressPercentage)
+               .HasColumnName("overall_progress_percentage")
+               .IsRequired()
+               .HasDefaultValue(0.0);
+
+        builder.Property(usp => usp.CompletedAt)
+               .HasColumnName("completed_at");
+
         builder.Property(usp => usp.LastAccess)
                .HasColumnName("last_access")
+               .IsRequired();
+
+        builder.Property(usp => usp.LastActivityAt)
+               .HasColumnName("last_activity_at")
                .IsRequired();
 
         builder.Property(usp => usp.Status)
@@ -53,12 +96,12 @@ public class UserSyllabusProgressConfiguration : IEntityTypeConfiguration<UserSy
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
                .IsRequired(true)
-			   .HasDefaultValue(1);
+               .HasDefaultValue(1);
 
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
                 .IsRequired(false)
-			   .HasDefaultValue(1);
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")

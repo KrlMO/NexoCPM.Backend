@@ -27,7 +27,7 @@ namespace NexoCPM.Application.Users.Queries.GetUnitTopics
             if (progressId is null)
                 throw new KeyNotFoundException("Contexto de aprendizaje no encontrado.");
 
-            var topics = await _syllabusUnitRepository.GetUnitTopicsAsync(request.unitId, progressId.Value);
+            var topics = await _syllabusUnitRepository.GetUnitTopicsAsync(request.unitId, progressId.Value, request.userId);
             var unitTest = await _assessmentRepository.GetAssessmentByTargetdAsync(request.unitId, AssessmentScope.UNIT, AssessmentType.KNOLEDGE);
             return new GetUnitTopicsResponse { Topics = topics, UnitTest = unitTest };
         }

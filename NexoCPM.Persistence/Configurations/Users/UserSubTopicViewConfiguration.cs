@@ -19,13 +19,18 @@ public class UserSubTopicViewConfiguration : IEntityTypeConfiguration<UserSubTop
                .HasColumnName("sub_topic_id")
                .IsRequired();
 
-        builder.Property(ustv => ustv.IsViewed)
-               .HasColumnName("is_viewed")
+        builder.Property(ustv => ustv.IsCompleted)
+               .HasColumnName("is_completed")
                .IsRequired()
                .HasDefaultValue(false);
 
         builder.Property(ustv => ustv.ViewedAt)
-               .HasColumnName("viewed_at");
+               .HasColumnName("viewed_at")
+               .IsRequired()
+               .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        builder.Property(ustv => ustv.CompletedAt)
+               .HasColumnName("completed_at");
 
         builder.HasOne(ustv => ustv.UserSyllabusUnitProgress)
                .WithMany(usup => usup.UserSubTopicViews)
@@ -34,7 +39,7 @@ public class UserSubTopicViewConfiguration : IEntityTypeConfiguration<UserSubTop
                .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(ustv => ustv.SubTopic)
-               .WithMany(st => st.UserSubTopicViews)
+               .WithMany()
                .HasForeignKey(ustv => ustv.SubTopicId)
                .HasConstraintName("fk_user_sub_topic_view_sub_topic")
                .OnDelete(DeleteBehavior.NoAction);

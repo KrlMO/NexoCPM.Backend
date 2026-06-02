@@ -11,10 +11,18 @@ using NexoCPM.Application.Users.Queries.GetUnitTopics;
 using NexoCPM.Application.Users.Queries.GetUserSyllabusDetail;
 using NexoCPM.Application.Users.Queries.HasCurrentSyllabus;
 using System.Security.Claims;
-using NexoCPM.Application.Users.Queries.GetSubTopicDetail;
+using NexoCPM.Application.Users.Commands.ChangePassword;
+using NexoCPM.Application.Users.Commands.UpdateGeneralUserData;
+using NexoCPM.Application.Users.Commands.UpdatePrivateUserData;
+using NexoCPM.Application.Users.Commands.UpdateExtraUserData;
+using NexoCPM.Application.Users.Commands.UpdatePrivacyUserConfiguration;
+using NexoCPM.Application.Users.Commands.DeactivateAccount;
+using NexoCPM.Application.Users.Commands.DeleteAccount;
 using NexoCPM.Application.Users.Queries.GetMainDashboard;
 using NexoCPM.Application.Users.Queries.GetDashboardSyllabusDetails;
 using NexoCPM.Application.Users.Queries.GetMe;
+using NexoCPM.Application.Users.Commands.ToggleSubTopicCompletion;
+using NexoCPM.Application.Users.Queries.GetPublicProfile;
 
 namespace NexoCPM.Api.Controllers.Users;
 
@@ -145,5 +153,94 @@ public class UsersController : ControllerBase
         var result = await _mediator.Send(query);
 
         return Ok(ApiResponse<GetMeResponse>.Ok(result, "Información del usuario obtenida correctamente"));
+    }
+
+    [HttpPost("change-password")]
+    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordCommand command)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var result = await _mediator.Send(command with { UserId = userId });
+        return Ok(ApiResponse<ChangePasswordResponse>.Ok(result, result.Message));
+    }
+
+    [HttpPut("me/general-data")]
+    public async Task<IActionResult> UpdateGeneralUserData([FromBody] UpdateGeneralUserDataCommand command)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var result = await _mediator.Send(command with { UserId = userId });
+        return Ok(ApiResponse<UpdateGeneralUserDataResult>.Ok(result, "Datos generales actualizados correctamente"));
+    }
+
+    [HttpPut("me/private-data")]
+    public async Task<IActionResult> UpdatePrivateUserData([FromBody] UpdatePrivateUserDataCommand command)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var result = await _mediator.Send(command with { UserId = userId });
+        return Ok(ApiResponse<UpdatePrivateUserDataResult>.Ok(result, "Datos privados actualizados correctamente"));
+    }
+
+    [HttpPut("me/extra-data")]
+    public async Task<IActionResult> UpdateExtraUserData([FromBody] UpdateExtraUserDataCommand command)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var result = await _mediator.Send(command with { UserId = userId });
+        return Ok(ApiResponse<UpdateExtraUserDataResult>.Ok(result, "Datos extra actualizados correctamente"));
+    }
+
+    [HttpPut("me/privacy")]
+    public async Task<IActionResult> UpdatePrivacyUserConfiguration([FromBody] UpdatePrivacyUserConfigurationCommand command)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var result = await _mediator.Send(command with { UserId = userId });
+        return Ok(ApiResponse<UpdatePrivacyUserConfigurationResult>.Ok(result, "Configuración de privacidad actualizada correctamente"));
+    }
+
+    [HttpPost("me/deactivate")]
+    public async Task<IActionResult> DeactivateAccount()
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var result = await _mediator.Send(new DeactivateAccountCommand { UserId = userId });
+        return Ok(ApiResponse<DeactivateAccountResult>.Ok(result, result.Message));
+    }
+
+    [HttpPost("me/delete")]
+    public async Task<IActionResult> DeleteAccount()
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var result = await _mediator.Send(new DeleteAccountCommand { UserId = userId });
+        return Ok(ApiResponse<DeleteAccountResult>.Ok(result, result.Message));
+    }
+
+    [HttpPost("me/syllabus/{userLearningContextId}/subtopics/{subTopicId}/toggle-completion")]
+    public async Task<IActionResult> ToggleSubTopicCompletion(int userLearningContextId, int subTopicId)
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+        var command = new ToggleSubTopicCompletionCommand(subTopicId)
+        {
+            UserId = userId,
+            UserLearningContextId = userLearningContextId
+        };
+        var result = await _mediator.Send(command);
+        return Ok(ApiResponse<ToggleSubTopicCompletionResult>.Ok(result, "Estado del subtema actualizado correctamente"));
+    }
+
+    [AllowAnonymous]
+    [HttpGet("public/{code}")]
+    public async Task<IActionResult> GetPublicProfile(string code)
+    {
+        int? requestingUserId = null;
+        if (User.Identity?.IsAuthenticated == true)
+            requestingUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+
+        var query = new GetPublicProfileQuery(code) { RequestingUserId = requestingUserId };
+        var result = await _mediator.Send(query);
+
+        if (result.NotFound)
+            return Ok(ApiResponse<GetPublicProfileResponse>.Ok(result, "Usuario no encontrado"));
+
+        if (result.IsPrivate)
+            return Ok(ApiResponse<GetPublicProfileResponse>.Ok(result, "El perfil del usuario es privado"));
+
+        return Ok(ApiResponse<GetPublicProfileResponse>.Ok(result, "Perfil público obtenido correctamente"));
     }
 }

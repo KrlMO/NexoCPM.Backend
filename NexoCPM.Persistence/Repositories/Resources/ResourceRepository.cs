@@ -37,5 +37,20 @@ namespace NexoCPM.Persistence.Repositories.Resources
                 PageSize = pageSize
             };
         }
+
+        public async Task<Resource> AddAsync(string title, string url, string? description, int? subTopicId, int userId)
+        {
+            var resource = new Resource();
+            _context.Resources.Add(resource);
+            var e = _context.Entry(resource);
+            e.Property(r => r.Title).CurrentValue = title;
+            e.Property(r => r.Url).CurrentValue = url;
+            e.Property(r => r.Description).CurrentValue = description ?? string.Empty;
+            e.Property(r => r.SubTopicId).CurrentValue = subTopicId;
+            e.Property(r => r.IsActive).CurrentValue = true;
+            resource.SetCreated(userId);
+            await _context.SaveChangesAsync();
+            return resource;
+        }
     }
 }

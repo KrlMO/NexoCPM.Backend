@@ -34,6 +34,14 @@ public class QuestionContentBlockConfiguration : IEntityTypeConfiguration<Questi
                 .IsRequired()
                 .HasConversion<int>();
 
+        builder.Property(qcb => qcb.SourceText)
+               .HasColumnName("source_text")
+               .IsRequired(false);
+        
+        builder.Property(qcb => qcb.SourceUrl)
+               .HasColumnName("source_url")
+               .IsRequired(false);
+
         builder.Property(qcb => qcb.Title)
                .HasColumnName("title")
                .IsRequired(false);

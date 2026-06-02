@@ -17,18 +17,19 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
         }
 
         public async Task<PaginatedResult<SubTopicDetailDto>> GetSubTopicDetailPagedAsync(
-            string subtopicSlug, int page, int pageSize)
+            string subtopicSlug, int page, int pageSize, int userId, int userLearningContextId)
         {
             var subtopic = await _context.SubTopics
                 .AsNoTracking()
                 .Where(st => st.Slug == subtopicSlug && st.IsActive && !st.IsDeleted)
-                .Select(st => new { st.Id, st.TopicId })
+                .Select(st => new { st.Id, st.TopicId, SyllabusUnitId = st.Topic.SyllabusUnitId })
                 .FirstOrDefaultAsync();
 
             if (subtopic is null)
                 return new PaginatedResult<SubTopicDetailDto>();
 
             var topicId = subtopic.TopicId;
+            var syllabusUnitId = subtopic.SyllabusUnitId;
 
             var totalCount = await _context.SubTopics
                 .AsNoTracking()
@@ -88,8 +89,40 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
                 })
                 .ToListAsync();
 
+            var progressId = await _context.UserLearningContexts
+                .AsNoTracking()
+                .Where(ulc => ulc.Id == userLearningContextId && ulc.UserId == userId)
+                .Select(ulc => (int?)ulc.UserSyllabusProgress.Id)
+                .FirstOrDefaultAsync();
+
+            var itemSubTopicIds = items.Select(i => i.Id).ToHashSet();
+
+            var userViews = new Dictionary<int, (bool viewed, bool completed)>();
+            if (progressId.HasValue && itemSubTopicIds.Any())
+            {
+                var unitProgressId = await _context.UserSyllabusUnitProgresses
+                    .AsNoTracking()
+                    .Where(usup => usup.UserSyllabusProgressId == progressId.Value && usup.SyllabusUnitId == syllabusUnitId)
+                    .Select(usup => (int?)usup.Id)
+                    .FirstOrDefaultAsync();
+
+                if (unitProgressId.HasValue)
+                {
+                    userViews = await _context.UserSubTopicViews
+                        .AsNoTracking()
+                        .Where(ustv =>
+                            ustv.UserSyllabusUnitProgressId == unitProgressId.Value
+                            && itemSubTopicIds.Contains(ustv.SubTopicId))
+                        .ToDictionaryAsync(
+                            ustv => ustv.SubTopicId,
+                            ustv => (ustv.ViewedAt != default, ustv.IsCompleted));
+                }
+            }
+
             var detailItems = items.Select(i =>
             {
+                var (viewed, completed) = userViews.GetValueOrDefault(i.Id, (false, false));
+
                 var detail = new SubTopicDetailDto
                 {
                     SubTopic = new SubTopicDto
@@ -102,6 +135,8 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
                         TopicId = i.TopicId
                     },
                     MicroTopics = i.MicroTopics,
+                    Viewed = viewed,
+                    IsCompleted = completed,
                     TopicId = i.TopicId
                 };
 

@@ -7,8 +7,9 @@ namespace NexoCPM.Domain.Users.Entities
     {
         public int UserSyllabusUnitProgressId { get; private set; }
         public int SubTopicId { get; private set; }
-        public bool IsViewed { get; private set; }
-        public DateTime? ViewedAt { get; private set; }
+        public bool IsCompleted { get; private set; }
+        public DateTime ViewedAt { get; private set; }
+        public DateTime? CompletedAt { get; private set; }
 
         public UserSyllabusUnitProgress UserSyllabusUnitProgress { get; private set; } = null!;
         public SubTopic SubTopic { get; private set; } = null!;
@@ -19,14 +20,19 @@ namespace NexoCPM.Domain.Users.Entities
         {
             UserSyllabusUnitProgressId = userSyllabusUnitProgressId;
             SubTopicId = subTopicId;
-            IsViewed = true;
             ViewedAt = DateTime.UtcNow;
+        }
+
+        public void ToggleCompletion()
+        {
+            IsCompleted = !IsCompleted;
+            CompletedAt = IsCompleted ? DateTime.UtcNow : null;
         }
 
         public void MarkAsViewed()
         {
-            IsViewed = true;
-            ViewedAt ??= DateTime.UtcNow;
+            if (ViewedAt == default)
+                ViewedAt = DateTime.UtcNow;
         }
     }
 }

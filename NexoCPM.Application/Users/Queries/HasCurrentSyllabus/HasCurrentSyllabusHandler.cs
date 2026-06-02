@@ -1,5 +1,7 @@
 ﻿using MediatR;
+using NexoCPM.Application.Interfaces;
 using NexoCPM.Application.Users.Ports;
+using Microsoft.EntityFrameworkCore;
 using NexoCPM.Domain.Users.Enums;
 
 namespace NexoCPM.Application.Users.Queries.HasCurrentSyllabus
@@ -7,11 +9,14 @@ namespace NexoCPM.Application.Users.Queries.HasCurrentSyllabus
     public class HasCurrentSyllabusHandler : IRequestHandler<HasCurrentSyllabusQuery, HasCurrentSyllabusRespone>
     {
         private readonly IUserLearningContextRepository _userLearningContextRepository;
+        private readonly IApplicationDbContext _context;
 
         public HasCurrentSyllabusHandler(
-            IUserLearningContextRepository userLearningContextRepository)
+            IUserLearningContextRepository userLearningContextRepository,
+            IApplicationDbContext context)
         {
             _userLearningContextRepository = userLearningContextRepository;
+            _context = context;
         }
 
         public async Task<HasCurrentSyllabusRespone> Handle(HasCurrentSyllabusQuery request, CancellationToken cancellationToken)
@@ -22,23 +27,29 @@ namespace NexoCPM.Application.Users.Queries.HasCurrentSyllabus
                 return new HasCurrentSyllabusRespone { HasCurrent = false };
 
             var progress = ulc.UserSyllabusProgress;
+            var syllabusId = ulc.SyllabusId;
 
-            var unitData = progress.UserSyllabusUnitProgresses
-                .Select(usup => new
-                {
-                    TotalSubTopics = usup.SyllabusUnit.Topics
-                        .SelectMany(t => t.SubTopics)
-                        .Count(),
-                    ViewedSubTopics = usup.UserSubTopicViews
-                        .Count(ustv => ustv.IsViewed)
-                })
-                .ToList();
+            var totalSubTopics = await _context.SubTopics
+                .AsNoTracking()
+                .CountAsync(st => st.IsActive && !st.IsDeleted
+                    && st.Topic.SyllabusUnit.SyllabusId == syllabusId, cancellationToken);
 
-            var sumTotal = unitData.Sum(u => u.TotalSubTopics);
-            var sumViewed = unitData.Sum(u => u.ViewedSubTopics);
+            var unitProgressIds = await _context.UserSyllabusUnitProgresses
+                .AsNoTracking()
+                .Where(usup => usup.UserSyllabusProgressId == progress.Id)
+                .Select(usup => usup.Id)
+                .ToListAsync(cancellationToken);
 
-            var percentage = sumTotal > 0
-                ? Math.Round((decimal)sumViewed / sumTotal * 100, 2)
+            var viewedSubTopics = unitProgressIds.Count > 0
+                ? await _context.UserSubTopicViews
+                    .AsNoTracking()
+                    .CountAsync(ustv =>
+                        unitProgressIds.Contains(ustv.UserSyllabusUnitProgressId)
+                        && ustv.ViewedAt != default, cancellationToken)
+                : 0;
+
+            var percentage = totalSubTopics > 0
+                ? Math.Round((decimal)viewedSubTopics / totalSubTopics * 100, 2)
                 : 0m;
 
             return new HasCurrentSyllabusRespone

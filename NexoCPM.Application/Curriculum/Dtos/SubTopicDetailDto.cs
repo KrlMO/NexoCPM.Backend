@@ -11,6 +11,7 @@ namespace NexoCPM.Application.Curriculum.Dtos
         public List<MicroTopicDto>? MicroTopics { get; set; } = new List<MicroTopicDto>();
         public CompetenceDto? Competence { get; set; }
         public bool Viewed { get; set; }
+        public bool IsCompleted { get; set; }
         public int TopicId { get; set; }
     }
 }

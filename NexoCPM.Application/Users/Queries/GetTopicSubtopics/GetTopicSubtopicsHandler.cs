@@ -1,6 +1,7 @@
 using MediatR;
 using NexoCPM.Application.Curriculum.Ports;
 using NexoCPM.Application.Users.Ports;
+using NexoCPM.Domain.Users.Entities;
 
 namespace NexoCPM.Application.Users.Queries.GetTopicSubtopics
 {
@@ -23,7 +24,7 @@ namespace NexoCPM.Application.Users.Queries.GetTopicSubtopics
             if (progressId is null)
                 throw new KeyNotFoundException("Contexto de aprendizaje no encontrado.");
 
-            var subTopics = await _syllabusUnitRepository.GetTopicSubtopicsAsync(request.topicId, progressId.Value);
+            var subTopics = await _syllabusUnitRepository.GetTopicSubtopicsAsync(request.topicId, progressId.Value, request.userId);
             return new GetTopicSubtopicsResponse { subTopics = subTopics };
         }
     }

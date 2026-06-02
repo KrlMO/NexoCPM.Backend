@@ -10,6 +10,7 @@ namespace NexoCPM.Application.Users.Ports
         Task<User?> GetByEmailAsync(string email);
         Task<User?> GetByIdAsync(int id);
         Task<User?> GetByUserNameAsync(string userName);
+        Task<User?> GetByCodeAsync(string code);
         Task<User> AddAsync(User user);
         Task<bool> ExistsByCodeAsync(string code);
         Task UpdateAsync(User user);

@@ -15,7 +15,7 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
             _context = context;
         }
 
-        public async Task<UserSyllabusUnitData?> GetUnitDetailAsync(int syllabusUnitId, int userSyllabusProgressId)
+        public async Task<UserSyllabusUnitData?> GetUnitDetailAsync(int syllabusUnitId, int userSyllabusProgressId, int userId)
         {
             var unit = await _context.SyllabusUnits
                 .AsNoTracking()
@@ -24,6 +24,10 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
                 {
                     su.Id,
                     su.Name,
+                    UnitProgressId = su.UserSyllabusUnitProgresses
+                        .Where(usup => usup.UserSyllabusProgressId == userSyllabusProgressId)
+                        .Select(usup => (int?)usup.Id)
+                        .FirstOrDefault(),
                     Status = su.UserSyllabusUnitProgresses
                         .Where(usup => usup.UserSyllabusProgressId == userSyllabusProgressId)
                         .Select(usup => usup.Status)
@@ -48,16 +52,19 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
 
             if (unit is null) return null;
 
-            var viewedIds = await _context.UserSubTopicViews
-                .AsNoTracking()
-                .Where(ustv =>
-                    ustv.UserSyllabusUnitProgress.UserSyllabusProgressId == userSyllabusProgressId
-                    && ustv.UserSyllabusUnitProgress.SyllabusUnitId == syllabusUnitId
-                    && ustv.IsViewed)
-                .Select(ustv => ustv.SubTopicId)
-                .ToListAsync();
+            var viewedSet = new HashSet<int>();
+            if (unit.UnitProgressId.HasValue)
+            {
+                var viewedIds = await _context.UserSubTopicViews
+                    .AsNoTracking()
+                    .Where(ustv =>
+                        ustv.UserSyllabusUnitProgressId == unit.UnitProgressId.Value
+                        && ustv.ViewedAt != default)
+                    .Select(ustv => ustv.SubTopicId)
+                    .ToListAsync();
 
-            var viewedSet = viewedIds.ToHashSet();
+                viewedSet = viewedIds.ToHashSet();
+            }
 
             return new UserSyllabusUnitData
             {
@@ -81,8 +88,16 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
             };
         }
 
-        public async Task<List<UserSyllabusTopicData>> GetUnitTopicsAsync(int syllabusUnitId, int userSyllabusProgressId)
+        public async Task<List<UserSyllabusTopicData>> GetUnitTopicsAsync(int syllabusUnitId, int userSyllabusProgressId, int userId)
         {
+            var unitProgressId = await _context.SyllabusUnits
+                .AsNoTracking()
+                .Where(su => su.Id == syllabusUnitId)
+                .SelectMany(su => su.UserSyllabusUnitProgresses
+                    .Where(usup => usup.UserSyllabusProgressId == userSyllabusProgressId)
+                    .Select(usup => (int?)usup.Id))
+                .FirstOrDefaultAsync();
+
             var topics = await _context.SyllabusUnits
                 .AsNoTracking()
                 .Where(su => su.Id == syllabusUnitId)
@@ -104,19 +119,22 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
 
             if (!topics.Any()) return new();
 
-            var allSubTopicIds = topics.SelectMany(t => t.SubTopics.Select(st => st.Id)).ToHashSet();
+            var viewedSet = new HashSet<int>();
+            if (unitProgressId.HasValue)
+            {
+                var allSubTopicIds = topics.SelectMany(t => t.SubTopics.Select(st => st.Id)).ToHashSet();
 
-            var viewedIds = await _context.UserSubTopicViews
-                .AsNoTracking()
-                .Where(ustv =>
-                    ustv.UserSyllabusUnitProgress.UserSyllabusProgressId == userSyllabusProgressId
-                    && ustv.UserSyllabusUnitProgress.SyllabusUnitId == syllabusUnitId
-                    && ustv.IsViewed
-                    && allSubTopicIds.Contains(ustv.SubTopicId))
-                .Select(ustv => ustv.SubTopicId)
-                .ToListAsync();
+                var viewedIds = await _context.UserSubTopicViews
+                    .AsNoTracking()
+                    .Where(ustv =>
+                        ustv.UserSyllabusUnitProgressId == unitProgressId.Value
+                        && ustv.ViewedAt != default
+                        && allSubTopicIds.Contains(ustv.SubTopicId))
+                    .Select(ustv => ustv.SubTopicId)
+                    .ToListAsync();
 
-            var viewedSet = viewedIds.ToHashSet();
+                viewedSet = viewedIds.ToHashSet();
+            }
 
             return topics.Select(t => new UserSyllabusTopicData
             {
@@ -134,7 +152,7 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
             }).ToList();
         }
 
-        public async Task<List<UserSyllabusSubtopicData>> GetTopicSubtopicsAsync(int topicId, int userSyllabusProgressId)
+        public async Task<List<UserSyllabusSubtopicData>> GetTopicSubtopicsAsync(int topicId, int userSyllabusProgressId, int userId)
         {
             var topic = await _context.SyllabusTopics
                 .AsNoTracking()
@@ -142,6 +160,10 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
                 .Select(t => new
                 {
                     t.SyllabusUnitId,
+                    UnitProgressId = t.SyllabusUnit.UserSyllabusUnitProgresses
+                        .Where(usup => usup.UserSyllabusProgressId == userSyllabusProgressId)
+                        .Select(usup => (int?)usup.Id)
+                        .FirstOrDefault(),
                     SubTopics = t.SubTopics
                         .Where(st => st.IsActive && !st.IsDeleted)
                         .OrderBy(st => st.OrderIndex)
@@ -155,17 +177,20 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
             var subTopicIds = topic.SubTopics.Select(st => st.Id).ToHashSet();
             if (!subTopicIds.Any()) return new();
 
-            var viewedIds = await _context.UserSubTopicViews
-                .AsNoTracking()
-                .Where(ustv =>
-                    ustv.UserSyllabusUnitProgress.UserSyllabusProgressId == userSyllabusProgressId
-                    && ustv.UserSyllabusUnitProgress.SyllabusUnitId == topic.SyllabusUnitId
-                    && ustv.IsViewed
-                    && subTopicIds.Contains(ustv.SubTopicId))
-                .Select(ustv => ustv.SubTopicId)
-                .ToListAsync();
+            var viewedSet = new HashSet<int>();
+            if (topic.UnitProgressId.HasValue)
+            {
+                var viewedIds = await _context.UserSubTopicViews
+                    .AsNoTracking()
+                    .Where(ustv =>
+                        ustv.UserSyllabusUnitProgressId == topic.UnitProgressId.Value
+                        && ustv.ViewedAt != default
+                        && subTopicIds.Contains(ustv.SubTopicId))
+                    .Select(ustv => ustv.SubTopicId)
+                    .ToListAsync();
 
-            var viewedSet = viewedIds.ToHashSet();
+                viewedSet = viewedIds.ToHashSet();
+            }
 
             return topic.SubTopics.Select(st => new UserSyllabusSubtopicData
             {

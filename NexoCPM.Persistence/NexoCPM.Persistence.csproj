@@ -29,4 +29,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="Seeders\Examples\0questions_ebr_inicial.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

@@ -2,7 +2,6 @@
 using NexoCPM.Domain.Context.Entities;
 using NexoCPM.Domain.Evaluations.Entities;
 using NexoCPM.Domain.Resources.Entities;
-using NexoCPM.Domain.Users.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,7 +23,6 @@ namespace NexoCPM.Domain.Curriculum.Entities
         public ICollection<MicroTopic> MicroTopics { get; private set; } = new HashSet<MicroTopic>();
         public ICollection<Question> Questions { get; private set; } = new HashSet<Question>();
         public ICollection<Resource> Resources { get; private set; } = new HashSet<Resource>();
-        public ICollection<UserSubTopicView> UserSubTopicViews { get; private set; } = new HashSet<UserSubTopicView>();
 
         public Topic Topic { get; private set; } = null!;
         public Competence? Competence{ get; private set; }

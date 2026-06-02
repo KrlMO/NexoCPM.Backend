@@ -5,12 +5,14 @@ using Microsoft.IdentityModel.Tokens;
 using NexoCPM.Api.Common;
 using NexoCPM.Application.Auth.Commands.Login;
 using NexoCPM.Application.Commons.Ports;
+using NexoCPM.Application.Users.Ports;
 using NexoCPM.Domain.Common.Exceptions;
 using NexoCPM.Infraestructure;
 using NexoCPM.Persistence;
 using NexoCPM.Persistence.Context;
 using NexoCPM.Persistence.Seeders;
 using NexoCPM.Persistence.Seeders.Runner;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 
@@ -53,6 +55,36 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ClockSkew = TimeSpan.Zero
         };
+
+        options.Events = new JwtBearerEvents
+        {
+            OnTokenValidated = async context =>
+            {
+                var userIdClaim = context.Principal?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (userIdClaim is null || !int.TryParse(userIdClaim, out var userId))
+                {
+                    context.Fail("Invalid token: missing user identifier");
+                    return;
+                }
+
+                var userRepository = context.HttpContext.RequestServices
+                    .GetRequiredService<IUserRepository>();
+                var user = await userRepository.GetByIdAsync(userId);
+
+                if (user is null)
+                {
+                    context.Fail("User not found");
+                    return;
+                }
+
+                var tokenStamp = context.Principal?.FindFirst("security_stamp")?.Value;
+                if (tokenStamp != user.SecurityStamp)
+                {
+                    context.Fail("Security stamp has been changed. Session invalidated.");
+                    return;
+                }
+            }
+        };
     });
 
 var corsOrigins = builder.Configuration["CORS_ORIGINS"]?.Split(',', StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
@@ -88,6 +120,7 @@ using (var scope = app.Services.CreateScope())
     await JsonCompetenceSeeder.SeedAsync(db);
     await JsonCurriculumSeeder.SeedAsync(db);
     await JsonAssessmentSeeder.SeedAsync(db);
+    await JsonQuestionSeeder.SeedAsync(db);
 }
 
 if (runImporterOnly)

@@ -44,6 +44,41 @@ public class UserSyllabusUnitProgressConfiguration : IEntityTypeConfiguration<Us
                .HasColumnName("total_correct")
                .IsRequired();
 
+        builder.Property(usup => usup.UserId)
+               .HasColumnName("user_id")
+               .IsRequired();
+
+        builder.Property(usup => usup.CompletedSubTopics)
+               .HasColumnName("completed_sub_topics")
+               .IsRequired()
+               .HasDefaultValue(0);
+
+        builder.Property(usup => usup.TotalSubTopics)
+               .HasColumnName("total_sub_topics")
+               .IsRequired()
+               .HasDefaultValue(0);
+
+        builder.Property(usup => usup.ContentProgressPercentage)
+               .HasColumnName("content_progress_percentage")
+               .IsRequired()
+               .HasDefaultValue(0.0);
+
+        builder.Property(usup => usup.UnitExamCompleted)
+               .HasColumnName("unit_exam_completed")
+               .IsRequired()
+               .HasDefaultValue(false);
+
+        builder.Property(usup => usup.UnitExamScore)
+               .HasColumnName("unit_exam_score");
+
+        builder.Property(usup => usup.OverallProgressPercentage)
+               .HasColumnName("overall_progress_percentage")
+               .IsRequired()
+               .HasDefaultValue(0.0);
+
+        builder.Property(usup => usup.CompletedAt)
+               .HasColumnName("completed_at");
+
         builder.HasIndex(usup => new { usup.UserSyllabusProgressId, usup.SyllabusUnitId })
                .IsUnique(true);
 
@@ -75,12 +110,12 @@ public class UserSyllabusUnitProgressConfiguration : IEntityTypeConfiguration<Us
         builder.Property(t => t.CreatedBy)
                .HasColumnName("created_by")
                .IsRequired(true)
-			   .HasDefaultValue(1);
+               .HasDefaultValue(1);
 
         builder.Property(t => t.UpdatedBy)
                 .HasColumnName("updated_by")
                 .IsRequired(false)
-			   .HasDefaultValue(1);
+               .HasDefaultValue(1);
 
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")

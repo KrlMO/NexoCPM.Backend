@@ -1,7 +1,10 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NexoCPM.Api.Common;
+using NexoCPM.Application.Resources.Commands.CreateResource;
 using NexoCPM.Application.Resources.Queries;
+using System.Security.Claims;
 
 namespace NexoCPM.Api.Controllers.Resources
 {
@@ -17,7 +20,7 @@ namespace NexoCPM.Api.Controllers.Resources
             _mediator = mediator;
         }
 
-        [HttpGet("get")]
+        [HttpGet]
         public async Task<IActionResult> GetResourcesBySubtopic(
             [FromQuery] int subtopicId,
             [FromQuery] int page = 1,
@@ -27,6 +30,15 @@ namespace NexoCPM.Api.Controllers.Resources
             var query = new GetResourcesBySubtopicQuery(subtopicId, page, pageSize);
             var response = await _mediator.Send(query);
             return Ok(ApiResponse<GetResourcesBySubtopicResponse>.Ok(response, "Lista de recursos externos correctamente obtenida"));
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Create([FromBody] CreateResourceCommand command)
+        {
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var response = await _mediator.Send(command with { UserId = userId });
+            return Ok(ApiResponse<CreateResourceResponse>.Ok(response, "Recurso registrado correctamente"));
         }
     }
 }

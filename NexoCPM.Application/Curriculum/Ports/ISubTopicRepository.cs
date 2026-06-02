@@ -5,6 +5,6 @@ namespace NexoCPM.Application.Curriculum.Ports
 {
     public interface ISubTopicRepository
     {
-        Task<PaginatedResult<SubTopicDetailDto>> GetSubTopicDetailPagedAsync(string subtopicSlug, int page, int pageSize);
+        Task<PaginatedResult<SubTopicDetailDto>> GetSubTopicDetailPagedAsync(string subtopicSlug, int page, int pageSize, int userId, int userLearningContextId);
     }
 }

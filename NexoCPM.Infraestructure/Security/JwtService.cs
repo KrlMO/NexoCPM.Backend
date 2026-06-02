@@ -30,7 +30,8 @@ namespace NexoCPM.Infraestructure.Security
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Email, user.Email),
-                new Claim(ClaimTypes.Role, user.UserRole.ToString())
+                new Claim(ClaimTypes.Role, user.UserRole.ToString()),
+                new Claim("security_stamp", user.SecurityStamp)
             };
 
             var token = new JwtSecurityToken(

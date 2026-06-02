@@ -26,7 +26,7 @@ namespace NexoCPM.Application.Users.Queries.GetMySyllabi
                 .Select(ulc => ulc.UserSyllabusProgress!.Id)
                 .ToArray();
 
-            var summaries = await _userLearningContext.GetProgressSummariesAsync(progressIds);
+            var summaries = await _userLearningContext.GetProgressSummariesAsync(progressIds, request.userId);
 
             var items = paged.Items.Select(ulc =>
             {

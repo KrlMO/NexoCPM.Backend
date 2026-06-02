@@ -4,7 +4,6 @@ using NexoCPM.Application.Users.Dtos;
 using NexoCPM.Application.Users.Ports;
 using NexoCPM.Domain.Evaluations.Enums;
 using NexoCPM.Persistence.Context;
-using System.Net.Sockets;
 
 namespace NexoCPM.Persistence.Repositories.Users;
 
@@ -29,23 +28,37 @@ public class UserProgressRepository : IUserProgressRepository
                 UserSyllabusProgressId = ulc.UserSyllabusProgress.Id,
                 SyllabusName = ulc.Syllabus.Name,
                 SyllabusSlug = ulc.Syllabus.Slug,
-                UnitData = ulc.UserSyllabusProgress.UserSyllabusUnitProgresses
-                    .Select(usup => new
-                    {
-                        TotalSubTopics = usup.SyllabusUnit.Topics
-                            .SelectMany(t => t.SubTopics)
-                            .Count(),
-                        ViewedSubTopics = usup.UserSubTopicViews
-                            .Count(ustv => ustv.IsViewed)
-                    })
-                    .ToList()
+                SyllabusId = ulc.SyllabusId,
             })
             .ToListAsync();
 
+        var syllabusIds = contexts.Select(c => c.SyllabusId).Distinct().ToHashSet();
+        var progressIds = contexts.Select(c => c.UserSyllabusProgressId).ToHashSet();
+
+        var subtopicCountsBySyllabus = await _context.SubTopics
+            .AsNoTracking()
+            .Where(st => st.IsActive && !st.IsDeleted && syllabusIds.Contains(st.Topic.SyllabusUnit.SyllabusId))
+            .GroupBy(st => st.Topic.SyllabusUnit.SyllabusId)
+            .Select(g => new { SyllabusId = g.Key, Count = g.Count() })
+            .ToListAsync();
+
+        var totalBySyllabus = subtopicCountsBySyllabus.ToDictionary(x => x.SyllabusId, x => x.Count);
+
+        var viewedBySyllabus = await _context.UserSubTopicViews
+            .AsNoTracking()
+            .Where(ustv =>
+                ustv.ViewedAt != default
+                && progressIds.Contains(ustv.UserSyllabusUnitProgress.UserSyllabusProgressId))
+            .GroupBy(ustv => ustv.UserSyllabusUnitProgress.UserSyllabusProgress.SyllabusId)
+            .Select(g => new { SyllabusId = g.Key, Count = g.Count() })
+            .ToListAsync();
+
+        var viewedBySyllabusDict = viewedBySyllabus.ToDictionary(x => x.SyllabusId, x => x.Count);
+
         return contexts.Select(c =>
         {
-            var sumTotal = c.UnitData.Sum(u => u.TotalSubTopics);
-            var sumViewed = c.UnitData.Sum(u => u.ViewedSubTopics);
+            var sumTotal = totalBySyllabus.GetValueOrDefault(c.SyllabusId, 0);
+            var sumViewed = viewedBySyllabusDict.GetValueOrDefault(c.SyllabusId, 0);
 
             return new SyllabusProgressDto
             {
@@ -88,23 +101,38 @@ public class UserProgressRepository : IUserProgressRepository
                     .FirstOrDefault() ?? string.Empty,
                 LastAccess = ulc.UserSyllabusProgress.LastAccess,
                 Id = ulc.Id,
-                UnitData = ulc.UserSyllabusProgress.UserSyllabusUnitProgresses
-                    .Select(usup => new
-                    {
-                        TotalSubTopics = usup.SyllabusUnit.Topics
-                            .SelectMany(t => t.SubTopics)
-                            .Count(),
-                        ViewedSubTopics = usup.UserSubTopicViews
-                            .Count(ustv => ustv.IsViewed)
-                    })
-                    .ToList()
+                SyllabusId2 = ulc.SyllabusId,
+                UserSyllabusProgressId = ulc.UserSyllabusProgress.Id,
             })
             .ToListAsync();
 
+        var syllabusIds = contexts.Select(c => c.SyllabusId).Distinct().ToHashSet();
+        var progressIds = contexts.Select(c => c.UserSyllabusProgressId).ToHashSet();
+
+        var subtopicCountsBySyllabus = await _context.SubTopics
+            .AsNoTracking()
+            .Where(st => st.IsActive && !st.IsDeleted && syllabusIds.Contains(st.Topic.SyllabusUnit.SyllabusId))
+            .GroupBy(st => st.Topic.SyllabusUnit.SyllabusId)
+            .Select(g => new { SyllabusId = g.Key, Count = g.Count() })
+            .ToListAsync();
+
+        var totalBySyllabus = subtopicCountsBySyllabus.ToDictionary(x => x.SyllabusId, x => x.Count);
+
+        var viewedBySyllabus = await _context.UserSubTopicViews
+            .AsNoTracking()
+            .Where(ustv =>
+                ustv.ViewedAt != default
+                && progressIds.Contains(ustv.UserSyllabusUnitProgress.UserSyllabusProgressId))
+            .GroupBy(ustv => ustv.UserSyllabusUnitProgress.UserSyllabusProgress.SyllabusId)
+            .Select(g => new { SyllabusId = g.Key, Count = g.Count() })
+            .ToListAsync();
+
+        var viewedBySyllabusDict = viewedBySyllabus.ToDictionary(x => x.SyllabusId, x => x.Count);
+
         return contexts.Select(c =>
         {
-            var sumTotal = c.UnitData.Sum(u => u.TotalSubTopics);
-            var sumViewed = c.UnitData.Sum(u => u.ViewedSubTopics);
+            var sumTotal = totalBySyllabus.GetValueOrDefault(c.SyllabusId, 0);
+            var sumViewed = viewedBySyllabusDict.GetValueOrDefault(c.SyllabusId, 0);
 
             return new DashboardSyllabusDto
             {
@@ -127,7 +155,7 @@ public class UserProgressRepository : IUserProgressRepository
         var ids = await _context.UserLearningContexts
             .AsNoTracking()
             .Where(ulc => ulc.Id == userLearningContextId)
-            .Select(ulc => new { ulc.SyllabusId, ProgressId = ulc.UserSyllabusProgress.Id })
+            .Select(ulc => new { SyllabusId = ulc.SyllabusId, ProgressId = ulc.UserSyllabusProgress.Id })
             .FirstOrDefaultAsync();
 
         if (ids is null) return new List<UnitProgressDto>();
@@ -143,43 +171,67 @@ public class UserProgressRepository : IUserProgressRepository
                 TotalSubTopics = su.Topics
                     .SelectMany(t => t.SubTopics)
                     .Count(st => st.IsActive && !st.IsDeleted),
-                ViewedSubTopics = su.UserSyllabusUnitProgresses
+                UnitProgressId = su.UserSyllabusUnitProgresses
                     .Where(usup => usup.UserSyllabusProgressId == ids.ProgressId)
-                    .SelectMany(usup => usup.UserSubTopicViews)
-                    .Count(ustv => ustv.IsViewed)
+                    .Select(usup => (int?)usup.Id)
+                    .FirstOrDefault()
             })
             .ToListAsync();
+
+        var unitProgressIds = unitData
+            .Where(u => u.UnitProgressId.HasValue)
+            .Select(u => u.UnitProgressId!.Value)
+            .ToHashSet();
+
+        var viewedByUnit = new Dictionary<int, int>();
+        if (unitProgressIds.Any())
+        {
+            viewedByUnit = await _context.UserSubTopicViews
+                .AsNoTracking()
+                .Where(ustv =>
+                    unitProgressIds.Contains(ustv.UserSyllabusUnitProgressId)
+                    && ustv.ViewedAt != default)
+                .GroupBy(ustv => ustv.UserSyllabusUnitProgressId)
+                .Select(g => new { UserSyllabusUnitProgressId = g.Key, Count = g.Count() })
+                .ToDictionaryAsync(x => x.UserSyllabusUnitProgressId, x => x.Count);
+        }
 
         return unitData.Select(u => new UnitProgressDto
         {
             UnitId = u.Id,
             UnitName = u.Name,
             CompletedPercentage = u.TotalSubTopics > 0
-                ? Math.Round((decimal)u.ViewedSubTopics / u.TotalSubTopics * 100, 2)
+                ? Math.Round((decimal)viewedByUnit.GetValueOrDefault(u.UnitProgressId ?? 0, 0) / u.TotalSubTopics * 100, 2)
                 : 0m
         }).ToList();
     }
 
     public async Task<decimal> GetOverallProgressPercentageAsync(int userId)
     {
-        var unitData = await _context.UserLearningContexts
+        var syllabusAndProgress = await _context.UserLearningContexts
+            .AsNoTracking()
             .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
-            .SelectMany(ulc => ulc.UserSyllabusProgress.UserSyllabusUnitProgresses)
-            .Select(usup => new
-            {
-                TotalSubTopics = usup.SyllabusUnit.Topics
-                    .SelectMany(t => t.SubTopics)
-                    .Count(),
-                ViewedSubTopics = usup.UserSubTopicViews
-                    .Count(ustv => ustv.IsViewed)
-            })
+            .Select(ulc => new { ulc.SyllabusId, ProgressId = ulc.UserSyllabusProgress!.Id })
             .ToListAsync();
 
-        var sumTotal = unitData.Sum(u => u.TotalSubTopics);
-        var sumViewed = unitData.Sum(u => u.ViewedSubTopics);
+        if (!syllabusAndProgress.Any()) return 0m;
 
-        return sumTotal > 0
-            ? Math.Round((decimal)sumViewed / sumTotal * 100, 2)
+        var syllabusIds = syllabusAndProgress.Select(x => x.SyllabusId).ToHashSet();
+        var progressIds = syllabusAndProgress.Select(x => x.ProgressId).ToHashSet();
+
+        var totalSubTopics = await _context.SubTopics
+            .AsNoTracking()
+            .CountAsync(st => st.IsActive && !st.IsDeleted
+                && syllabusIds.Contains(st.Topic.SyllabusUnit.SyllabusId));
+
+        var viewedSubTopics = await _context.UserSubTopicViews
+            .AsNoTracking()
+            .CountAsync(ustv =>
+                progressIds.Contains(ustv.UserSyllabusUnitProgress.UserSyllabusProgressId)
+                && ustv.ViewedAt != default);
+
+        return totalSubTopics > 0
+            ? Math.Round((decimal)viewedSubTopics / totalSubTopics * 100, 2)
             : 0m;
     }
 

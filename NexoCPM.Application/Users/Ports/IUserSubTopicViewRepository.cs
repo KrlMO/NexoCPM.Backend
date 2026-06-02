@@ -6,4 +6,5 @@ public interface IUserSubTopicViewRepository
 {
     Task MarkAsViewedAsync(int userSyllabusUnitProgressId, int subTopicId);
     Task<bool> IsViewedAsync(int userSyllabusUnitProgressId, int subTopicId);
+    Task<UserSubTopicView> ToggleCompletionAsync(int userSyllabusUnitProgressId, int subTopicId);
 }

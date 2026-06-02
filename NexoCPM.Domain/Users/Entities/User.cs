@@ -5,6 +5,7 @@ using NexoCPM.Domain.Resources.Entities;
 using NexoCPM.Domain.Users.Enums;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace NexoCPM.Domain.Users.Entities
@@ -24,6 +25,7 @@ namespace NexoCPM.Domain.Users.Entities
         public string UserName { get; private set; } = string.Empty;
         public string Email { get; private set; }  = string.Empty;
         public string PasswordHash { get; private set; } = string.Empty;
+        public string SecurityStamp { get; private set; } = string.Empty;
         public UserRole UserRole { get; private set; }
         public bool IsActive { get; private set; } = true;
         public bool IsVerified { get; private set; } = false;
@@ -46,6 +48,7 @@ namespace NexoCPM.Domain.Users.Entities
         {
             Email = email;
             PasswordHash = passwordHash;
+            SecurityStamp = GenerateStamp();
         }
 
         public User(string firstName, string lastName, string userName, string email, string passwordHash, string code)
@@ -56,6 +59,7 @@ namespace NexoCPM.Domain.Users.Entities
             Email = email;
             PasswordHash = passwordHash;
             Code = code;
+            SecurityStamp = GenerateStamp();
         }
 
         public string GetPasswordHash() => PasswordHash;
@@ -68,6 +72,53 @@ namespace NexoCPM.Domain.Users.Entities
         public void ChangePassword(string newPasswordHash)
         {
             PasswordHash = newPasswordHash;
+            SecurityStamp = GenerateStamp();
+        }
+
+        public void UpdateGeneralData(string? firstName, string? lastName, string? userName)
+        {
+            if (firstName is not null) FirstName = firstName;
+            if (lastName is not null) LastName = lastName;
+            if (userName is not null) UserName = userName;
+        }
+
+        public void UpdatePrivateData(DateOnly? dateOfBirth, string? phoneNumber)
+        {
+            if (dateOfBirth.HasValue) DateOfBirth = dateOfBirth.Value.ToDateTime(TimeOnly.MinValue);
+            if (phoneNumber is not null) PhoneNumber = phoneNumber;
+        }
+
+        public void UpdateExtraData(string? bio, string? linkedInUrl)
+        {
+            if (bio is not null) Bio = bio;
+            if (linkedInUrl is not null) LinkedInProfile = linkedInUrl;
+        }
+
+        public void UpdatePrivacyConfiguration(bool? isPublic)
+        {
+            if (isPublic.HasValue) IsPublic = isPublic.Value;
+        }
+
+        public void Deactivate()
+        {
+            IsActive = false;
+        }
+
+        public void MarkAsDeleted()
+        {
+            IsDeleted = true;
+            IsActive = false;
+        }
+
+        public void RegenerateSecurityStamp()
+        {
+            SecurityStamp = GenerateStamp();
+        }
+
+        private static string GenerateStamp()
+        {
+            var bytes = RandomNumberGenerator.GetBytes(32);
+            return Convert.ToBase64String(bytes);
         }
     }
 }

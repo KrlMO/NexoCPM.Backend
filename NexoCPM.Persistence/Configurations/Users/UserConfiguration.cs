@@ -68,6 +68,11 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
                .IsRequired()
                .HasMaxLength(500);
 
+        builder.Property(u => u.SecurityStamp)
+               .HasColumnName("security_stamp")
+               .IsRequired()
+               .HasMaxLength(64);
+
         builder.Property(u => u.UserRole)
                .HasColumnName("user_role")
                .HasConversion<string>()

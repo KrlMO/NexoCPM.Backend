@@ -12,17 +12,20 @@ namespace NexoCPM.Application.Auth.Commands.ResetPassword
         private readonly IUserRepository _userRepository;
         private readonly ITokenHasher _tokenHasher;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly IRefreshTokenRepository _refreshTokenRepository;
 
         public ResetPasswordHandler(
             IPasswordResetTokenRepository tokenRepository,
             IUserRepository userRepository,
             ITokenHasher tokenHasher,
-            IPasswordHasher passwordHasher)
+            IPasswordHasher passwordHasher,
+            IRefreshTokenRepository refreshTokenRepository)
         {
             _tokenRepository = tokenRepository;
             _userRepository = userRepository;
             _tokenHasher = tokenHasher;
             _passwordHasher = passwordHasher;
+            _refreshTokenRepository = refreshTokenRepository;
         }
 
         public async Task<ResetPasswordResult> Handle(ResetPasswordCommand request, CancellationToken cancellationToken)
@@ -46,6 +49,7 @@ namespace NexoCPM.Application.Auth.Commands.ResetPassword
 
             await _userRepository.UpdateAsync(user);
             await _tokenRepository.UpdateAsync(token);
+            await _refreshTokenRepository.RevokeAllByUserIdAsync(user.Id);
 
             return new ResetPasswordResult
             {

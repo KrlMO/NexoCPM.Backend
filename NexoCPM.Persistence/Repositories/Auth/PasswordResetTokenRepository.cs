@@ -28,8 +28,9 @@ namespace NexoCPM.Persistence.Repositories.Auth
 
         public async Task<PasswordResetToken?> GetValidByUserIdAsync(int userId)
         {
+            var now = DateTime.UtcNow;
             return await _context.PasswordResetTokens
-                .FirstOrDefaultAsync(t => t.UserId == userId && !t.IsUsed && !t.IsExpired());
+                .FirstOrDefaultAsync(t => t.UserId == userId && !t.IsUsed && t.ExpiresAt > now);
         }
 
         public async Task UpdateAsync(PasswordResetToken token)

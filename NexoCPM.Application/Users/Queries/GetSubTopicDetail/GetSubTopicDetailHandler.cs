@@ -32,7 +32,7 @@ namespace NexoCPM.Application.Users.Queries.GetSubTopicDetail
                 throw new NotFoundException("Contexto de aprendizaje no encontrado");
 
             var paged = await _subTopicRepository.GetSubTopicDetailPagedAsync(
-                request.subtopicSlug, request.page, request.pageSize);
+                request.subtopicSlug, request.page, request.pageSize, request.userId, request.userLearningId);
 
             if (paged.Items.Count == 0)
                 throw new NotFoundException("Subtopic no encontrado");

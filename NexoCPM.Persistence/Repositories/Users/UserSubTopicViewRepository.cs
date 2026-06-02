@@ -38,6 +38,26 @@ public class UserSubTopicViewRepository : IUserSubTopicViewRepository
             .AnyAsync(ustv =>
                 ustv.UserSyllabusUnitProgressId == userSyllabusUnitProgressId &&
                 ustv.SubTopicId == subTopicId &&
-                ustv.IsViewed);
+                ustv.ViewedAt != default);
+    }
+
+    public async Task<UserSubTopicView> ToggleCompletionAsync(int userSyllabusUnitProgressId, int subTopicId)
+    {
+        var existing = await _context.Set<UserSubTopicView>()
+            .FindAsync(userSyllabusUnitProgressId, subTopicId);
+
+        if (existing is not null)
+        {
+            existing.ToggleCompletion();
+        }
+        else
+        {
+            existing = new UserSubTopicView(userSyllabusUnitProgressId, subTopicId);
+            existing.ToggleCompletion();
+            _context.Set<UserSubTopicView>().Add(existing);
+        }
+
+        await _context.SaveChangesAsync();
+        return existing;
     }
 }
