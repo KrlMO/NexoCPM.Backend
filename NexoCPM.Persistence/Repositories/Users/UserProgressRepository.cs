@@ -44,16 +44,19 @@ public class UserProgressRepository : IUserProgressRepository
 
         var totalBySyllabus = subtopicCountsBySyllabus.ToDictionary(x => x.SyllabusId, x => x.Count);
 
-        var viewedBySyllabus = await _context.UserSubTopicViews
+        var viewedByProgress = await _context.UserSubTopicViews
             .AsNoTracking()
             .Where(ustv =>
                 ustv.ViewedAt != default
                 && progressIds.Contains(ustv.UserSyllabusUnitProgress.UserSyllabusProgressId))
-            .GroupBy(ustv => ustv.UserSyllabusUnitProgress.UserSyllabusProgress.SyllabusId)
-            .Select(g => new { SyllabusId = g.Key, Count = g.Count() })
+            .GroupBy(ustv => ustv.UserSyllabusUnitProgress.UserSyllabusProgressId)
+            .Select(g => new { UserSyllabusProgressId = g.Key, Count = g.Count() })
             .ToListAsync();
 
-        var viewedBySyllabusDict = viewedBySyllabus.ToDictionary(x => x.SyllabusId, x => x.Count);
+        var progressToSyllabus = contexts.ToDictionary(c => c.UserSyllabusProgressId, c => c.SyllabusId);
+        var viewedBySyllabusDict = viewedByProgress
+            .GroupBy(v => progressToSyllabus.GetValueOrDefault(v.UserSyllabusProgressId, 0))
+            .ToDictionary(g => g.Key, g => g.Sum(v => v.Count));
 
         return contexts.Select(c =>
         {
@@ -118,16 +121,19 @@ public class UserProgressRepository : IUserProgressRepository
 
         var totalBySyllabus = subtopicCountsBySyllabus.ToDictionary(x => x.SyllabusId, x => x.Count);
 
-        var viewedBySyllabus = await _context.UserSubTopicViews
+        var viewedByProgress = await _context.UserSubTopicViews
             .AsNoTracking()
             .Where(ustv =>
                 ustv.ViewedAt != default
                 && progressIds.Contains(ustv.UserSyllabusUnitProgress.UserSyllabusProgressId))
-            .GroupBy(ustv => ustv.UserSyllabusUnitProgress.UserSyllabusProgress.SyllabusId)
-            .Select(g => new { SyllabusId = g.Key, Count = g.Count() })
+            .GroupBy(ustv => ustv.UserSyllabusUnitProgress.UserSyllabusProgressId)
+            .Select(g => new { UserSyllabusProgressId = g.Key, Count = g.Count() })
             .ToListAsync();
 
-        var viewedBySyllabusDict = viewedBySyllabus.ToDictionary(x => x.SyllabusId, x => x.Count);
+        var progressToSyllabus = contexts.ToDictionary(c => c.UserSyllabusProgressId, c => c.SyllabusId2);
+        var viewedBySyllabusDict = viewedByProgress
+            .GroupBy(v => progressToSyllabus.GetValueOrDefault(v.UserSyllabusProgressId, 0))
+            .ToDictionary(g => g.Key, g => g.Sum(v => v.Count));
 
         return contexts.Select(c =>
         {

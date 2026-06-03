@@ -23,6 +23,7 @@ using NexoCPM.Application.Users.Queries.GetDashboardSyllabusDetails;
 using NexoCPM.Application.Users.Queries.GetMe;
 using NexoCPM.Application.Users.Commands.ToggleSubTopicCompletion;
 using NexoCPM.Application.Users.Queries.GetPublicProfile;
+using NexoCPM.Application.Users.Queries.GetTopLeaderboard;
 
 namespace NexoCPM.Api.Controllers.Users;
 
@@ -222,6 +223,15 @@ public class UsersController : ControllerBase
         };
         var result = await _mediator.Send(command);
         return Ok(ApiResponse<ToggleSubTopicCompletionResult>.Ok(result, "Estado del subtema actualizado correctamente"));
+    }
+
+    [AllowAnonymous]
+    [HttpGet("leaderboard/top/{count?}")]
+    public async Task<IActionResult> GetTopLeaderboard(int count = 20)
+    {
+        var query = new GetTopLeaderboardQuery(count);
+        var result = await _mediator.Send(query);
+        return Ok(ApiResponse<GetTopLeaderboardResponse>.Ok(result, "Top líderes obtenidos correctamente"));
     }
 
     [AllowAnonymous]

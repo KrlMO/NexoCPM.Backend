@@ -34,6 +34,12 @@ namespace NexoCPM.Domain.Users.Entities
             LastActivityAt = DateTime.UtcNow;
         }
 
+        public UserSyllabusProgress(UserProgressStatus status, int userId, int syllabusId) : this(status)
+        {
+            UserId = userId;
+            SyllabusId = syllabusId;
+        }
+
         public void UpdateContentProgress(int completedUnits, int totalUnits, double unitAveragePercentage)
         {
             CompletedUnits = completedUnits;

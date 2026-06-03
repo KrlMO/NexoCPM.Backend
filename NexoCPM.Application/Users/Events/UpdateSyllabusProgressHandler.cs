@@ -20,14 +20,17 @@ namespace NexoCPM.Application.Users.Events
 
         public async Task Handle(UnitProgressUpdatedEvent notification, CancellationToken cancellationToken)
         {
-            var unitProgresses = await _context.UserSyllabusUnitProgresses
-                .AsNoTracking()
-                .Where(usup => usup.UserId == notification.UserId)
-                .ToListAsync(cancellationToken);
+            var progress = await _context.UserSyllabusProgresses
+                .Include(usp => usp.UserLearningContext)
+                .FirstOrDefaultAsync(usp => usp.UserLearningContextId == notification.UserLearningContextId, cancellationToken);
+
+            if (progress is null) return;
+
+            var syllabusId = progress.UserLearningContext.SyllabusId;
 
             var syllabusUnits = await _context.SyllabusUnits
                 .AsNoTracking()
-                .Where(su => su.SyllabusId == notification.SyllabusId && su.IsActive && !su.IsDeleted)
+                .Where(su => su.SyllabusId == syllabusId && su.IsActive && !su.IsDeleted)
                 .OrderBy(su => su.OrderIndex)
                 .Select(su => su.Id)
                 .ToListAsync(cancellationToken);
@@ -35,20 +38,15 @@ namespace NexoCPM.Application.Users.Events
             var totalUnits = syllabusUnits.Count;
             if (totalUnits == 0) return;
 
-            var progressByUnit = unitProgresses
-                .Where(up => syllabusUnits.Contains(up.SyllabusUnitId))
-                .ToList();
+            var unitProgresses = await _context.UserSyllabusUnitProgresses
+                .AsNoTracking()
+                .Where(usup => usup.UserSyllabusProgressId == progress.Id)
+                .ToListAsync(cancellationToken);
 
-            var completedUnits = progressByUnit.Count(up => up.OverallProgressPercentage >= 100);
-            var unitAverage = progressByUnit.Count > 0
-                ? progressByUnit.Average(up => up.OverallProgressPercentage)
+            var completedUnits = unitProgresses.Count(up => up.OverallProgressPercentage >= 100);
+            var unitAverage = unitProgresses.Count > 0
+                ? unitProgresses.Average(up => up.OverallProgressPercentage)
                 : 0.0;
-
-            var progress = await _context.UserSyllabusProgresses
-                .Where(usp => usp.SyllabusId == notification.SyllabusId && usp.UserId == notification.UserId)
-                .FirstOrDefaultAsync(cancellationToken);
-
-            if (progress is null) return;
 
             progress.UpdateContentProgress(completedUnits, totalUnits, unitAverage);
             progress.SetUpdated(notification.UserId);

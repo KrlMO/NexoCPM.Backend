@@ -103,7 +103,6 @@ public static class JsonAssessmentSeeder
 
         var e = context.Entry(assessment);
         e.Property("Code").CurrentValue = entry.Code;
-        e.Property("Title").CurrentValue = entry.Title;
         e.Property("Type").CurrentValue = (AssessmentType)entry.Type;
         e.Property("Scope").CurrentValue = (AssessmentScope)entry.Scope;
         e.Property("TargetId").CurrentValue = targetId;
@@ -124,7 +123,6 @@ public static class JsonAssessmentSeeder
     private class AssessmentEntry
     {
         public string Code { get; set; } = string.Empty;
-        public string Title { get; set; } = string.Empty;
         public int Type { get; set; }
         public int Scope { get; set; }
         public bool IsActive { get; set; } = true;

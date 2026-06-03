@@ -12,8 +12,8 @@ using NexoCPM.Persistence.Context;
 namespace NexoCPM.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260601091610_InitProject")]
-    partial class InitProject
+    [Migration("20260603064936_ChangeStructAssessment")]
+    partial class ChangeStructAssessment
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1233,6 +1233,12 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("code");
 
+                    b.Property<int>("GenerationMode")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("generation_mode");
+
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -1251,6 +1257,18 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("scope");
 
+                    b.Property<bool>("ShuffleOptions")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("shuffle_options");
+
+                    b.Property<bool>("ShuffleQuestions")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("shuffle_questions");
+
                     b.Property<int?>("TargetId")
                         .HasColumnType("int")
                         .HasColumnName("target_id");
@@ -1258,12 +1276,6 @@ namespace NexoCPM.Persistence.Migrations
                     b.Property<int?>("TimeLimitSeconds")
                         .HasColumnType("int")
                         .HasColumnName("time_limit_seconds");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("title");
 
                     b.Property<int>("Type")
                         .HasColumnType("int")
@@ -1300,6 +1312,10 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("finished_at");
 
+                    b.Property<int?>("GenerationModeUsed")
+                        .HasColumnType("int")
+                        .HasColumnName("generation_mode_used");
+
                     b.Property<int>("Score")
                         .HasColumnType("int")
                         .HasColumnName("score");
@@ -1313,6 +1329,12 @@ namespace NexoCPM.Persistence.Migrations
                     b.Property<DateTime>("StartedAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("started_at");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("status");
 
                     b.Property<int>("TotalQuestions")
                         .HasColumnType("int")
@@ -1352,6 +1374,11 @@ namespace NexoCPM.Persistence.Migrations
                     b.Property<int>("AssessmentAttemptId")
                         .HasColumnType("int")
                         .HasColumnName("assessment_attempt_id");
+
+                    b.Property<string>("OptionDisplayOrder")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("option_display_order");
 
                     b.Property<int>("OrderIndex")
                         .HasColumnType("int")
@@ -1822,6 +1849,12 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasColumnName("phone_number");
 
+                    b.Property<string>("SecurityStamp")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("security_stamp");
+
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_at");
@@ -1979,15 +2012,21 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("sub_topic_id");
 
-                    b.Property<bool>("IsViewed")
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("completed_at");
+
+                    b.Property<bool>("IsCompleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false)
-                        .HasColumnName("is_viewed");
+                        .HasColumnName("is_completed");
 
-                    b.Property<DateTime?>("ViewedAt")
+                    b.Property<DateTime>("ViewedAt")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasColumnName("viewed_at");
+                        .HasColumnName("viewed_at")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.HasKey("UserSyllabusUnitProgressId", "SubTopicId");
 
@@ -2004,6 +2043,22 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("completed_at");
+
+                    b.Property<int>("CompletedUnits")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("completed_units");
+
+                    b.Property<double>("ContentProgressPercentage")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValue(0.0)
+                        .HasColumnName("content_progress_percentage");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
@@ -2025,13 +2080,44 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("deleted_by");
 
+                    b.Property<bool>("FinalExamCompleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("final_exam_completed");
+
+                    b.Property<decimal?>("FinalExamScore")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("final_exam_score");
+
                     b.Property<DateTime>("LastAccess")
                         .HasColumnType("datetime2")
                         .HasColumnName("last_access");
 
+                    b.Property<DateTime>("LastActivityAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("last_activity_at");
+
+                    b.Property<double>("OverallProgressPercentage")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValue(0.0)
+                        .HasColumnName("overall_progress_percentage");
+
                     b.Property<int>("Status")
                         .HasColumnType("int")
                         .HasColumnName("status");
+
+                    b.Property<int>("SyllabusId")
+                        .HasColumnType("int")
+                        .HasColumnName("syllabus_id");
+
+                    b.Property<int>("TotalUnits")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("total_units");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2")
@@ -2042,6 +2128,10 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(1)
                         .HasColumnName("updated_by");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.Property<int>("UserLearningContextId")
                         .HasColumnType("int")
@@ -2068,6 +2158,22 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("attempts");
 
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("completed_at");
+
+                    b.Property<int>("CompletedSubTopics")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("completed_sub_topics");
+
+                    b.Property<double>("ContentProgressPercentage")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValue(0.0)
+                        .HasColumnName("content_progress_percentage");
+
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
@@ -2092,6 +2198,12 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("last_attempt_at");
 
+                    b.Property<double>("OverallProgressPercentage")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValue(0.0)
+                        .HasColumnName("overall_progress_percentage");
+
                     b.Property<int>("Status")
                         .HasColumnType("int")
                         .HasColumnName("status");
@@ -2108,6 +2220,23 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("total_questions");
 
+                    b.Property<int>("TotalSubTopics")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("total_sub_topics");
+
+                    b.Property<bool>("UnitExamCompleted")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false)
+                        .HasColumnName("unit_exam_completed");
+
+                    b.Property<decimal?>("UnitExamScore")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)")
+                        .HasColumnName("unit_exam_score");
+
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("updated_at");
@@ -2117,6 +2246,10 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasDefaultValue(1)
                         .HasColumnName("updated_by");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int")
+                        .HasColumnName("user_id");
 
                     b.Property<int>("UserSyllabusProgressId")
                         .HasColumnType("int")
@@ -2501,7 +2634,7 @@ namespace NexoCPM.Persistence.Migrations
             modelBuilder.Entity("NexoCPM.Domain.Users.Entities.UserSubTopicView", b =>
                 {
                     b.HasOne("NexoCPM.Domain.Curriculum.Entities.SubTopic", "SubTopic")
-                        .WithMany("UserSubTopicViews")
+                        .WithMany()
                         .HasForeignKey("SubTopicId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired()
@@ -2588,8 +2721,6 @@ namespace NexoCPM.Persistence.Migrations
                     b.Navigation("Questions");
 
                     b.Navigation("Resources");
-
-                    b.Navigation("UserSubTopicViews");
                 });
 
             modelBuilder.Entity("NexoCPM.Domain.Curriculum.Entities.Syllabus", b =>

@@ -18,7 +18,6 @@ namespace NexoCPM.Persistence.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     code = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     type = table.Column<int>(type: "int", nullable: false),
                     scope = table.Column<int>(type: "int", nullable: false),
                     target_id = table.Column<int>(type: "int", nullable: true),
@@ -166,6 +165,7 @@ namespace NexoCPM.Persistence.Migrations
                     user_name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     email = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     password_hash = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
+                    security_stamp = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     user_role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     is_active = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     is_verified = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
@@ -540,7 +540,17 @@ namespace NexoCPM.Persistence.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     user_learning_context_id = table.Column<int>(type: "int", nullable: false),
+                    user_id = table.Column<int>(type: "int", nullable: false),
+                    syllabus_id = table.Column<int>(type: "int", nullable: false),
+                    completed_units = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
+                    total_units = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
+                    content_progress_percentage = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
+                    final_exam_completed = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    final_exam_score = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true),
+                    overall_progress_percentage = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
+                    completed_at = table.Column<DateTime>(type: "datetime2", nullable: true),
                     last_access = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    last_activity_at = table.Column<DateTime>(type: "datetime2", nullable: false),
                     status = table.Column<int>(type: "int", nullable: false),
                     created_at = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
                     created_by = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
@@ -639,6 +649,14 @@ namespace NexoCPM.Persistence.Migrations
                     total_correct = table.Column<int>(type: "int", nullable: false),
                     attempts = table.Column<int>(type: "int", nullable: false),
                     last_attempt_at = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    user_id = table.Column<int>(type: "int", nullable: false),
+                    completed_sub_topics = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
+                    total_sub_topics = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
+                    content_progress_percentage = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
+                    unit_exam_completed = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    unit_exam_score = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true),
+                    overall_progress_percentage = table.Column<double>(type: "float", nullable: false, defaultValue: 0.0),
+                    completed_at = table.Column<DateTime>(type: "datetime2", nullable: true),
                     created_at = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
                     created_by = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
                     updated_at = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -765,8 +783,9 @@ namespace NexoCPM.Persistence.Migrations
                 {
                     user_syllabus_unit_progress_id = table.Column<int>(type: "int", nullable: false),
                     sub_topic_id = table.Column<int>(type: "int", nullable: false),
-                    is_viewed = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
-                    viewed_at = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    is_completed = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    viewed_at = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    completed_at = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

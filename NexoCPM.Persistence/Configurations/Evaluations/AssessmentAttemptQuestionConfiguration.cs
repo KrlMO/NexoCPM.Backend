@@ -39,6 +39,11 @@ public class AssessmentAttemptQuestionConfiguration : IEntityTypeConfiguration<A
                .HasColumnName("order_index")
                .IsRequired();
 
+        builder.Property(aaq => aaq.OptionDisplayOrder)
+               .HasColumnName("option_display_order")
+               .HasMaxLength(500)
+               .IsRequired(false);
+
         builder.HasIndex(aaq => new { aaq.AssessmentAttemptId, aaq.QuestionId })
                .IsUnique(true);
 

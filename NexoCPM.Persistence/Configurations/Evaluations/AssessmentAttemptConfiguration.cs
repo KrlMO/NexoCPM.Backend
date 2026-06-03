@@ -65,5 +65,16 @@ public class AssessmentAttemptConfiguration : IEntityTypeConfiguration<Assessmen
                .HasColumnName("stars_earned")
                .IsRequired()
                .HasDefaultValue(0);
+
+        builder.Property(aa => aa.Status)
+               .HasColumnName("status")
+               .IsRequired()
+               .HasConversion<int>()
+               .HasDefaultValue(Domain.Evaluations.Enums.AssessmentAttemptStatus.IN_PROGRESS);
+
+        builder.Property(aa => aa.GenerationModeUsed)
+               .HasColumnName("generation_mode_used")
+               .HasConversion<int>()
+               .IsRequired(false);
     }
 }

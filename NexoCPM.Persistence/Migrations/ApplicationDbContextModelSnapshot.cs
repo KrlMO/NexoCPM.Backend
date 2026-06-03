@@ -1230,6 +1230,12 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("code");
 
+                    b.Property<int>("GenerationMode")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("generation_mode");
+
                     b.Property<bool>("IsActive")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
@@ -1248,6 +1254,18 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("int")
                         .HasColumnName("scope");
 
+                    b.Property<bool>("ShuffleOptions")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("shuffle_options");
+
+                    b.Property<bool>("ShuffleQuestions")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true)
+                        .HasColumnName("shuffle_questions");
+
                     b.Property<int?>("TargetId")
                         .HasColumnType("int")
                         .HasColumnName("target_id");
@@ -1255,12 +1273,6 @@ namespace NexoCPM.Persistence.Migrations
                     b.Property<int?>("TimeLimitSeconds")
                         .HasColumnType("int")
                         .HasColumnName("time_limit_seconds");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("title");
 
                     b.Property<int>("Type")
                         .HasColumnType("int")
@@ -1297,6 +1309,10 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("finished_at");
 
+                    b.Property<int?>("GenerationModeUsed")
+                        .HasColumnType("int")
+                        .HasColumnName("generation_mode_used");
+
                     b.Property<int>("Score")
                         .HasColumnType("int")
                         .HasColumnName("score");
@@ -1310,6 +1326,12 @@ namespace NexoCPM.Persistence.Migrations
                     b.Property<DateTime>("StartedAt")
                         .HasColumnType("datetime2")
                         .HasColumnName("started_at");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0)
+                        .HasColumnName("status");
 
                     b.Property<int>("TotalQuestions")
                         .HasColumnType("int")
@@ -1349,6 +1371,11 @@ namespace NexoCPM.Persistence.Migrations
                     b.Property<int>("AssessmentAttemptId")
                         .HasColumnType("int")
                         .HasColumnName("assessment_attempt_id");
+
+                    b.Property<string>("OptionDisplayOrder")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)")
+                        .HasColumnName("option_display_order");
 
                     b.Property<int>("OrderIndex")
                         .HasColumnType("int")
@@ -2057,6 +2084,7 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("final_exam_completed");
 
                     b.Property<decimal?>("FinalExamScore")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("final_exam_score");
 
@@ -2202,6 +2230,7 @@ namespace NexoCPM.Persistence.Migrations
                         .HasColumnName("unit_exam_completed");
 
                     b.Property<decimal?>("UnitExamScore")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("unit_exam_score");
 

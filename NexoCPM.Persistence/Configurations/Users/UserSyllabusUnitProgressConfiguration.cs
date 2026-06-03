@@ -69,7 +69,8 @@ public class UserSyllabusUnitProgressConfiguration : IEntityTypeConfiguration<Us
                .HasDefaultValue(false);
 
         builder.Property(usup => usup.UnitExamScore)
-               .HasColumnName("unit_exam_score");
+               .HasColumnName("unit_exam_score")
+               .HasPrecision(18, 2);
 
         builder.Property(usup => usup.OverallProgressPercentage)
                .HasColumnName("overall_progress_percentage")

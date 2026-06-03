@@ -48,7 +48,8 @@ public class UserSyllabusProgressConfiguration : IEntityTypeConfiguration<UserSy
                .HasDefaultValue(false);
 
         builder.Property(usp => usp.FinalExamScore)
-               .HasColumnName("final_exam_score");
+               .HasColumnName("final_exam_score")
+               .HasPrecision(18, 2);
 
         builder.Property(usp => usp.OverallProgressPercentage)
                .HasColumnName("overall_progress_percentage")

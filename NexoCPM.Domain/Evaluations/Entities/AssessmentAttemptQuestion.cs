@@ -13,11 +13,19 @@ namespace NexoCPM.Domain.Evaluations.Entities
         public DateTime AnsweredAt { get; private set; } = DateTime.UtcNow;
         public int SecondsSpent { get; private set; }
         public int OrderIndex { get; private set; }
+        public string? OptionDisplayOrder { get; private set; }
 
         public AssessmentAttempt AssessmentAttempt { get; private set; } = null!;
         public Question Question { get; private set; } = null!;
         public Option? SelectedOption { get; private set; } = null;
 
         public AssessmentAttemptQuestion() { }
+
+        public AssessmentAttemptQuestion(int questionId, int orderIndex, string? optionDisplayOrder)
+        {
+            QuestionId = questionId;
+            OrderIndex = orderIndex;
+            OptionDisplayOrder = optionDisplayOrder;
+        }
     }
 }

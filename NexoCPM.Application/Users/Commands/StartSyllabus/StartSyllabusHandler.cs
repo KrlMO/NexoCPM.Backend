@@ -29,7 +29,7 @@ namespace NexoCPM.Application.Users.Commands.StartSyllabus
             if (syllabus is null)
                 throw new NotFoundException("Temario no encontrado");
 
-            var progress = new UserSyllabusProgress(UserProgressStatus.IN_PROGRESS);
+            var progress = new UserSyllabusProgress(UserProgressStatus.IN_PROGRESS, userIdInt, syllabus.Id);
             progress.SetCreated(userIdInt);
 
             var learningContext = new UserLearningContext(userIdInt, syllabus.Id, progress);

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NexoCPM.Domain.Evaluations.Entities;
+using NexoCPM.Domain.Evaluations.Enums;
 
 namespace NexoCPM.Persistence.Configurations.Evaluations;
 
@@ -22,11 +23,6 @@ public class AssessmentConfiguration : IEntityTypeConfiguration<Assessment>
 
         builder.HasIndex(a => a.Code)
             .IsUnique();
-
-        builder.Property(a => a.Title)
-               .HasColumnName("title")
-               .IsRequired()
-               .HasMaxLength(100);
 
         builder.Property(a => a.Type)
                .HasColumnName("type")
@@ -58,6 +54,22 @@ public class AssessmentConfiguration : IEntityTypeConfiguration<Assessment>
         builder.Property(a => a.MaxAttempts)
                .HasColumnName("max_attempts")
                .IsRequired(false);
+
+        builder.Property(a => a.ShuffleQuestions)
+               .HasColumnName("shuffle_questions")
+               .IsRequired()
+               .HasDefaultValue(true);
+
+        builder.Property(a => a.ShuffleOptions)
+               .HasColumnName("shuffle_options")
+               .IsRequired()
+               .HasDefaultValue(true);
+
+        builder.Property(a => a.GenerationMode)
+               .HasColumnName("generation_mode")
+               .IsRequired()
+               .HasConversion<int>()
+               .HasDefaultValue(AssessmentGenerationMode.RANDOM);
 
         builder.HasIndex(a => a.Code).IsUnique(true);
 

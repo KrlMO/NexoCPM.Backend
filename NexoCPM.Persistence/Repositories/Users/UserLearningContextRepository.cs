@@ -134,6 +134,7 @@ namespace NexoCPM.Persistence.Repositories.Users
                 {
                     su.Id,
                     su.Name,
+                    su.Slug,
                     Status = su.UserSyllabusUnitProgresses
                         .Where(usup => usup.UserSyllabusProgressId == progress!.Id)
                         .Select(usup => usup.Status)
@@ -178,6 +179,7 @@ namespace NexoCPM.Persistence.Repositories.Users
                     Id = u.Id,
                     Name = u.Name,
                     Status = u.Status == 0 ? "LOCKED" : u.Status.ToString(),
+                    Slug = u.Slug,
                     topics = null
                 }).ToList()
             };

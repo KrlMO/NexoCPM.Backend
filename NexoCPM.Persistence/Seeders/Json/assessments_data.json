@@ -1,7 +1,6 @@
 [
   {
     "code": "PRU-U01-EBRICP-2026",
-    "title": "Prueba de la unidad 1",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -12,7 +11,6 @@
   },
   {
     "code": "PRU-U02-EBRICP-2026",
-    "title": "Prueba de la unidad 2",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -23,7 +21,6 @@
   },
   {
     "code": "PRU-U03-EBRICP-2026",
-    "title": "Prueba de la unidad 3",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -34,7 +31,6 @@
   },
   {
     "code": "PRU-U01-EBRPRIMA-2026",
-    "title": "Prueba de la unidad 1",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -45,7 +41,6 @@
   },
   {
     "code": "PRU-U02-EBRPRIMA-2026",
-    "title": "Prueba de la unidad 2",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -57,7 +52,6 @@
 
   {
     "code": "PRU-U03-EBRPRIMA-2026",
-    "title": "Prueba de la unidad 3",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -68,7 +62,6 @@
   },
   {
     "code": "PRU-U04-EBRPRIMA-2026",
-    "title": "Prueba de la unidad 4",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -79,7 +72,6 @@
   },
   {
     "code": "PRU-U01-EBRSECCYT-2026",
-    "title": "Prueba de la unidad 1",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -90,7 +82,6 @@
   },
   {
     "code": "PRU-U02-EBRSECCYT-2026",
-    "title": "Prueba de la unidad 2",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -101,7 +92,6 @@
   },
   {
     "code": "PRU-U03-EBRSECCYT-2026",
-    "title": "Prueba de la unidad 3",
     "type": 0,
     "scope": 0,
     "isActive": true,
@@ -112,7 +102,6 @@
   },
   {
     "code": "PRU-FIN-EBRSECCYT-2026",
-    "title": "Prueba Final del temaio SYB-EBR-SEC-CYT-2026",
     "type": 0,
     "scope": 1,
     "isActive": true,
@@ -123,7 +112,6 @@
   },
   {
     "code": "PRU-FIN-EBRICP-2026",
-    "title": "Prueba Final del temaio SYB-EBR-ICP-2026",
     "type": 0,
     "scope": 1,
     "isActive": true,
@@ -134,7 +122,6 @@
   },
   {
     "code": "PRU-FIN-EBRPRIMA-2026",
-    "title": "Prueba Final del temaio SYB-EBR-PRIMA-2026",
     "type": 0,
     "scope": 1,
     "isActive": true,
@@ -145,7 +132,6 @@
   },
   {
     "code": "SIM-GS-2026",
-    "title": "Simulacro de Habilidades Generales",
     "type": 1,
     "scope": 2,
     "isActive": false,
@@ -155,7 +141,6 @@
   },
   {
     "code": "SIM-K-EBRICP-2026",
-    "title": "Simulacro de conocimientks - EBRICP",
     "type": 0,
     "scope": 2,
     "isActive": true,
@@ -166,7 +151,6 @@
   },
   {
     "code": "SIM-K-EBPPRIMA-2026",
-    "title": "Simulacro de conocimientks - EBRPRIMA",
     "type": 0,
     "scope": 2,
     "isActive": true,
@@ -177,7 +161,6 @@
   },
   {
     "code": "SIM-K-EBPSECCYT-2026",
-    "title": "Simulacro de conocimientos - EBRSECCYT",
     "type": 0,
     "scope": 2,
     "isActive": true,

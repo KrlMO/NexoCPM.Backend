@@ -10,7 +10,6 @@ namespace NexoCPM.Domain.Evaluations.Entities
     {
         public int Id { get; private set; }
         public string Code { get; private set; } = string.Empty;
-        public string Title { get; private set; } = string.Empty;
         public AssessmentType Type { get; private set; }
         public AssessmentScope Scope { get; private set; }
         public int? TargetId { get; private set; } = null;
@@ -18,6 +17,9 @@ namespace NexoCPM.Domain.Evaluations.Entities
         public int? TimeLimitSeconds { get; private set; } = null;
         public int NumberQuestions { get; private set; }
         public int? MaxAttempts { get; private set; } = null;
+        public bool ShuffleQuestions { get; private set; } = true;
+        public bool ShuffleOptions { get; private set; } = true;
+        public AssessmentGenerationMode GenerationMode { get; private set; } = AssessmentGenerationMode.RANDOM;
 
         public ICollection<AssessmentAttempt> AssessmentAttempts { get; private set; } = new List<AssessmentAttempt>();
 

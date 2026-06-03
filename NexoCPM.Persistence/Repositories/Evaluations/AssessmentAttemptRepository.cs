@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NexoCPM.Application.Commons.Dtos;
+using NexoCPM.Application.Evaluations.Dtos;
 using NexoCPM.Application.Evaluations.Ports;
 using NexoCPM.Application.Users.Dtos;
 using NexoCPM.Domain.Evaluations.Enums;
@@ -58,7 +60,6 @@ public class AssessmentAttemptRepository : IAssessmentAttemptRepository
             {
                 AttemptId = aa.Id,
                 AssessmentId = aa.AssessmentId,
-                AssessmentTitle = aa.Assessment.Title,
                 Score = aa.Score,
                 TotalQuestions = aa.TotalQuestions,
                 FinishedAt = aa.FinishedAt
@@ -78,7 +79,6 @@ public class AssessmentAttemptRepository : IAssessmentAttemptRepository
             {
                 AttemptId = aa.Id,
                 AssessmentId = aa.AssessmentId,
-                AssessmentTitle = aa.Assessment.Title,
                 Score = aa.Score,
                 TotalQuestions = aa.TotalQuestions,
                 FinishedAt = aa.FinishedAt
@@ -107,6 +107,45 @@ public class AssessmentAttemptRepository : IAssessmentAttemptRepository
             Message = "Refuerza: " + (st.Description.Length > 80 ? st.Description[..80] : st.Description),
             SubtopicSlug = st.Slug
         }).ToList();
+    }
+
+    public async Task<PaginatedResult<SimulationHistoryDto>> GetSimulationHistoryAsync(int userId, int page, int pageSize)
+    {
+        var query = _context.UserLearningContexts
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+            .SelectMany(ulc => ulc.AssessmentAttempts)
+            .Where(aa => aa.Assessment.Scope == AssessmentScope.SIMULATION);
+
+        var totalCount = await query.CountAsync();
+
+        var items = await query
+            .OrderByDescending(aa => aa.FinishedAt)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .Select(aa => new SimulationHistoryDto
+            {
+                AttemptId = aa.Id,
+                AssessmentId = aa.AssessmentId,
+                AssessmentCode = aa.Assessment.Code,
+                Title = "Simulacro de: " + aa.UserLearningContext.Syllabus.Name,
+                SyllabusName = aa.UserLearningContext.Syllabus.Name,
+                SyllabusSlug = aa.UserLearningContext.Syllabus.Slug,
+                Score = aa.Score,
+                TotalQuestions = aa.TotalQuestions,
+                CorrectAnswers = aa.CorrectAnswers,
+                StarsEarned = aa.StarsEarned,
+                DurationMinutes = EF.Functions.DateDiffMinute(aa.StartedAt, aa.FinishedAt),
+                FinishedAt = aa.FinishedAt
+            })
+            .ToListAsync();
+
+        return new PaginatedResult<SimulationHistoryDto>
+        {
+            Items = items,
+            TotalCount = totalCount,
+            Page = page,
+            PageSize = pageSize
+        };
     }
 
     public async Task<List<string>> GetTopFailedSubtopicsAsync(int userId, int topCount)

@@ -24,6 +24,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\Evaluations\Responses\" />
+    <Folder Include="Controllers\Evaluations\Requests\" />
     <Folder Include="Controllers\Users\Responses\" />
   </ItemGroup>
 

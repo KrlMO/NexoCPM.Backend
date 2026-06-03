@@ -50,7 +50,8 @@ namespace NexoCPM.Application.Users.Events
 
             await _mediator.Publish(new UnitProgressUpdatedEvent(
                 notification.UserId,
-                progress.SyllabusId
+                progress.SyllabusId,
+                notification.UserLearningContextId
             ), cancellationToken);
         }
     }
