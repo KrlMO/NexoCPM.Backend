@@ -11,7 +11,7 @@ namespace NexoCPM.Domain.Users.Entities
         public int UserLearningContextId { get; private set; }
         public int UserId { get; private set; }
         public int SyllabusId { get; private set; }
-        public int CompletedUnits { get; private set; }
+        public int CompletedUnits { get; private set; } = 0;
         public int TotalUnits { get; private set; }
         public double ContentProgressPercentage { get; private set; }
         public bool FinalExamCompleted { get; private set; }

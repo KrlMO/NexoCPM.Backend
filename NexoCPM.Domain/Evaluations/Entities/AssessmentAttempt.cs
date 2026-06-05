@@ -36,5 +36,16 @@ namespace NexoCPM.Domain.Evaluations.Entities
             Status = AssessmentAttemptStatus.IN_PROGRESS;
             StartedAt = DateTime.Now;
         }
+
+        public void Complete(int correctAnswers, int starsEarned)
+        {
+            FinishedAt = DateTime.Now;
+            CorrectAnswers = correctAnswers;
+            Score = TotalQuestions > 0
+                ? (int)Math.Round((double)correctAnswers / TotalQuestions * 100)
+                : 0;
+            StarsEarned = starsEarned;
+            Status = AssessmentAttemptStatus.COMPLETED;
+        }
     }
 }

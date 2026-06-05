@@ -10,8 +10,6 @@ namespace NexoCPM.Domain.Evaluations.Entities
         public int AssessmentAttemptId { get; private set; }
         public int QuestionId { get; private set; }
         public int? SelectedOptionId { get; private set; } = null;
-        public DateTime AnsweredAt { get; private set; } = DateTime.UtcNow;
-        public int SecondsSpent { get; private set; }
         public int OrderIndex { get; private set; }
         public string? OptionDisplayOrder { get; private set; }
 
@@ -26,6 +24,11 @@ namespace NexoCPM.Domain.Evaluations.Entities
             QuestionId = questionId;
             OrderIndex = orderIndex;
             OptionDisplayOrder = optionDisplayOrder;
+        }
+
+        public void SelectOption(int? optionId)
+        {
+            SelectedOptionId = optionId;
         }
     }
 }

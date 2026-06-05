@@ -27,14 +27,6 @@ public class AssessmentAttemptQuestionConfiguration : IEntityTypeConfiguration<A
                .HasColumnName("selected_option_id")
                .IsRequired(false);
 
-        builder.Property(aaq => aaq.AnsweredAt)
-               .HasColumnName("answered_at")
-               .IsRequired();
-
-        builder.Property(aaq => aaq.SecondsSpent)
-               .HasColumnName("seconds_spent")
-               .IsRequired();
-
         builder.Property(aaq => aaq.OrderIndex)
                .HasColumnName("order_index")
                .IsRequired();

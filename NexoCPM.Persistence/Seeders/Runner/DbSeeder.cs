@@ -24,7 +24,9 @@ public static class DbSeeder
                 code: "SYSA-676767"
             );
 
-            context.Users.Add(user);
+            var newUser = context.Users.Add(user);
+
+            context.UserLeaderboards.Add(new UserLeaderboard(newUser.Entity.Id));
 
             await context.SaveChangesAsync();
         }

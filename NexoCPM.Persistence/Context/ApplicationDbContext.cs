@@ -18,6 +18,7 @@ namespace NexoCPM.Persistence.Context
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options) { }
 
         public DbSet<User> Users => Set<User>();
+        public DbSet<UserLeaderboard> UserLeaderboards => Set<UserLeaderboard>();
 
         public DbSet<EmailVerificationToken> EmailVerificationTokens => Set<EmailVerificationToken>();
 

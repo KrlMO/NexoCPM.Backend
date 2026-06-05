@@ -16,6 +16,7 @@ namespace NexoCPM.Application.Auth.Commands.Register
         private readonly IEmailService _emailService;
         private readonly IEmailVerificationTokenService _emailVerificationTokenService;
         private readonly IEmailVerificationTokenRepository _emailVerificationTokenRepository;
+        private readonly IUserLeaderboardRepository _userLeaderboardRepository;
 
         public RegisterHandler(
             IUserRepository userRepository,
@@ -23,7 +24,8 @@ namespace NexoCPM.Application.Auth.Commands.Register
             IUserCodeGenerator userCodeGenerator,
             IEmailService emailService,
             IEmailVerificationTokenService emailVerificationTokenService,
-            IEmailVerificationTokenRepository emailVerificationTokenRepository
+            IEmailVerificationTokenRepository emailVerificationTokenRepository,
+            IUserLeaderboardRepository userLeaderboardRepository
             )
         {
             _userRepository = userRepository;
@@ -32,6 +34,7 @@ namespace NexoCPM.Application.Auth.Commands.Register
             _emailService = emailService;
             _emailVerificationTokenService = emailVerificationTokenService;
             _emailVerificationTokenRepository = emailVerificationTokenRepository;
+            _userLeaderboardRepository = userLeaderboardRepository;
         }
         public async Task<RegisterResult> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
@@ -61,7 +64,10 @@ namespace NexoCPM.Application.Auth.Commands.Register
 
                 try
                 {
-                    await _userRepository.AddAsync(user);
+                    var newUser = await _userRepository.AddAsync(user);
+                    var newUserLeaderboard = new UserLeaderboard(newUser.Id);
+
+                     await _userLeaderboardRepository.AddAsync(newUserLeaderboard);
 
                     var (token, tokenHash) = await _emailVerificationTokenService.GenerateAsync();
 

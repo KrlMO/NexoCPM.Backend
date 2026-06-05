@@ -7,5 +7,7 @@ namespace NexoCPM.Application.Users.Ports
         Task<UserLeaderboard?> GetByUserIdAsync(int userId);
         Task<int> GetRankByTotalStarsAsync(int totalStars);
         Task<List<UserLeaderboard>> GetTopUsersAsync(int count);
+        Task UpdateAsync(UserLeaderboard leaderboard);
+        Task<UserLeaderboard> AddAsync(UserLeaderboard leaderboard);
     }
 }

@@ -36,14 +36,6 @@ public class UserSyllabusUnitProgressConfiguration : IEntityTypeConfiguration<Us
                .HasColumnName("last_attempt_at")
                .IsRequired();
 
-        builder.Property(usup => usup.TotalQuestions)
-               .HasColumnName("total_questions")
-               .IsRequired();
-
-        builder.Property(usup => usup.TotalCorrect)
-               .HasColumnName("total_correct")
-               .IsRequired();
-
         builder.Property(usup => usup.UserId)
                .HasColumnName("user_id")
                .IsRequired();
@@ -121,5 +113,20 @@ public class UserSyllabusUnitProgressConfiguration : IEntityTypeConfiguration<Us
         builder.Property(t => t.DeletedBy)
                .HasColumnName("deleted_by")
                .IsRequired(false);
+
+        builder.Property(usup => usup.TotalAssessmentAttempts)
+               .HasColumnName("total_assessment_attempts")
+               .IsRequired()
+               .HasDefaultValue(0);
+
+        builder.Property(usup => usup.AverageAssessmentScore)
+               .HasColumnName("average_assessment_score")
+               .IsRequired()
+               .HasDefaultValue(0.0);
+
+        builder.Property(usup => usup.BestAssessmentScore)
+               .HasColumnName("best_assessment_score")
+               .IsRequired()
+               .HasDefaultValue(0.0);
     }
 }

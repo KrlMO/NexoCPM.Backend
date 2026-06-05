@@ -55,6 +55,7 @@ namespace NexoCPM.Application.Interfaces
         DbSet<UserSyllabusProgress> UserSyllabusProgresses { get; }
         DbSet<UserSyllabusUnitProgress> UserSyllabusUnitProgresses { get; }
         DbSet<UserSubTopicView> UserSubTopicViews { get; }
+        DbSet<UserLeaderboard> UserLeaderboards { get; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

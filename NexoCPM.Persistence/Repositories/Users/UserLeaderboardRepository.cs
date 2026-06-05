@@ -20,23 +20,36 @@ public class UserLeaderboardRepository : IUserLeaderboardRepository
             .FirstOrDefaultAsync(ul => ul.UserId == userId);
     }
 
-        public async Task<int> GetRankByTotalStarsAsync(int totalStars)
-        {
-            var usersWithMoreStars = await _context.Set<UserLeaderboard>()
-                .CountAsync(ul => ul.TotalStars > totalStars);
+    public async Task<int> GetRankByTotalStarsAsync(int totalStars)
+    {
+        var usersWithMoreStars = await _context.Set<UserLeaderboard>()
+            .CountAsync(ul => ul.TotalStars > totalStars);
 
-            return usersWithMoreStars + 1;
-        }
-
-        public async Task<List<UserLeaderboard>> GetTopUsersAsync(int count)
-        {
-            return await _context.Set<UserLeaderboard>()
-                .Include(ul => ul.User)
-                .Where(ul => ul.User.IsActive && !ul.User.IsDeleted && ul.User.IsPublic)
-                .OrderByDescending(ul => ul.TotalStars)
-                .ThenBy(ul => ul.User.FirstName)
-                .Take(count)
-                .AsNoTracking()
-                .ToListAsync();
-        }
+        return usersWithMoreStars + 1;
     }
+
+    public async Task UpdateAsync(UserLeaderboard leaderboard)
+    {
+        _context.Set<UserLeaderboard>().Update(leaderboard);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<List<UserLeaderboard>> GetTopUsersAsync(int count)
+    {
+        return await _context.Set<UserLeaderboard>()
+            .Include(ul => ul.User)
+            .Where(ul => ul.User.IsActive && !ul.User.IsDeleted && ul.User.IsPublic)
+            .OrderByDescending(ul => ul.TotalStars)
+            .ThenBy(ul => ul.User.FirstName)
+            .Take(count)
+            .AsNoTracking()
+            .ToListAsync();
+    }
+
+    public async Task<UserLeaderboard> AddAsync(UserLeaderboard leaderboard)
+    {
+        _context.Set<UserLeaderboard>().Add(leaderboard);
+        await _context.SaveChangesAsync();
+        return leaderboard;
+    }
+}
