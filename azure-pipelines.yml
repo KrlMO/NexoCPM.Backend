@@ -1,0 +1,46 @@
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+
+steps:
+
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '10.x'
+
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: 'NexoCPM.Backend/NexoCPM.Api.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Compilación'
+  inputs:
+    azureSubscription: 'Suscripción 1(29dea319-1dac-4094-affe-1a6ee66040ee)'
+    command: 'build'
+    projects: 'NexoCPM.Backend/NexoCPM.Api.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'publicar'
+  inputs:
+    azureSubscription: 'Suscripción 1(29dea319-1dac-4094-affe-1a6ee66040ee)'
+    command: 'publish'
+    publishWebProjects: true
+
+- task: AzureRmWebAppDeployment@5
+  displayName: 'deployment'
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Suscripción 1(29dea319-1dac-4094-affe-1a6ee66040ee)'
+    appType: 'webApp'
+    WebAppName: 'nexocpm-api'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'nexocpm'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+  
