@@ -31,10 +31,18 @@
 
   <ItemGroup>
     <Content Include="Seeders\Examples\0questions_ebr_inicial.json" />
+    <Content Include="Seeders\old_data\assessments_data.json" />
+    <Content Include="Seeders\old_data\competences_data.json" />
+    <Content Include="Seeders\old_data\curriculum_ebr_cpi.json" />
+    <Content Include="Seeders\old_data\curriculum_ebr_primaria.json" />
+    <Content Include="Seeders\old_data\curriculum_ebr_secundaria_cyt.json" />
+    <Content Include="Seeders\old_data\questions_ebr_primaria.json" />
+    <Content Include="Seeders\old_data\questions_ebr_seccyt.json" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Seeders\Json\" />
   </ItemGroup>
 
 </Project>
