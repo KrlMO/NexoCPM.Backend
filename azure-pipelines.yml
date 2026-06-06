@@ -21,21 +21,28 @@ steps:
     projects: 'NexoCPM.Backend/NexoCPM.Api.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: Build
+  displayName: 'Compilación'
   inputs:
-    command: build
-    projects: 'NexoCPM.Backend/NexoCPM.Api.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+    azureSubscription: 'Suscripción 1(29dea319-1dac-4094-affe-1a6ee66040ee)'
+    command: 'build'
+    projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: Publish
+  displayName: 'publicar'
   inputs:
-    command: publish
-    publishWebProjects: false
-    projects: 'NexoCPM.Backend/NexoCPM.Api.csproj'
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    azureSubscription: 'Suscripción 1(29dea319-1dac-4094-affe-1a6ee66040ee)'
+    command: 'publish'
+    publishWebProjects: true
 
-- task: PublishBuildArtifacts@1
+- task: AzureRmWebAppDeployment@5
+  displayName: 'deployment'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Suscripción 1(29dea319-1dac-4094-affe-1a6ee66040ee)'
+    appType: 'webApp'
+    WebAppName: 'nexocpm-api'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'nexocpm'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+  
