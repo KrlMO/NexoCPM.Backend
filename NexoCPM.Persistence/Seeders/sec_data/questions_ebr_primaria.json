@@ -1,0 +1,1942 @@
+﻿[
+    {
+        "blocks": [
+            {
+                "code": "CTX-2024C0121-00000000000039-01",
+                "content": "Durante el desarrollo de una unidad didáctica cuyo propósito es que los estudiantes de cuarto grado comprendan cómo funcionan los ecosistemas, se realizan diversas actividades. Una de estas consiste en compartir, de manera escrita, las ideas que tienen los estudiantes sobre qué es un ecosistema. A continuación, se presenta el comentario escrito de uno de los estudiantes: \n\nUn ecosistema es un lugar donde existen seres vivos como las plantas y los animales, y seres no vivos como la luz y el suelo.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000041-01",
+                "content": "Un docente busca promover aprendizajes en los estudiantes de sexto grado sobre los movimientos relativos del Sol, la Tierra y la Luna. Para ello, busca recoger los saberes previos de sus estudiantes y les plantea la siguiente pregunta: “Imaginen que están en el espacio y, de lejos, pueden observar al Sol, la Tierra y la Luna. ¿Cómo creen que se mueven?”. A continuación, se presenta la respuesta de una estudiante: \n\n“La Luna gira alrededor del Sol, la Tierra gira alrededor del Sol y el Sol gira también y todo esto ocurre al mismo tiempo”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000042-01",
+                "content": "Los estudiantes de quinto grado vienen participando en un proyecto para difundir las aplicaciones de las bacterias en la vida cotidiana. En este contexto, con orientación del docente, ellos han identificado las características de las bacterias y, a partir de esto, van a señalar errores sobre estos seres vivos que se presentan en el siguiente texto: \n\nLas bacterias están formadas por una sola célula. Todas las bacterias son muy pequeñas y no pueden verse a simple vista. Nosotros necesitamos del microscopio para verlas. Además, para reproducirse, necesitan ingresar a un ser vivo.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000043-01",
+                "content": "Una docente de sexto grado busca evaluar si sus estudiantes comprendieron que la radiación del Sol llega a la Tierra y se distribuye en función de la forma del planeta. Para ello, busca desarrollar una actividad que permita responder la siguiente pregunta: “¿Por qué en algunos lugares los días o las noches son más largos?”",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000050-01",
+                "content": "Los estudiantes de sexto grado, en equipos, están participando en un proyecto cuyo propósito es contribuir con la implementación de áreas verdes en la IE. En una de las actividades iniciales, la docente nota que, si bien los estudiantes conocen la principal diferencia entre reproducción sexual y asexual de las plantas, hay varios estudiantes que creen que un ejemplo de reproducción asexual es la obtención de nuevas plantas a partir de semillas.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000052-01",
+                "content": "En el marco de un proyecto sobre el cuidado ambiental de la localidad, los estudiantes de tercer grado han compartido con la docente la preocupación que les genera la presencia de basura en calles aledañas a la IE.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000053-01",
+                "content": "Los estudiantes de quinto grado están investigando acerca de la diversidad de las regiones del Perú. Durante una de las actividades, un estudiante dice lo siguiente: \n\n“El otro día un señor en la televisión dijo que el clima de las regiones influye en el comportamiento de las personas. Como ejemplo, el señor mencionó que, en las regiones donde hace mucho calor, las personas son más flojas y no les gusta trabajar”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000055-01",
+                "content": "Los estudiantes de tercer grado, con orientación de la docente y organizados en equipos, van a elaborar afiches para promover el cuidado del ambiente. En este contexto, como parte de la planificación de la actividad, la docente dialoga con cada equipo para que establezcan los logros que esperan obtener con la actividad y se organicen entre ellos para concretarla.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000056-01",
+                "content": "Un docente presenta a los estudiantes de quinto grado la siguiente situación hipotética: \n\nFernando regala uno de sus juguetes a su amigo, quien se alegró mucho por el regalo. Luego de felicitarlo por su acción, la docente pregunta a Fernando por qué lo hizo. Él responde: “Porque mi papá ahora me tendrá que comprar un juguete nuevo”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000057-01",
+                "content": "Como parte de una sesión de aprendizaje, los estudiantes de segundo grado están elaborando pinturas con témperas. En este contexto, cuando uno de los estudiantes termina su pintura, se da cuenta de que las mezclas de témperas que realizó no le dieron el resultado esperado. En ese momento, la docente se acerca para ver su trabajo y nota que el estudiante, quien suele disfrutar mucho las actividades artísticas, se muestra con una expresión de molestia y tiene los brazos cruzados. Al consultarle sobre lo que le sucede, el estudiante le comenta a la docente lo siguiente: “Me salió muy feo. ¡No puedo hacerlo, no voy a volver a pintar!”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000058-01",
+                "content": "Los estudiantes de sexto grado están elaborando carteles para difundir la importancia de cuidar las áreas verdes de la localidad. Al finalizar dichos carteles, el docente les pregunta sobre la experiencia al elaborarlos. Un estudiante comentó lo siguiente \n\n“Cuando estuve haciendo mi cartel, me sentí enojado en algunos momentos, porque no me salía el dibujo de los árboles. No me salía la forma del tronco como quería… En eso, me acordé que, si me siento enojado, debo tratar de respirar para relajarme y, así, sentirme mejor; aunque a veces me funciona y otras veces no. Esta vez, después de respirar y antes de seguir enojándome, decidí pedir ayuda a mi amiga Jimena. Entonces, ella me enseñó a hacer el tronco de un árbol. Desde ahí, creo que me empezaron a salir mejor mis dibujos y eso me hizo sentir más tranquilo”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000063-01",
+                "content": "Durante una sesión de aprendizaje, los estudiantes de quinto grado han seleccionado noticias para compartirlas en plenaria. En este contexto, uno de los estudiantes comenta lo siguiente: \n\n“Yo encontré una noticia que decía que un chico compró un zorro andino llamado Run Run. Este chico dijo que lo compró pensando que era un perro y que, solo cuando Run Run creció, se dio cuenta de que no tenía el comportamiento normal de un perro e, incluso, se comía las gallinas que criaban sus vecinos”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000064-01",
+                "content": "Como parte de una sesión de aprendizaje, los estudiantes de segundo grado dibujan figuras geométricas, como el cuadrado y el rectángulo, e identifican diferencias y semejanzas entre ellas. En este contexto, una estudiante muestra al docente los dibujos que hizo de un cuadrado y un rectángulo. Lo que se observa es lo siguiente: Los lados del cuadrado son de igual longitud que el lado corto del rectángulo y tienen menor longitud que el lado más largo del rectángulo. A continuación, se presenta el comentario que hizo la estudiante sobre su dibujo. \n\n“Pienso que, una diferencia entre cuadrados y rectángulos es que los lados del cuadrado siempre serán más cortos que el lado largo del rectángulo”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000065-01",
+                "content": "Los estudiantes de primer grado, con orientación de la docente, están desarrollando una sesión de aprendizaje cuyo propósito es simular la compra y venta de productos. Para ello, reutilizan envolturas, empaques y envases de diferentes productos. En este contexto, en una de las actividades, los estudiantes, organizados en pares, escriben en pequeñas tarjetas el precio de cada producto. Durante el acompañamiento, la docente se acerca a Diana y Jorge, y escucha lo siguiente: \n\nDiana dice: “Este producto cuesta doce soles. [Escribe en la tarjeta el número 21.]”\n\nJorge dice: “No, para que sea doce, primero tienes que escribir el uno y, después, el dos”.\n\nDiana dice: “No, el dos es primero. Escucha… [mientras señala en la tarjeta el 2 del 21, dice ‘do’ alargando su pronunciación y cuando señala el 1, alarga la pronunciación de ‘ce’] dooo… ceee… ¿Viste? El ‘dooo’… es de dos, y el ‘ceee’… es para el uno. Por eso, primero va el dos y, luego, el uno”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000067-01",
+                "content": "Como parte de un proyecto que busca promover la alimentación saludable en la IE, los estudiantes de sexto grado revisan las etiquetas nutricionales que presentan las golosinas que consumen en algunas ocasiones. En este contexto, se suscitó el siguiente diálogo entre dos estudiantes: \n\nDavid dice: “La etiqueta de este chocolate dice que contiene 0,80 gramos de proteína”. \n\nCarmela dice: “En cambio, este otro chocolate dice que contiene 0,8 gramos de proteína. Entonces, tiene menos proteína que el tuyo, ¿no?” \n\nDavid dice: “No, ambos tienen igual cantidad de proteína”. \n\nCarmela dice: “¿Sí? No, 8 décimos es menor que 80 centésimos. Mira [escribe en una hoja 0,8 y 0,80], el 8 es menor que 80”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000068-01",
+                "content": "Los estudiantes de quinto grado, junto con el docente, están desarrollando una unidad didáctica cuyo propósito es favorecer la comprensión sobre los patrones. En este contexto, los estudiantes, organizados en equipos, participan de una actividad que consiste en elaborar patrones empleando dados. Primero, lanzan al mismo tiempo, 4 dados. Luego, suman los números obtenidos y registran el resultado. Esto se repite, por lo menos, 10 veces. Finalmente, se forman patrones con los resultados obtenidos. \n\nUno de los equipos realizó 12 lanzamientos y registró lo siguiente: 12, 18, 23, 8, 16, 17, 22, 11, 20, 5, 14 y 13; y, a partir de estos, elaboraron patrones.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000069-01",
+                "content": "Una docente de sexto grado busca afianzar en sus estudiantes la comprensión sobre las medidas de tendencia central. Para ello, ha seleccionado diferentes problemas que contribuyan a dicho propósito. A continuación, se presenta uno de estos: \n\nMónica lleva a su mascota a la cita con el veterinario. Durante la espera comenta lo siguiente a otra persona: “El veterinario ya atendió a las 6 primeras mascotas. Y noté que, con cada una, se demoró 17, 16, 26, 20, 24 y 17 minutos, respectivamente. Entonces, atiende a cada mascota 20 minutos aproximadamente, y como mi mascota es la novena en la fila, tendré que esperar 40 minutos más para que la atienda”. \n\n¿Qué medida de tendencia central usó Mónica para determinar que la atención a cada mascota es de 20 minutos?",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0121-00000000000072-01",
+                "content": "Durante una sesión de aprendizaje cuyo propósito es que los estudiantes de tercer grado identifiquen los ejes de simetría de formas bidimensionales, se suscitó el siguiente diálogo entre la docente y un estudiante: \n\nJaime dice: “El cuadrado tiene solo dos ejes de simetría”. \n\nLa docente dice: “¿Por qué dices que tiene solo dos ejes de simetría?”. \n\nJaime dice: “Mire, [toma una hoja en forma de cuadrado y lo dobla de izquierda a derecha, haciendo coincidir los bordes de los dos lados opuestos, y remarca el doblez] la línea que se ha formado es el eje de simetría. Pero, también, si doblo de esta otra forma [desdobla la hoja a su forma original. Luego, dobla el cuadrado de arriba hacia abajo, haciendo coincidir los bordes de los dos lados opuestos, y remarca el doblez.] se forma otro eje de simetría. Son dos ejes”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000027-01",
+                "content": "En el marco de un proyecto sobre el cuidado ambiental de la localidad, los estudiantes de tercer grado han compartido con la docente la preocupación que les genera la presencia de basura en calles aledañas a la IE.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000029-01",
+                "content": "Los estudiantes de quinto grado están investigando acerca de la diversidad de las regiones del Perú. Durante una de las actividades, un estudiante dice lo siguiente: \n\n“El otro día un señor en la televisión dijo que el clima de las regiones influye en el comportamiento de las personas. Como ejemplo, el señor mencionó que, en las regiones donde hace mucho calor, las personas son más flojas y no les gusta trabajar”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000030-01",
+                "content": "Los estudiantes de tercer grado, con orientación de la docente y organizados en equipos, van a elaborar afiches para promover el cuidado del ambiente. En este contexto, como parte de la planificación de la actividad, la docente dialoga con cada equipo para que establezcan los logros que esperan obtener con la actividad y se organicen entre ellos para concretarla.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000031-01",
+                "content": "Un docente presenta a los estudiantes de quinto grado la siguiente situación hipotética: \n\nFernando regala uno de sus juguetes a su amigo, quien se alegró mucho por el regalo. Luego de felicitarlo por su acción, la docente pregunta a Fernando por qué lo hizo. Él responde: “Porque mi papá ahora me tendrá que comprar un juguete nuevo”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000032-01",
+                "content": "Como parte de una sesión de aprendizaje, los estudiantes de segundo grado están elaborando pinturas con témperas. En este contexto, cuando uno de los estudiantes termina su pintura, se da cuenta de que las mezclas de témperas que realizó no le dieron el resultado esperado. En ese momento, la docente se acerca para ver su trabajo y nota que el estudiante, quien suele disfrutar mucho las actividades artísticas, se muestra con una expresión de molestia y tiene los brazos cruzados. Al consultarle sobre lo que le sucede, el estudiante le comenta a la docente lo siguiente: “Me salió muy feo. ¡No puedo hacerlo, no voy a volver a pintar!”",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000033-01",
+                "content": "Los estudiantes de sexto grado están elaborando carteles para difundir la importancia de cuidar las áreas verdes de la localidad. Al finalizar dichos carteles, el docente les pregunta sobre la experiencia al elaborarlos. Un estudiante comentó lo siguiente: \n\n“Cuando estuve haciendo mi cartel, me sentí enojado en algunos momentos, porque no me salía el dibujo de los árboles. No me salía la forma del tronco como quería… En eso, me acordé que, si me siento enojado, debo tratar de respirar para relajarme y, así, sentirme mejor; aunque a veces me funciona y otras veces no. Esta vez, después de respirar y antes de seguir enojándome, decidí pedir ayuda a mi amiga Jimena. Entonces, ella me enseñó a hacer el tronco de un árbol. Desde ahí, creo que me empezaron a salir mejor mis dibujos y eso me hizo sentir más tranquilo”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000038-01",
+                "content": "Durante una sesión de aprendizaje, los estudiantes de quinto grado han seleccionado noticias para compartirlas en plenaria. En este contexto, uno de los estudiantes comenta lo siguiente: \n\n“Yo encontré una noticia que decía que un chico compró un zorro andino llamado Run Run. Este chico dijo que lo compró pensando que era un perro y que, solo cuando Run Run creció, se dio cuenta de que no tenía el comportamiento normal de un perro e, incluso, se comía las gallinas que criaban sus vecinos”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000039-01",
+                "content": "Como parte de una sesión de aprendizaje, los estudiantes de segundo grado dibujan figuras geométricas, como el cuadrado y el rectángulo, e identifican diferencias y semejanzas entre ellas. En este contexto, una estudiante muestra al docente los dibujos que hizo de un cuadrado y un rectángulo. Lo que se observa es lo siguiente: Los lados del cuadrado son de igual longitud que el lado corto del rectángulo y tienen menor longitud que el lado más largo del rectángulo. A continuación, se presenta el comentario que hizo la estudiante sobre su dibujo. \n\n“Pienso que, una diferencia entre cuadrados y rectángulos es que los lados del cuadrado siempre serán más cortos que el lado largo del rectángulo”.",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            },
+            {
+                "code": "CTX-2024C0222-00000000000040-01",
+                "content": "Los estudiantes de primer grado, con orientación de la docente, están desarrollando una sesión de aprendizaje cuyo propósito es simular la compra y venta de productos. Para ello, reutilizan envolturas, empaques y envases de diferentes productos. En este contexto, en una de las actividades, los estudiantes, organizados en pares, escriben en pequeñas tarjetas el precio de cada producto. Durante el acompañamiento, la docente se acerca a Diana y Jorge, y escucha lo siguiente: \n\nDiana dice: “Este producto cuesta doce soles. [Escribe en la tarjeta el número 21.]” \n\nJorge dice: “No, para que sea doce, primero tienes que escribir el uno y, después, el dos”. \n\nJorge dice: “No, para que sea doce, primero tienes que escribir el uno y, después, el dos”. \n\nDiana dice: “No, el dos es primero. Escucha… [mientras señala en la tarjeta el 2 del 21, dice ‘do’ alargando su pronunciación y cuando señala el 1, alarga la pronunciación de ‘ce’] dooo… ceee… ¿Viste? El ‘dooo’… es de dos, y el ‘ceee’… es para el uno. Por eso, primero va el dos y, luego, el uno”",
+                "role": "STATEMENT_CONTEXT",
+                "type": "TEXT"
+            }
+        ],
+        "questions": [
+            {
+                "code": "2024-C01-21-27",
+                "subtopicCode": "SUB03-EBRPRIMU02-T03",
+                "statement": "Los estudiantes de primer grado están elaborando fichas bibliográficas para registrar los títulos y el nombre del autor de los libros que han leído en lo que va del año. En este contexto, un estudiante muestra a la docente la ficha que elaboró para que lo ayude a revisarla. Algunos de los títulos que escribió son los siguientes: “Lapaloma Simona”, “Hortencia lamarmota dormilona”, “laluna viajera”. La docente nota que el estudiante necesita ayuda para reflexionar sobre la escritura de algunas partes de los títulos que escribió. Por eso, le propone empezar por la escritura de la frase “Lapaloma”. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Entregar al estudiante la frase “La paloma” escrita en una hoja e indicarle que esta contiene dos palabras. Luego, pedirle que lea en voz alta la frase escrita en dicha hoja. Finalmente, indicarle cómo escribir dicha frase.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Pronunciar, frente al estudiante, la frase “La paloma” realizando una pausa después de cada palabra. Luego, pedirle que repita dicha pronunciación las veces que sean necesarias. Finalmente, solicitarle que vuelva a escribir la frase “La paloma”.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Escribir pronunciando, delante del estudiante, frases como “La gallina” y “La tijera”. Luego, solicitarle que mencione qué tienen en común dichas frases con el título que escribió. Finalmente, pedirle que revise en su lista el título “Lapaloma Simona”.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-37",
+                "subtopicCode": "SUB01-EBRPRIMU02-T01",
+                "statement": "Como parte de una campaña para promover el hábito lector en la IE, los estudiantes de sexto grado, con orientación del docente y organizados en equipos, van a elaborar recomendaciones de diversas obras literarias. Estas recomendaciones estarán dirigidas a sus compañeros de otros grados. Durante el acompañamiento, el docente nota que uno de los equipos tiene dificultades para saber qué información incluir en su texto. Por esta razón, busca ofrecerle una orientación. ¿Cuál de las siguientes acciones pedagógicas es más adecuada?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Recordarles el propósito de su texto. Luego, preguntarles sobre lo que más les gustó del cuento “El bagrecico” e indicarles que, a partir de esto, elaboren su texto.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mencionarles el propósito de su texto. Luego, decirles de qué trata el cuento de “El bagrecico” o darles información sobre los personajes para que tengan algunas ideas sobre qué incluir en su texto.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Pedirles que mencionen el propósito de su texto. Luego, indicarles que dialoguen sobre los episodios del texto que creen que pueden servir para que el público quiera leer “El bagrecico” y, a partir de esto, pedir que anoten dichas ideas y determinen si contribuyen al logro de su propósito.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-38",
+                "subtopicCode": "SUB01-EBRPRIMU02-T01",
+                "statement": "En el marco de un proyecto sobre la protección de las abejas, los estudiantes de sexto grado, organizados en equipos, buscan elaborar un texto oral cuyo propósito es conocer diferentes perspectivas sobre el rol de las abejas en los ecosistemas y por qué estos insectos deben ser protegidos. Estos textos estarán dirigidos a la comunidad educativa. ¿Cuál de los siguientes géneros textuales se adecúa más al propósito comunicativo de los estudiantes?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Una mesa redonda.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Un testimonio oral.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Un debate.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-39",
+                "subtopicCode": "SUB01-EBRPRIMU01-T02",
+                "statement": "La docente observa que, si bien el comentario del estudiante no es erróneo, solo menciona la presencia de dos conjuntos de seres (seres vivos y no vivos), sin establecer relación entre estos. Por esta razón, busca brindar retroalimentación al estudiante sobre su comentario. ¿Cuál de los siguientes grupos de preguntas son pertinentes que realice la docente para iniciar con dicha retroalimentación?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000039-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "¿Cómo creen que interviene la luz en los procesos que realiza la planta para vivir? ¿Qué ocurriría si no hay luz en un ecosistema?",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "¿Qué tipos de ecosistemas creen que existen en su localidad? ¿Qué seres vivos se pueden encontrar en esos ecosistemas?",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "¿Por qué decimos que los animales son seres vivos en un ecosistema? ¿Qué características tienen los animales? ",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-40",
+                "subtopicCode": "SUB01-EBRPRIMU01-T02",
+                "statement": "Durante una sesión de aprendizaje, un estudiante realiza el siguiente comentario: “Las plantas obtienen alimentos sólo a través de la raíz”. A partir de esta intervención, la docente busca retroalimentar al estudiante. ¿Cuál de los siguientes aprendizajes debe considerar la docente en dicha retroalimentación?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Identifica que las plantas obtienen dos tipos de nutrientes mediante las raíces: sales minerales y agua.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Identifica que las plantas utilizan sus raíces para obtener materia prima y fabricar sus propios alimentos.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Identifica que las plantas pueden tener raíces con distintas apariencias y cualidades que las hacen comestibles, como la zanahoria y el rabanito.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-41",
+                "subtopicCode": "SUB03-EBRPRIMU01-T02",
+                "statement": "¿Cuál de los siguientes aprendizajes se evidencia en la respuesta de la estudiante?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000041-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Identifica la trayectoria relativa del Sol, la Tierra y la Luna.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Identifica en qué consiste el movimiento de rotación de la Tierra.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Identifica que el Sol, la Tierra y la Luna están en movimiento simultáneo.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-42",
+                "subtopicCode": "SUB01-EBRPRIMU01-T02",
+                "statement": "¿Cuál es el error que se evidencia en este texto?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000042-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Afirmar que las bacterias necesitan ingresar a un ser vivo para reproducirse.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Afirmar que las bacterias pueden verse a través de un microscopio.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Afirmar que las bacterias están formadas por una sola célula.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-43",
+                "subtopicCode": "SUB03-EBRPRIMU01-T02",
+                "statement": "¿Cuál de las siguientes actividades NO es pertinente para promover que los estudiantes expliquen este fenómeno?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000043-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Utilizar una aplicación sobre las zonas horarias y plantearles identificar qué hora es en diversos países del planeta cuando en Perú es una hora determinada.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Llevarles un globo terráqueo, una linterna y plastilina, y plantearles el reto de dar respuesta, de manera grupal, a la pregunta utilizando los materiales propuestos.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Proponer a los estudiantes que identifiquen en qué parte del planeta se ubican los países en los que los días y las noches son más largos, y analizar en qué estaciones del año se da este fenómeno.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-50",
+                "subtopicCode": "SUB01-EBRPRIMU01-T02",
+                "statement": "La docente busca brindar retroalimentación a los estudiantes. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000050-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Proponerles que observen las semillas de pallares remojadas previamente sin pelarlas. A partir de esto, solicitarles que registren lo que observan en las semillas. Luego, preguntarles: ¿qué necesitarán estas semillas para germinar y originar una nueva planta? ¿Qué tipo de reproducción se puede evidenciar?",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Presentarles un video sobre cómo es la reproducción en plantas con semillas y flores. A partir de esto, solicitarles que identifiquen la secuencia para la formación de semillas. Luego, preguntarles: ¿qué órganos de la planta participan en la formación del fruto?, ¿qué tipo de reproducción se realiza en plantas que nacen a partir de semillas?",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mostrarles una imagen donde se observe las semillas dentro de su fruto. A partir de esto, mencionarles cómo se forma dicho fruto y las semillas. Luego, preguntar: ¿por qué obtener nuevas plantas a partir de semillas no es un ejemplo de reproducción asexual?, ¿qué nuevas ideas han aprendido sobre los tipos de reproducción en las plantas?",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-51",
+                "subtopicCode": "SUB01-EBRPRIMU01-T02",
+                "statement": "Los estudiantes de sexto grado están desarrollando una unidad didáctica sobre las funciones vitales de los seres vivos. En este contexto, ellos dialogan con su docente sobre la función de relación de las plantas. Entre los diversos intercambios, los estudiantes han identificado que una de las características de dicha función de relación es el movimiento, el cual consiste en la reacción de toda la planta, o de alguna de sus partes, a un estímulo externo. Luego de ello, el docente busca que, a partir de una experiencia, los estudiantes puedan profundizar en la comprensión de dicha característica. ¿Cuál de las siguientes experiencias es adecuada para el logro de dicho propósito?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Conseguir pompones de semillas de una planta de diente de león. Luego, sujetar con los dedos la base de uno de los pompones y soplar en dirección a sus semillas. Por último, observar qué sucedió con las semillas y el recorrido que siguieron al soplarlas.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Verter agua coloreada en un vaso transparente. Luego, colocar tallos de apio del mismo tamaño dentro del vaso y mantenerlos así durante 2 horas. Por último, observar qué sucedió con los tallos y la dirección que sigue la absorción del agua coloreada.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Colocar bulbos, sin hojas, de cebolla china en un vaso transparente con agua. Luego, dejar el vaso en un lugar con luz de 3 a 5 días. Por último, observar qué sucedió con los bulbos de la cebolla china y explicar la dirección del crecimiento de sus hojas.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-52",
+                "subtopicCode": "SUB02-EBRPRIMU04-T05",
+                "statement": "¿Cuál de los siguientes comentarios compartidos por los estudiantes evidencia la identificación de una causa de la problemática ambiental mencionada?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000052-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "“Con tanta basura, nos vamos a enfermar. La basura bota gases tóxicos, el aire se contamina y nuestros pulmones se ponen mal. Creo que tenemos que hacer algo para parar esto”.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "“He visto que los perros callejeros buscan algo que comer entre la basura acumulada. Esto provoca que se enfermen y, así, hay un problema más”.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "“Yo he notado que las personas tiran o dejan su basura por cualquier lado. No usan los tachos que hay. Parece que no se dan cuenta”.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-53",
+                "subtopicCode": "SUB03-EBRPRIMU04-T02",
+                "statement": "La docente considera necesario promover la reflexión sobre el estereotipo expresado en el ejemplo citado por el estudiante. ¿Cuál de las siguientes acciones es más adecuada para este propósito?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000053-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Compartir con los estudiantes ejemplos de personas que destacan por su dedicación al trabajo y que viven en regiones con diferentes climas. Luego, preguntarles: “¿Qué creen que ha influido en estas personas para que sean muy trabajadoras? Entonces, ¿qué tanto influye el clima en que una persona sea trabajadora o no?”.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Preguntar a los estudiantes: “¿Cómo creen que se siente trabajar cuándo hace mucho calor? ¿Las personas tendrán ganas de trabajar?”. Luego, explicarles que deben considerar que el calor genera mayor desgaste físico y que, por lo tanto, hay que comprender las necesidades de las personas que habitan en zonas con climas cálidos.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Explicar a los estudiantes que no es recomendable formarse una imagen de un grupo de personas a partir de una sola característica. Luego, preguntarles: “¿Acaso no se puede reconocer aspectos positivos en las personas que habitan regiones donde la temperatura es muy alta? ¿Por qué enfocarse solamente en los aspectos negativos?”",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-54",
+                "subtopicCode": "SUB04-EBRPRIMU04-T04",
+                "statement": "En una sesión de aprendizaje, los estudiantes de sexto grado, junto con su docente, se encuentran leyendo diversas noticias sobre el cambio climático. En una de estas, se indica que el calentamiento global está influyendo en la reducción de los glaciares en el Perú. En este contexto, el docente nota que los estudiantes no conocen dónde se ubican los glaciares mencionados en la noticia. Por esta razón, busca que ellos localicen dichos glaciares en un mapa. ¿Cuál de los siguientes tipos de mapa es adecuado para dicho propósito?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Mapa físico.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mapa político.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mapa geológico.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-55",
+                "subtopicCode": "SUB01-EBRPRIMU04-T02",
+                "statement": "Durante el desarrollo de la actividad, la docente nota que la mayoría de los estudiantes tienen dificultades para trabajar de forma equitativa y no logran ponerse de acuerdo en cómo organizarse. Por esta razón, decide intervenir para ayudarlos a trabajar de forma colaborativa. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000055-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Asignar a cada integrante de los equipos tareas de fácil resolución para elaborar el afiche, de modo que, desarrollen la actividad de manera más organizada. Luego, al finalizar la actividad, pedirles que expliquen qué es lo que lograron durante la actividad y qué fue lo que más les gustó de trabajar con sus compañeros.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Nombrar, junto con los integrantes de cada equipo, un líder para que designe las tareas a los demás integrantes y se asegure que estos las cumplan. Luego, al finalizar la actividad, pedir al líder que evalúe cómo sus compañeros de equipo realizaron el trabajo, cuáles fueron sus logros y les dé retroalimentación con respecto a cómo se relacionaron.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Identificar, junto con los integrantes de cada equipo, las habilidades que tienen para realizar la actividad y que, sobre esta base, decidan qué tareas puede hacer cada uno para que entre todos aporten al trabajo. Luego, al finalizar la actividad, preguntarles qué lograron y qué acciones realizaron para superar los retos presentados, y si podrían considerarlas en situaciones similares.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-56",
+                "subtopicCode": "SUB05-EBRPRIMU04-T01",
+                "statement": "El docente busca que los estudiantes reflexionen éticamente sobre la situación presentada, ¿cuál de los siguientes conjuntos de preguntas es más pertinente para cumplir su propósito?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000056-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "“Antes de saber la intención que tuvo Fernando, ¿qué pensaron sobre su acción? ¿Por qué? ¿Cambiaron sus opiniones acerca de la acción que realizó Fernando luego de conocer sus intenciones? ¿Por qué?”.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "“Si consideramos las intenciones de Fernando para regalar su juguete, ¿dirían que fueron egoístas? ¿Por qué? ¿Aconsejarían a Fernando para que actúe de forma generosa en otra situación? ¿Qué le dirían?”.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "“Cuando el amigo de Fernando recibió el regalo, ¿cómo creen que se sintió? ¿Por qué? ¿Cómo creen que actuaría si se enterara de las razones de Fernando para regalarle el juguete? Y ustedes, ¿cómo actuarían?”.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-57",
+                "subtopicCode": "SUB02-EBRPRIMU04-T01",
+                "statement": "A partir del comentario del estudiante, la docente tiene como propósito promover en él el sentido de autoeficacia. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000057-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mencionar al estudiante que comprende cómo se siente. Luego, recordarle que puede pedir ayuda cuando tenga dudas de cómo realizar una combinación de colores. Finalmente, mostrarle las combinaciones adecuadas para obtener los tonos que él desea.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Recordar, junto con el estudiante, los aprendizajes que considera que obtuvo al hacer su pintura. Luego, indicarle que es mejor que se centre en el logro de dichos aprendizajes. Finalmente, felicitarlo por haber podido identificar los aprendizajes logrados.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Identificar, junto con el estudiante, los logros obtenidos en pinturas anteriores. Luego, preguntarle qué acciones realizó para obtenerlos. Finalmente, orientarlo para que identifique cuáles de esas acciones puede usar y adecuar al pintar.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-58",
+                "subtopicCode": "SUB03-EBRPRIMU04-T01",
+                "statement": "¿Cuál de las siguientes dimensiones del desarrollo personal se evidencia, principalmente, en el comentario del estudiante?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000058-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Autoestima.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Comportamiento prosocial.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Autorregulación emocional.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-62",
+                "subtopicCode": "SUB02-EBRPRIMU04-T01",
+                "statement": "Durante un taller dirigido a las familias sobre cómo favorecer el desarrollo de la autonomía en los niños para la toma de decisiones, el docente de primer grado recoge las ideas que las familias tienen sobre ello. En este contexto, ¿cuál de las siguientes intervenciones evidencia una manera adecuada de promover la autonomía en los niños?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Pía dice: “Cuando los niños son pequeños, es necesario tomar las decisiones por ellos, porque tenemos la experiencia para hacerlo. Por ejemplo, nosotros podemos decidir cómo se visten porque sabemos cuál es la ropa adecuada para cada ocasión. Recién en la adolescencia podrían tomar algunas decisiones, como qué tipo de corte de cabello llevar”.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Nadia dice: “En ocasiones los adultos podemos plantear opciones a los niños; excepto si es una decisión que implica su seguridad y salud. Por ejemplo, podemos plantearles elegir entre opciones de comida saludable o lugares apropiados para jugar. Debemos acompañar sus decisiones con preguntas sobre por qué eligieron una opción y no otra”.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mario dice: “Los adultos tenemos que dejar que los niños tomen todas las decisiones posibles sobre sí mismos; por ejemplo, podemos darles a elegir sobre las actividades que desean realizar y cuándo desean hacerlo. Considero que, dándoles esta libertad, se promueve la capacidad de los niños de tomar buenas decisiones”.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-63",
+                "subtopicCode": "SUB06-EBRPRIMU04-T02",
+                "statement": "El docente busca aprovechar dicha noticia para favorecer que los estudiantes identifiquen asuntos públicos. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para dicho propósito?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000063-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Pedir a los estudiantes que planteen una acción que puedan realizar para prevenir la compra o venta de animales silvestres en su comunidad. Luego, solicitarles que evalúen qué recursos requieren para llevar a cabo dicha acción.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Preguntar a los estudiantes si creen que haber criado un zorro como un animal doméstico afectó la convivencia en la comunidad y de qué manera. Luego, pedirles que comenten si en la situación se ve afectado algún derecho del chico, de los vecinos o del propio zorro.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Solicitar a los estudiantes que mencionen cómo creen que se sintió el chico cuando descubrió que la mascota que había comprado no era un perro, sino un zorro. Luego, pedirles que comenten qué habrían hecho ellos si les hubiese sucedido una situación similar.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-64",
+                "subtopicCode": "SUB02-EBRPRIMU03-T03",
+                "statement": "El docente busca ayudar a la estudiante a que cuestione su comentario. ¿Cuál de las siguientes acciones pedagógicas es adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000064-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Mostrarle el dibujo de un cuadrado más grande que el rectángulo y preguntarle: en estas figuras, ¿los lados del cuadrado son más cortos que los del rectángulo?",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Entregarle un objeto del aula con forma de cuadrado, más pequeño que otro objeto con forma de rectángulo, y preguntarle: ¿cuánto miden los lados de estos objetos?",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Pedirle que recorte un cuadrado de 6 cm de lado y un rectángulo de 5 cm y 8 cm de lados, y preguntarle: ¿en qué se diferencian las figuras que acabas de recortar?",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-65",
+                "subtopicCode": "SUB03-EBRPRIMU03-T01",
+                "statement": "Ante esto, la docente les pide realizar una pausa y busca brindar retroalimentación a Diana sobre la escritura del número 12. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000065-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Solicitarle que grafique en una hoja el tablero posicional. Luego, escribirle en el tablero el número 12 y el número 21. Después, pedirle que según el valor posicional de las cifras determine cuántas decenas y unidades contienen los números 12 y 21, y compare qué número es mayor.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Mostrarle una tira de papel con la secuencia numérica escrita del 1 al 21. Luego, leer con ella cada número, en voz alta. Después, pedirle que encierre el número 12 y el 21 e identifique en qué se diferencian ambos números, y comente si la lectura de los números se corresponde con la escritura de sus cifras.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Entregarle tarjetas con los números 12 y 21. Luego, mencionarle que el número 12 se escribe con las cifras 1 y 2, y el 21 se escribe con las mismas cifras, pero en orden distinto, como indicó su compañero. Después, pedirle que, en una hoja, escriba varias veces ambos números y pronuncie cómo se leen.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-66",
+                "subtopicCode": "SUB04-EBRPRIMU03-T01",
+                "statement": "Un docente está diseñando problemas que favorezcan la comprensión de las operaciones aditivas por parte de los estudiantes de segundo grado. ¿Cuál de los siguientes problemas propuestos es de mayor demanda cognitiva?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Diego y Mauricio recogieron chapitas. Diego recogió 18 y Mauricio 35. ¿Cuántas chapitas recogieron entre los dos?",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Julia tenía una cantidad de semillas, luego regaló 18 de ellas a su hermana y, ahora, tiene 35 semillas. ¿Cuántas semillas tenía Julia al principio?",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Oscar fue a jugar cerca de un río y recogió 35 piedritas de colores. Luego, en su casa, le regaló 18 piedritas a su hermanita. ¿Cuántas piedritas le quedan a Oscar?",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-67",
+                "subtopicCode": "SUB08-EBRPRIMU03-T01",
+                "statement": "La docente, luego de escucharlos, busca brindar retroalimentación a Carmela. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000067-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Mostrarle una tira de papel cortada en 10 partes iguales, y pedirle que tome una de las partes y la corte en 10 partes iguales. Luego, solicitarle que arme la tira de papel e identifique cuál de las partes representa un décimo y un centésimo de la tira. Después, pedirle que determine cuántos centésimos equivalen a 8 décimos, y comente si el número 0,8 es menor que 0,80.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Solicitarle que, en el tablero posicional, represente 80 centésimos y 8 décimos. Luego, usando el tablero, comentarle que 8 décimos es equivalente a 80 centésimos, porque agregar o quitar ceros a la derecha de la parte decimal no altera el valor del número. Después, preguntarle si aún considera que 0,8 es el número menor.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Entregarle botones azules y rojos, y mencionarle que un botón azul representa un décimo y un botón rojo representa un centésimo. Luego, pedirle que represente 80 centésimos y 8 décimos con los botones. Después, solicitarle que compare la cantidad de botones empleados y determine qué número es el menor.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-68",
+                "subtopicCode": "SUB01-EBRPRIMU03-T02",
+                "statement": "¿Qué integrante del equipo ha elaborado un patrón aditivo de segundo orden?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000068-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Percy dice: “Yo hice este patrón: 5, 16, 8, 18, 11, 20, 14, 22”.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Luciana dice: “El patrón que he elaborado es así: 20, 16, 12, 8”.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Mónica dice: “Mi propuesta de patrón es la siguiente: 5, 8, 12, 17, 23”.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-69",
+                "subtopicCode": "SUB04-EBRPRIMU03-T04",
+                "statement": "A partir de este problema, ¿cuál de las siguientes medidas de tendencia central se busca que los estudiantes identifiquen?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000069-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "La moda.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "La mediana.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "La media aritmética.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-72",
+                "subtopicCode": "SUB04-EBRPRIMU03-T03",
+                "statement": "La docente busca que Jaime logre identificar todos los ejes de simetría del cuadrado, ¿cuál de los siguientes grupos de preguntas es más adecuado para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0121-00000000000072-01"
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "¿El cuadrado tiene dos diagonales? ¿Los dobleces sobre las diagonales del cuadrado son ejes de simetría?",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "¿Has considerado variar el tamaño del cuadrado? ¿Cuántos ejes de simetría se podría trazar en el cuadrado?",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "¿Qué forma tienen las partes en las que se dividió el cuadrado al realizar cada doblez? ¿Puedes hacer un doblez en el que las partes coincidan y no sean rectangulares?",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C01-21-73",
+                "subtopicCode": "SUB03-EBRPRIMU03-T03",
+                "statement": "Una docente busca promover que los estudiantes de quinto grado construyan la noción del área. ¿Cuál de las siguientes actividades es pertinente para dicho propósito?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Entregar una cartulina en forma rectangular cuyas dimensiones son 5 u y 8 u, y preguntar cómo podrían medir su superficie. Después, proporcionar un sobre que contenga cuadraditos de cartulina de 1 u2 para que cubran esta superficie. Finalmente, preguntar por la relación que existe entre la cantidad de cuadraditos usados y la medida de las dimensiones del rectángulo.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Preguntar: ¿Saben qué significa la palabra “área”? Anotar las respuestas en la pizarra. Luego, brindar la definición de área, acompañada del gráfico de un rectángulo con sus medidas. Finalmente, presentar la fórmula para hallar el área del rectángulo graficado y proponer ejercicios similares para que la apliquen.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Solicitar que midan con una regla las dimensiones de objetos de forma rectangular como las pastas de sus cuadernos y de sus libros. Luego, pedir que anoten estas medidas en su cuaderno. Finalmente, indicar que multipliquen las medidas de cada objeto para que encuentren sus áreas.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-26",
+                "subtopicCode": "SUB01-EBRPRIMU01-T02",
+                "statement": "Los estudiantes de sexto grado están desarrollando una unidad didáctica sobre las funciones vitales de los seres vivos. En este contexto, ellos dialogan con su docente sobre la función de relación de las plantas. Entre los diversos intercambios, los estudiantes han identificado que una de las características de dicha función de relación es el movimiento, el cual consiste en la reacción de toda la planta, o de alguna de sus partes, a un estímulo externo. Luego de ello, el docente busca que, a partir de una experiencia, los estudiantes puedan profundizar en la comprensión de dicha característica. ¿Cuál de las siguientes experiencias es adecuada para el logro de dicho propósito?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Conseguir pompones de semillas de una planta de diente de león. Luego, sujetar con los dedos la base de uno de los pompones y soplar en dirección a sus semillas. Por último, observar qué sucedió con las semillas y el recorrido que siguieron al soplarlas.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Verter agua coloreada en un vaso transparente. Luego, colocar tallos de apio del mismo tamaño dentro del vaso y mantenerlos así durante 2 horas. Por último, observar qué sucedió con los tallos y la dirección que sigue la absorción del agua coloreada.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Colocar bulbos, sin hojas, de cebolla china en un vaso transparente con agua. Luego, dejar el vaso en un lugar con luz de 3 a 5 días. Por último, observar qué sucedió con los bulbos de la cebolla china y explicar la dirección del crecimiento de sus hojas.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-27",
+                "subtopicCode": "SUB11-EBRPRIMU04-T04",
+                "statement": "¿Cuál de los siguientes comentarios compartidos por los estudiantes evidencia la identificación de una causa de la problemática ambiental mencionada?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000027-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "“Con tanta basura, nos vamos a enfermar. La basura bota gases tóxicos, el aire se contamina y nuestros pulmones se ponen mal. Creo que tenemos que hacer algo para parar esto”.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "“He visto que los perros callejeros buscan algo que comer entre la basura acumulada. Esto provoca que se enfermen y, así, hay un problema más”.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "“Yo he notado que las personas tiran o dejan su basura por cualquier lado. No usan los tachos que hay. Parece que no se dan cuenta”.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-28",
+                "subtopicCode": "SUB03-EBRPRIMU04-T02",
+                "statement": "La docente considera necesario promover la reflexión sobre el estereotipo expresado en el ejemplo citado por el estudiante. ¿Cuál de las siguientes acciones es más adecuada para este propósito?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000028-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Compartir con los estudiantes ejemplos de personas que destacan por su dedicación al trabajo y que viven en regiones con diferentes climas. Luego, preguntarles: “¿Qué creen que ha influido en estas personas para que sean muy trabajadoras? Entonces, ¿qué tanto influye el clima en que una persona sea trabajadora o no?”",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Preguntar a los estudiantes: “¿Cómo creen que se siente trabajar cuándo hace mucho calor? ¿Las personas tendrán ganas de trabajar?”. Luego, explicarles que deben considerar que el calor genera mayor desgaste físico y que, por lo tanto, hay que comprender las necesidades de las personas que habitan en zonas con climas cálidos.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Explicar a los estudiantes que no es recomendable formarse una imagen de un grupo de personas a partir de una sola característica. Luego, preguntarles: “¿Acaso no se puede reconocer aspectos positivos en las personas que habitan regiones donde la temperatura es muy alta? ¿Por qué enfocarse solamente en los aspectos negativos?”",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-29",
+                "subtopicCode": "SUB04-EBRPRIMU04-T04",
+                "statement": "En una sesión de aprendizaje, los estudiantes de sexto grado, junto con su docente, se encuentran leyendo diversas noticias sobre el cambio climático. En una de estas, se indica que el calentamiento global está influyendo en la reducción de los glaciares en el Perú. En este contexto, el docente nota que los estudiantes no conocen dónde se ubican los glaciares mencionados en la noticia. Por esta razón, busca que ellos localicen dichos glaciares en un mapa. ¿Cuál de los siguientes tipos de mapa es adecuado para dicho propósito?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Mapa físico.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mapa político.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mapa geológico.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-30",
+                "subtopicCode": "SUB01-EBRPRIMU04-T02",
+                "statement": "Durante el desarrollo de la actividad, la docente nota que la mayoría de los estudiantes tienen dificultades para trabajar de forma equitativa y no logran ponerse de acuerdo en cómo organizarse. Por esta razón, decide intervenir para ayudarlos a trabajar de forma colaborativa. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000030-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Asignar a cada integrante de los equipos tareas de fácil resolución para elaborar el afiche, de modo que, desarrollen la actividad de manera más organizada. Luego, al finalizar la actividad, pedirles que expliquen qué es lo que lograron durante la actividad y qué fue lo que más les gustó de trabajar con sus compañeros.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Nombrar, junto con los integrantes de cada equipo, un líder para que designe las tareas a los demás integrantes y se asegure que estos las cumplan. Luego, al finalizar la actividad, pedir al líder que evalúe cómo sus compañeros de equipo realizaron el trabajo, cuáles fueron sus logros y les dé retroalimentación con respecto a cómo se relacionaron.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Identificar, junto con los integrantes de cada equipo, las habilidades que tienen para realizar la actividad y que, sobre esta base, decidan qué tareas puede hacer cada uno para que entre todos aporten al trabajo. Luego, al finalizar la actividad, preguntarles qué lograron y qué acciones realizaron para superar los retos presentados, y si podrían considerarlas en situaciones similares.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-31",
+                "subtopicCode": "SUB05-EBRPRIMU04-T01",
+                "statement": "El docente busca que los estudiantes reflexionen éticamente sobre la situación presentada, ¿cuál de los siguientes conjuntos de preguntas es más pertinente para cumplir su propósito?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000031-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "“Antes de saber la intención que tuvo Fernando, ¿qué pensaron sobre su acción? ¿Por qué? ¿Cambiaron sus opiniones acerca de la acción que realizó Fernando luego de conocer sus intenciones? ¿Por qué?”.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "“Si consideramos las intenciones de Fernando para regalar su juguete, ¿dirían que fueron egoístas? ¿Por qué? ¿Aconsejarían a Fernando para que actúe de forma generosa en otra situación? ¿Qué le dirían?”.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "“Cuando el amigo de Fernando recibió el regalo, ¿cómo creen que se sintió? ¿Por qué? ¿Cómo creen que actuaría si se enterara de las razones de Fernando para regalarle el juguete? Y ustedes, ¿cómo actuarían?”.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-32",
+                "subtopicCode": "SUB02-EBRPRIMU04-T01",
+                "statement": "A partir del comentario del estudiante, la docente tiene como propósito promover en él el sentido de autoeficacia. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000032-01"
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mencionar al estudiante que comprende cómo se siente. Luego, recordarle que puede pedir ayuda cuando tenga dudas de cómo realizar una combinación de colores. Finalmente, mostrarle las combinaciones adecuadas para obtener los tonos que él desea.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Recordar, junto con el estudiante, los aprendizajes que considera que obtuvo al hacer su pintura. Luego, indicarle que es mejor que se centre en el logro de dichos aprendizajes. Finalmente, felicitarlo por haber podido identificar los aprendizajes logrados.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Identificar, junto con el estudiante, los logros obtenidos en pinturas anteriores. Luego, preguntarle qué acciones realizó para obtenerlos. Finalmente, orientarlo para que identifique cuáles de esas acciones puede usar y adecuar al pintar.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-33",
+                "subtopicCode": "SUB03-EBRPRIMU04-T01",
+                "statement": "¿Cuál de las siguientes dimensiones del desarrollo personal se evidencia, principalmente, en el comentario del estudiante?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000033-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Autoestima.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Comportamiento prosocial.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Autorregulación emocional.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-37",
+                "subtopicCode": "SUB02-EBRPRIMU04-T01",
+                "statement": "Durante un taller dirigido a las familias sobre cómo favorecer el desarrollo de la autonomía en los niños para la toma de decisiones, el docente de primer grado recoge las ideas que las familias tienen sobre ello. En este contexto, ¿cuál de las siguientes intervenciones evidencia una manera adecuada de promover la autonomía en los niños?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Pía dice: “Cuando los niños son pequeños, es necesario tomar las decisiones por ellos, porque tenemos la experiencia para hacerlo. Por ejemplo, nosotros podemos decidir cómo se visten porque sabemos cuál es la ropa adecuada para cada ocasión. Recién en la adolescencia podrían tomar algunas decisiones, como qué tipo de corte de cabello llevar”.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Nadia dice: “En ocasiones los adultos podemos plantear opciones a los niños; excepto si es una decisión que implica su seguridad y salud. Por ejemplo, podemos plantearles elegir entre opciones de comida saludable o lugares apropiados para jugar. Debemos acompañar sus decisiones con preguntas sobre por qué eligieron una opción y no otra”.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Mario dice: “Los adultos tenemos que dejar que los niños tomen todas las decisiones posibles sobre sí mismos; por ejemplo, podemos darles a elegir sobre las actividades que desean realizar y cuándo desean hacerlo. Considero que, dándoles esta libertad, se promueve la capacidad de los niños de tomar buenas decisiones”.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-38",
+                "subtopicCode": "SUB06-EBRPRIMU04-T02",
+                "statement": "El docente busca aprovechar dicha noticia para favorecer que los estudiantes identifiquen asuntos públicos. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para dicho propósito?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000038-01"
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Pedir a los estudiantes que planteen una acción que puedan realizar para prevenir la compra o venta de animales silvestres en su comunidad. Luego, solicitarles que evalúen qué recursos requieren para llevar a cabo dicha acción.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Preguntar a los estudiantes si creen que haber criado un zorro como un animal doméstico afectó la convivencia en la comunidad y de qué manera. Luego, pedirles que comenten si en la situación se ve afectado algún derecho del chico, de los vecinos o del propio zorro.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Solicitar a los estudiantes que mencionen cómo creen que se sintió el chico cuando descubrió que la mascota que había comprado no era un perro, sino un zorro. Luego, pedirles que comenten qué habrían hecho ellos si les hubiese sucedido una situación similar.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-39",
+                "subtopicCode": "SUB02-EBRPRIMU03-T03",
+                "statement": "El docente busca ayudar a la estudiante a que cuestione su comentario. ¿Cuál de las siguientes acciones pedagógicas es adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000039-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Mostrarle el dibujo de un cuadrado más grande que el rectángulo y preguntarle: en estas figuras, ¿los lados del cuadrado son más cortos que los del rectángulo?",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Entregarle un objeto del aula con forma de cuadrado, más pequeño que otro objeto con forma de rectángulo, y preguntarle: ¿cuánto miden los lados de estos objetos?",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Pedirle que recorte un cuadrado de 6 cm de lado y un rectángulo de 5 cm y 8 cm de lados, y preguntarle: ¿en qué se diferencian las figuras que acabas de recortar?",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-40",
+                "subtopicCode": "SUB03-EBRPRIMU03-T01",
+                "statement": "Ante esto, la docente les pide realizar una pausa y busca brindar retroalimentación a Diana sobre la escritura del número 12. ¿Cuál de las siguientes acciones pedagógicas es más adecuada para ello?",
+                "blocks": [
+                    {
+                        "blockCode": "CTX-2024C0222-00000000000040-01",
+                        "orderIndex": 1
+                    }
+                ],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Solicitarle que grafique en una hoja el tablero posicional. Luego, escribirle en el tablero el número 12 y el número 21. Después, pedirle que según el valor posicional de las cifras determine cuántas decenas y unidades contienen los números 12 y 21, y compare qué número es mayor.",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Mostrarle una tira de papel con la secuencia numérica escrita del 1 al 21. Luego, leer con ella cada número, en voz alta. Después, pedirle que encierre el número 12 y el 21 e identifique en qué se diferencian ambos números, y comente si la lectura de los números se corresponde con la escritura de sus cifras.",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Entregarle tarjetas con los números 12 y 21. Luego, mencionarle que el número 12 se escribe con las cifras 1 y 2, y el 21 se escribe con las mismas cifras, pero en orden distinto, como indicó su compañero. Después, pedirle que, en una hoja, escriba varias veces ambos números y pronuncie cómo se leen.",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "code": "2024-C02-22-41",
+                "subtopicCode": "SUB04-EBRPRIMU03-T01",
+                "statement": "Un docente está diseñando problemas que favorezcan la comprensión de las operaciones aditivas por parte de los estudiantes de segundo grado. ¿Cuál de los siguientes problemas propuestos es de mayor demanda cognitiva?",
+                "blocks": [],
+                "options": [
+                    {
+                        "label": "A",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Diego y Mauricio recogieron chapitas. Diego recogió 18 y Mauricio 35. ¿Cuántas chapitas recogieron entre los dos?",
+                                "type": "TEXT",
+                                "orderIndex": 1
+                            }
+                        ]
+                    },
+                    {
+                        "label": "B",
+                        "isCorrect": true,
+                        "blocks": [
+                            {
+                                "content": "Julia tenía una cantidad de semillas, luego regaló 18 de ellas a su hermana y, ahora, tiene 35 semillas. ¿Cuántas semillas tenía Julia al principio?",
+                                "type": "TEXT",
+                                "orderIndex": 2
+                            }
+                        ]
+                    },
+                    {
+                        "label": "C",
+                        "isCorrect": false,
+                        "blocks": [
+                            {
+                                "content": "Oscar fue a jugar cerca de un río y recogió 35 piedritas de colores. Luego, en su casa, le regaló 18 piedritas a su hermanita. ¿Cuántas piedritas le quedan a Oscar?",
+                                "type": "TEXT",
+                                "orderIndex": 3
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

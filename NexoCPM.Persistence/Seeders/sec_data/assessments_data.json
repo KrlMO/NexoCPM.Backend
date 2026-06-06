@@ -1,0 +1,172 @@
+[
+  {
+    "code": "PRU-U01-EBRICP-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT01-EBRCIP",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-U02-EBRICP-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT02-EBRCIP",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-U03-EBRICP-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT03-EBRCIP",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-U01-EBRPRIMA-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT01-EBRPRIMA",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-U02-EBRPRIMA-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT02-EBRPRIMA",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+
+  {
+    "code": "PRU-U03-EBRPRIMA-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT03-EBRPRIMA",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-U04-EBRPRIMA-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT04-EBRPRIMA",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-U01-EBRSECCYT-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT01-EBRSECCYT",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-U02-EBRSECCYT-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT02-EBRSECCYT",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-U03-EBRSECCYT-2026",
+    "type": 0,
+    "scope": 0,
+    "isActive": true,
+    "numberQuestions": 3,
+    "unitCode": "UNIT03-EBRSECCYT",
+    "timeLimitSeconds": 540,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-FIN-EBRSECCYT-2026",
+    "type": 0,
+    "scope": 1,
+    "isActive": true,
+    "numberQuestions": 6,
+    "syllabusCode": "SYB-EBR-SEC-CYT-2026",
+    "timeLimitSeconds": 1080,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-FIN-EBRICP-2026",
+    "type": 0,
+    "scope": 1,
+    "isActive": true,
+    "numberQuestions": 6,
+    "syllabusCode": "SYB-EBR-ICP-2026",
+    "timeLimitSeconds": 1080,
+    "maxAttempts": 3
+  },
+  {
+    "code": "PRU-FIN-EBRPRIMA-2026",
+    "type": 0,
+    "scope": 1,
+    "isActive": true,
+    "numberQuestions": 6,
+    "syllabusCode": "SYB-EBR-PRIMA-2026",
+    "timeLimitSeconds": 1080,
+    "maxAttempts": 3
+  },
+  {
+    "code": "SIM-GS-2026",
+    "type": 1,
+    "scope": 2,
+    "isActive": false,
+    "numberQuestions": 10,
+    "timeLimitSeconds": 1800,
+    "maxAttempts": 1
+  },
+  {
+    "code": "SIM-K-EBRICP-2026",
+    "type": 0,
+    "scope": 2,
+    "isActive": true,
+    "numberQuestions": 10,
+    "syllabusCode": "SYB-EBR-ICP-2026",
+    "timeLimitSeconds": 1800,
+    "maxAttempts": 1
+  },
+  {
+    "code": "SIM-K-EBPPRIMA-2026",
+    "type": 0,
+    "scope": 2,
+    "isActive": true,
+    "numberQuestions": 10,
+    "syllabusCode": "SYB-EBR-PRIMA-2026",
+    "timeLimitSeconds": 1800,
+    "maxAttempts": 1
+  },
+  {
+    "code": "SIM-K-EBPSECCYT-2026",
+    "type": 0,
+    "scope": 2,
+    "isActive": true,
+    "numberQuestions": 10,
+    "syllabusCode": "SYB-EBR-SEC-CYT-2026",
+    "timeLimitSeconds": 1800,
+    "maxAttempts": 1
+  }
+]

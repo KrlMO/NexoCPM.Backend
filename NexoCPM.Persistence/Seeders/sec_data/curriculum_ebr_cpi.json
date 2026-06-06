@@ -1,0 +1,504 @@
+[
+  {
+    "syllabusCode": "SYB-EBR-ICP-2026",
+    "units": [
+      {
+        "code": "UNIT01-EBRCIP",
+        "slug": "conocimientos-de-especialidad",
+        "name": "CONOCIMIENTOS DE LA ESPECIALIDAD",
+        "orderIndex": 1,
+        "topics": [
+          {
+            "code": "TOP1-EBRCIP-U01",
+            "slug": "principios",
+            "description": "Principios",
+            "orderIndex": 1,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRCIPU01-T01",
+                "slug": "principios-orientadores-edu-inicial",
+                "description": "Principios orientadores de la acción educativa en nivel Inicial: buen estado de salud, respeto, seguridad, comunicación, autonomía, movimiento y juego libre",
+                "orderIndex": 1
+              },
+              {
+                "code": "SUB02-EBRCIPU01-T01",
+                "slug": "condiciones-aprendizaje-niño-menor-6",
+                "description": "Condiciones para el aprendizaje del niño menor de 6 años",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRCIPU01-T01",
+                "slug": "rol-mediador-del-docente",
+                "description": "Rol mediador del docente",
+                "orderIndex": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "UNIT02-EBRCIP",
+        "slug": "ciclo-i",
+        "name": "CICLO I",
+        "orderIndex": 2,
+        "topics": [
+          {
+            "code": "TOP1-EBRCIP-U02",
+            "slug": "conocimientos-pedagogicos-niños-menores-3",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer el desarrollo de competencias vinculadas a niños menores de tres años",
+            "orderIndex": 1,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRCIPU02-T01",
+                "slug": "desarrollo-y-aprendizaje",
+                "description": "Desarrollo y aprendizaje",
+                "competenceCode": "C29-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU02T01-ST01",
+                    "slug": "caracteristicas-desarrollo-integral-0-3",
+                    "description": "Características del desarrollo integral en niños de 0 a 3 años",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU02T01-ST01",
+                    "slug": "procesos-escala-desarrollo-emmi-pikler",
+                    "description": "Procesos y escala de desarrollo según las investigaciones de Emmi Pikler",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU02T01-ST01",
+                    "slug": "momentos-cuidado-infantil-0-3",
+                    "description": "Momentos de cuidado infantil en niños de 0 a 3 años",
+                    "orderIndex": 3
+                  }
+                ]
+              },
+              {
+                "code": "SUB02-EBRCIPU02-T01",
+                "slug": "caracteristicas-y-desarrollo-psicomotriz",
+                "description": "Características madurativas y necesidades de los niños con relación a su desarrollo psicomotriz",
+                "competenceCode": "C02-2026",
+                "orderIndex": 2,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU02T01-ST02",
+                    "slug": "procesos-individuales-ritmos-y-tiempos",
+                    "description": "Procesos individuales, ritmos y tiempos",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU02T01-ST02",
+                    "slug": "juego-y-exploracion",
+                    "description": "El juego y la exploración",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU02T01-ST02",
+                    "slug": "espacios-y-materiales",
+                    "description": "Espacios y materiales",
+                    "orderIndex": 3
+                  }
+                ]
+              },
+              {
+                "code": "SUB03-EBRCIPU02-T01",
+                "slug": "desarrollo-autonomo-en-motricidad",
+                "description": "Desarrollo autónomo de la motricidad",
+                "competenceCode": "C02-2026",
+                "orderIndex": 3,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU02T01-ST03",
+                    "slug": "compresion-cuerpo-posibilidades-movimiento",
+                    "description": "Comprensión del cuerpo y posibilidades de movimiento",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU02T01-ST03",
+                    "slug": "expresion-sensaciones-emociones-sentimientos-pensamientos",
+                    "description": "Expresión corporal de sensaciones, emociones, sentimientos y pensamientos",
+                    "orderIndex": 2
+                  }
+                ]
+              },
+              {
+                "code": "SUB04-EBRCIPU02-T01",
+                "slug": "desarrollo-identidad-personal",
+                "description": "Desarrollo de la identidad personal",
+                "competenceCode": "C01-2026",
+                "orderIndex": 4,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU02T01-ST04",
+                    "slug": "apego-constr-imagen-corpo-autocon-autoes-autonm-autorreg",
+                    "description": "Apego, construcción de la imagen corporal, autoconcepto, autoestima, autonomía y autorregulación",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU02T01-ST04",
+                    "slug": "pensamiento-critico-creativo-toma-decisiones-resolv-problemas",
+                    "description": "Pensamiento crítico y creativo, toma de decisiones y resolución de problemas cotidianos",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU02T01-ST04",
+                    "slug": "resolucion-conflictos-niños-0-3",
+                    "description": "Resolución de conflictos en niños de 0 a 3 años",
+                    "orderIndex": 3
+                  },
+                  {
+                    "code": "MT04-EBRCIPU02T01-ST04",
+                    "slug": "relacion-familia-comunidad-y-entorno",
+                    "description": "Relación familia, comunidad y entorno",
+                    "orderIndex": 4
+                  }
+                ]
+              },
+              {
+                "code": "SUB05-EBRCIPU02-T01",
+                "slug": "desarrollo-comunicacion-oral-expresion-y-comprension",
+                "description": "Desarrollo de la comunicación oral: expresión y comprensión oral",
+                "competenceCode": "C07-2026",
+                "orderIndex": 5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "code": "UNIT03-EBRCIP",
+        "slug": "ciclo-ii",
+        "name": "CICLO II",
+        "orderIndex": 3,
+        "topics": [
+          {
+            "code": "TOP1-EBRCIP-U03",
+            "slug": "conocimientos-pedagogicos-disciplinares-personal-social",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer el desarrollo de competencias vinculadas al área de Personal Social",
+            "orderIndex": 1,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRCIPU03-T01",
+                "slug": "construccion-identidad-personal",
+                "description": "Construcción de la identidad personal",
+                "competenceCode": "C01-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU03T01-ST01",
+                    "slug": "caracteristicas-desarrollo-niño-3-5",
+                    "description": "Características del desarrollo integral en niños de 3 a 5 años",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU03T01-ST01",
+                    "slug": "construccion-imagen-corpo-autocon-autoestima-autonom-autorreg",
+                    "description": "Construcción de la imagen corporal, autoconcepto, autoestima, autonomía y autorregulación",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU03T01-ST01",
+                    "slug": "relacion-familia-comunidad-entorno",
+                    "description": "Relación con la familia, la comunidad y el entorno",
+                    "orderIndex": 3
+                  }
+                ]
+              },
+              {
+                "code": "SUB02-EBRCIPU03-T01",
+                "slug": "convivencia-democracia-ciudadania",
+                "description": "Convivencia democrática y ciudadanía",
+                "competenceCode": "C16-2026",
+                "orderIndex": 2,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU03T01-ST02",
+                    "slug": "bien-comun",
+                    "description": "Bien común",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU03T01-ST02",
+                    "slug": "espacio-publico",
+                    "description": "Espacio público",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU03T01-ST02",
+                    "slug": "conciencia-ambiental",
+                    "description": "Conciencia ambiental",
+                    "orderIndex": 3
+                  },
+                  {
+                    "code": "MT04-EBRCIPU03T01-ST02",
+                    "slug": "resolucion-conflictos",
+                    "description": "Resolución de conflictos",
+                    "orderIndex": 4
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "TOP2-EBRCIP-U03",
+            "slug": "conocimientos-pedagogicos-disciplinares-comunicacion",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer el desarrollo de competencias vinculadas al área de Comunicación",
+            "orderIndex": 2,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRCIPU03-T02",
+                "slug": "desarrollo-funcion-simbolica",
+                "description": "Desarrollo de la función simbólica",
+                "competenceCode": "C06-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU03T02-ST01",
+                    "slug": "niveles-representacion-objetivo-indicio-simbolo-signo",
+                    "description": "Niveles de representación de la función simbólica: objeto, indicio, símbolo y signo",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU03T02-ST01",
+                    "slug": "manifestaciones-simbolo-construccion-modelado-juego-simbolico",
+                    "description": "Manifestaciones del nivel símbolo: el dibujo, la construcción, el modelado y el juego simbólico",
+                    "orderIndex": 2
+                  }
+                ]
+              },
+              {
+                "code": "SUB02-EBRCIPU03-T02",
+                "slug": "desarrollo-expresion-comprension-oral",
+                "description": "Desarrollo de la comunicación oral: expresión y comprensión oral",
+                "competenceCode": "C07-2026",
+                "orderIndex": 2
+              },
+              {
+                "code": "SUB03-EBRCIPU03-T02",
+                "slug": "desarrollo-compresion-lectora",
+                "description": "Desarrollo de la comprensión lectora",
+                "competenceCode": "C08-2026",
+                "orderIndex": 3,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU03T02-ST03",
+                    "slug": "obtener-info-del-texto",
+                    "description": "Obtener información del texto",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU03T02-ST03",
+                    "slug": "inferir-e-interpretar-info-del-exto",
+                    "description": "Inferir e interpretar información del texto",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU03T02-ST03",
+                    "slug": "reflexionar-y-evaluar-conten-del-exto",
+                    "description": "Reflexionar y evaluar el contenido del texto",
+                    "orderIndex": 3
+                  }
+                ]
+              },
+              {
+                "code": "SUB04-EBRCIPU03-T02",
+                "slug": "apropiacion-sistema-escritura",
+                "description": "Apropiación del sistema de escritura",
+                "competenceCode": "C09-2026",
+                "orderIndex": 4,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU03T02-ST04",
+                    "slug": "proceso-iniciacion-lectura-escritura-emilia-ferr-ana-terb",
+                    "description": "Proceso de iniciación a la lectura y escritura según las investigaciones de Emilia Ferreiro y Ana Teberosky",
+                    "orderIndex": 1
+                  }
+                ]
+              },
+              {
+                "code": "SUB05-EBRCIPU03-T02",
+                "slug": "proceso-produccion-textos-excritos",
+                "description": "Proceso de producción de textos escritos",
+                "competenceCode": "C09-2026",
+                "orderIndex": 5
+              },
+              {
+                "code": "SUB06-EBRCIPU03-T02",
+                "slug": "comunicacion-diversas-manifestaciones-artisticas",
+                "description": "Comunicación a través de diversas manifestaciones artísticas",
+                "competenceCode": "C05-2026",
+                "orderIndex": 6
+              }
+            ]
+          },
+          {
+            "code": "TOP3-EBRCIP-U03",
+            "slug": "conocimientos-pedagogicos-disciplinares-ciencia-y-tecnologia",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer el desarrollo de competencias vinculadas al área de Ciencia y Tecnología",
+            "orderIndex": 3,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRCIPU03-T03",
+                "slug": "iniciacion-indagacion-cientifica-caracteristicas-edad",
+                "description": "Iniciación en la indagación científica según características de la edad",
+                "competenceCode": "C20-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU03T03-ST01",
+                    "slug": "problematizacion-de-situaciones",
+                    "description": "Problematización de situaciones",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU03T03-ST01",
+                    "slug": "diseño-estrategias-para-indagacion",
+                    "description": "Diseño de estrategias para la indagación",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU03T03-ST01",
+                    "slug": "registro-datos",
+                    "description": "Registro de datos",
+                    "orderIndex": 3
+                  },
+                  {
+                    "code": "MT04-EBRCIPU03T03-ST01",
+                    "slug": "analisis-informacion",
+                    "description": "Análisis de información",
+                    "orderIndex": 4
+                  },
+                  {
+                    "code": "MT05-EBRCIPU03T03-ST01",
+                    "slug": "evaluacion-comunicacion-resultados",
+                    "description": "Evaluación y comunicación de resultados",
+                    "orderIndex": 5
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "code": "TOP4-EBRCIP-U03",
+            "slug": "conocimientos-pedagogicos-disciplinares-matematica",
+            "description": "Conocimientos pedagógicos y disciplinares para favorecer el desarrollo de competencias vinculadas al área de Matemática",
+            "orderIndex": 4,
+            "subTopics": [
+              {
+                "code": "SUB01-EBRCIPU03-T04",
+                "slug": "nociones-relacionadas-situaciones-forma-movimiento-localizacion",
+                "description": "Nociones relacionadas a situaciones de forma, movimiento y localización",
+                "competenceCode": "C26-2026",
+                "orderIndex": 1,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU03T04-ST01",
+                    "slug": "nocion-espacio-relaciones-desplazamientos-orientacion-referencias-ubicaciones",
+                    "description": "Noción de espacio: relaciones espaciales, desplazamientos, orientación en el espacio, puntos de referencia, ubicaciones",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU03T04-ST01",
+                    "slug": "nocion-forma-geometricas-tridimensionales-bidimensionales",
+                    "description": "Noción de forma: formas geométricas tridimensionales y bidimensionales",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU03T04-ST01",
+                    "slug": "nocion-longitud-comparacion-longitud-distancias-tamaño",
+                    "description": "Noción de longitud: comparación de longitud entre objetos, distancias, tamaño (grande,mediano y pequeño)",
+                    "orderIndex": 3
+                  }
+                ]
+              },
+              {
+                "code": "SUB02-EBRCIPU03-T04",
+                "slug": "nociones-relacionadas-situaciones-cantidad",
+                "description": "Nociones relacionadas a situaciones de cantidad",
+                "competenceCode": "C23-2026",
+                "orderIndex": 2,
+                "microTopics": [
+                  {
+                    "code": "MT01-EBRCIPU03T04-ST02",
+                    "slug": "nocion-cantidad",
+                    "description": "Noción de cantidad",
+                    "orderIndex": 1
+                  },
+                  {
+                    "code": "MT02-EBRCIPU03T04-ST02",
+                    "slug": "clasificaciones-y-sus-estadios",
+                    "description": "Clasificación y sus estadios",
+                    "orderIndex": 2
+                  },
+                  {
+                    "code": "MT03-EBRCIPU03T04-ST02",
+                    "slug": "usos-numero-cardina-ordinal-nominal",
+                    "description": "Usos del número: cardinal, ordinal, nominal",
+                    "orderIndex": 3
+                  },
+                  {
+                    "code": "MT04-EBRCIPU03T04-ST02",
+                    "slug": "nociones-peso-tiempo-comparacion-secuencia-temporal",
+                    "description": "Nociones de peso y de tiempo: comparación de pesos, secuencia temporal",
+                    "orderIndex": 4
+                  },
+                  {
+                    "code": "MT05-EBRCIPU03T04-ST02",
+                    "slug": "cuantificadores-aproximativos-muchos-pocos-ninguno",
+                    "description": "Cuantificadores aproximativos: muchos, pocos, ninguno",
+                    "orderIndex": 5
+                  },
+                  {
+                    "code": "MT06-EBRCIPU03T04-ST02",
+                    "slug": "cuantificadores-comparativos-mas-que-menos-que",
+                    "description": "Cuantificadores comparativos: más que, menos que",
+                    "orderIndex": 6
+                  },
+                  {
+                    "code": "MT07-EBRCIPU03T04-ST02",
+                    "slug": "conservacion-cantidad-y-sus-fases",
+                    "description": "Conservación de la cantidad y sus fases",
+                    "orderIndex": 7
+                  },
+                  {
+                    "code": "MT08-EBRCIPU03T04-ST02",
+                    "slug": "correspondencia",
+                    "description": "Correspondencia",
+                    "orderIndex": 8
+                  },
+                  {
+                    "code": "MT09-EBRCIPU03T04-ST02",
+                    "slug": "reversibilidad-pensamineto-inclusion-jeraquica",
+                    "description": "Reversibilidad del pensamiento e Inclusión jerárquica",
+                    "orderIndex": 9
+                  },
+                  {
+                    "code": "MT10-EBRCIPU03T04-ST02",
+                    "slug": "seriacion-propiedades-etapas",
+                    "description": "Seriación: propiedades y etapas",
+                    "orderIndex": 10
+                  },
+                  {
+                    "code": "MT11-EBRCIPU03T04-ST02",
+                    "slug": "conteo-principios-secuencia-verbal-etapas",
+                    "description": "Conteo: principios del conteo, la secuencia verbal y sus etapas",
+                    "orderIndex": 11
+                  }
+                ]
+              },
+              {
+                "code": "SUB03-EBRCIPU03-T04",
+                "slug": "resolucion-problemas",
+                "description": "Resolución de problemas",
+                "competenceCode": "C23-2026",
+                "orderIndex": 3
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
