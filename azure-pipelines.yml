@@ -23,7 +23,7 @@ steps:
   inputs:
     azureSubscription: 'Suscripción 1(29dea319-1dac-4094-affe-1a6ee66040ee)'
     command: 'build'
-    projects: '**/*.csproj'
+    projects: 'NexoCPM.Backend/NexoCPM.Api.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'publicar'
