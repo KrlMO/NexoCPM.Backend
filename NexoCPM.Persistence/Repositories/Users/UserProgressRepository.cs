@@ -20,12 +20,12 @@ public class UserProgressRepository : IUserProgressRepository
     {
         var contexts = await _context.UserLearningContexts
             .AsNoTracking()
-            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
-            .OrderByDescending(ulc => ulc.UserSyllabusProgress.LastAccess)
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted && ulc.UserSyllabusProgress != null)
+            .OrderByDescending(ulc => ulc.UserSyllabusProgress!.LastAccess)
             .Select(ulc => new
             {
                 UserLearningContextId = ulc.Id,
-                UserSyllabusProgressId = ulc.UserSyllabusProgress.Id,
+                UserSyllabusProgressId = ulc.UserSyllabusProgress!.Id,
                 SyllabusName = ulc.Syllabus.Name,
                 SyllabusSlug = ulc.Syllabus.Slug,
                 SyllabusId = ulc.SyllabusId,
@@ -80,8 +80,8 @@ public class UserProgressRepository : IUserProgressRepository
     {
         var contexts = await _context.UserLearningContexts
             .AsNoTracking()
-            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
-            .OrderByDescending(ulc => ulc.UserSyllabusProgress.LastAccess)
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted && ulc.UserSyllabusProgress != null)
+            .OrderByDescending(ulc => ulc.UserSyllabusProgress!.LastAccess)
             .Take(4)
             .Select(ulc => new
             {
@@ -98,14 +98,14 @@ public class UserProgressRepository : IUserProgressRepository
                 Speciality = ulc.Syllabus.SyllabusContexts
                     .Select(sc => sc.EducationContext.Specialization!.Name)
                     .FirstOrDefault() ?? string.Empty,
-                LastUnitName = ulc.UserSyllabusProgress.UserSyllabusUnitProgresses
+                LastUnitName = ulc.UserSyllabusProgress!.UserSyllabusUnitProgresses
                     .OrderByDescending(usup => usup.LastAttemptAt)
                     .Select(usup => usup.SyllabusUnit.Name)
                     .FirstOrDefault() ?? string.Empty,
-                LastAccess = ulc.UserSyllabusProgress.LastAccess,
+                LastAccess = ulc.UserSyllabusProgress!.LastAccess,
                 Id = ulc.Id,
                 SyllabusId2 = ulc.SyllabusId,
-                UserSyllabusProgressId = ulc.UserSyllabusProgress.Id,
+                UserSyllabusProgressId = ulc.UserSyllabusProgress!.Id,
             })
             .ToListAsync();
 
@@ -160,8 +160,8 @@ public class UserProgressRepository : IUserProgressRepository
     {
         var ids = await _context.UserLearningContexts
             .AsNoTracking()
-            .Where(ulc => ulc.Id == userLearningContextId)
-            .Select(ulc => new { SyllabusId = ulc.SyllabusId, ProgressId = ulc.UserSyllabusProgress.Id })
+            .Where(ulc => ulc.Id == userLearningContextId && ulc.UserSyllabusProgress != null)
+            .Select(ulc => new { SyllabusId = ulc.SyllabusId, ProgressId = ulc.UserSyllabusProgress!.Id })
             .FirstOrDefaultAsync();
 
         if (ids is null) return new List<UnitProgressDto>();
@@ -216,8 +216,8 @@ public class UserProgressRepository : IUserProgressRepository
     {
         var syllabusAndProgress = await _context.UserLearningContexts
             .AsNoTracking()
-            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
-            .Select(ulc => new { ulc.SyllabusId, ProgressId = ulc.UserSyllabusProgress!.Id })
+            .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted && ulc.UserSyllabusProgress != null)
+            .Select(ulc => new { ulc.SyllabusId, ProgressId = (int?)ulc.UserSyllabusProgress!.Id })
             .ToListAsync();
 
         if (!syllabusAndProgress.Any()) return 0m;

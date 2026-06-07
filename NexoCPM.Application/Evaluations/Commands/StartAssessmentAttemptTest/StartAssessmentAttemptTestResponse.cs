@@ -2,7 +2,7 @@ using NexoCPM.Application.Evaluations.Dtos;
 
 namespace NexoCPM.Application.Evaluations.Commands.StartAssessmentAttempt
 {
-    public class StartAssessmentAttemptResponse
+    public class StartAssessmentAttemptTestResponse
     {
         public int AttemptId { get; set; }
         public int AssessmentId { get; set; }

@@ -4,12 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 using NexoCPM.Api.Common;
 using NexoCPM.Api.Controllers.Evaluations.Requests;
 using NexoCPM.Application.Evaluations.Commands.StartAssessmentAttempt;
+using NexoCPM.Application.Evaluations.Commands.StartAssessmentAttemptSimulation;
 using NexoCPM.Application.Evaluations.Commands.SubmitAssessmentAnswers;
-using NexoCPM.Application.Evaluations.Queries.GetSimulationHistory;
-using NexoCPM.Application.Evaluations.Queries.GetSimulations;
 using NexoCPM.Application.Evaluations.Queries.GetAttemptDetail;
+using NexoCPM.Application.Evaluations.Queries.GetSimulationHistory;
+using NexoCPM.Application.Evaluations.Queries.GetSimulationModes;
+using NexoCPM.Application.Evaluations.Queries.GetSimulations;
 using NexoCPM.Application.Evaluations.Queries.GetTestHistory;
 using NexoCPM.Application.Evaluations.Queries.GetTestInfo;
+using NexoCPM.Domain.Evaluations.Enums;
 using System.Security.Claims;
 
 namespace NexoCPM.Api.Controllers.Evaluations
@@ -64,14 +67,14 @@ namespace NexoCPM.Api.Controllers.Evaluations
 
         [Authorize]
         [HttpPost("{userLearningContextId}/assessments/{assessmentId}/start")]
-        public async Task<IActionResult> StartAssessmentAttempt(
+        public async Task<IActionResult> StartAssessmentAttemptTest(
             int userLearningContextId,
             int assessmentId)
         {
             var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
-            var command = new StartAssessmentAttemptCommand(userId, userLearningContextId, assessmentId);
+            var command = new StartAssessmentAttemptTestCommand(userId, userLearningContextId, assessmentId);
             var result = await _mediator.Send(command);
-            return Ok(ApiResponse<StartAssessmentAttemptResponse>.Ok(result, "Intento iniciado correctamente"));
+            return Ok(ApiResponse<StartAssessmentAttemptTestResponse>.Ok(result, "Intento iniciado correctamente"));
         }
 
         [Authorize]
@@ -117,6 +120,32 @@ namespace NexoCPM.Api.Controllers.Evaluations
             var query = new GetAttemptDetailQuery(userId, userLearningContextId, attemptId);
             var result = await _mediator.Send(query);
             return Ok(ApiResponse<GetAttemptDetailResponse>.Ok(result, "Detalle del intento obtenido correctamente"));
+        }
+
+        [Authorize]
+        [HttpGet("simulations/{assessmentId}/available-modes")]
+        public async Task<IActionResult> GetSimulationModes(int assessmentId)
+        {
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+            var query = new GetSimulationModesQuery(userId, assessmentId);
+            var result = await _mediator.Send(query);
+            return Ok(ApiResponse<GetSimulationModesResponse>.Ok(result, "Modos disponibles obtenidos correctamente"));
+        }
+
+        [Authorize]
+        [HttpPost("simulations/{assessmentId}/{generationMode}/start")]
+        public async Task<IActionResult> StartAssessmentAttemptSimulation(
+            int assessmentId,
+            string generationMode)
+        {
+            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
+
+            if (!Enum.TryParse<AssessmentGenerationMode>(generationMode, true, out var mode))
+                return BadRequest(ApiResponse<object>.Fail("Modo de generación no válido. Use: RANDOM, BALANCED o WEAKNESSFOCUS"));
+
+            var command = new StartAssessmentAttemptSimulationCommand(userId, assessmentId, mode);
+            var result = await _mediator.Send(command);
+            return Ok(ApiResponse<StartAssessmentAttemptSimulationResponse>.Ok(result, "Simulacro iniciado correctamente"));
         }
     }
 }

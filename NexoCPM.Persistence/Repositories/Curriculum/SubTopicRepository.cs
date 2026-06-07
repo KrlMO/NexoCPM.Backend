@@ -91,8 +91,8 @@ namespace NexoCPM.Persistence.Repositories.Curriculum
 
             var progressId = await _context.UserLearningContexts
                 .AsNoTracking()
-                .Where(ulc => ulc.Id == userLearningContextId && ulc.UserId == userId)
-                .Select(ulc => (int?)ulc.UserSyllabusProgress.Id)
+                .Where(ulc => ulc.Id == userLearningContextId && ulc.UserId == userId && ulc.UserSyllabusProgress != null)
+                .Select(ulc => (int?)ulc.UserSyllabusProgress!.Id)
                 .FirstOrDefaultAsync();
 
             var itemSubTopicIds = items.Select(i => i.Id).ToHashSet();

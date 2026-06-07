@@ -2,9 +2,9 @@ using MediatR;
 
 namespace NexoCPM.Application.Evaluations.Commands.StartAssessmentAttempt
 {
-    public record StartAssessmentAttemptCommand(
+    public record StartAssessmentAttemptTestCommand(
         int UserId,
         int UserLearningContextId,
         int AssessmentId
-    ) : IRequest<StartAssessmentAttemptResponse>;
+    ) : IRequest<StartAssessmentAttemptTestResponse>;
 }

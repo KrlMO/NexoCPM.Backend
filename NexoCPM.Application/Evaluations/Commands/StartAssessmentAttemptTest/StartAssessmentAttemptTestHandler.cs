@@ -7,16 +7,16 @@ using NexoCPM.Domain.Evaluations.Enums;
 
 namespace NexoCPM.Application.Evaluations.Commands.StartAssessmentAttempt
 {
-    public class StartAssessmentAttemptHandler : IRequestHandler<StartAssessmentAttemptCommand, StartAssessmentAttemptResponse>
+    public class StartAssessmentAttemptTestHandler : IRequestHandler<StartAssessmentAttemptTestCommand, StartAssessmentAttemptTestResponse>
     {
         private readonly IApplicationDbContext _context;
 
-        public StartAssessmentAttemptHandler(IApplicationDbContext context)
+        public StartAssessmentAttemptTestHandler(IApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<StartAssessmentAttemptResponse> Handle(StartAssessmentAttemptCommand request, CancellationToken cancellationToken)
+        public async Task<StartAssessmentAttemptTestResponse> Handle(StartAssessmentAttemptTestCommand request, CancellationToken cancellationToken)
         {
             var assessment = await _context.Assessments
                 .FirstOrDefaultAsync(a => a.Id == request.AssessmentId && a.IsActive, cancellationToken);
@@ -185,7 +185,7 @@ namespace NexoCPM.Application.Evaluations.Commands.StartAssessmentAttempt
                 };
             }).ToList();
 
-            return new StartAssessmentAttemptResponse
+            return new StartAssessmentAttemptTestResponse
             {
                 AttemptId = attempt.Id,
                 AssessmentId = assessment.Id,

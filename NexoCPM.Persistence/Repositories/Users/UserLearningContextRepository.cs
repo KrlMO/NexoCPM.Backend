@@ -64,7 +64,7 @@ namespace NexoCPM.Persistence.Repositories.Users
         {
             return await _context.UserLearningContexts
                 .AsNoTracking()
-                .Where(ulc => ulc.Id == userLearningContextId && ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted)
+                .Where(ulc => ulc.Id == userLearningContextId && ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted && ulc.UserSyllabusProgress != null)
                 .Select(ulc => (int?)ulc.UserSyllabusProgress!.Id)
                 .FirstOrDefaultAsync();
         }
@@ -80,7 +80,7 @@ namespace NexoCPM.Persistence.Repositories.Users
                 .AsNoTracking()
                 .Include(ulc => ulc.Syllabus)
                 .Include(ulc => ulc.UserSyllabusProgress)
-                .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted);
+                .Where(ulc => ulc.UserId == userId && ulc.IsActive && !ulc.IsDeleted && ulc.UserSyllabusProgress != null);
 
             if (!string.IsNullOrWhiteSpace(searchTerm))
             {
@@ -121,7 +121,7 @@ namespace NexoCPM.Persistence.Repositories.Users
                     ulc.Syllabus.Slug == syllabusSlug &&
                     ulc.IsActive && !ulc.IsDeleted);
 
-            if (ulc is null) return null;
+            if (ulc is null || ulc.UserSyllabusProgress is null) return null;
 
             var syllabusId = ulc.SyllabusId;
             var progress = ulc.UserSyllabusProgress;
